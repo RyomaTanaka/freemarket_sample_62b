@@ -1,11 +1,16 @@
-<h2>Sign up</h2>
+<h2>新規登録</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
+
+  <div class="field">
+    <%= f.label :ニックネーム %>
+    <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autocomplete: "email" %>
   </div>
 
   <div class="field">
@@ -17,12 +22,35 @@
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.label :パスワードを表示する %><br />
+    <%= f.check_box :password ,{}, "true", "false" %>
   </div>
 
+  <div class="field">
+    <%=f.label :お名前（全角） %><br />
+    <%=f.text_field :family_name, autocomplete: "family_name"%>
+    <%=f.text_field :first_name, autocomplete: "first_name"%>
+  </div> 
+  <div class="field">
+  <%=f.label :お名前カナ（全角） %><br />
+    <%=f.text_field :family_name, autocomplete: "family_name"%>
+    <%=f.text_field :first_name, autocomplete: "first_name"%>
+  </div>
+
+  <div class="field">
+  <%= f.label :birth_date %>
+  <%= raw sprintf(
+            f.date_select(
+              :birth_date,
+              use_month_numbers: true,
+              start_year: 1930,
+              end_year: (Time.now.year - 18),
+              default: Date.new(1989, 1, 1),
+              date_separator: '%s'),
+            '年 ', '月 ') + '日' %>
+</div>
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "次に進む" %>
   </div>
 <% end %>
 
