@@ -1,0 +1,208 @@
+li{
+  list-style: none;
+}
+
+.breadcrumbs {
+  position: relative;
+  border-top: 1px solid #eee;
+  // background: #f5f5f5;
+  // -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  background: #fff;
+  ul {
+    width: 1020px;
+    overflow: visible;
+    margin: 0 auto;
+    padding: 16px 0;
+    white-space: normal;
+    // font-size: 0;
+  }
+  li {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+  li:last-child{
+    font-weight: 600;
+  }
+  .fa-chevron-right{
+    margin: 0 8px;
+    font-size: 9px;
+    color: #888;
+  }
+}
+
+.container{
+  margin: 40px auto 0;
+  width: 1020px;
+  padding: 0 0 40px;
+  .content{
+    width: 700px;
+    float: right;
+    .mypage-user-upper{
+      height: 200px;
+      position: relative;
+      padding: 20px;
+      background:url("mypage_back.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      text-align: center;
+      a{
+        // display: block;
+        // position: absolute;
+        // top: 50%;
+        // left: 0;
+        // right: 0;
+        // transform:translate(0, -50%);
+        // color: #333;
+        figure{
+          overflow: hidden;
+          width: 60px;
+          height: 60px;
+          margin: 0 auto;
+          border-radius: 50%;
+          img{
+            vertical-align: middle;
+          }
+        }
+        h2{
+          margin: 8px 0 0;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 1.4;
+        }
+        .evaluation-exhibit{
+          margin: 8px 0 0;
+          font-size: 0;
+          div{
+            display: inline-block;
+            font-size: 14px;
+          }
+          span{
+            margin: 0 0 0 8px;
+            font-size: 16px;
+          }
+          div+div{
+            margin: 0 0 0 16px;
+          }
+        }
+      }
+    }
+  }
+}
+    .mypage-tabs-notice-and-todo{
+      margin: 0;
+      background: #fff;
+    }
+      .mypage-tabs{
+        border: 0;
+        background: #eee;
+        font-size: 0;
+        &__active{
+          background: #fff;
+        }
+        li{
+          width: 50%;
+          display:inline-block;
+          text-align: center;
+          vertical-align: top;
+          h3{
+            font-size: 22px;
+            a{
+              border-top: 2px solid #ea352d;
+              position: relative;
+              display: block;
+              color: #333;
+              font-size: 16px;
+              line-height: 72px;
+            }
+          }
+        }
+        
+      }
+    
+      .mypage-tabs-content{
+        .mypage-contents-list.tab-panel{
+          display: block;
+          li:first-child{
+            border-bottom: 1px solid #eee;
+          }
+          li{
+            position: relative;
+            border-bottom: 1px solid#eee;
+          }
+        }
+      }
+
+.mypage-contents-list__link{
+  display: block;
+  min-height: 80px;
+  padding: 16px;
+  color: #333;
+  figure{
+    position: relative;
+    overflow: hidden;
+    float: left;
+    width: 48px;
+    height: 48px;
+  }
+  .fa-chevron-right{
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translate(0, -50%);
+
+  }
+}
+        
+      
+.app-icon{
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  // width: 100%;
+}
+
+.mypage-contents-body{
+  margin: 0 40px 0 68px;
+  &__text{
+    overflow: hidden;
+    display: -webkit-box;
+    max-height: 4.4rem;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+  }
+}
+.mypage-contents-body time{
+  display: inline-block;
+  color: #888;
+  i{
+    margin: 0 8px 0 0;
+  }
+  span{
+    vertical-align: middle;
+  }
+}
+
+.mypage-notice-list a{
+  display: block;
+  height: 56px;
+  margin: 0 auto;
+  background: #eee;
+  color: #333;
+  line-height: 56px;
+  text-align: center;
+}
+.mypage-contents-list.tab-panel{
+  display: block;
+}
+.mypage-contents-none.bold{
+  border: 0;
+}
