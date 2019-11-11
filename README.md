@@ -24,7 +24,6 @@ Things you may want to cover:
 * ...
 
 ## usersテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |first_name|string|null: false|
@@ -38,19 +37,19 @@ Things you may want to cover:
 |birth_day|date|null: false|
 
 ### Association
-- has_one :user_profile
-- has_one :user_adress
-- has_one :authentication
-- has_many :sns_authentications
-- has_many :user_cards
-- has_many :reviews
-- has_many :likes
-- has_many :comments
-- has_many :orders
-- has_many :items
+- has_one :profile, dependent: :destroy
+- has_many :adress, dependent: :destroy
+- has_many :sns_authentications, dependent: :destroy
+- has_many :cards, dependent: :destroy
+- has_many :points, dependent: :destroy
+- has_many :reviews, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :comments, dependent: :destroy
+- has_many :buyer_orders, class_name: 'Order', :foreign_key => buyer_id, dependent: :destroy
+- has_many :seller_orders, class_name: 'Order', :foreign_key => seller_id, dependent: :destroy
+- has_many :items, dependent: :destroy
 
-## user_profilesテーブル
-
+## profilesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
@@ -61,8 +60,7 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-## user_adress
-
+## adressテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
@@ -76,18 +74,7 @@ Things you may want to cover:
 ### Asociation
 - belongs_to :user
 
-## authenticationsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|authentic_phone_number|integer|null: false, unique: true|
-
-### Association
-- belongs_to :user
-
 ## sns_authenticationsテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
@@ -97,13 +84,119 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-## user_cardsテーブル
-
+## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|?|?|?|
 
 ### Association
 - belongs_to :user
 
+## pointsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|score|integer|null: false|
+
+### Association
+- belongs_to :user
+
+## reviewsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|body|text||
+|rate|integer|null: false|
+
+### Association
+- belongs_to :user
+
+## itemsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|name|string|null: false|
+|body|text|null: false|
+|price|integer|null: false|
+|condition|string|null: false|
+
+### Association
+- has_many :item_images, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :comments, dependent: :destroy
+- has_one :order, dependent: :destroy
+- belongs_to :shipping
+- belongs_to :user
+- belongs_to :status
+
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|item_id|references|null: false, foreign_key: true|
+|image_url|string|null: false|
+
+### Association
+- belongs_to :item
+
+## shippingsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|prefecure|string|null: false|
+|method|string||
+|cost_burden|string|null: false|
+|period_before_shipping|string|null: false|
+
+### Association
+- has_one: item
+
+## statusテーブル
+|Column|Type|Options|
+|------|----|-------|
+|status_name|strings|null: false|
+
+### Association
+- has_many: items
+
+## ordersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|seller_id|references|null: false, foreign_key: true|
+|buyer_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+|status|string|null: false|
+
+### Association
+- belongs_to :item
+- belongs_to :seller, class_name: 'User', :foreign_key => 'seller_id'
+- belongs_to :buyer, class_name: 'User', :foreign_key => 'buyer_id'
+- has_many :messages
+
+## messagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|order_id|references|null: false, foreign_key: true|
+|body|text|null: false|
+
+### Association
+- belongs_to :order
+
+## likesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+
+### Association
+- belongs_to :user
+- belongs_to :item
+
+## commnentsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+|body|text|null: false|
+
+### Association
+- belongs_to :user
+- belongs_to :item
