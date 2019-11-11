@@ -1,0 +1,10 @@
+<h1>電話番号の確認</h1>
+
+<p>携帯電話の番号</p>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+ <div class="field">
+  <%= f.label :telephone%>
+  <%= f.text_field :telephone, autofocus: true, autocomplete: "telephone" %>
+ </div>

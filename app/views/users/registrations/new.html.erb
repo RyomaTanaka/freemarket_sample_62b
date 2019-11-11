@@ -13,7 +13,7 @@
     <%= f.email_field :email, autocomplete: "email" %>
   </div>
 
-  <div class="field">
+  <div class="field"  >
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -21,13 +21,18 @@
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
     <%= f.label :パスワードを表示する %><br />
-    <%= f.check_box :password ,{}, "true", "false" %>
+    <%=check_box_tag :checkbox %>
+
+
+
+  <p><input  id="realText" class="password"/></p>
+
+
   </div>
 
   <div class="field">
-    <%=f.label :お名前（全角） %><br />
+    <%=f.label :お名前（全角）  %><br />
     <%=f.text_field :family_name, autocomplete: "family_name"%>
     <%=f.text_field :first_name, autocomplete: "first_name"%>
   </div> 
@@ -38,7 +43,8 @@
   </div>
 
   <div class="field">
-  <%= f.label :birth_date %>
+  <%= f.label :生年月日 %>
+  <%# <%= f.date_select :birth_date, {discard: true} %>
   <%= raw sprintf(
             f.date_select(
               :birth_date,
@@ -48,10 +54,18 @@
               default: Date.new(1989, 1, 1),
               date_separator: '%s'),
             '年 ', '月 ') + '日' %>
-</div>
-  <div class="actions">
-    <%= f.submit "次に進む" %>
+    <p>＊本人情報は正しく入力してください。会員登録後、</p> 
+    <p>修正するにはお時間を頂く場合があります</p> 
   </div>
+
+
+  <div class="actions">
+   <%=link_to '次へ進む', new_user_session_path %>
+    
+   
+  </div>
+
+<p>本人情報の登録について</p><%# ここにはリンクを飛ばす為、あとで変更 %>
 <% end %>
 
 <%= render "users/shared/links" %>
