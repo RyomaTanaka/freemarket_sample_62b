@@ -1,0 +1,21 @@
+%nav.breadcrumbs
+  %ul
+    %li{ itemscope: "", itemtype: "#"}
+      %a{ href: "#", itemprop: "url"}
+        %span{ itemprop: "title"}
+          メルカリ
+      %i.fas.fa-chevron-right
+    %li{ itemscope: "", itemtype: "#"}
+      %span{ itemprop: "title"}
+        マイページ
+      %i.fas.fa-chevron-right
+    %li{ itemscope: "", itemtype: "#"}
+      %span{ itemprop: "title"}
+        本人情報の登録
+
+  .logout-container
+    .logout-content
+      %form.logout-content__form{ action: "#", method: "POST", novalidate: "novalidate"}
+        .logout-content__btn-wrapper
+          %button.btn-default-value.btn-color-red{ type: "submit" }
+            ログアウト
