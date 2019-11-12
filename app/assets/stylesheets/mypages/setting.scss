@@ -1,3 +1,42 @@
+/*　タブ　*/ 
+.tab-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    background: #fff;
+}
+.tab-label {
+    color: White;
+    background: LightGray;
+    order: -1;
+    width: 50%;
+    line-height: 80px;
+    text-align: center;
+}
+.tab-content {
+    width: 100%;
+    display: none;
+}
+
+.tab-switch:checked+.tab-label {
+    background: #fff;
+    color: black;
+    border-top: 2px solid red;
+    font-size: 16px;
+    line-height: 80px;
+    width: 50%;
+    text-align: center;}
+.tab-switch:checked+.tab-label+.tab-content {
+     display: block;
+     
+}
+
+.tab-switch {
+    display: none;
+}
+
+
+/* main */
+
 html {
   overflow: scroll;
 }
@@ -50,11 +89,9 @@ li{
 ul {
   display: block;
   list-style-type: disc;
-  // margin-block-start: 1em;
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  // padding-inline-start: 40px;
 }
 
 *, ::before, ::after {
@@ -73,11 +110,15 @@ section{
   display: block;
 }
 
+.bold{
+  font-weight: 600;
+}
+
+/* breadcrumbs */
+
 .breadcrumbs {
   position: relative;
   border-top: 1px solid #eee;
-  // background: #f5f5f5;
-  // -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
   background: #fff;
   ul {
@@ -86,7 +127,6 @@ section{
     margin: 0 auto;
     padding: 16px 0;
     white-space: normal;
-    // font-size: 0;
   }
   li {
     text-overflow: ellipsis;
@@ -104,6 +144,8 @@ section{
     color: #888;
   }
 }
+
+/*container */
 
 .container{
   margin: 40px auto 0;
@@ -165,42 +207,17 @@ section{
         }
       }
     }
+ 
+/* notice-todo */
 
-    .mypage-tabs-wrapper{
-      margin: 0;
-      background: #fff;
-    }
-      .mypage-tabs{
-        border: 0;
-        background: #eee;
-        font-size: 0;
-        li{
-          background: #fff;
-          display: inline-block;
-          width: 50%;
-        }
-        h3{
-          font-size: 22px;
-        }
-        a{
-          border-top: 2px solid #ea352d;
-          position: relative;
-          display: block;
-          color: #333;
-          font-size: 16px;
-          line-height: 72px;
-          text-align: center;
-        }
-      }
-
-          
        .mypage-contents-list{   
+         list-style: none;
         li{
           position: relative;
           border-bottom: 1px solid#eee;
+          padding: 16px;
         }
         &__link{
-          display: block;
           min-height: 60.42px;
           padding: 16px;
           color: #333;
@@ -210,6 +227,7 @@ section{
             float: left;
             width: 48px;
             height: 48px;
+            margin: 8px;
             img{
               position: absolute;
               top: 0;
@@ -243,13 +261,7 @@ section{
   bottom: 0;
   left: 0;
   z-index: 1;
-  // width: 100%;
 }
-
-.mypage-contents-list li{
-
-}
-
 
 .mypage-contents-body{
   margin: 0 40px 0 68px;
@@ -279,7 +291,6 @@ section{
   position: relative;
   border-bottom: 1px solid #eee;
   padding: 16px;
-  // border-top: 1px solid #eee;
   a{
     display: block;
     height: 56px;
@@ -292,6 +303,18 @@ section{
 
 }
 
+.todo-contents{
+  padding: 160px 0 60px;
+  background: url("freemarket_back_grey.png");
+  background-repeat: no-repeat;
+  background-position: center 40px;
+  background-size: 600px;
+  text-align: center;
+  font-size: 16px;
+  color: #ccc;
+}
+
+/* purchase */
 
 .purchase-wrapper{
   margin: 40px 0 0;
@@ -400,7 +423,6 @@ section{
     .nav-mypage__item{
       position: relative;
       display: block;
-      // min-height: 48px;
       padding: 16px;
       background: #fff;
       font-size: 14px;
