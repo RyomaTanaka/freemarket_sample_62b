@@ -142,6 +142,7 @@ Things you may want to cover:
 - has_one :order, dependent: :destroy
 - belongs_to :shipping
 - belongs_to :user
+- belongs_to :category
 
 ### index
 - add_index :items, :name
@@ -213,3 +214,14 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :item
+
+## categories
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false, unique: true|
+|parent_id|references|foreign_key: true|
+
+### Association
+- belongs_to :parent, class_name: :Category
+- has_many :children, class_name: :Category, foreign_key: parent_id
+- has_many :items
