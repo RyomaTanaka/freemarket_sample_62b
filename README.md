@@ -98,6 +98,8 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
+|customer_id|string|null: false|
+|card_id|string|null: false|
 
 ### Association
 - belongs_to :user
@@ -130,7 +132,8 @@ Things you may want to cover:
 |price|integer|null: false|
 |condition|string|null: false|
 |shipping_id|references|null: false, foreign_key: true|
-|status_id|references|null: false, foreign_key: true|
+|status|integer|null: false|
+|order_status|integer|null: false|
 
 ### Association
 - has_many :images, dependent: :destroy
@@ -139,7 +142,6 @@ Things you may want to cover:
 - has_one :order, dependent: :destroy
 - belongs_to :shipping
 - belongs_to :user
-- belongs_to :status
 
 ### index
 - add_index :items, :name
@@ -169,21 +171,12 @@ Things you may want to cover:
 ### Association
 - has_one: item
 
-## statusテーブル
-|Column|Type|Options|
-|------|----|-------|
-|status_name|strings|null: false|
-
-### Association
-- has_many: items
-
 ## ordersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |seller_id|references|null: false, foreign_key: true|
 |buyer_id|references|null: false, foreign_key: true|
 |item_id|references|null: false, foreign_key: true|
-|status|string|null: false|
 
 ### Association
 - belongs_to :item
