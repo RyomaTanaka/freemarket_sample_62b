@@ -119,9 +119,11 @@ Things you may want to cover:
 |body|text|null: false|
 |price|integer|null: false|
 |condition|string|null: false|
+|shipping_id|references|null: false, foreign_key: true|
+|status_id|references|null: false, foreign_key: true|
 
 ### Association
-- has_many :item_images, dependent: :destroy
+- has_many :images, dependent: :destroy
 - has_many :likes, dependent: :destroy
 - has_many :comments, dependent: :destroy
 - has_one :order, dependent: :destroy
