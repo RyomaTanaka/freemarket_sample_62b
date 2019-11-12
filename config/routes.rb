@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "mypages#index"
+  root to: "personal_registrations#index"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
