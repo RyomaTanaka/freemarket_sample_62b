@@ -49,6 +49,13 @@ Things you may want to cover:
 - has_many :seller_orders, class_name: 'Order', :foreign_key => seller_id, dependent: :destroy
 - has_many :items, dependent: :destroy
 
+### index
+- add_index :users, [:first_name, :family_name]
+- add_index :users, [:first_name_ruby, :family_name_ruby]
+- add_index :users, :email
+- add_index :users, :pass_word
+- add_index :users, [:birth_year, :birth_month, :birth_day]
+
 ## profilesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -59,6 +66,9 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
+
+### index
+- add_index :users, :nickname
 
 ## adressテーブル
 |Column|Type|Options|
@@ -131,6 +141,11 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :status
 
+### index
+- add_index :items, :name
+- add_index :items, :body
+- add_index :items, :price
+
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -139,6 +154,9 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :item
+
+### index
+- add_index :images, image_url
 
 ## shippingsテーブル
 |Column|Type|Options|
