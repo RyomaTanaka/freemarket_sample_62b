@@ -45,8 +45,8 @@ Things you may want to cover:
 - has_many :reviews, dependent: :destroy
 - has_many :likes, dependent: :destroy
 - has_many :comments, dependent: :destroy
-- has_many :buyer_orders, class_name: 'Order', :foreign_key => buyer_id, dependent: :destroy
-- has_many :seller_orders, class_name: 'Order', :foreign_key => seller_id, dependent: :destroy
+- has_many :buyer_orders, class_name: 'Order', foreign_key: buyer_id, dependent: :destroy
+- has_many :seller_orders, class_name: 'Order', foreign_key: seller_id, dependent: :destroy
 - has_many :items, dependent: :destroy
 
 ### index
@@ -187,8 +187,8 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :item
-- belongs_to :seller, class_name: 'User', :foreign_key => 'seller_id'
-- belongs_to :buyer, class_name: 'User', :foreign_key => 'buyer_id'
+- belongs_to :seller, class_name: 'User', foreign_key: 'seller_id'
+- belongs_to :buyer, class_name: 'User', foreign_key: 'buyer_id'
 - has_many :messages
 
 ## messagesテーブル
