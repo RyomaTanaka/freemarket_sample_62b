@@ -37,7 +37,7 @@ Things you may want to cover:
 
 ### Association
 - has_one :profile, dependent: :destroy
-- has_many :adress, dependent: :destroy
+- has_many :addresses, dependent: :destroy
 - has_many :sns_authentications, dependent: :destroy
 - has_many :cards, dependent: :destroy
 - has_many :points, dependent: :destroy
@@ -69,7 +69,7 @@ Things you may want to cover:
 ### index
 - add_index :users, :nickname
 
-## adressテーブル
+## addressテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
