@@ -156,7 +156,7 @@ Things you may want to cover:
 - belongs_to :item
 
 ### index
-- add_index :images, image_url
+- add_index :images, :image_url
 
 ## shippingsテーブル
 |Column|Type|Options|
