@@ -5,5 +5,9 @@ class PersonalRegistrationsController < ApplicationController
   def logout
   end
 
+  def profile_edit
+
+  end
+
 
 end
