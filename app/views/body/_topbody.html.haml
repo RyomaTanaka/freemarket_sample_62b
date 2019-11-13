@@ -1,0 +1,45 @@
+.body
+  .mein-body
+    .top-body
+      %a{href: :"https://www.mercari.com/jp/featured/camp/"}
+      .slide-body
+        .slide-body__mein
+          %ul.slider-list
+            %li.slide
+              %img{:src => "https://www-mercari-jp.akamaized.net/assets/img/featured/camp/index/index_keyvisual.png?3580354878"}/
+            -# %li.slide
+            -#   %img{:src => "https://s3-ap-northeast-1.amazonaws.com/progate/shared/images/lesson/jquery/advanced/rainy.jpg"}/
+
+
+
+    .category-contents
+      %h2.category-contents__title 人気カテゴリ
+      .category-lists
+        %ul.category-type
+          %li.category-list
+            %a.category-ladies レディース
+          %li.category-list
+            %a.category-mens メンズ
+          %li.category-list
+            %a.category-appliances 家電・スマホ・カメラ
+          %li.category-list
+            %a.category-children おもちゃ・ホビー・グッズ
+    = render 'body/ladies'
+    = render 'body/mens'
+    = render 'body/appliance'
+    = render 'body/appliance'
+    = render 'body/kids'
+    /////////////人気ブランド///////////
+    .category-contents
+      %h2.category-contents__title 人気ブランド
+      .category-lists
+        %ul.category-type
+          %li.category-list
+            %a.category-ladies シャネル
+          %li.category-list
+            %a.category-mens ルイヴィトン
+          %li.category-list
+            %a.category-appliances シュプリーム
+          %li.category-list
+            %a.category-children ナイキ
+    = render 'body/brand'
