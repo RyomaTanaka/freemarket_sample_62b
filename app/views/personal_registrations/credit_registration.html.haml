@@ -1,0 +1,41 @@
+%nav.breadcrumbs
+  %ul
+    %li{ itemscope: "", itemtype: "#"}
+      %a{ href: "#", itemprop: "url"}
+        %span{ itemprop: "title"}
+          メルカリ
+      %i.fas.fa-chevron-right
+    %li{ itemscope: "", itemtype: "#"}
+      %span{ itemprop: "title"}
+        マイページ
+      %i.fas.fa-chevron-right
+    %li{ itemscope: "", itemtype: "#"}
+      %span{ itemprop: "title"}
+        本人情報の登録
+
+
+.credit-registration-container
+  %section.credit-registration-content
+    %h2 支払い方法
+    .credit-content-wrapper
+      %section
+        .credit-content-wrapper__title
+          %h3 クレジットカード一覧
+        %ul.credit-data-wrapper
+          %li
+            %form.credit-data-content
+              %figure
+                %img{ src: "assets/visa.jpg", width: "49", height: "20", alt: "visa"}
+              .credit-data-content__number
+                ************1212
+              .credit-data-content__date
+                08 / 23
+              %button.credit-data-content__delete{ type: "submit" }
+                削除する
+      .method-payment
+        %a{ href: "#", target: "_blank" }
+          %span 支払い方法について
+          %i.fas.fa-chevron-right
+
+
+        

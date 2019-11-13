@@ -2,6 +2,9 @@ class PersonalRegistrationsController < ApplicationController
   def index
   end
 
+  def personal
+  end
+
   def logout
   end
 
@@ -9,5 +12,7 @@ class PersonalRegistrationsController < ApplicationController
 
   end
 
+  def credit_registration
+  end
 
 end
