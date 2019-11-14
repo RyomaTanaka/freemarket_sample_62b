@@ -147,6 +147,9 @@ img {
     font-size: 9px;
     color: #888;
   }
+  a {
+    text-decoration: none;
+  }
 }
 
 
@@ -673,6 +676,7 @@ img {
 
 .profile-edit-content{
   background: #fff;
+  width: 100%;
 }
 
 .profile-edit-title{
@@ -719,7 +723,7 @@ img {
   &__textarea{
     min-height: 216px;
     display: block;
-    width: 100%;
+    width: calc(100% - 21px);
     max-width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
