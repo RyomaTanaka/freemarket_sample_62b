@@ -98,13 +98,19 @@
                           %option{:value => ""} ---
 
               .prodcts-price
-                %h3.price-label 販売価格(300〜9,999,999)
+                %h3.prodcts-price__label 販売価格(300〜9,999,999)
                 %a.question-icon{href: :"#"} ?
                 .price-form
                   %ul.price-form__container
                     %li.price-form__container__price
-                      .price-input-box
-                        .
+                      .input-form
+                        %label.price-label
+                          価格
+                          %span.required 必須
+                        .price-form__input
+                          ¥
+                          %div
+                            %input{class: :"price-form__input__form", placeholder: :"例）300", value: :""}/
                     %li.price-form__container__fee
                     %li.price-form__container__profit
 
