@@ -14,19 +14,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
     super
   end
 
-
-  def tele
-  end
-  
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+  def tele
+    # super
+  end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def address
+    @user = User.new
+    @user.addresses.build
+  
+  end
 
   # DELETE /resource
   # def destroy
