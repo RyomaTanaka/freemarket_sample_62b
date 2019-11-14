@@ -98,6 +98,45 @@
                           %option{:value => ""} ---
 
               .prodcts-price
+                %h3.price-label 販売価格(300〜9,999,999)
+                %a.question-icon{href: :"#"} ?
+                .price-form
+                  %ul.price-form__container
+                    %li.price-form__container__price
+                      .price-input-box
+                        .
+                    %li.price-form__container__fee
+                    %li.price-form__container__profit
+
+
+
+
+
+
+
+
+
+
+                -# %h3.prodcts-price__label 販売価格(300〜9,999,999)
+                -# %a.question-icon{href: :"#"} ?
+                -# .price-box
+                -#   %ul.price-box__lists
+                -#     %li.price-box__lists__price
+                -#       .price-content
+                -#         %label.price-content__label
+                -#           価格
+                -#           %span.required 必須
+                -#         .price-input
+                -#           %div
+                -#             %input{class: :"price-input__form", placeholder: :"例）300", value: :""}/
+                -#     %li.price-box__lists__fee
+                -#       .fee-label
+                -#         販売手数料(10%)
+                -#         .price-box__lists__fee__label__a --
+                -#     %li.price-box__lists__profit
+
+
+
               .sell-content__clearfix
               %div{:model => "role=\"dialog\"", :tabindex => "-1"}
               .sell-content__clearfix__btn
