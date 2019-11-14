@@ -82,16 +82,4 @@
             -# , link_to '次へ進む', new_user_session_path
   
         
-.addfooter
-  .addfooter
-    .addfooter__nav
-      .addfooter__nav__li1
-        プライバシポリシー
-      .addfooter__nav__li2
-        メルカリ利用規約
-      .addfooter__nav__li3
-        特定商取引に関する表記
-    .addfooter__logo
-      %img= embedded_svg("red.svg", class: "footer__logo") 
-    .addfooter__copyright
-      ◯ 2019 Merukari
+= render "devise_addfooter"

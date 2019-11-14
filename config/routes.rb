@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     get "sign_out", :to => "users/sessions#destroy" 
     get "sign_up/tele", :to => 'users/registrations#tele'
     get "sign_up/address", :to => 'users/registrations#address'
+    get "sign_up/complete", :to => 'users/registrations#complete'
+    get "sign_up/card", :to => 'users/registrations#card'
   end
 
 
