@@ -15,4 +15,7 @@ class PersonalRegistrationsController < ApplicationController
   def credit_registration
   end
 
+  def purchase_confirmation
+  end
+  
 end
