@@ -1,0 +1,103 @@
+.sell-container
+  .sell-header
+    %h1
+      %a{href: "#"}
+        %img{src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?210491352"}/
+
+  %main.sell-main
+    %section.item-container
+      #sell-container
+        %div{"data-reactroot": ""}
+          .sell-container-inner
+            %h2.sell-container-inner__title 商品の情報を入力
+
+
+            %form.sell-form
+              .upload-box
+                %h3.upload-box__header
+                  出品画像
+                  %span.upload-box__header__required 必須
+                %p 最大10枚までアップロードできます
+                .upload-container
+                  .upload-items
+                    .upload-items__item
+                      %ul
+                  .upload-dropbox
+                    %input.upload-dropbox__input{multiple: :"multiple", name: :"image1", style: :"display: none;", type: :"file"}/
+                    %pre.upload-dropbox__input__visib
+                      ドラッグアンドドロップ
+                      またはクリックしてファイルをアップロード
+                    %i.icon-camera
+              .sell-content
+                .sell-content-title
+                  %label
+                    商品名
+                    %span.upload-box__header__required 必須
+                  %div
+                    %input{class: :"sell-title-label__input", placeholder: :"商品名（必須 40文字まで)", value: :""}/
+
+                .sell-content-explanation
+                  %label
+                    商品名の説明
+                    %span.upload-box__header__required 必須
+                  %textarea{:class => "sell-content-explanation__input", :placeholder => "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", :rows => "5"}
+
+              .prodcts-detail
+                %h3.prodcts-detail__label 商品の詳細
+                .prodcts-detail__box
+                  .prodcts-category
+                    %label
+                      カテゴリー
+                      %span.category__required 必須
+                    %div
+                      .category-container
+                        %i.category-container__icon
+                        %select.category-container__select
+                          %option{:value => ""} ---
+                  .prodcts-status
+                    %label
+                      商品の状態
+                      %span.status__required 必須
+                    %div
+                      .status-container
+                        %i.status-container__icon
+                        %select.status-container__select
+                          %option{:value => ""} ---
+
+              .prodcts-delivery
+                %h3.prodcts-delivery__label 配送について
+                %a.question-icon{href: :"#"} ?
+
+                .delivery-box
+                  .delivery-box__container
+                    %label
+                      配送料の負担
+                      %span.required 必須
+                    %div
+                      .delivery-container
+                        %i.delivery-container__icon
+                        %select.delivery-container__select
+                          %option{:value => ""} ---
+                  .delivery-box__content
+                    %label
+                      発送元の地域
+                      %span.required 必須
+                    %div
+                      .delivery-container
+                        %i.delivery-container__icon
+                        %select.delivery-container__select
+                          %option{:value => ""} ---
+                  .delivery-box__content
+                    %label
+                      発送までの日数
+                      %span.required 必須
+                    %div
+                      .delivery-container
+                        %i.delivery-container__icon
+                        %select.delivery-container__select
+                          %option{:value => ""} ---
+
+              .prodcts-price
+              .sell-content__clearfix
+              %div{:model => "role=\"dialog\"", :tabindex => "-1"}
+              .sell-content__clearfix__btn

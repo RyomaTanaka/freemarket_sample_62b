@@ -31,7 +31,7 @@ li {
   margin: 0px auto;
 }
 
-.mein-body {
+.main-body {
   position: relative;
 }
 
@@ -52,7 +52,7 @@ li {
   position: relative;
   visibility: inherit;
   width: 100%;
-  &__mein {
+  &__main {
     box-sizing: border-box;
     display: block;
     height: 100%;
@@ -172,7 +172,7 @@ li {
 .item-contents {
   padding: 42px 0px 50px;
   background-color: rgb(239, 239, 239);
-  &__mein {
+  &__main {
     &__title{
       align-items: flex-end;
       display: flex;
