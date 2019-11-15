@@ -149,6 +149,7 @@ img {
   }
   a {
     text-decoration: none;
+    color: black;
   }
 }
 
@@ -451,6 +452,7 @@ li{
       background: #fff;
       font-size: 14px;
       color: #333;
+      
       .fa-chevron-right::before{
         position: absolute;
         top: 50%;
@@ -465,6 +467,8 @@ li{
     }
   }
 }
+
+
 
 .fa, .fas, .far, .fal, .fad, .fab {
     -moz-osx-font-smoothing: grayscale;

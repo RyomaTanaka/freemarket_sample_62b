@@ -1,7 +1,7 @@
 %nav.breadcrumbs
   %ul
     %li{ itemscope: "", itemtype: "#"}
-      %a{ href: "#", itemprop: "url"}
+      = link_to "", href: "#", itemprop: "url" do
         %span{ itemprop: "title"}
           メルカリ
           %i.fas.fa-chevron-right
@@ -12,7 +12,7 @@
 %main.container
   .content
     %section.mypage-user-upper
-      %a.content-wrapper{href: "#"}
+      = link_to "", class: "content-wrapper", href: "#" do
         %figure
           %img{ src: "assets/mypage_back.jpg", alt: "", width: 60, height: 60 }
         %h2.content-wrapper__user-name
@@ -33,7 +33,7 @@
         .mypage-tabs-content
           %ul.mypage-contents-list
             %li
-              %a.mypage-contents-list__link{ href: "", data: { open: "modal", modal: "banner" } }
+              = link_to "", class: "mypage-contents-list__link", href: "#" do
                 %figure
                   %img.app-icon{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
                 .mypage-contents-body
@@ -43,7 +43,7 @@
                     %span 1時間前
                 %i.fas.fa-chevron-right
             %li
-              %a.mypage-contents-list__link{ href: "", data: { open: "modal", modal: "banner" } }
+              = link_to "", class: "mypage-contents-list__link", href: "#" do
                 %figure
                   %img.app-icon{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
                 .mypage-contents-body
@@ -53,7 +53,7 @@
                     %span 11日前
                 %i.fas.fa-chevron-right
             %li
-              %a.mypage-contents-list__link{ href: "", data: { open: "modal", modal: "banner" } }
+              = link_to "", class: "mypage-contents-list__link", href: "#" do
                 %figure
                   %img.app-icon{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
                 .mypage-contents-body
@@ -63,7 +63,7 @@
                     %span 13日前
                 %i.fas.fa-chevron-right
             %li
-              %a.mypage-contents-list__link{ href: "#",}
+              = link_to "", class: "mypage-contents-list__link", href: "#" do
                 %figure
                   %img.app-icon{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
                 .mypage-contents-body
@@ -73,7 +73,8 @@
                     %span 15日前
                 %i.fas.fa-chevron-right
             %li.mypage-notice-list
-              %a{ href: "#"} 一覧を見る
+              = link_to "", href: "#" do
+                一覧を見る
  
       %input#TAB-01-02.tab-switch{ type: "radio", name: "TAB01" }
       %label.tab-label{ for: "TAB-01-02" }
@@ -100,7 +101,7 @@
       .tab-content
         %ul#transactioned.transactioned
           %li
-            %a.products-link{ href: "" }
+            = link_to "", class: "products-link", href: "#" do
               %figure
                 %img.products-pic{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg"}
               .transactioned__body
@@ -113,7 +114,7 @@
                   取引完了
               %i.fas.fa-chevron-right
           %li
-            %a.products-link{ href: "" }
+            = link_to "", class: "products-link", href: "#" do
               %figure
                 %img.products-pic{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg"}
               .transactioned__body
@@ -126,7 +127,7 @@
                   取引完了
               %i.fas.fa-chevron-right
           %li
-            %a.products-link{ href: "" }
+            = link_to "", class: "products-link", href: "#" do
               %figure
                 %img.products-pic{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg"}
               .transactioned__body
@@ -139,7 +140,7 @@
                   取引完了
               %i.fas.fa-chevron-right
           %li
-            %a.products-link{ href: "" }
+            = link_to "", class: "products-link", href: "#" do
               %figure
                 %img.products-pic{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg"}
               .transactioned__body
@@ -151,8 +152,12 @@
                 .transaction_completed
                   取引完了
               %i.fas.fa-chevron-right
-        %li.mypage-notice-list
-          %a{ href: "#"} 一覧を見る
+          %li.mypage-notice-list
+            = link_to "", href: "#" do
+              一覧を見る
 
   = render "content-left"      
+
+
+
         
