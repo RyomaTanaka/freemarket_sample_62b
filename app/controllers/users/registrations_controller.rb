@@ -31,6 +31,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def card
+    @card = Card.new
   end
   # DELETE /resource
   # def destroy
