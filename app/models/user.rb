@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   
   has_many :addresses, dependent: :destroy
-  accepts_nested_attributes_for :addresses
+  has_one :profile, dependent: :destroy
+  accepts_nested_attributes_for :addresses, :profile
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
