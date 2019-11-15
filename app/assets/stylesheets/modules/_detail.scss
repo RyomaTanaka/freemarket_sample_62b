@@ -182,9 +182,66 @@
   .item-sns-box {
     background-color: #fff;
     width: 700px;
-    height: 300px;
     margin: 24px auto;
     padding: 32px 0 24px;
+    &__icons {
+      margin: 16px 0 0;
+      text-align: center;
+      &--facebook {
+        display: inline-block;
+        margin: 0 8px 8px 0;
+        vertical-align: middle;
+        text-align: center;
+        a {
+          display: block;
+          background-color: #385185;
+          border-radius: 4px;
+          .fa {
+            width: 44px;
+            height: 44px;
+            line-height: 44px;
+            font-size: 26px;
+            color: white;
+          }
+        }
+      }
+      &--twitter {
+        display: inline-block;
+        margin: 0 8px 8px 0;
+        vertical-align: middle;
+        text-align: center;
+        a {
+          display: block;
+          background-color: #5d9dc9;
+          border-radius: 4px;
+          .fa {
+            width: 44px;
+            height: 44px;
+            line-height: 44px;
+            font-size: 29px;
+            color: white;
+          }
+        }
+      }
+      &--pinterest {
+        display: inline-block;
+        margin: 0 8px 8px 0;
+        vertical-align: middle;
+        text-align: center;
+        a {
+          display: block;
+          background-color: #aa262a;
+          border-radius: 4px;
+          .fa {
+            width: 44px;
+            height: 44px;
+            line-height: 44px;
+            font-size: 18px;
+            color: white;
+          }
+        }
+      }
+    }
   }
   .other-items-box {
     background-color:#fff;

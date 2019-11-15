@@ -118,7 +118,16 @@
         = '次の商品'
         = fa_icon 'chevron-right'
   .item-sns-box
-    sns共有
+    %ul.item-sns-box__icons
+      %li.item-sns-box__icons--facebook
+        = link_to '#' do
+          = fa_icon 'facebook-square'
+      %li.item-sns-box__icons--twitter
+        = link_to '#' do
+          = fa_icon 'twitter'
+      %li.item-sns-box__icons--pinterest
+        = link_to '#' do
+          = fa_icon 'pinterest'
   .other-items-box
     ユーザーの別の商品、ブランドの別の商品
   .bread_crumbs
