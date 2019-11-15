@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "purchases#purchase_confirmation"
+  root to: "mypages#personal"
 
 
 end
