@@ -13,19 +13,37 @@
             出品者
           %td
             =link_to '#' do
-              ='わい'
+              ='サンプルサンプルサンプルサンプル'
+            .item-detail__contents--table--rating
+              %span.user-ratings
+                = fa_icon 'smile-o', class: 'good-icon'
+                %span 100
+              %span.user-ratings
+                = fa_icon 'meh-o', class: 'normal-icon'
+                %span 50
+              %span.user-ratings
+                = fa_icon 'frown-o', class: 'bad-icon'
+                %span 10
         %tr
           %th
             カテゴリー
           %td
-            メンズ
-            ジャケット/アウター
-            ナイロンジャケット
+            =link_to '#' do
+              = 'メンズ'
+            .item-detail__contents--table--child-category
+              = fa_icon 'chevron-right', class: 'arrow'
+              =link_to '#' do
+                = 'アウター、ジャケット'
+            .item-detail__contents--table--grond-child-category
+              = fa_icon 'chevron-right', class: 'arrow'
+              =link_to '#' do
+                ='ナイロンジャケット'
         %tr
           %th
             ブランド
           %td
-            ナイキ
+            =link_to '#' do
+              = 'ナイキ'
         %tr
           %th
             商品のサイズ
@@ -50,7 +68,8 @@
           %th
             配送元地域
           %td
-            栃木県
+            =link_to '#' do
+              = '栃木県'
         %tr
           %th
             発送日の目安
@@ -76,8 +95,15 @@
         割引致します！お気軽にコメント下さい(^^)
 
         ※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
+    .item-detail__buttons.crearfix
+      .item-detail__buttons--left-btn
+      .item-detail__buttons--right-btn
+        = fa_icon 'lock'
+        =link_to '#' do
+          = '安心安全への取り組み'
   .item-comment
-    コメントフォーム
+    .item-comment__box
+      
   .item-nav
     次の商品、前の商品
   .item-sns-box

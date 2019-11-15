@@ -43,6 +43,30 @@
           background: #fff;
           border: solid 1px #fafafa;
           padding: 8px;
+          &--rating {
+            .user-ratings:first-child {
+              margin: 0;
+            }
+            .user-ratings {
+              display: inline-block;
+              margin: 8px 0 0 16px;
+              .icon {
+                font-size: 16px;
+                vertical-align: middle;
+              }
+              span {
+                vertical-align: middle;
+              }
+            }
+          }
+          a {
+            color: #0099e8;
+            text-decoration: none;
+            // display: inline-block;
+          }
+          .arrow {
+            color: #0099e8;
+          }
         }
       }
     }
@@ -78,12 +102,29 @@
         white-space: pre-wrap;
       }
     }
+    &__buttons {
+      margin: 16px 0 0;
+      &--right-btn {
+        margin: 8px 0 0;
+        float: right;
+        .fa {
+          color: #0099e8;
+        }
+        a {
+          display: inline-block;
+          color: #0099e8;
+          text-decoration: none;
+        }
+      }
+    }
   }
   .item-comment {
     background-color: #fff;
     width: 700px;
-    height: 400px;
     margin: 8px auto;
+    &__box {
+      padding: 24px;
+    }
   }
   .item-nav {
     background-color: #fff;
