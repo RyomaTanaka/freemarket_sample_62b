@@ -10,3 +10,112 @@
     vertical-align: middle;
     display: inline-block;
   }
+}
+
+.log_content{
+  width: 456px;
+  height: 731px;
+  background-color:#fff;
+  text-align: center;
+  margin: 0 auto;
+  border-bottom:1px solid #ddd;
+  &__top{
+    height: 64px;
+    padding: 40px 64px;
+    &__text{
+      width: 328px;
+      font-size:14px;
+    }
+    &__btn{
+      height:40px;
+      line-height: 40px;
+      margin-top:8px;
+      background-color:#0099e8;
+      color:#fff;
+      font-size:14px;
+    }
+  }
+  &__center{
+    height:117px;
+    padding:32px 64px;
+    &__facebook{
+      width:328px;
+      height:50px;
+      line-height: 50px;
+      background-color:#385185;
+      margin:0 auto;
+      &__icon{
+        float:left;
+        margin-left:20px;
+        font-size:26px;
+      }
+      &__text{
+        font-size:14px;
+        text-align: center;
+        float:left;
+        color:#fff;
+        margin-left:60px;
+      }
+    }
+    &__google{
+      width:328px;
+      height:50px;
+      line-height: 50px;
+      background-color:#fff;
+      border:1px solid #979797;
+      margin:16px auto;
+      &__icon{
+        float:left;
+        margin-left:20px;
+        font-size:26px;
+
+      }
+      &__text{
+        font-size:14px;
+        text-align: center;
+        float:left;
+        color:#333;
+        margin-left:70px;
+      }
+    }
+  }
+  &__bottom{
+    padding: 24px 64px 32px;
+    height:350px;
+    &__pass{
+      margin-top: 16px;
+    }
+    &__btn{
+      height:50px;
+      line-height: 50px;
+      margin: 50px auto;
+      background: #ea352d;
+      border: 1px solid #ea352d;
+      color: #fff;
+    }
+    &__text{
+      bottom:0;
+      font-size:12px;
+      text-align: left;
+      
+    }
+  }
+}
+
+input[id="log_email"]{
+  width:296px;
+  height:24px;
+  margin-top:4px;
+  padding:10px 16px 8px 16px;
+  border-radius:4px;
+  border: 1px solid #ccc;
+}
+
+input[id="log_pass"]{
+  width:296px;
+  height:24px;
+  margin-top:4px;
+  padding:10px 16px 8px 16px;
+  border-radius:4px;
+  border: 1px solid #ccc;
+}

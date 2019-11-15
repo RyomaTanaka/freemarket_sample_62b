@@ -2,35 +2,31 @@
   .header__logo
     =image_tag "logo.svg",class:'header__logo'
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-.log_content
-  .log_content__top
-    .log_content__top__text
-      アカウントをお持ちでない方
-    .log_copntent__top__btn
-      新規会員登録
-  .log_content__center
-    .log_content__center__facebook
-      .log_content__center__facebook__icon
-        %i.fab.fa-facebook-square
-      .log_content__center__facebook__text
-        facebookでログイン
-    .log_content__center__google
-      .log_content__center__google__icon
-        %i.fab.fa-google
-      .log_content__center__google__text
-        googleでログイン
-  .log_content__bottom
-    .log_content__bottom__mail
-      = f.label :email
-      %br/
-      = f.email_field :email,  autocomplete: "email"
-    .log_content__bottom__pass
-      = f.label :password
-      %br/
-      = f.password_field :password, autocomplete: "current-password"
-    .log_content__bottom__btn
-    .log_content__bottom__text
-
-  .actions
-    = f.submit "ログイン"
+  .log_content
+    .log_content__top
+      .log_content__top__text
+        アカウントをお持ちでないかたはこちら
+      .log_content__top__btn
+        新規会員登録
+    .log_content__center
+      .log_content__center__facebook
+        .log_content__center__facebook__icon
+          %i.fab.fa-facebook-square
+        .log_content__center__facebook__text
+          facebookでログイン
+      .log_content__center__google
+        .log_content__center__google__icon
+          %i.fab.fa-google
+        .log_content__center__google__text
+          Googleでログイン
+    .log_content__bottom
+      .log_content__bottom__mail
+        = f.email_field :email,  autocomplete: "email",placeholder: "メールアドレス",id:'log_email'
+        
+      .log_content__bottom__pass
+        = f.password_field :password, autocomplete: "current-password",placeholder: "パスワード",id:'log_pass'
+      .log_content__bottom__btn
+        ログイン
+      .log_content__bottom__text
+        パスワードをお忘れの方
 
