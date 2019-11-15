@@ -1,3 +1,30 @@
+%nav.breadcrumbs
+  %ul
+    %li{ itemscope: "", itemtype: "#"}
+      %a{ href: "#", itemprop: "url"}
+        %span{ itemprop: "title"}
+          メルカリ
+          %i.fas.fa-chevron-right
+    %li{ itemscope: "", itemtype: "#"}
+      %span{ itemprop: "title"}
+        マイページ
+        
+%main.container
+  .content
+    %section.mypage-user-upper
+      %a.content-wrapper{href: "#"}
+        %figure
+          %img{ src: "assets/mypage_back.jpg", alt: "", width: 60, height: 60 }
+        %h2.content-wrapper__user-name
+          ユーザーネーム
+        .content-wrapper__evaluation-exhibit
+          %div 
+            評価
+            %span.content-wrapper__evaluation-exhibit.bold 89
+          %div
+            出品数
+            %span.content-wrapper__evaluation-exhibit.bold 18
+
     .tab-wrap
       %input#TAB-01-01.tab-switch{ type: "radio", name: "TAB01", checked: "checked" }
       %label.tab-label{ for: "TAB-01-01" }
@@ -67,3 +94,65 @@
         %ul.todo-list
           %li.todo-contents.bold
             現在やることリストはありません
+      %input#TAB-02-02.tab-switch{ type: "radio", name: "TAB02" }
+      %label.tab-label{ for: "TAB-02-02" }
+        過去の取引
+      .tab-content
+        %ul#transactioned.transactioned
+          %li
+            %a.products-link{ href: "" }
+              %figure
+                %img.products-pic{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg"}
+              .transactioned__body
+                .transactioned__text
+                  "
+                  　　　　「＾＾＾＾＾」を購入しました。
+                  　　　　　"
+                  %span 取引が完了しました
+                .transaction_completed
+                  取引完了
+              %i.fas.fa-chevron-right
+          %li
+            %a.products-link{ href: "" }
+              %figure
+                %img.products-pic{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg"}
+              .transactioned__body
+                .transactioned__text
+                  "
+                  　　　　「＾＾＾＾＾」を購入しました。
+                  　　　　　"
+                  %span 取引が完了しました
+                .transaction_completed
+                  取引完了
+              %i.fas.fa-chevron-right
+          %li
+            %a.products-link{ href: "" }
+              %figure
+                %img.products-pic{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg"}
+              .transactioned__body
+                .transactioned__text
+                  "
+                  　　　　「＾＾＾＾＾」を購入しました。
+                  　　　　　"
+                  %span 取引が完了しました
+                .transaction_completed
+                  取引完了
+              %i.fas.fa-chevron-right
+          %li
+            %a.products-link{ href: "" }
+              %figure
+                %img.products-pic{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg"}
+              .transactioned__body
+                .transactioned__text
+                  "
+                  　　　　「＾＾＾＾＾」を購入しました。
+                  　　　　　"
+                  %span 取引が完了しました
+                .transaction_completed
+                  取引完了
+              %i.fas.fa-chevron-right
+        %li.mypage-notice-list
+          %a{ href: "#"} 一覧を見る
+
+  = render "content-left"      
+        
