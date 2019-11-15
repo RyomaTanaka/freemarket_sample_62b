@@ -1,0 +1,63 @@
+/* profilr_edit.html.haml */
+
+.profile-edit-container{
+  float: right;
+  width: 700px;
+}
+
+.profile-edit-content{
+  background: #fff;
+}
+
+.profile-edit-title{
+  text-align: center;
+  font-size: 24px;
+  padding: 8px 24px;
+  line-height: 1.4;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.profile-edit-wrapper{
+  &__upper{
+    padding: 72px 16px 24px;
+    background: url("mypage_back.jpg");
+    text-align: center;
+    figure{
+      display: inline-block;
+      overflow: hidden;
+      border-radius: 50%;
+      vertical-align: middle;
+      img{
+        vertical-align: middle;
+      }
+    }
+    input{
+      width: 220px;
+      vertical-align: middle;
+      margin:  0 0 0 8px;
+      height: 48px;
+      background: #fff;
+      border-radius: 4px;
+      border: 1px solid #eee;
+      padding-left: 10px;
+    }
+  }
+  &__bottom{
+    padding: 40px 16px;
+    .btn-color-red{
+      margin: 16px 0 0;
+    }
+  }
+  &__textarea{
+    min-height: 216px;
+    display: block;
+    width: 97%;
+    max-width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
