@@ -1,17 +1,18 @@
 %nav.breadcrumbs
   %ul
     %li{ itemscope: "", itemtype: "#"}
-      %a{ href: "#", itemprop: "url"}
+      = link_to "", href: "#", itemprop: "url" do
         %span{ itemprop: "title"}
           メルカリ
           %i.fas.fa-chevron-right
     %li{ itemscope: "", itemtype: "#"}
       %span{ itemprop: "title"}
         マイページ
+        
 %main.container
   .content
     %section.mypage-user-upper
-      %a.content-wrapper{href: "#"}
+      = link_to "", class: "content-wrapper", href: "#" do
         %figure
           %img{ src: "assets/mypage_back.jpg", alt: "", width: 60, height: 60 }
         %h2.content-wrapper__user-name
@@ -32,7 +33,7 @@
         .mypage-tabs-content
           %ul.mypage-contents-list
             %li
-              %a.mypage-contents-list__link{ href: "", data: { open: "modal", modal: "banner" } }
+              = link_to "", class: "mypage-contents-list__link", href: "#" do
                 %figure
                   %img.app-icon{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
                 .mypage-contents-body
@@ -42,7 +43,7 @@
                     %span 1時間前
                 %i.fas.fa-chevron-right
             %li
-              %a.mypage-contents-list__link{ href: "", data: { open: "modal", modal: "banner" } }
+              = link_to "", class: "mypage-contents-list__link", href: "#" do
                 %figure
                   %img.app-icon{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
                 .mypage-contents-body
@@ -52,7 +53,7 @@
                     %span 11日前
                 %i.fas.fa-chevron-right
             %li
-              %a.mypage-contents-list__link{ href: "", data: { open: "modal", modal: "banner" } }
+              = link_to "", class: "mypage-contents-list__link", href: "#" do
                 %figure
                   %img.app-icon{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
                 .mypage-contents-body
@@ -62,7 +63,7 @@
                     %span 13日前
                 %i.fas.fa-chevron-right
             %li
-              %a.mypage-contents-list__link{ href: "#",}
+              = link_to "", class: "mypage-contents-list__link", href: "#" do
                 %figure
                   %img.app-icon{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
                 .mypage-contents-body
@@ -72,7 +73,8 @@
                     %span 15日前
                 %i.fas.fa-chevron-right
             %li.mypage-notice-list
-              %a{ href: "#"} 一覧を見る
+              = link_to "", href: "#" do
+                一覧を見る
  
       %input#TAB-01-02.tab-switch{ type: "radio", name: "TAB01" }
       %label.tab-label{ for: "TAB-01-02" }
@@ -99,7 +101,7 @@
       .tab-content
         %ul#transactioned.transactioned
           %li
-            %a.products-link{ href: "" }
+            = link_to "", class: "products-link", href: "#" do
               %figure
                 %img.products-pic{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg"}
               .transactioned__body
@@ -112,7 +114,7 @@
                   取引完了
               %i.fas.fa-chevron-right
           %li
-            %a.products-link{ href: "" }
+            = link_to "", class: "products-link", href: "#" do
               %figure
                 %img.products-pic{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg"}
               .transactioned__body
@@ -125,7 +127,7 @@
                   取引完了
               %i.fas.fa-chevron-right
           %li
-            %a.products-link{ href: "" }
+            = link_to "", class: "products-link", href: "#" do
               %figure
                 %img.products-pic{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg"}
               .transactioned__body
@@ -138,7 +140,7 @@
                   取引完了
               %i.fas.fa-chevron-right
           %li
-            %a.products-link{ href: "" }
+            = link_to "", class: "products-link", href: "#" do
               %figure
                 %img.products-pic{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg"}
               .transactioned__body
@@ -150,107 +152,12 @@
                 .transaction_completed
                   取引完了
               %i.fas.fa-chevron-right
-        %li.mypage-notice-list
-          %a{ href: "#"} 一覧を見る
+          %li.mypage-notice-list
+            = link_to "", href: "#" do
+              一覧を見る
+
+  = render "content-left"      
+
+
+
         
-  .content-left
-    %nav.nav-wrapper
-      %ul.nav-mypage
-        %li
-          %a.nav-mypage__item{ href: ""}
-            マイページ
-            %i.fas.fa-chevron-right
-        %li
-          %a.nav-mypage__item{ href: ""}
-            お知らせ
-            %i.fas.fa-chevron-right
-        %li
-          %a.nav-mypage__item{ href: ""}
-            やることリスト
-            %i.fas.fa-chevron-right
-        %li
-          %a.nav-mypage__item{ href: ""}
-            いいね一覧
-            %i.fas.fa-chevron-right
-        %li
-          %a.nav-mypage__item{ href: ""}
-            出品する
-            %i.fas.fa-chevron-right
-        %li
-          %a.nav-mypage__item{ href: ""}
-            出品した商品-出品中
-            %i.fas.fa-chevron-right
-        %li
-          %a.nav-mypage__item{ href: ""}
-            出品した商品-取引中
-            %i.fas.fa-chevron-right
-        %li
-          %a.nav-mypage__item{ href: ""}
-            出品した商品-売却済み
-            %i.fas.fa-chevron-right
-        %li
-          %a.nav-mypage__item{ href: ""}
-            購入した商品ー取引中
-            %i.fas.fa-chevron-right
-        %li
-          %a.nav-mypage__item{ href: ""}
-            購入した商品-過去の取引
-            %i.fas.fa-chevron-right
-        %li
-          %a.nav-mypage__item{ href: ""}
-            ニュース一覧
-            %i.fas.fa-chevron-right
-        %li
-          %a.nav-mypage__item{ href: ""}
-            評価一覧
-            %i.fas.fa-chevron-right
-        %li
-          %a.nav-mypage__item{ href: ""}
-            ガイド
-            %i.fas.fa-chevron-right
-        %li
-          %a.nav-mypage__item{ href: ""}
-            お問い合わせ
-            %i.fas.fa-chevron-right
-
-        %h3.nav-mypage__head メルペイ
-        %ul.nav-mypage
-          %li
-            %a.nav-mypage__item{ href: ""}
-              売上・振込申請
-              %i.fas.fa-chevron-right
-          %li
-            %a.nav-mypage__item{ href: ""}
-              ポイント
-              %i.fas.fa-chevron-right
-
-        %h3.nav-mypage__head 設定
-        %ul.nav-mypage
-          %li
-            %a.nav-mypage__item{ href: ""}
-              プロフィール
-              %i.fas.fa-chevron-right
-          %li
-            %a.nav-mypage__item{ href: ""}
-              発送元・お届け先住所変更
-              %i.fas.fa-chevron-right
-          %li
-            %a.nav-mypage__item{ href: ""}
-              支払い方法
-              %i.fas.fa-chevron-right
-          %li
-            %a.nav-mypage__item{ href: ""}
-              メール/パスワード
-              %i.fas.fa-chevron-right
-          %li
-            %a.nav-mypage__item{ href: ""}
-              本人情報
-              %i.fas.fa-chevron-right
-          %li
-            %a.nav-mypage__item{ href: ""}
-              電話番号の確認
-              %i.fas.fa-chevron-right
-          %li
-            %a.nav-mypage__item{ href: ""}
-              ログアウト
-              %i.fas.fa-chevron-right

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "personal_registrations#purchase_confirmation"
+  root to: "mypages#index"
 
 # credit_registration
 # profile_edit
