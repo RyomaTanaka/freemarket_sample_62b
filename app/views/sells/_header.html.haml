@@ -7,7 +7,7 @@
   %main.sell-main
     %section.item-container
       #sell-container
-        %div{"data-reactroot": ""}
+        %div{"data-reactroot":""}
           .sell-container-inner
             %h2.sell-container-inner__title 商品の情報を入力
 
@@ -40,7 +40,7 @@
                   %label
                     商品名の説明
                     %span.upload-box__header__required 必須
-                  %textarea{:class => "sell-content-explanation__input", :placeholder => "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", :rows => "5"}
+                  %textarea{class: :"sell-content-explanation__input", placeholder: :"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: :"5"}
 
               .prodcts-detail
                 %h3.prodcts-detail__label 商品の詳細
@@ -53,7 +53,7 @@
                       .category-container
                         %i.category-container__icon
                         %select.category-container__select
-                          %option{:value => ""} ---
+                          %option{value: :""} ---
                   .prodcts-status
                     %label
                       商品の状態
@@ -62,7 +62,7 @@
                       .status-container
                         %i.status-container__icon
                         %select.status-container__select
-                          %option{:value => ""} ---
+                          %option{value: :""} ---
 
               .prodcts-delivery
                 %h3.prodcts-delivery__label 配送について
@@ -77,7 +77,7 @@
                       .delivery-container
                         %i.delivery-container__icon
                         %select.delivery-container__select
-                          %option{:value => ""} ---
+                          %option{value: :""} ---
                   .delivery-box__content
                     %label
                       発送元の地域
@@ -86,7 +86,7 @@
                       .delivery-container
                         %i.delivery-container__icon
                         %select.delivery-container__select
-                          %option{:value => ""} ---
+                          %option{value: :""} ---
                   .delivery-box__content
                     %label
                       発送までの日数
@@ -95,7 +95,7 @@
                       .delivery-container
                         %i.delivery-container__icon
                         %select.delivery-container__select
-                          %option{:value => ""} ---
+                          %option{value: :""} ---
 
               .prodcts-price
                 %h3.prodcts-price__label 販売価格(300〜9,999,999)
@@ -144,5 +144,5 @@
 
 
               .sell-content__clearfix
-              %div{:model => "role=\"dialog\"", :tabindex => "-1"}
+              %div{:model: : "role=\"dialog\"", :tabindex: : "-1"}
               .sell-content__clearfix__btn
