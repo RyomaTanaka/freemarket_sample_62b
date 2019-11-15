@@ -3,6 +3,6 @@ class ItemsController < ApplicationController
   def index
   end
 
-  def sell
+  def create
   end
 end

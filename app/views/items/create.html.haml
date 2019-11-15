@@ -85,7 +85,7 @@
 
               .prodcts-delivery
                 %h3.prodcts-delivery__label 配送について
-                = link_to "", class: "question-icon", href: "#"
+                = link_to "?", "#",class: "question-icon"
                 .delivery-box
                   .delivery-box__container
                     %label
@@ -170,7 +170,8 @@
 
               .prodcts-price
                 %h3.prodcts-price__label 販売価格(300〜9,999,999)
-                = link_to "", class: "question-icon", href: "#"
+                = link_to "", class: "question-icon", href: "#" do
+                  ?
                 .price-container
                   %ul.price-lists
 
