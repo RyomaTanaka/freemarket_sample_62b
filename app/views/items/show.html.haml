@@ -103,9 +103,20 @@
           = '安心安全への取り組み'
   .item-comment
     .item-comment__box
-      
-  .item-nav
-    次の商品、前の商品
+      = form_with url: '#', local: true do |f|
+        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        = f.text_area :search, class: 'item-comment__box--textarea'
+        = f.submit 'コメントする', class: 'item-comment__box--btn'
+          
+  %ul.item-nav.clearfix
+    %li.item-nav__prev
+      = link_to '#' do
+        = fa_icon 'chevron-left'
+        = '前の商品'
+    %li.item-nav__next
+      = link_to '#' do
+        = '次の商品'
+        = fa_icon 'chevron-right'
   .item-sns-box
     sns共有
   .other-items-box
