@@ -1,0 +1,12 @@
+.header{
+  width: 100vw;
+  height: 128px;
+  background-color: #f5f5f5;
+  text-align: center;
+  box-sizing: border-box;
+  &__logo{
+    width: 185px;
+    height: 128px;
+    vertical-align: middle;
+    display: inline-block;
+  }
