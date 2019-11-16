@@ -1,0 +1,85 @@
+= render "devise_header"
+.add_content
+  .add_content__box
+    .add_content__box__text
+      住所入力
+  .form
+    .form__field
+      = form_for(@user, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        = f.fields_for :addresses do |address|
+          .form__field__addname
+            .form__field__addname__box1
+              = f.label :お名前
+            .form__field__addname__box2
+              = f.label :必須
+            %br/
+            .form__field__addname__box3
+              = f.text_field :family_name, autofocus: true, autocomplete: "family_name",id:'addname'
+              = f.text_field :first_name,autofocus: true, autocomplete: "first_name",id:'addname'
+          .form__field__addnameruby
+            .form__field__addnameruby__box1
+              = f.label :お名前カナ
+            .form__field__addnameruby__box2
+              = f.label :必須
+            %br/
+            .form__field__addnameruby__box3
+              = f.text_field :family_name_ruby,autofocus: true, autocomplete: "family_name_ruby",id:'addname'
+              = f.text_field :first_name_ruby,autofocus: true, autocomplete: "first_name_ruby",id:'addname'
+
+          .form__field__post_number
+            .form__field__post_number__box1
+              = f.label :郵便番号
+            .form__field__post_number__box2
+              = f.label :必須
+              %br/
+            .form__field__post_number__box3
+              = address.text_field :post_number
+             
+          .form__field__prefecture
+            .form__field__prefecture__box1
+              = f.label :都道府県
+            .form__field__prefecture__box2
+              = f.label :必須
+              %br/
+            .form__field__prefecture__box3
+              = address.text_field :prefecture
+              
+          .form__field__city
+            .form__field__city__box1
+              = f.label :市区町村
+            .form__field__city__box2
+              = f.label :必須
+              %br/
+            .form__field__city__box3
+              = address.text_field :city
+          .form__field__house_number
+            .form__field__house_number__box1
+              = f.label :番地
+            .form__field__house_number__box2
+              = f.label :必須
+              %br/
+            .form__field__house_number__box3
+              = address.text_field :house_number
+          .form__field__building_name
+            .form__field__building_name__box1
+              = f.label :建物名
+            .form__field__building_name__box2
+              = f.label :必須
+              %br/
+            .form__field__building_name__box3
+              = address.text_field :building_name
+          .form__field__phone_number
+            .form__field__phone_number__box1
+              = f.label :tel, "電話番号"
+            .form__field__phone_number__box2
+              = f.label :必須
+              %br/
+            .form__field__phone_number__box3
+              = address.text_field :phone_number
+          .form__field__actions
+            = f.submit"次へ進む",:class => "form__btn"
+            -# , link_to '次へ進む', new_user_session_path
+  
+        
+= render "devise_addfooter"
