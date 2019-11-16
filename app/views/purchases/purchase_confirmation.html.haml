@@ -1,0 +1,61 @@
+%section.purchase-confirmation
+  %h2.purchase-confirmation__title
+    購入内容の確認
+  %section.purchase-confirmation__item
+    .purchase-item
+      %h3.purchase-item__image
+        %img.purchase-item__image-adjust{ src: "assets/icon.jpg", alt: ""} 
+      %p.purchase-item__name
+        patagonia パタゴニア ナノパフジャケット
+      %form.purchase-item-form{ action: "", method: "POST", novalidate: "novalidate"}
+        %p.purchase-item-form__price
+          ¥19,800
+          %span.purchase-item-form__postage-included
+            送料込み
+        %ul.purchase-item-form__outer
+          %li.purchase-item-form__inner
+            .purchase-item-form__point-grant
+              ポイントはありません
+        %ul.purchase-item-confirmation
+          %li.purchase-item-confirmation__outer
+            .purchase-item-confirmation__item-payment
+              支払い金額
+            .purchase-item-confirmation__inner
+              %span.purchase-item-confirmation__payment-amount
+                ¥19,800
+        %button.btn-default-value.btn-color-red
+          購入する
+
+
+  %section.user-info-wrapper
+    .customer-confirmation
+      %h3
+        配送先
+      %address.customer-confirmation__address
+        123-4567
+        %br
+          東京都山田区太郎町3-2-1
+        %br
+          山田 太郎
+      = link_to "", class: "customer-confirmation__edit", href: "#" do
+        %span
+          変更する
+        %i.fas.fa-chevron-right
+  %section.user-info-wrapper--padding-add
+    .customer-confirmation
+      %h3
+        支払い方法
+      %p.customer-confirmation__credit-number
+        ************4713
+        %br
+          08 / 24
+      %figure
+        %img{ src: "assets/visa.jpg", width: "49", height: "20", alt: "visa"}
+      = link_to "", class: "customer-confirmation__edit", href: "#" do
+        %span
+          変更する
+        %i.fas.fa-chevron-right
+        
+
+
+

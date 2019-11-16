@@ -1,0 +1,259 @@
+%nav.breadcrumbs
+  %ul
+    %li{ itemscope: "", itemtype: "#"}
+      %a{ href: "#", itemprop: "url"}
+        %span{ itemprop: "title"}
+          メルカリ
+          %i.fas.fa-chevron-right
+    %li{ itemscope: "", itemtype: "#"}
+      %span{ itemprop: "title"}
+        マイページ
+        
+%main.container
+  .content
+    %section.mypage-user-upper
+      %a.content-wrapper{href: "#"}
+        %figure
+          %img{ src: "assets/mypage_back.jpg", alt: "", width: 60, height: 60 }
+        %h2.content-wrapper__user-name
+          ユーザーネーム
+        .content-wrapper__evaluation-exhibit
+          %div 
+            評価
+            %span.content-wrapper__evaluation-exhibit.bold 89
+          %div
+            出品数
+            %span.content-wrapper__evaluation-exhibit.bold 18
+
+    .tab-wrap
+      %input#TAB-01-01.tab-switch{ type: "radio", name: "TAB01", checked: "checked" }
+      %label.tab-label{ for: "TAB-01-01" }
+        お知らせ
+      .tab-content
+        .mypage-tabs-content
+          %ul.mypage-contents-list
+            %li
+              %a.mypage-contents-list__link{ href: "", data: { open: "modal", modal: "banner" } }
+                %figure
+                  %img.app-icon{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
+                .mypage-contents-body
+                  .mypage-contents-body__text 事務局から個別メッセージ「ログイン通知」
+                  %time
+                    %i.fas.fa-clock
+                    %span 1時間前
+                %i.fas.fa-chevron-right
+            %li
+              %a.mypage-contents-list__link{ href: "", data: { open: "modal", modal: "banner" } }
+                %figure
+                  %img.app-icon{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
+                .mypage-contents-body
+                  .mypage-contents-body__text かゆい所に手が届く！厚めの商品発送におすすめの「ゆうパケットプラス」」が新登場！
+                  %time
+                    %i.fas.fa-clock
+                    %span 11日前
+                %i.fas.fa-chevron-right
+            %li
+              %a.mypage-contents-list__link{ href: "", data: { open: "modal", modal: "banner" } }
+                %figure
+                  %img.app-icon{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
+                .mypage-contents-body
+                  .mypage-contents-body__text 明日、5％還元クーポンの有効期限有効期限が切れます！タップして詳細を確認しましょう。
+                  %time
+                    %i.fas.fa-clock
+                    %span 13日前
+                %i.fas.fa-chevron-right
+            %li
+              %a.mypage-contents-list__link{ href: "#",}
+                %figure
+                  %img.app-icon{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
+                .mypage-contents-body
+                  .mypage-contents-body__text 事務局から個別メッセージ「【お詫び】「クーポンの有効期限」について」
+                  %time
+                    %i.fas.fa-clock
+                    %span 15日前
+                %i.fas.fa-chevron-right
+            %li.mypage-notice-list
+              %a{ href: "#"} 一覧を見る
+ 
+      %input#TAB-01-02.tab-switch{ type: "radio", name: "TAB01" }
+      %label.tab-label{ for: "TAB-01-02" }
+        やることリスト
+      .tab-content
+        %ul.todo-list
+          %li.todo-contents.bold
+            現在やることリストはありません
+        
+    %section.purchase-wrapper
+      %h2.purchase-head
+        購入した商品
+    .tab-wrap
+      %input#TAB-02-01.tab-switch{ type: "radio", name: "TAB02", checked: "checked" }
+      %label.tab-label{ for: "TAB-02-01" }
+        取引中
+      .tab-content
+        %ul.todo-list
+          %li.todo-contents.bold
+            現在やることリストはありません
+      %input#TAB-02-02.tab-switch{ type: "radio", name: "TAB02" }
+      %label.tab-label{ for: "TAB-02-02" }
+        過去の取引
+      .tab-content
+        %ul#transactioned.transactioned
+          %li
+            %a.products-link{ href: "" }
+              %figure
+                %img.products-pic{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg"}
+              .transactioned__body
+                .transactioned__text
+                  "
+                  　　　　「＾＾＾＾＾」を購入しました。
+                  　　　　　"
+                  %span 取引が完了しました
+                .transaction_completed
+                  取引完了
+              %i.fas.fa-chevron-right
+          %li
+            %a.products-link{ href: "" }
+              %figure
+                %img.products-pic{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg"}
+              .transactioned__body
+                .transactioned__text
+                  "
+                  　　　　「＾＾＾＾＾」を購入しました。
+                  　　　　　"
+                  %span 取引が完了しました
+                .transaction_completed
+                  取引完了
+              %i.fas.fa-chevron-right
+          %li
+            %a.products-link{ href: "" }
+              %figure
+                %img.products-pic{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg"}
+              .transactioned__body
+                .transactioned__text
+                  "
+                  　　　　「＾＾＾＾＾」を購入しました。
+                  　　　　　"
+                  %span 取引が完了しました
+                .transaction_completed
+                  取引完了
+              %i.fas.fa-chevron-right
+          %li
+            %a.products-link{ href: "" }
+              %figure
+                %img.products-pic{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg"}
+              .transactioned__body
+                .transactioned__text
+                  "
+                  　　　　「＾＾＾＾＾」を購入しました。
+                  　　　　　"
+                  %span 取引が完了しました
+                .transaction_completed
+                  取引完了
+              %i.fas.fa-chevron-right
+        %li.mypage-notice-list
+          %a{ href: "#"} 一覧を見る
+        
+  .content-left
+    %nav.nav-wrapper
+      %ul.nav-mypage
+        %li
+          %a.nav-mypage__item{ href: ""}
+            マイページ
+            %i.fas.fa-chevron-right
+        %li
+          %a.nav-mypage__item{ href: ""}
+            お知らせ
+            %i.fas.fa-chevron-right
+        %li
+          %a.nav-mypage__item{ href: ""}
+            やることリスト
+            %i.fas.fa-chevron-right
+        %li
+          %a.nav-mypage__item{ href: ""}
+            いいね一覧
+            %i.fas.fa-chevron-right
+        %li
+          %a.nav-mypage__item{ href: ""}
+            出品する
+            %i.fas.fa-chevron-right
+        %li
+          %a.nav-mypage__item{ href: ""}
+            出品した商品-出品中
+            %i.fas.fa-chevron-right
+        %li
+          %a.nav-mypage__item{ href: ""}
+            出品した商品-取引中
+            %i.fas.fa-chevron-right
+        %li
+          %a.nav-mypage__item{ href: ""}
+            出品した商品-売却済み
+            %i.fas.fa-chevron-right
+        %li
+          %a.nav-mypage__item{ href: ""}
+            購入した商品ー取引中
+            %i.fas.fa-chevron-right
+        %li
+          %a.nav-mypage__item{ href: ""}
+            購入した商品-過去の取引
+            %i.fas.fa-chevron-right
+        %li
+          %a.nav-mypage__item{ href: ""}
+            ニュース一覧
+            %i.fas.fa-chevron-right
+        %li
+          %a.nav-mypage__item{ href: ""}
+            評価一覧
+            %i.fas.fa-chevron-right
+        %li
+          %a.nav-mypage__item{ href: ""}
+            ガイド
+            %i.fas.fa-chevron-right
+        %li
+          %a.nav-mypage__item{ href: ""}
+            お問い合わせ
+            %i.fas.fa-chevron-right
+
+        %h3.nav-mypage__head メルペイ
+        %ul.nav-mypage
+          %li
+            %a.nav-mypage__item{ href: ""}
+              売上・振込申請
+              %i.fas.fa-chevron-right
+          %li
+            %a.nav-mypage__item{ href: ""}
+              ポイント
+              %i.fas.fa-chevron-right
+
+        %h3.nav-mypage__head 設定
+        %ul.nav-mypage
+          %li
+            %a.nav-mypage__item{ href: ""}
+              プロフィール
+              %i.fas.fa-chevron-right
+          %li
+            %a.nav-mypage__item{ href: ""}
+              発送元・お届け先住所変更
+              %i.fas.fa-chevron-right
+          %li
+            %a.nav-mypage__item{ href: ""}
+              支払い方法
+              %i.fas.fa-chevron-right
+          %li
+            %a.nav-mypage__item{ href: ""}
+              メール/パスワード
+              %i.fas.fa-chevron-right
+          %li
+            %a.nav-mypage__item{ href: ""}
+              本人情報
+              %i.fas.fa-chevron-right
+          %li
+            %a.nav-mypage__item{ href: ""}
+              電話番号の確認
+              %i.fas.fa-chevron-right
+          %li
+            %a.nav-mypage__item{ href: ""}
+              ログアウト
+              %i.fas.fa-chevron-right
+
+              
