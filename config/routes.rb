@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
+  get 'user/index'
   devise_for :users
-  root to: "mypages#personal"
-
-
+  root "items#index"
 end
