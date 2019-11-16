@@ -1,0 +1,2 @@
+class SnsAuthentication < ApplicationRecord
+end
