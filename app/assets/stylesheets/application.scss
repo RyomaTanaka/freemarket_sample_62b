@@ -1,3 +1,6 @@
+@import "modules/detail.scss";
+@import "base/base.scss";
+@import 'font-awesome';
 @import "mypages/mypage";
 @import "mypages/logout";
 @import "mypages/credit_registration";
@@ -17,7 +20,7 @@
 
 @import "sell/items";
 
-@import "right_btn"
+@import "right_btn";
 @import "tele" ;
 @import "address" ;
 @import "complete" ;
