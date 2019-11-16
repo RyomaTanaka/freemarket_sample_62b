@@ -1,0 +1,200 @@
+/* main */
+
+html {
+  overflow: scroll;
+}
+
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.clear_box{
+  clear: both;
+}
+
+main {
+  display: block;
+}
+
+*{
+  font-size: inherit;
+  line-height: inherit;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  border-style: solid;
+  border-width: 0;
+  box-sizing: inherit;
+}
+
+nav{
+  display: block;
+}
+
+body{
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+}
+
+li{
+  list-style: none;
+  text-align: -webkit-match-parent;
+  display: list-item;
+}
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+*, ::before, ::after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+  border-style: solid;
+  border-width: 0;
+}
+
+::before, ::after {
+    text-decoration: inherit;
+    vertical-align: inherit;
+}
+
+section{
+  display: block;
+}
+
+.bold{
+  font-weight: 600;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* breadcrumbs */
+
+.breadcrumbs {
+  position: relative;
+  border-top: 1px solid #eee;
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+  background: #fff;
+  ul {
+    width: 1020px;
+    overflow: visible;
+    margin: 0 auto;
+    padding: 16px 0;
+    white-space: normal;
+  }
+  li {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.2;
+  }
+  li:last-child{
+    font-weight: 600;
+  }
+  .fa-chevron-right{
+    margin: 0 8px;
+    font-size: 9px;
+    color: #888;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+
+/* credit_registration.html.haml */
+
+.credit-registration-container{
+  float: right;
+  width: 700px;
+  display: block;
+}
+
+.credit-registration-content{
+  margin: 0;
+  background: #fff;
+  h2{
+    font-size: 24px;
+    padding: 8px 24px;
+    text-align: center;
+    border-bottom: 1px solid #f5f5f5;
+    line-height: 1.4;
+  }
+}
+
+.credit-content-wrapper{
+  padding: 64px;
+  border-top: 1px solid #f5f5f5;
+  &__title{
+    margin: 0 auto;
+    max-width: 320px;
+    h3{
+     font-size: 16px;
+    }
+  }
+}
+
+.credit-data-wrapper{
+  li{
+    padding: 24px;
+    border-bottom: 1px solid #eee;
+  }
+}
+  .credit-data-content{
+    position: relative;
+    max-width: 320px;
+    margin: 0 auto;
+    figure{
+      img{
+        vertical-align: middle;
+      }
+    }
+    &__number{
+      margin: 8px 0 0;
+      font-size: 16px;
+    }
+    &__date{
+      margin: 8px 0 0;
+      font-size: 16px;
+    }
+    &__delete
+      {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 4px 6px;
+        background: #fff;
+        border-radius: 3px;
+        border: 1px solid #ea352d;
+        color: #ea352d;
+      }
+    }
+
+.method-payment a{
+  display: block;
+  margin: 40px 0 0;
+  text-align: right;
+  text-decoration: none;
+  span{
+    vertical-align: middle;
+    color: #0099e8;
+  }
+  .fa-chevron-right{
+    color: #0099e8;
+  }
+}
