@@ -1,13 +1,13 @@
 !!!
 %html
   %head
-    %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title FreemarketSample62b
     = csrf_meta_tags
     = csp_meta_tag
-    %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"}
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    %link{ href: "https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css", :rel => "stylesheet" }
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    %link{href:"https://use.fontawesome.com/releases/v5.6.1/css/all.css", rel: "stylesheet"}/
+    %script{ src: "https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js" }
   %body
     = yield

@@ -1,9 +1,26 @@
-@import "reset" ;
-@import "new-registrations" ;
+@import "mypages/mypage";
+@import "mypages/logout";
+@import "mypages/credit_registration";
+@import "mypages/personal";
+@import "mypages/profile_edit";
+@import "purchases/purchase_confirmation";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "config/colors";
+@import "reset";
+@import "items";
+@import "body";
+@import "footer";
+
+@import "sell/items";
+
+@import "right_btn"
 @import "tele" ;
 @import "address" ;
 @import "complete" ;
 @import "card" ;
-@import "font-awesome-sprockets";
-@import "./font-awesome";
 @import "new-session" ;
+@import "new-registrations" ;
