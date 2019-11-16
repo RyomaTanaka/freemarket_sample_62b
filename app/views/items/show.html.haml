@@ -141,5 +141,11 @@
           = 'ナイキのジャケットのその他の商品'
       .other-items-box__related-items--contents.clearfix
         = render 'other_items'
-  .bread_crumbs
-    パンくず
+  .bread-crumbs
+    %ul
+      %li.bread-crumbs__back
+        = link_to '#' do
+          %span メルカリ
+        =fa_icon 'chevron-right'
+      %li.bread-crumbs__current-page
+        %sapn 現在のページ
