@@ -31,12 +31,18 @@ li {
   margin: 0px auto;
 }
 
-.mein-body {
+.main-body {
   position: relative;
 }
 
 .top-body {
   height: 390px;
+  left: 50%;
+  margin-left: -50vw;
+  position: relative;
+  top: 0px;
+  width: 100vw;
+  overflow: hidden;
 }
 
 .slide-body {
@@ -46,7 +52,7 @@ li {
   position: relative;
   visibility: inherit;
   width: 100%;
-  &__mein {
+  &__main {
     box-sizing: border-box;
     display: block;
     height: 100%;
@@ -60,7 +66,6 @@ li {
 }
 
 .slider-list {
-  transform: translate3d(0px, 0px, 0px);
   position: relative;
   display: block;
   margin: 0px;
@@ -76,6 +81,7 @@ li {
   box-sizing: border-box;
   display: inline-block;
   height: auto;
+  left: 0px;
   list-style-type: none;
   margin: auto 0px;
   position: absolute;
@@ -166,7 +172,7 @@ li {
 .item-contents {
   padding: 42px 0px 50px;
   background-color: rgb(239, 239, 239);
-  &__mein {
+  &__main {
     &__title{
       align-items: flex-end;
       display: flex;
