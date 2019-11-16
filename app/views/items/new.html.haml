@@ -9,7 +9,7 @@
         %div{"data-reactroot": ""}
           .sell-container-inner
             %h2.sell-container-inner__title 商品の情報を入力
-            %form.sell-form
+            = form_with url: '#', local: true, class: :"sell-form" do |f|
               .upload-box
                 %h3.upload-box__header
                   出品画像
@@ -20,7 +20,7 @@
                     .upload-items__item
                       %ul
                   .upload-dropbox
-                    %input.upload-dropbox__input{multiple: "", name: :"image1", style: :"display: none;", type: :"file"}/
+                    =f.text_field name: :images, class: :"upload-dropbox__input", type: :"file",style: :"display"
                     %pre.upload-dropbox__input__visib
                       ドラッグアンドドロップ
                       またはクリックしてファイルをアップロード
@@ -31,12 +31,12 @@
                     商品名
                     %span.upload-box__header__required 必須
                   %div
-                    %input{class: :"sell-title-label__input", placeholder: :"商品名（必須 40文字まで)", value: :""}/
+                    =f.text_field name: :name, class: :"sell-title-label__input", type: :"file",style: :"display", placeholder: :"商品名（必須 40文字まで)"
                 .sell-content-explanation
                   %label
                     商品名の説明
                     %span.upload-box__header__required 必須
-                  %textarea{class: :"sell-content-explanation__input", placeholder: :"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: :"5"}
+                  =f.text_area name: :body, class: :"sell-content-explanation__input", type: :"file", placeholder: :"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: :"5"
               .prodcts-detail
                 %h3.prodcts-detail__label 商品の詳細
                 .prodcts-detail__box
@@ -47,7 +47,7 @@
                     %div
                       .category-container
                         %i.fas.fa-angle-down
-                        %select.category-container__select
+                        %select.category-container__select{name: :"category[category_id]"}
                           %option{value: :""} ---
                           %option{value: :"1"} レディース
                           %option{value: :"2"} メンズ
