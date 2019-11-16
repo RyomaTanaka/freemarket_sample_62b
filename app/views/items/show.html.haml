@@ -134,14 +134,12 @@
         = link_to '#' do
           = 'サンプルユーザーのその他の商品'
       .other-items-box__users-items--contents.clearfix
-        %section.items-box
-          =link_to '#' do
-            %figure.items-box__image
-              %img(src= "https://static.mercdn.net/item/detail/orig/photos/m88330665818_1.jpg?1573878548")
+        = render 'other_items'
     %section.other-items-box__related-items
       %h2.other-items-box__related-items--head
         = link_to '#' do
           = 'ナイキのジャケットのその他の商品'
       .other-items-box__related-items--contents.clearfix
+        = render 'other_items'
   .bread_crumbs
     パンくず

@@ -36,3 +36,51 @@ a {
   color: #0099e8;
   text-decoration: none;
 }
+.items-box {
+  width: 220px;
+  margin: 0 20px 20px 0;
+  position: relative;
+  float: left;
+  &__image {
+    overflow: hidden;
+    position: relative;
+    width: 220px;
+    height: 220px;
+    padding: 0 0 100%;
+    img {
+      top: 50%;
+      transform: translate(0, -50%);
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+    }
+  }
+  &__body {
+    padding: 16px;
+    height: 110px;
+    background-color: #fff;
+    &--name {
+      overflow: hidden;
+      position: relative;
+      font-weight: 400;
+      height: 3em;
+      line-height: 1.5;
+      word-break: break-word;
+      white-space: normal;
+    }
+    &--price {
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      margin: 8px 0 0;
+      font-size: 17px;
+      font-weight: 600;
+      color: #333;
+    }
+  }
+}
