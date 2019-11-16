@@ -1,0 +1,90 @@
+.main
+  = render "devise_header"
+  .form
+    .form__top
+      .form__top__text
+        会員登録情報
+    .form__field
+      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        = f.fields_for :profiles do |profile|
+          .form__field__nickname
+            .form__field__nickname__box1
+              = f.label :ニックネーム
+            .form__field__nickname__box2
+              = f.label :必須
+            %br/
+            = profile.text_field :nickname, autofocus: true, autocomplete: "nickname"
+          .form__field__mail
+            .form__field__mail__box1
+              = f.label :email
+            .form__field__mail__box2
+              = f.label :必須
+            %br/
+            = f.email_field :email, autocomplete: "email"
+          .form__field__pass
+            .form__field__pass__box1
+              = f.label :パスワード
+            .form__field__pass__box2
+              = f.label :必須
+            %br/
+            = f.password_field :password, autocomplete: "new-password"
+            %br/
+            .form__field__pass__box3
+              = check_box_tag :checkbox
+              = f.label :パスワードを表示する
+          %p1
+            %input#realText.password/
+          .form__field__text
+            .form__field__text__top
+              本人確認
+            .form__field__text__bottom
+              安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+
+          .form__field__name
+            .form__field__name__box1
+              = f.label :お名前（全角）
+            .form__field__name__box2
+              = f.label :必須
+              %br/
+          .form__field__namebox
+            .form__field__namebox__box3
+              = f.text_field :family_name, autocomplete: "family_name"
+              %br/
+            .form__field__namebox__box4
+              = f.text_field :first_name, autocomplete: "first_name"
+          .form__field__rubyname
+            .form__field__rubyname__box1
+              = f.label :お名前カナ（全角）
+            .form__field__rubyname__box2
+              = f.label :必須
+              %br/
+          .form__field__rubynamebox
+            .form__field__rubynamebox__box3
+              = f.text_field :family_name, autocomplete: "family_name"
+            .form__field__rubynamebox__box4
+              = f.text_field :first_name, autocomplete: "first_name"
+          .form__field__birthdate
+            .form__field__birthdate__box1
+              = f.label :生年月日
+            .form__field__birthdate__box2
+              = f.label :必須
+              %br/
+            .form__field__birthdate__box3
+              = raw sprintf(                      |
+                f.date_select(                    |
+                  :birth_date,                    |
+                  use_month_numbers: true,        |
+                  start_year: 1930,               |
+                  end_year: (Time.now.year - 18), |
+                  default: Date.new(1989, 1, 1),  |
+                  date_separator: '%s'),          |
+                '年 ', '月 ') + '日'                 |
+            .form__field__birthdate__box4
+              ＊本人情報は正しく入力してください。会員登録後、 修正するにはお時間を頂く場合があります
+          .form__field__actions
+            = f.submit"次へ進む",:class => "form__btn"
+            -# , link_to '次へ進む', new_user_session_path
+          .form__field__text-btn
+            本人情報の登録について
+  = render "devise_footer"
