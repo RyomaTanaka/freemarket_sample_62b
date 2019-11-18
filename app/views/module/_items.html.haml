@@ -1,122 +1,123 @@
 .item-container
   %ul.item-container__lists
-    %li.item-container__lists__list
-      .item-box
-        =link_to "https://item.mercari.com/jp/m87552858444/", class: "item-link" do
-          %figure.item-descrube
-            %figcaption
-              %span
-                INED ニットジャンパースカート ワンピース
-            .item-price
-              %span{"aria-label": "Price"}
-                ¥
-                5000
-              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m92813707917_1.jpg?1550671403', class: 'item-photo'
-    %li.item-container__lists__list
-      .item-box
-        =link_to "https://item.mercari.com/jp/m87552858444/", class: "item-photo" do
-          %figure.item-descrube
-            %figcaption
-              %span
-                INED ニットジャンパースカート ワンピース
-            .item-price
-              %span{"aria-label": "Price"}
-                ¥
-                5000
-              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m92813707917_1.jpg?1550671403', class: 'item-photo'
-    %li.item-container__lists__list
-      .item-box
-        =link_to "https://item.mercari.com/jp/m87552858444/", class: "item-photo" do
-          %figure.item-descrube
-            %figcaption
-              %span
-                INED ニットジャンパースカート ワンピース
-            .item-price
-              %span{"aria-label": "Price"}
-                ¥
-                5000
-              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m92813707917_1.jpg?1550671403', class: 'item-photo'
-    %li.item-container__lists__list
-      .item-box
-        =link_to "https://item.mercari.com/jp/m87552858444/", class: "item-photo" do
-          %figure.item-descrube
-            %figcaption
-              %span
-                INED ニットジャンパースカート ワンピース
-            .item-price
-              %span{"aria-label": "Price"}
-                ¥
-                5000
-              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m92813707917_1.jpg?1550671403', class: 'item-photo'
-    %li.item-container__lists__list
-      .item-box
-        =link_to "https://item.mercari.com/jp/m87552858444/", class: "item-photo" do
-          %figure.item-descrube
-            %figcaption
-              %span
-                INED ニットジャンパースカート ワンピース
-            .item-price
-              %span{"aria-label": "Price"}
-                ¥
-                5000
-              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m92813707917_1.jpg?1550671403', class: 'item-photo'
-    %li.item-container__lists__list
-      .item-box
-        =link_to "https://item.mercari.com/jp/m87552858444/", class: "item-photo" do
-          %figure.item-descrube
-            %figcaption
-              %span
-                INED ニットジャンパースカート ワンピース
-            .item-price
-              %span{"aria-label": "Price"}
-                ¥
-                5000
-              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m92813707917_1.jpg?1550671403', class: 'item-photo'
-    %li.item-container__lists__list
-      .item-box
-        =link_to "https://item.mercari.com/jp/m87552858444/", class: "item-photo" do
-          %figure.item-descrube
-            %figcaption
-              %span
-                INED ニットジャンパースカート ワンピース
-            .item-price
-              %span{"aria-label": "Price"}
-                ¥
-                5000
-              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m92813707917_1.jpg?1550671403', class: 'item-photo'
-    %li.item-container__lists__list
-      .item-box
-        =link_to "https://item.mercari.com/jp/m87552858444/", class: "item-photo" do
-          %figure.item-descrube
-            %figcaption
-              %span
-                INED ニットジャンパースカート ワンピース
-            .item-price
-              %span{"aria-label": "Price"}
-                ¥
-                5000
-              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m92813707917_1.jpg?1550671403', class: 'item-photo'
-    %li.item-container__lists__list
-      .item-box
-        =link_to "https://item.mercari.com/jp/m87552858444/", class: "item-photo" do
-          %figure.item-descrube
-            %figcaption
-              %span
-                INED ニットジャンパースカート ワンピース
-            .item-price
-              %span{"aria-label": "Price"}
-                ¥
-                5000
-              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m92813707917_1.jpg?1550671403', class: 'item-photo'
-    %li.item-container__lists__list
-      .item-box
-        =link_to "https://item.mercari.com/jp/m87552858444/", class: "item-photo" do
-          %figure.item-descrube
-            %figcaption
-              %span
-                INED ニットジャンパースカート ワンピース
-            .item-price
-              %span{"aria-label": "Price"}
-                ¥
-                5000
-              = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m92813707917_1.jpg?1550671403', class: 'item-photo'
+    = @item.each do |item| 
+      %li.item-container__lists__list
+        .item-box
+          =link_to "https://item.mercari.com/jp/m87552858444/", class: "item-link" do
+            %figure.item-descrube
+              %figcaption
+                %span
+                  = item.name
+              .item-price
+                %span{"aria-label": "Price"}
+                  ¥
+                  = item.price
+                = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m92813707917_1.jpg?1550671403', class: 'item-photo'
+    -# %li.item-container__lists__list
+    -#   .item-box
+    -#     =link_to "https://item.mercari.com/jp/m87552858444/", class: "item-photo" do
+    -#       %figure.item-descrube
+    -#         %figcaption
+    -#           %span
+    -#             INED ニットジャンパースカート ワンピース
+    -#         .item-price
+    -#           %span{"aria-label": "Price"}
+    -#             ¥
+    -#             5000
+    -#           = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m92813707917_1.jpg?1550671403', class: 'item-photo'
+    -# %li.item-container__lists__list
+    -#   .item-box
+    -#     =link_to "https://item.mercari.com/jp/m87552858444/", class: "item-photo" do
+    -#       %figure.item-descrube
+    -#         %figcaption
+    -#           %span
+    -#             INED ニットジャンパースカート ワンピース
+    -#         .item-price
+    -#           %span{"aria-label": "Price"}
+    -#             ¥
+    -#             5000
+    -#           = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m92813707917_1.jpg?1550671403', class: 'item-photo'
+    -# %li.item-container__lists__list
+    -#   .item-box
+    -#     =link_to "https://item.mercari.com/jp/m87552858444/", class: "item-photo" do
+    -#       %figure.item-descrube
+    -#         %figcaption
+    -#           %span
+    -#             INED ニットジャンパースカート ワンピース
+    -#         .item-price
+    -#           %span{"aria-label": "Price"}
+    -#             ¥
+    -#             5000
+    -#           = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m92813707917_1.jpg?1550671403', class: 'item-photo'
+    -# %li.item-container__lists__list
+    -#   .item-box
+    -#     =link_to "https://item.mercari.com/jp/m87552858444/", class: "item-photo" do
+    -#       %figure.item-descrube
+    -#         %figcaption
+    -#           %span
+    -#             INED ニットジャンパースカート ワンピース
+    -#         .item-price
+    -#           %span{"aria-label": "Price"}
+    -#             ¥
+    -#             5000
+    -#           = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m92813707917_1.jpg?1550671403', class: 'item-photo'
+    -# %li.item-container__lists__list
+    -#   .item-box
+    -#     =link_to "https://item.mercari.com/jp/m87552858444/", class: "item-photo" do
+    -#       %figure.item-descrube
+    -#         %figcaption
+    -#           %span
+    -#             INED ニットジャンパースカート ワンピース
+    -#         .item-price
+    -#           %span{"aria-label": "Price"}
+    -#             ¥
+    -#             5000
+    -#           = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m92813707917_1.jpg?1550671403', class: 'item-photo'
+    -# %li.item-container__lists__list
+    -#   .item-box
+    -#     =link_to "https://item.mercari.com/jp/m87552858444/", class: "item-photo" do
+    -#       %figure.item-descrube
+    -#         %figcaption
+    -#           %span
+    -#             INED ニットジャンパースカート ワンピース
+    -#         .item-price
+    -#           %span{"aria-label": "Price"}
+    -#             ¥
+    -#             5000
+    -#           = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m92813707917_1.jpg?1550671403', class: 'item-photo'
+    -# %li.item-container__lists__list
+    -#   .item-box
+    -#     =link_to "https://item.mercari.com/jp/m87552858444/", class: "item-photo" do
+    -#       %figure.item-descrube
+    -#         %figcaption
+    -#           %span
+    -#             INED ニットジャンパースカート ワンピース
+    -#         .item-price
+    -#           %span{"aria-label": "Price"}
+    -#             ¥
+    -#             5000
+    -#           = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m92813707917_1.jpg?1550671403', class: 'item-photo'
+    -# %li.item-container__lists__list
+    -#   .item-box
+    -#     =link_to "https://item.mercari.com/jp/m87552858444/", class: "item-photo" do
+    -#       %figure.item-descrube
+    -#         %figcaption
+    -#           %span
+    -#             INED ニットジャンパースカート ワンピース
+    -#         .item-price
+    -#           %span{"aria-label": "Price"}
+    -#             ¥
+    -#             5000
+    -#           = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m92813707917_1.jpg?1550671403', class: 'item-photo'
+    -# %li.item-container__lists__list
+    -#   .item-box
+    -#     =link_to "https://item.mercari.com/jp/m87552858444/", class: "item-photo" do
+    -#       %figure.item-descrube
+    -#         %figcaption
+    -#           %span
+    -#             INED ニットジャンパースカート ワンピース
+    -#         .item-price
+    -#           %span{"aria-label": "Price"}
+    -#             ¥
+    -#             5000
+    -#           = image_tag 'https://static.mercdn.net/item/detail/orig/photos/m92813707917_1.jpg?1550671403', class: 'item-photo'
