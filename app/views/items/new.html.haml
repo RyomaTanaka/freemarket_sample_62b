@@ -3,6 +3,9 @@
     %h1
       = link_to "", href: "#" do
         = image_tag src='//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?210491352'
+
+%body.mypage-body        
+
   %main.sell-main
     %section.item-sell-container
       #sell-container
@@ -46,7 +49,7 @@
                       %span.category__required 必須
                     %div
                       .category-container
-                        %i.fas.fa-angle-down
+                        = fa_icon 'chevron-down'
                         %select.category-container__select
                           %option{value: :""} ---
                           %option{value: :"1"} レディース
@@ -68,7 +71,7 @@
                       %span.status__required 必須
                     %div
                       .status-container
-                        %i.fas.fa-angle-down
+                        = fa_icon 'chevron-down'
                         %select.status-container__select
                           %option{value: :""} ---
                           %option{value: :"1"} 新品、未使用
@@ -87,7 +90,7 @@
                       %span.required 必須
                     %div
                       .delivery-container
-                        %i.fas.fa-angle-down
+                        = fa_icon 'chevron-down'
                         %select.delivery-container__select
                           %option{value: :""} ---
                           %option{value: :"2"} 送料込み(出品者負担)
@@ -99,7 +102,7 @@
                       %span.required 必須
                     %div
                       .delivery-container
-                        %i.fas.fa-angle-down
+                        = fa_icon 'chevron-down'
                         %select.delivery-container__select
                           %option{value: :""} ---
                           %option 北海道
@@ -155,7 +158,7 @@
                       %span.required 必須
                     %div
                       .delivery-container
-                        %i.fas.fa-angle-down
+                        = fa_icon 'chevron-down'
                         %select.delivery-container__select
                           %option{value: :""} ---
                           %option{value: :"1"} 1~2日で発送

@@ -1,25 +1,32 @@
-%nav.breadcrumbs
-  %ul
-    %li{ itemscope: "", itemtype: "#"}
-      = link_to "", href: "#", itemprop: "url" do
+= render "module/header"
+
+
+%body.mypage-body        
+
+  %nav.breadcrumbs
+    %ul
+      %li{ itemscope: "", itemtype: "#"}
+        = link_to "", href: "#", itemprop: "url" do
+          %span{ itemprop: "title"}
+            メルカリ
+            = fa_icon 'chevron-right'
+      %li{ itemscope: "", itemtype: "#"}
         %span{ itemprop: "title"}
-          メルカリ
-          %i.fas.fa-chevron-right
-    %li{ itemscope: "", itemtype: "#"}
-      %span{ itemprop: "title"}
-        マイページ
-        %i.fas.fa-chevron-right
-    %li{ itemscope: "", itemtype: "#"}
-      %span{ itemprop: "title"}
-        ログアウト
+          マイページ
+          = fa_icon 'chevron-right'
+      %li{ itemscope: "", itemtype: "#"}
+        %span{ itemprop: "title"}
+          ログアウト
 
-%main.container
-  .logout-container
-    .logout-content
-      %form.logout-content__form{ action: "#", method: "POST", novalidate: "novalidate"}
-        .logout-content__btn-wrapper
-          %button.btn-default-value.btn-color-red{ type: "submit" }
-            ログアウト
+  %main.container
+    .logout-container
+      .logout-content
+        %form.logout-content__form{ action: "#", method: "POST", novalidate: "novalidate"}
+          .logout-content__btn-wrapper
+            %button.btn-default-value.btn-color-red{ type: "submit" }
+              ログアウト
 
-  = render "content-left"      
+    = render "content-left"      
 
+= render "module/footer"
+= render "module/right_btn"

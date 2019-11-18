@@ -14,4 +14,23 @@ class MypagesController < ApplicationController
   def profile_edit
   end
 
+  def address
+  end
+
+  def card
+  end
+
+  def complete
+  end
+
+  def edit
+  end
+
+  def new
+  end
+
+  def tele
+  end
+
+
 end
