@@ -1,0 +1,40 @@
+= render "devise_header"
+.card_content
+  .card_content__top
+    支払い方法
+  .card_content__main
+    = form_with model: @card, url: signups_path, method: :post, local: true do |f|
+      .card_content__main__number
+        .card_content__main__number__box1
+          = f.label :カード番号
+        .card_content__main__number__box2
+          = f.label :必須
+        %br/
+        = f.text_field :card_id, autofocus: true, autocomplete: "card_id"
+        .card_content__main__number__box3
+          =image_tag "visa.png",class:'visa_logo'
+          =image_tag "master.png",class:'card_logo'
+          =image_tag "saison.png",class:'card_logo'
+          =image_tag "jcb.jpeg",class:'card_logo'
+      .card_content__main__deadline
+        .card_content__main__deadline__box1
+          = f.label :有効期限
+        .card_content__main__deadline__box2
+          = f.label :必須 
+        .card_content__main__deadline__box3
+          = f.text_field :card_id, autofocus: true, autocomplete: "customer_id",id:'card_deadline'
+          = f.text_field :card_id, autofocus: true, autocomplete: "customer_id",id:'card_deadline'
+      .card_content__main__security
+        .card_content__main__security__box1
+          = f.label :セキュリティーコード
+        .card_content__main__security__box2
+          = f.label :必須 
+        = f.text_field :card_id, autofocus: true, autocomplete: "card_id"
+        .card_content__main__security__box3
+          .card_content__main__security__box3__icon
+          .card_content__main__security__box3__text
+            %p2
+            カードの裏面の番号とは？
+      .card_content__main__btn
+        = f.submit"次へ進む",:class => "form__btn"
+= render "devise_addfooter"
