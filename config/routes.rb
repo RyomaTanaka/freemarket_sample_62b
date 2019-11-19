@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'item-detail' => 'items#show'
   get 'items-new' => 'items#new'
   
- 
+  
   get 'address' => 'mypages#address'
   get 'card' => 'mypages#card'
   get 'complete' => 'mypages#complete'
