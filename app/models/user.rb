@@ -5,7 +5,7 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :addresses, :profile
 
   # ----------------------------------------
-  has_many :items
+  # has_many :items
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
