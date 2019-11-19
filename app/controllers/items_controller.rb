@@ -9,15 +9,15 @@ class ItemsController < ApplicationController
 
   def new
     # 商品出品
-    @item = Item.new
-    @item.image_build
-    @item.build_shipping
+    @shipping = Shipping.new
+    @shipping.items.build
+    # @item.images.build
   end
 
   def create
     # 出品内容を保存
-    @item = Item.new(item_params)
-    @item.save
+    @shipping = Shipping.new(shipping_params)
+    @shipping.save
     # binding.pry
     redirect_to :root
     # binding.pry
@@ -27,8 +27,8 @@ class ItemsController < ApplicationController
   end
 
   private
-  def item_params
-    params.require(:item).permit(:name, :body, :status)
-    # item_shipping_attributes: [:cost_burden, :period_before_shipping, :prefecure]
+  def shipping_params
+    params.require(:shipping).permit(:cost_burden, :period_before_shipping, :prefecure,
+    items_attributes: [:name, :body, :price, :condition])
   end
 end
