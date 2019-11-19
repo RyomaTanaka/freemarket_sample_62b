@@ -1,7 +1,10 @@
 class Item < ApplicationRecord
   belongs_to :user
   belongs_to :shipping
+  belongs_to :category
   has_many :images, dependent: :destroy
-  accepts_nested_attributes_for :shipping# shippingも使えるようになる
+
+  has_one :order, dependent: :destroy
+  # accepts_nested_attributes_for :shippings# shippingも使えるようになる
   accepts_nested_attributes_for :images
 end

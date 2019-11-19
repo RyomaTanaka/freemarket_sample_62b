@@ -27,18 +27,20 @@
                       またはクリックしてファイルをアップロード
                     %i.icon-camera
               .sell-content
-                .sell-content-title
-                  %label
-                    商品名
-                    %span.upload-box__header__required 必須
-                  %div
-              = f.fields_for :items do |i|
-                = i.text_field :name, placeholder: "商品名（必須 40文字まで)", class: "sell-title-label__input"
-                .sell-content-explanation
-                  %label
-                    商品名の説明
-                    %span.upload-box__header__required 必須
-                    = i.text_area :body, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "sell-content-explanation__input", rows: :"5"
+
+                = f.fields_for :items do |item|
+                  .sell-content-title
+                    %label
+                      商品名
+                      %span.upload-box__header__required 必須
+                    %div
+                  = item.text_field :name, placeholder: "商品名（必須 40文字まで)", class: "sell-title-label__input"
+                  .sell-content-explanation
+                    %label
+                      商品名の説明
+                      %span.upload-box__header__required 必須
+                    = item.text_area :body, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "sell-content-explanation__input", rows: :"5"
+
               .prodcts-detail
                 %h3.prodcts-detail__label 商品の詳細
                 .prodcts-detail__box
@@ -66,15 +68,25 @@
                         -#   %option{value: :"11"} チケット
                         -#   %option{value: :"12"} 自動車・オートバイ
                         -#   %option{value: :"13"} その他
-                .prodcts-status
-                  %label
-                    商品の状態
-                    %span.status__required 必須
-                  %div
-                    .status-container
-                      %i.fas.fa-angle-down
+                  .prodcts-status
+                    %label
+                      商品の状態
+                      %span.status__required 必須
+                    %div
+                      .status-container
+                        
+                        %i.fas.fa-angle-down
+                        = item.select :status, [ ["---",""], ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ,["", 4], ["", 5], ["", 6] ], {}, class: 'status-container__select'
                         -# = f.select :category, :property, [""], :class => 'foobar'
-                -# = i.select :status, [ ["---",""], ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ,["", 4], ["", 5], ["", 6] ], {}, class: 'status-container__select'
+                          
+                        -# %select.status-container__select
+                        -#   %option{value: :""} ---
+                        -#   %option{value: :"1"} 新品、未使用
+                        -#   %option{value: :"2"} 未使用に近い
+                        -#   %option{value: :"3"} 目立った傷や汚れなし
+                        -#   %option{value: :"4"} やや傷や汚れあり
+                        -#   %option{value: :"4"} 傷や汚れあり
+                        -#   %option{value: :"4"} 全体的に状態が悪い
 
               .prodcts-delivery
                 %h3.prodcts-delivery__label 配送について
@@ -87,7 +99,12 @@
                     %div
                       .delivery-container
                         %i.fas.fa-angle-down
-                    = f.select :cost_burden, [ ["---",""], ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ,["", 4], ["", 5], ["", 6] ],{}, class: :"delivery-container__select"
+                        = f.select :cost_burden, [ ["---",""], ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ,["", 4], ["", 5], ["", 6] ],{}, class: :"delivery-container__select"
+                        -# %select.delivery-container__select
+                        -#   %option{value: :""} ---
+                        -#   %option{value: :"2"} 送料込み(出品者負担)
+                        -#   %option{value: :"1"} 着払い(購入者負担)
+                          
 
                   .delivery-box__content
                     %label
@@ -96,8 +113,57 @@
                     %div
                       .delivery-container
                         %i.fas.fa-angle-down
-                    = f.select :prefecure, [ ["---",""], ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ,["", 4], ["", 5], ["", 6] ], {}, class: :"delivery-container__select"
 
+                        = f.select :prefecure, [ ["---",""], ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ,["", 4], ["", 5], ["", 6] ], {}, class: :"delivery-container__select"
+                        -# %select.delivery-container__select
+                        -#   %option{value: :""} ---
+                        -#   %option 北海道
+                        -#   %option 青森県
+                        -#   %option 岩手県
+                        -#   %option 宮城県
+                        -#   %option 秋田県
+                        -#   %option 山形県
+                        -#   %option 福島県
+                        -#   %option 東京都
+                        -#   %option 神奈川県
+                        -#   %option 埼玉県
+                        -#   %option.selected 千葉県
+                        -#   %option 茨城県
+                        -#   %option 栃木県
+                        -#   %option 群馬県
+                        -#   %option 山梨県
+                        -#   %option 新潟県
+                        -#   %option 長野県
+                        -#   %option 富山県
+                        -#   %option 石川県
+                        -#   %option 福井県
+                        -#   %option 愛知県
+                        -#   %option 岐阜県
+                        -#   %option 静岡県
+                        -#   %option 三重県
+                        -#   %option 大阪府
+                        -#   %option 兵庫県
+                        -#   %option 京都府
+                        -#   %option 滋賀県
+                        -#   %option 奈良県
+                        -#   %option 和歌山県
+                        -#   %option 鳥取県
+                        -#   %option 島根県
+                        -#   %option 岡山県
+                        -#   %option 広島県
+                        -#   %option 山口県
+                        -#   %option 徳島県
+                        -#   %option 香川県
+                        -#   %option 愛媛県
+                        -#   %option 高知県
+                        -#   %option 福岡県
+                        -#   %option 佐賀県
+                        -#   %option 長崎県
+                        -#   %option 熊本県
+                        -#   %option 大分県
+                        -#   %option 宮崎県
+                        -#   %option 鹿児島県
+                        -#   %option 沖縄県
                   .delivery-box__content
                     %label
                       発送までの日数
@@ -105,8 +171,13 @@
                     %div
                       .delivery-container
                         %i.fas.fa-angle-down
-                    = f.select :period_before_shipping	, [ ["---",""], ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ,["", 4], ["", 5], ["", 6] ], {}, class: :"delivery-container__select"
-       
+
+                        = f.select :period_before_shipping	, [ ["---",""], ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ,["", 4], ["", 5], ["", 6] ], {}, class: :"delivery-container__select"
+                        -# %select.delivery-container__select
+                        -#   %option{value: :""} ---
+                        -#   %option{value: :"1"} 1~2日で発送
+                        -#   %option{value: :"2"} 2~3日で発送
+                        -#   %option{value: :"3"} 4~7日で発送
               .prodcts-price
                 %h3.prodcts-price__label 販売価格(300〜9,999,999)
                 = link_to "", class: "question-icon", href: "#" do
@@ -121,7 +192,8 @@
                         .price-input
                           ¥
                           %div
-                            -# = f.number_field :price, placeholder: "例）300", class: "price-input__form"
+                          = f.fields_for :items do |item|
+                            = item.number_field :price, placeholder: "例）300", class: "price-input__form"
                     %li.price-lists__fee
                       .fee-label
                         販売手数料 (10%)

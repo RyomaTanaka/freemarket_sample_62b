@@ -26,7 +26,6 @@
             .form__field__addnameruby__box3
               = f.text_field :family_name_ruby,autofocus: true, autocomplete: "family_name_ruby",id:'addname'
               = f.text_field :first_name_ruby,autofocus: true, autocomplete: "first_name_ruby",id:'addname'
-
           .form__field__post_number
             .form__field__post_number__box1
               = f.label :郵便番号
@@ -35,7 +34,6 @@
               %br/
             .form__field__post_number__box3
               = address.text_field :post_number
-             
           .form__field__prefecture
             .form__field__prefecture__box1
               = f.label :都道府県
@@ -80,6 +78,4 @@
           .form__field__actions
             = f.submit"次へ進む",:class => "form__btn"
             -# , link_to '次へ進む', new_user_session_path
-  
-        
 = render "devise_addfooter"
