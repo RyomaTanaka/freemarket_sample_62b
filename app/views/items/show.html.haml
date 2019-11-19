@@ -6,10 +6,16 @@
   .main_container
     %section.item-detail
       %h1.item-detail__name
-        【90s】NIKE ナイロンジャケット 人気のヴィンテージ◎ サイズL
+        = @item.name
       .item-detail__contents.clearfix
-        .item-detail__contents--photo
-          %img(src="https://static.mercdn.net/item/detail/orig/photos/m94691953727_1.jpg?1568889708" alt="")/
+        .itemphoto
+          .owlcawsol
+            .stage
+              .item-detail__contents--photo
+                .divclass
+                  .aaa
+                    - @item.images.each do |image| 
+                      =image_tag image.image_url
         %table.item-detail__contents--table
           %tr
             %th
@@ -56,31 +62,32 @@
             %th
               商品の状態
             %td
-              目立った傷や汚れなし
+              = @item.status
           %tr
             %th
               配送料の負担
             %td
-              送料込み(出品者負担)
+              = @item.shipping.cost_burden
           %tr
             %th
               配送の方法
             %td
-              らくらくメルカリ便
+              = @item.shipping.method
           %tr
             %th
               配送元地域
             %td
               =link_to '#' do
-                = '栃木県'
+                = @item.shipping.prefecure
           %tr
             %th
               発送日の目安
             %td
-              2~３日で発送
+              = @item.shipping.period_before_shipping
       .item-detail__price-box.text-center
         %span.item-detail__price-box--main-price
-          ￥5,800
+          ￥
+          = @item.price
         %span.item-detail__price-box--tax
           (税込)
         %span.item-detail__price-box--shipping-fee
@@ -89,15 +96,7 @@
         購入画面に進む
       .item-detail__description
         %p.item-detail__description--input
-          ※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
-
-          【フォロー割り  10％引き】(^^)
-          【 セット割り    10％引き】(^^)
-          【フォロー&セット購入で20％引き】(^-^)/
-          『フォローしたよ』のコメントを頂ければ
-          割引致します！お気軽にコメント下さい(^^)
-
-          ※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※※
+          = @item.body
       .item-detail__buttons.crearfix
         .item-detail__buttons--left-btn
         .item-detail__buttons--right-btn
