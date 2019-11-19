@@ -9,9 +9,10 @@
         %div{"data-reactroot": ""}
           .sell-container-inner
             %h2.sell-container-inner__title 商品の情報を入力
-            = form_with model: @item, local: true, class: :"sell-form" do |f|
+            = form_with model: @item, url: items_path, method: :post, class: "sell-form", local: true do |f|
               .upload-box
-                %h3.upload-box__header
+                = f.fields_for :images do |i|
+                  %h3.upload-box__header
                   出品画像
                   %span.upload-box__header__required 必須
                 %p 最大10枚までアップロードできます
@@ -20,7 +21,7 @@
                     .upload-items__item
                       %ul
                   .upload-dropbox
-                    =f.file_field :image_url, class: "upload-dropbox__input"
+                    = i.file_field :image_url, class: "upload-dropbox__input"
                     %pre.upload-dropbox__input__visib
                       ドラッグアンドドロップ
                       またはクリックしてファイルをアップロード
@@ -31,12 +32,12 @@
                     商品名
                     %span.upload-box__header__required 必須
                   %div
-                    =f.text_field :name, placeholder: "商品名（必須 40文字まで)", class: "sell-title-label__input"
+                    = f.text_field :name, placeholder: "商品名（必須 40文字まで)", class: "sell-title-label__input"
                 .sell-content-explanation
                   %label
                     商品名の説明
                     %span.upload-box__header__required 必須
-                  =f.text_area :body, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "sell-content-explanation__input", rows: :"5"
+                  = f.text_area :body, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "sell-content-explanation__input", rows: :"5"
               .prodcts-detail
                 %h3.prodcts-detail__label 商品の詳細
                 .prodcts-detail__box
@@ -47,7 +48,7 @@
                     %div
                       .category-container
                         %i.fas.fa-angle-down
-                        = f.select :category, [ ["---",""], ["レディース",1], ["メンズ", 2], ["ベビー・キッズ", 3 ] ,["保育士", 4], ["学生", 5], ["営業", 6] ], {},{class: "category-container__select"}
+                        -# = f.select :category, [ ["---",""], ["レディース",1], ["メンズ", 2], ["ベビー・キッズ", 3 ] ,["保育士", 4], ["学生", 5], ["営業", 6] ], {},{class: "category-container__select"}
 
                         -# %select.category-container__select{name: :"category[category_id]"}
                         -#   %option{value: :""} ---
@@ -82,7 +83,8 @@
                         -#   %option{value: :"4"} 傷や汚れあり
                         -#   %option{value: :"4"} 全体的に状態が悪い
               .prodcts-delivery
-                %h3.prodcts-delivery__label 配送について
+                = f.fields_for :shippings do |s|
+                  %h3.prodcts-delivery__label 配送について
                 = link_to "?", "#",class: "question-icon"
                 .delivery-box
                   .delivery-box__container
@@ -92,7 +94,7 @@
                     %div
                       .delivery-container
                         %i.fas.fa-angle-down
-                        = f.select :cost_burden, [ ["---",""], ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ,["", 4], ["", 5], ["", 6] ],{}, class: :"delivery-container__select"
+                        -# = f.select :cost_burden, [ ["---",""], ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ,["", 4], ["", 5], ["", 6] ],{}, class: :"delivery-container__select"
                         -# %select.delivery-container__select
                         -#   %option{value: :""} ---
                         -#   %option{value: :"2"} 送料込み(出品者負担)
@@ -105,7 +107,7 @@
                     %div
                       .delivery-container
                         %i.fas.fa-angle-down
-                        = f.select :prefecure, [ ["---",""], ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ,["", 4], ["", 5], ["", 6] ], {}, class: :"delivery-container__select"
+                        -# = f.select :prefecure, [ ["---",""], ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ,["", 4], ["", 5], ["", 6] ], {}, class: :"delivery-container__select"
                         -# %select.delivery-container__select
                         -#   %option{value: :""} ---
                         -#   %option 北海道
@@ -162,14 +164,14 @@
                     %div
                       .delivery-container
                         %i.fas.fa-angle-down
-                        = f.select :period_before_shipping	, [ ["---",""], ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ,["", 4], ["", 5], ["", 6] ], {}, class: :"delivery-container__select"
+                        -# = f.select :period_before_shipping	, [ ["---",""], ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ,["", 4], ["", 5], ["", 6] ], {}, class: :"delivery-container__select"
                         -# %select.delivery-container__select
                         -#   %option{value: :""} ---
                         -#   %option{value: :"1"} 1~2日で発送
                         -#   %option{value: :"2"} 2~3日で発送
                         -#   %option{value: :"3"} 4~7日で発送
               .prodcts-price
-                %h3.prodcts-price__label 販売価格(300〜9,999,999)
+                  %h3.prodcts-price__label 販売価格(300〜9,999,999)
                 = link_to "", class: "question-icon", href: "#" do
                   ?
                 .price-container
@@ -182,7 +184,7 @@
                         .price-input
                           ¥
                           %div
-                            = f.number_field :age, placeholder: "例）300", class: "price-input__form"
+                            -# = f.number_field :price, placeholder: "例）300", class: "price-input__form"
                     %li.price-lists__fee
                       .fee-label
                         販売手数料 (10%)
@@ -205,7 +207,9 @@
                     また、出品を持ちまして
                     = link_to "加盟店規約", href: "#"
                     に同意した事になります。
-                %button.sell-btn{:type => "submit"}
+                -# %button.sell-btn{:type => "submit"}
+                = f.submit "出品する"
+                -# = link_to "", class: "sell-btn", href: "items_path" method: :post do
                   出品する
                 = link_to "", class: "back-btn", href: "#" do
                   もどる

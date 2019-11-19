@@ -60,14 +60,14 @@ ActiveRecord::Schema.define(version: 2019_11_16_045107) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "name", null: false
-    t.text "body", null: false
-    t.integer "price", null: false
-    t.string "condition", null: false
-    t.bigint "shipping_id", null: false
-    t.integer "status", null: false
-    t.integer "order_status", null: false
+    t.bigint "user_id"
+    t.string "name"
+    t.text "body"
+    t.integer "price"
+    t.string "condition"
+    t.bigint "shipping_id"
+    t.integer "status"
+    t.integer "order_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["shipping_id"], name: "index_items_on_shipping_id"
@@ -126,10 +126,10 @@ ActiveRecord::Schema.define(version: 2019_11_16_045107) do
   end
 
   create_table "shippings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "prefecure", null: false
+    t.string "prefecure"
     t.string "method"
-    t.string "cost_burden", null: false
-    t.string "period_before_shipping", null: false
+    t.string "cost_burden"
+    t.string "period_before_shipping"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
