@@ -25,5 +25,9 @@ Rails.application.routes.draw do
 
   devise_for :users
   root "items#index"
-  resources :items
+  resources :items do
+    collection do
+      get "show" => "items#show"
+    end
+  end
 end
