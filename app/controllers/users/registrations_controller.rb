@@ -19,6 +19,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # super
   end
 
+  def login
+  end
+
+
+
   # PUT /resource
   def address
     @user = User.new
