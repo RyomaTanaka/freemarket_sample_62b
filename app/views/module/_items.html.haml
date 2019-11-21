@@ -12,4 +12,6 @@
                 %span{"aria-label": "Price"}
                   ¥
                   = item.price
-                = image_tag item.images.first.image_url, class: 'item-photo'
+                -# - binding.pry
+                = image_tag item.images.first.url, class: 'item-photo'
+                

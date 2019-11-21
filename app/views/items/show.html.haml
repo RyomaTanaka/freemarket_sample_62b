@@ -14,7 +14,7 @@
                 .divclass
                   .aaa
                     - @item.images.each do |image| 
-                      =image_tag image.image_url
+                      =image_tag image.url
         =render "module/item_show_table"
       .item-detail__price-box.text-center
         %span.item-detail__price-box--main-price
