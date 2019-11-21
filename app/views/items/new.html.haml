@@ -44,7 +44,7 @@
                 .prodcts-detail
                   %h3.prodcts-detail__label 商品の詳細
                   .prodcts-detail__box
-                  = f.fields_for :category do |c|
+                  = f.fields_for :categorie do |c|
                     .prodcts-category
                       %label
                         カテゴリー
@@ -52,7 +52,10 @@
                       %div
                         .category-container
                           %i.fas.fa-angle-down
-                          = c.select :name, [ ["---",""], ["レディース",1], ["メンズ", 2], ["ベビー・キッズ", 3 ] ,["保育士", 4], ["学生", 5], ["営業", 6] ], {}, class: "category-container__select"
+                          = c.select :name, @category_parent_array, {}, {class: 'category-container__select', id: 'parent_category'}
+                          -# = c.select :name, @category_parent_array, {}, class: "category-container__select", id: :s1
+                          -# = c.select :name, [ ["---",""], ["トップス",1], ["シャツ/アウター", 2], ["パンツ", 3 ] ,["スカート", 4], ["ワンピース", 5], ["靴", 6],["ルームウェア", 7],["レッグウェア", 8],["帽子", 9],["バック", 10],["アクセサリー", 11],["小物", 12] ,["時計", 12],["ヘアアクセサリー", 12],["小物", 12],["時計", 12] ,["ウィッグ/エクステ", 12],["浴衣/水着", 12], ["スーツ/フォーマル/ドレス", 12]], {}, class: "category-container__select", id: :s2
+                          -# = c.select :name, [ ["---",""], ["レディース",1], ["メンズ", 2], ["ベビー・キッズ", 3 ] ,["インテリア・住まい・小物", 4], ["本・音楽・ゲーム", 5], ["コスメ・香水・美容", 6],["家電・スマホ・カメラ", 7],["スポーツ・レジャー", 8],["ハンドメイド", 9],["チケット", 10],["自動車・オートバイ", 11],["その他", 12] ], {}, class: "category-container__select", id: :s3
                     .prodcts-status
                       %label
                         商品の状態
@@ -60,7 +63,7 @@
                       %div
                         .status-container
                           %i.fas.fa-angle-down
-                        = item.select :status, [ ["---",""], ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ,["", 4], ["", 5], ["", 6] ], {}, class: 'status-container__select'
+                        = item.select :status, [ ["---",""], ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ], {}, class: 'status-container__select'
                 .prodcts-delivery
                   %h3.prodcts-delivery__label 配送について
                   = link_to "?", "#",class: "question-icon"
@@ -72,7 +75,7 @@
                       %div
                         .delivery-container
                           %i.fas.fa-angle-down
-                          = f.select :cost_burden, [ ["---",""], ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ,["", 4], ["", 5], ["", 6] ],{}, class: "delivery-container__select"
+                          = f.select :cost_burden, [ ["---",""], ["送料込み(出品者負担)",1], ["着払い(購入者負担)", 2] ],{}, class: "delivery-container__select"
                     .delivery-box__content
                       %label
                         発送元の地域
@@ -89,7 +92,7 @@
                       %div
                         .delivery-container
                           %i.fas.fa-angle-down
-                          = f.select :period_before_shipping	, [ ["---",""], ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ,["", 4], ["", 5], ["", 6] ], {}, class: "delivery-container__select"
+                          = f.select :period_before_shipping	, [ ["---",""], ["1〜2日で発送",1], ["2〜3日で発送", 2], ["4〜7日で発送", 3 ] ], {}, class: "delivery-container__select"
                 .prodcts-price
                   %h3.prodcts-price__label 販売価格(300〜9,999,999)
                   = link_to "", class: "question-icon", href: "#" do
