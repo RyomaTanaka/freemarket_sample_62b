@@ -1,5 +1,8 @@
 class MypagesController < ApplicationController
   def index
+        @items = Item.all.order("crated_at DESC")
+        @images = Image.all
+
   end
 
   def logout

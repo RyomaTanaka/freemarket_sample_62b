@@ -1,3 +1,5 @@
+/* mypage */
+
 = render "module/header"
 
 %body.mypage-body        
@@ -14,6 +16,8 @@
           マイページ
   %main.container
     .content
+      - @items.each do |item|
+        = item.name
       %section.mypage-user-upper
         = link_to "", class: "content-wrapper", href: "#" do
           %figure
@@ -22,7 +26,7 @@
             ユーザーネーム
           .content-wrapper__evaluation-exhibit
             %div 
-              評価
+              評価 
               %span.content-wrapper__evaluation-exhibit.bold 89
             %div
               出品数

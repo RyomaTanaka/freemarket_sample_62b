@@ -4,4 +4,9 @@ class UsersController < ApplicationController
 
   def new
   end
+
+  def show
+    @items = Item.where(user_id: "1")
+ end
+
 end

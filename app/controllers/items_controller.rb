@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-before_action :set_item, only: [:show, :purchase, :edit]
+# before_action :set_item, only: [:show, :purchase, :edit, :exihibited_lists]
 
 
   def index
@@ -35,12 +35,15 @@ before_action :set_item, only: [:show, :purchase, :edit]
   end
 
   def create
+    Item.create(name: item_params[:name], body: item_params[:body], price: item_params[:price],  user_id: current_user.id)
   end
 
   def purchase
   end
 
   def exihibited_lists
+        @items = Item.where(user_id: "1")
+
   end
 
   def exihibited
@@ -50,6 +53,11 @@ end
 
 
 private
+
+
+def item_params
+  prams.permit(:name, :body, :price)
+end
 
 def set_item
   @item = Item.includes(:images).find(params[:id])

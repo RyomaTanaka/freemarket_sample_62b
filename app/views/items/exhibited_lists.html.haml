@@ -29,48 +29,50 @@
         .tab-content-exhibited
           .mypage-tabs-content
             %ul.mypage-contents-list
-              = render ""
-              %li
-                = link_to exhibited_items_path, class: "mypage-contents-list__link" do
-                  %figure
-                    %img.app-icon{ alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
-                  .mypage-contents-body
-                    .mypage-contents-body__text 事務局から個別メッセージ「ログイン通知」
-                    %time
-                      = fa_icon 'clock', class: 'clocks-icon'
-                      %span 1時間前
-                  = fa_icon 'chevron-right'
+            - @items.each do |item|
+              = item.name
+              -# %li
+              -#   = link_to "/items/exhibited/:id", class: "mypage-contents-list__link" do
+              -#     %figure
+              -#       %img.app-icon{ alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
+              -#     .mypage-contents-body
+              -#       .mypage-contents-body__text 事務局から個別メッセージ「ログイン通知」
+              -#       %time
+              -#         = fa_icon 'clock', class: 'clocks-icon'
+              -#         %span 1時間前
+              -#     = fa_icon 'chevron-right'
 
-              %li
-                = link_to "", class: "mypage-contents-list__link", href: "#" do
-                  %figure
-                    %img.app-icon{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
-                  .mypage-contents-body
-                    .mypage-contents-body__text かゆい所に手が届く！厚めの商品発送におすすめの「ゆうパケットプラス」」が新登場！
-                    %time
-                      = fa_icon 'clock', class: 'clocks-icon'
-                      %span 11日前
-                  = fa_icon 'chevron-right'
-              %li
-                = link_to "", class: "mypage-contents-list__link", href: "#" do
-                  %figure
-                    %img.app-icon{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
-                  .mypage-contents-body
-                    .mypage-contents-body__text 明日、5％還元クーポンの有効期限有効期限が切れます！タップして詳細を確認しましょう。
-                    %time
-                      %i.fas.fa-clock
-                      %span 13日前
-                  = fa_icon 'chevron-right'
-              %li
-                = link_to "", class: "mypage-contents-list__link", href: "#" do
-                  %figure
-                    %img.app-icon{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
-                  .mypage-contents-body
-                    .mypage-contents-body__text 事務局から個別メッセージ「【お詫び】「クーポンの有効期限」について」
-                    %time
-                      %i.fas.fa-clock
-                      %span 15日前
-                  = fa_icon 'chevron-right'
+              -# %li
+              -#   = link_to "", class: "mypage-contents-list__link", href: "#" do
+              -#     %figure
+              -#       %img.app-icon{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
+              -#     .mypage-contents-body
+              -#       .mypage-contents-body__text かゆい所に手が届く！厚めの商品発送におすすめの「ゆうパケットプラス」」が新登場！
+              -#       %time
+              -#         = fa_icon 'clock', class: 'clocks-icon'
+              -#         %span 11日前
+              -#     = fa_icon 'chevron-right'
+              -# %li
+              -#   = link_to "", class: "mypage-contents-list__link", href: "#" do
+              -#     %figure
+              -#       %img.app-icon{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
+              -#     .mypage-contents-body
+              -#       .mypage-contents-body__text 明日、5％還元クーポンの有効期限有効期限が切れます！タップして詳細を確認しましょう。
+              -#       %time
+              -#         %i.fas.fa-clock
+              -#         %span 13日前
+              -#     = fa_icon 'chevron-right'
+              -# %li
+              -#   = link_to "", class: "mypage-contents-list__link", href: "#" do
+              -#     %figure
+              -#       %img.app-icon{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
+              -#     .mypage-contents-body
+              -#       .mypage-contents-body__text 事務局から個別メッセージ「【お詫び】「クーポンの有効期限」について」
+              -#       %time
+              -#         %i.fas.fa-clock
+              -#         %span 15日前
+              -#     = fa_icon 'chevron-right'
+
               -# %li.mypage-notice-list
               -#   = link_to "", href: "#" do
               -#     一覧を見る
