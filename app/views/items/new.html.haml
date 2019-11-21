@@ -101,6 +101,9 @@
                       .delivery-container
                         -# = fa_icon 'chevron-down'
                         -# = f.select :cost_burden, [ ["---",""], ["送料込み(出品者負担)",1], ["着払い(購入者負担)", 2] ],{}, class: "delivery-container__select"
+                         %i.fas.fa-angle-down
+                        -# = f.select :prefecure, [ ["---",""], ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ,["", 4], ["", 5], ["", 6] ], {}, class: "delivery-container__select"
+
                         %select.delivery-container__select
                           %option{value: :""} ---
                           %option{value: :"2"} 送料込み(出品者負担)
