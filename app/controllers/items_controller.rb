@@ -14,10 +14,10 @@ class ItemsController < ApplicationController
     item = @shipping.items.build
     item.images.build
 
-    @category_parent_array = ["---"]
-    Categorie.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
+    # @category_parent_array = ["---"]
+    # Categorie.where(ancestry: nil).each do |parent|
+    #   @category_parent_array << parent.name
+    # end
   end
 
   #親カテゴリが選択された後に動くアクション

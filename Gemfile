@@ -73,3 +73,5 @@ gem 'haml-rails'
 gem 'font-awesome-sass'
 gem 'jquery-rails'
 gem "gretel"
+gem 'carrierwave'
+gem 'mini_magick'
