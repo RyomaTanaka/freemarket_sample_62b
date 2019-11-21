@@ -40,6 +40,7 @@
                     %span.upload-box__header__required 必須
                   %div
                     %input{class: :"sell-title-label__input", placeholder: :"商品名（必須 40文字まで)", value: :""}/
+                    -#  = item.text_field :name, placeholder: "商品名（必須 40文字まで)", class: "sell-title-label__input"
                 .sell-content-explanation
                   %label
                     商品名の説明
