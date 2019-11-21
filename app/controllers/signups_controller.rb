@@ -46,9 +46,14 @@ class SignupsController < ApplicationController
       birth_month: session[:birth_month],
       birth_day: session[:birth_day]
     )
-    @user.save
-    session[:user_id] = @user.id
 
+    if @user.save
+      session[:user_id] = @user.id
+      sign_in User.find(@user.id) unless user_signed_in?
+    else
+      render :step2
+    end
+    
     @address = Address.new(
       user_id: session[:user_id],
       user_name: session[:user_name],

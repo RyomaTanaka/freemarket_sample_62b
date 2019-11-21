@@ -13,19 +13,18 @@
         .log_content__center__facebook__icon
           %i.fab.fa-facebook-square
         .log_content__center__facebook__text
-          facebookでログイン
+          = link_to "Facebookでログイン", user_facebook_omniauth_authorize_path
       .log_content__center__google
         .log_content__center__google__icon
           %i.fab.fa-google
         .log_content__center__google__text
-          Googleでログイン
+          = link_to "Googleでログイン", user_google_oauth2_omniauth_authorize_path
     .log_content__bottom
       .log_content__bottom__mail
         = f.email_field :email,  autocomplete: "email",placeholder: "メールアドレス",id:'log_email'
-
       .log_content__bottom__pass
         = f.password_field :password, autocomplete: "current-password",placeholder: "パスワード",id:'log_pass'
-      .log_content__bottom__btn
-        ログイン
+        = f.submit class: "log_content__bottom__btn", value: 'ログイン'
+      -# .log_content__bottom__btn
       .log_content__bottom__text
         パスワードをお忘れの方

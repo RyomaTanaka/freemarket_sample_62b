@@ -8,10 +8,7 @@
 @import "mypages/profile_edit";
 @import "purchases/purchase_confirmation";
 @import "font-awesome-sprockets";
-@import "font-awesome";
-
-@import "font-awesome-sprockets";
-@import "font-awesome";
+@import "./font-awesome";
 @import "config/colors";
 @import "reset";
 @import "items";
@@ -27,3 +24,5 @@
 @import "card" ;
 @import "new-session" ;
 @import "new-registrations" ;
+@import "header_btn" ;
+@import "start_login";
