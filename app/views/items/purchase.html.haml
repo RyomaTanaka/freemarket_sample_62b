@@ -12,12 +12,14 @@
     %section.purchase-confirmation__item
       .purchase-item
         %h3.purchase-item__image
-          %img.purchase-item__image-adjust{ src: "assets/icon.jpg", alt: ""} 
+          - @item.images.each do |image|
+            = image_tag image.image_url, class: "purchase-item__image-adjust"
         %p.purchase-item__name
-          patagonia パタゴニア ナノパフジャケット
+          = @item.name
         %form.purchase-item-form{ action: "", method: "POST", novalidate: "novalidate"}
           %p.purchase-item-form__price
-            ¥19,800
+            ¥
+            = @item.price
             %span.purchase-item-form__postage-included
               送料込み
           %ul.purchase-item-form__outer
@@ -30,7 +32,8 @@
                 支払い金額
               .purchase-item-confirmation__inner
                 %span.purchase-item-confirmation__payment-amount
-                  ¥19,800
+                  ¥
+                  = @item.price
           %button.btn-default-value.btn-color-red
             購入する
 

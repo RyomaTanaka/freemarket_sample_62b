@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'purchase' => 'items#purchase'
+  
   get 'profile_edit' => 'mypages#profile_edit'
   get 'personal' => 'mypages#personal'
   get 'logout' => 'mypages#logout'
@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :items do
     collection do
       get "show" => "items#show"
+      get  'purchase/:id'=>  'items#purchase', as: 'purchase'
     end
   end
 end
