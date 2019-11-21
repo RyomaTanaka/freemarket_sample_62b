@@ -1,4 +1,7 @@
 class ItemsController < ApplicationController
+before_action :set_item, only: [:show, :purchase, :edit]
+
+
   def index
     @items = Item.all.order("crated_at DESC")
     @images = Image.all
@@ -12,7 +15,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
+    # @item = Item.find(params[:id])
   end
 
   def update
@@ -46,7 +49,11 @@ class ItemsController < ApplicationController
 end
 
 
-# private
+private
+
+def set_item
+  @item = Item.includes(:images).find(params[:id])
+end
 
 # def update_item_params
 #   params.require(item).permit(:name, :body, :price, :status, :user_id, :shipping_id, :order_status

@@ -256,13 +256,13 @@ figcaption {
   word-break: break-word;
 }
 
-// span {
-//   display: inline-block;
-//   height: 2.8em;
-//   overflow: hidden;
-//   position: relative;
-//   margin-top: 7px;
-// }
+span {
+  display: inline-block;
+  height: 2.8em;
+  overflow: hidden;
+  position: relative;
+  margin-top: 7px;
+}
 
 .item-price{
   height: 0;
@@ -270,19 +270,19 @@ figcaption {
   padding: 0 0 100%;
 }
 
-// span[aria-label] {
-//   -webkit-box-align: center;
-//   align-items: center;
-//   background: rgba(0,0,0,.4);
-//   border-radius: 0 14px 14px 0;
-//   box-sizing: border-box;
-//   color: #fff;
-//   display: inline-flex;
-//   font-size: 17px;
-//   height: 28px;
-//   letter-spacing: .02em;
-//   margin: 0;
-//   padding: 0 12px;
-//   position: absolute;
-//   z-index: 2;
-// }
+span[aria-label] {
+  -webkit-box-align: center;
+  align-items: center;
+  background: rgba(0,0,0,.4);
+  border-radius: 0 14px 14px 0;
+  box-sizing: border-box;
+  color: #fff;
+  display: inline-flex;
+  font-size: 17px;
+  height: 28px;
+  letter-spacing: .02em;
+  margin: 0;
+  padding: 0 12px;
+  position: absolute;
+  z-index: 2;
+}

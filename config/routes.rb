@@ -32,7 +32,8 @@ Rails.application.routes.draw do
       get "exhibited_lists" => "items#exhibited_lists"
       get "exhibited" => "items#exhibited"
       delete 'items/:id' => 'items#destroy'
-      get "/items/:id/edit" => "items#edit"
+      get "edit/:id" => "items#edit", as: "edit"
+      get ":id/purchase" => "items#purchase"
       # post "show" => 
       # post "delete"
       # ... "edit"

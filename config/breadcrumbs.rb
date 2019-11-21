@@ -3,8 +3,8 @@ crumb :root do
 end
 
 # マイページ
-crumb :mypage do
-  link "マイページ", mypage_path
+crumb :new do
+  link "NEW", new_item_path
 end
 # crumb :projects do
 #   link "Projects", projects_path

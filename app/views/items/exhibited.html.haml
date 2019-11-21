@@ -127,7 +127,7 @@
           =link_to '#' do
             = '安心安全への取り組み'
         .item-change-box
-          = link_to "商品の編集", edit_item_path, method: :get,  class: "btn-default-value btn-color-red" do
+          = link_to "商品の編集", edit_items_path(@item.id), method: :get,  class: "btn-default-value btn-color-red" do
     -#   %button.btn-default-value.btn-color-grey
     -#   = link_to "この商品を削除する", item_path(@item), method: :delete, class: "btn-default-value"
     -#   = link_to "この商品を購入する", "/items/--/#{@item.id}", method: :get, class: "btn-color-red"
