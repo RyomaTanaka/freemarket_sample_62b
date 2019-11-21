@@ -1,53 +1,45 @@
 class ItemsController < ApplicationController
-  def index
-    @items = Item.all.order("crated_at DESC")
-    @images = Image.all
-  end
 
   def show
-    @item = Item.find(params[:id])
+  end
+  def index
+    # トップページ
+    @shipping = Shipping.all
+    
   end
 
   def new
-  end
+    # 商品出品
+    @shipping = Shipping.new
+    item = @shipping.items.build
+    item.images.build
 
-  def edit
-    @item = Item.find(params[:id])
-  end
-
-  def update
-    if @item.update(update_item_params)
-      redirect_to root_path
-    else
-      redirect_to edit_item_path
+    @category_parent_array = ["---"]
+    Categorie.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
     end
   end
 
-  def destroy
-    # if @item.user_id == current_user.id && @item.destroy
-    #   redirect_to root_path
-    # else
-    #   redirect_to action: :show
-    # end
-  end
+  #親カテゴリが選択された後に動くアクション
+  # def categorie_children
+  #   #親要素に紐付いた子要素を取得
+  #   @categorie_children = Categorie.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  # end
+
+  # #子要素カテゴリが選択されたあとに動くアクション
+  # def categorie_grandchildren
+  #   #子要素に紐付いた孫要素を取得
+  #   @categorie_grandchildren = Categorie.find_by("#{params[:parent_name]}").children
+  # end
 
   def create
+    # 出品内容を保存
+    @shipping = Shipping.create(shipping_params)
   end
 
-  def purchase
+  private
+  def shipping_params
+    params.require(:shipping).permit(:cost_burden, :period_before_shipping, :prefecure,
+    items_attributes: [:name, :body, :status, :price, :condition, images_attributes: [:image]])
   end
-
-  def exihibited_lists
-  end
-
-  def exihibited
-  end
-
 end
-
-
-# private
-
-# def update_item_params
-#   params.require(item).permit(:name, :body, :price, :status, :user_id, :shipping_id, :order_status
-#   [images_attributes: [:image, :_destory, :id]]).merge(user_id: current_user_id)
