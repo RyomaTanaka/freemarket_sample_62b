@@ -35,11 +35,12 @@ class ItemsController < ApplicationController
   def create
     # 出品内容を保存
     @shipping = Shipping.create(shipping_params)
+    # binding.pry
   end
 
   private
   def shipping_params
     params.require(:shipping).permit(:cost_burden, :period_before_shipping, :prefecure,
-    items_attributes: [:name, :body, :status, :price, :condition, images_attributes: [:image]])
+    items_attributes: [:name, :body, :status, :price, :condition, images_attributes: [:image_url]])
   end
 end

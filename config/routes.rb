@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     #   get 'categorie_grandchildren', defaults: { format: 'json' }
     # end
   # end
+
+  resources :mypages do
+  end
   resource :signups do
     get :step1
     get :step2
