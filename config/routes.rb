@@ -21,14 +21,36 @@ Rails.application.routes.draw do
 
 
 
+  # get 'items/:id/edit'  => 'mypages#item_edit'
 
+  
 
   devise_for :users
   root "items#index"
+
+  devise_scope :user do
+    
+    get "sign_up/login", :to => 'users/registrations#login'
+   
+  end
+
+  resources :mypages do
+  end
+
+
   resources :items do
     collection do
       get "show" => "items#show"
+      get "exhibited_lists" => "items#exhibited_lists"
+      get "exhibited" => "items#exhibited"
+      delete 'items/:id' => 'items#destroy'
+      get "/items/:id/edit" => "items#edit"
       get  'purchase/:id'=>  'items#purchase', as: 'purchase'
+
+      # post "show" => 
+      # post "delete"
+      # ... "edit"
+      # ... "update"
     end
   end
 end

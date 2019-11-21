@@ -1,6 +1,6 @@
-.main_container {
+.main_container_exhibited {
   background: #f5f5f5;
-  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  margin-left: 330px;
   .item-detail {
     background: #fff;
     width: 700px;
@@ -15,6 +15,7 @@
       &--photo {
         height: 420px;
         width: 300px;
+        background-color: aqua;
         float: left;
         img {
           width: 300px;
@@ -342,3 +343,59 @@
   }
 }
 
+
+
+.item-change-box {
+  background: #fff;
+}
+
+.content-exhibited {
+  width: 700px;
+    float: right;
+}
+
+.tab-wrap-exhibited {
+  width: 700px;
+  display: flex;
+  flex-wrap: wrap;
+  background: #fff;
+  float: right;
+}
+
+.purchase-wrapper-exhibited {
+  margin: 0;
+  background: #fff;
+}
+
+
+.tab-label-exhibited {
+    color: White;
+    background: LightGray;
+    order: -1;
+    width: 33.33333%;
+    line-height: 80px;
+    text-align: center;
+}
+.tab-content-exhibited {
+    width: 100%;
+    display: none;
+}
+
+.tab-switch-exhibited:checked+.tab-label-exhibited {
+    background: #fff;
+    color: black;
+    border-top: 2px solid red;
+    font-size: 16px;
+    line-height: 80px;
+    width: 33.3333%;
+    text-align: center;
+}
+
+.tab-switch-exhibited:checked+.tab-label-exhibited+.tab-content-exhibited {
+     display: block;
+     
+}
+
+.tab-switch-exhibited {
+    display: none;
+}
