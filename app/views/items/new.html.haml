@@ -116,6 +116,7 @@
                     %div
                       .delivery-container
                         -# = fa_icon 'chevron-down'
+                        -# = f.select :period_before_shipping	, [ ["---",""], ["1〜2日で発送",1], ["2〜3日で発送", 2], ["4〜7日で発送", 3 ] ], {}, class: "delivery-container__select"
                         %select.delivery-container__select
                           %option{value: :""} ---
                           %option 北海道
