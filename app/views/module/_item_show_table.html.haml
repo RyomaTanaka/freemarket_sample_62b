@@ -1,0 +1,68 @@
+%table.item-detail__contents--table
+  %tr
+    %th
+      出品者
+    %td
+      =link_to '#' do
+        ='サンプルサンプルサンプルサンプル'
+      .item-detail__contents--table--rating
+        %span.user-ratings
+          = fa_icon 'smile-o', class: 'good-icon'
+          %span 100
+        %span.user-ratings
+          = fa_icon 'meh-o', class: 'normal-icon'
+          %span 50
+        %span.user-ratings
+          = fa_icon 'frown-o', class: 'bad-icon'
+          %span 10
+  %tr
+    %th
+      カテゴリー
+    %td
+      =link_to '#' do
+        = 'メンズ'
+      .item-detail__contents--table--child-category
+        = fa_icon 'chevron-right', class: 'arrow'
+        =link_to '#' do
+          = 'アウター、ジャケット'
+      .item-detail__contents--table--grond-child-category
+        = fa_icon 'chevron-right', class: 'arrow'
+        =link_to '#' do
+          ='ナイロンジャケット'
+  %tr
+    %th
+      ブランド
+    %td
+      =link_to '#' do
+        = 'ナイキ'
+  %tr
+    %th
+      商品のサイズ
+    %td
+      L
+  %tr
+    %th
+      商品の状態
+    %td
+      = @item.status
+  %tr
+    %th
+      配送料の負担
+    %td
+      = @item.shipping.cost_burden
+  %tr
+    %th
+      配送の方法
+    %td
+      = @item.shipping.method
+  %tr
+    %th
+      配送元地域
+    %td
+      =link_to '#' do
+        = @item.shipping.prefecure
+  %tr
+    %th
+      発送日の目安
+    %td
+      = @item.shipping.period_before_shipping
