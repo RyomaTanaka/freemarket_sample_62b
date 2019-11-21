@@ -193,6 +193,7 @@
                         .price-input
                           ¥
                           %div
+                            -# = item.number_field :price, placeholder: "例）300", class: "price-input__form"
                             %input{class: :"price-input__form", placeholder: :"例）300", value: :""}/
                     %li.price-lists__fee
                       .fee-label
