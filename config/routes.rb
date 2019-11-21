@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   resources :items do
     collection do
       get "show" => "items#show"
+      get "edit" => "items#edit"
+
     end
   end
 end
