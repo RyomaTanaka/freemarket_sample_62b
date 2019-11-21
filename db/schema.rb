@@ -10,19 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_19_093900) do
+ActiveRecord::Schema.define(version: 2019_11_21_022001) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.string "post_number", null: false
-    t.string "prefecture", null: false
-    t.string "city", null: false
-    t.string "house_number", null: false
-    t.string "building_name"
-    t.integer "phone_number"
+    t.integer "prefecture_id"
+    t.string "city"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -110,7 +105,6 @@ ActiveRecord::Schema.define(version: 2019_11_19_093900) do
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "nickname", null: false
     t.text "into"
     t.string "image"
     t.datetime "created_at", null: false
@@ -146,9 +140,9 @@ ActiveRecord::Schema.define(version: 2019_11_19_093900) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "nickname", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "nickname", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -165,7 +159,6 @@ ActiveRecord::Schema.define(version: 2019_11_19_093900) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "addresses", "users"
   add_foreign_key "cards", "users"
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"
