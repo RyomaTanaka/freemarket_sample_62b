@@ -12,6 +12,8 @@
         %div{"data-reactroot": ""}
           .sell-container-inner
             %h2.sell-container-inner__title 商品の情報を入力
+            = form_with model: @shipping, url: items_path, method: :post, class: "sell-form", local: true do |f|
+              = f.fields_for :items do |item|
             %form.sell-form
               .upload-box
                 %h3.upload-box__header
