@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Image.create(item_id: 13, url: "51XyLHYl4pL._SY355_.jpg")
+Image.create(item_id: 14, url: "51XyLHYl4pL._SY355_.jpg")
+Image.create(item_id: 15, url: "51XyLHYl4pL._SY355_.jpg")
+Image.create(item_id: 16, url: "51XyLHYl4pL._SY355_.jpg")
+Image.create(item_id: 17, url: "51XyLHYl4pL._SY355_.jpg")
+Image.create(item_id: 12, url: "51XyLHYl4pL._SY355_.jpg")
+Image.create(item_id: 13, url: "51XyLHYl4pL._SY355_.jpg")

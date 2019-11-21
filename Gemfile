@@ -40,6 +40,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -70,6 +72,9 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'haml-rails'
-gem 'font-awesome-rails'
 gem 'font-awesome-sass'
 gem 'jquery-rails'
+gem 'pry-rails'
+gem 'carrierwave'
+gem 'mini_magick'
+gem "gretel"

@@ -1,8 +1,9 @@
+/* mypage */
+
 = render "module/header"
 
-
 %body.mypage-body        
- 
+  
   %nav.breadcrumbs
     %ul
       %li{ itemscope: "", itemtype: "#"}
@@ -15,6 +16,8 @@
           マイページ
   %main.container
     .content
+      - @items.each do |item|
+        = item.name
       %section.mypage-user-upper
         = link_to "", class: "content-wrapper", href: "#" do
           %figure
@@ -23,7 +26,7 @@
             ユーザーネーム
           .content-wrapper__evaluation-exhibit
             %div 
-              評価
+              評価 
               %span.content-wrapper__evaluation-exhibit.bold 89
             %div
               出品数
@@ -159,7 +162,7 @@
             %li.mypage-notice-list
               = link_to "", href: "#" do
                 一覧を見る
-    = render "content-left"      
+    = render "module/content-left"      
 
 = render "module/footer"
 = render "module/right_btn"

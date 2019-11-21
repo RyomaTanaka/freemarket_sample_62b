@@ -1,5 +1,8 @@
 class MypagesController < ApplicationController
   def index
+        @items = Item.all.order("crated_at DESC")
+        @images = Image.all
+
   end
 
   def logout
@@ -14,22 +17,11 @@ class MypagesController < ApplicationController
   def profile_edit
   end
 
-  def address
+  def exhibited
+    @item = Item.find(params[:id])
   end
 
-  def card
-  end
-
-  def complete
-  end
-
-  def edit
-  end
-
-  def new
-  end
-
-  def tele
+  def item_edit
   end
 
 
