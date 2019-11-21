@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-# before_action :set_item, only: [:show, :purchase, :edit, :exihibited_lists]
+before_action :set_item, only: [:show, :purchase, :edit, :exihibited_lists]
 
 
   def index
@@ -63,6 +63,7 @@ class ItemsController < ApplicationController
   def shipping_params
     params.require(:shipping).permit(:cost_burden, :period_before_shipping, :prefecure,
     items_attributes: [:name, :body, :status, :price, :condition, images_attributes: [:url]])
+  end
   def exihibited_lists
         @items = Item.where(user_id: "1")
 
