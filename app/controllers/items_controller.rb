@@ -60,6 +60,7 @@ class ItemsController < ApplicationController
   def shipping_params
     params.require(:shipping).permit(:cost_burden, :period_before_shipping, :prefecure,
     items_attributes: [:name, :body, :status, :price, :condition, images_attributes: [:url]])
+  end
   def exihibited_lists
   end
 
