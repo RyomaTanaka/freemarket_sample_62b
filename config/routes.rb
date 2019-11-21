@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
+  
   devise_for :users
   root "items#index"
-  resources :items
-    # collection do
-    #   get 'categorie_children', defaults: { format: 'json' }
-    #   get 'categorie_grandchildren', defaults: { format: 'json' }
-    # end
-  # end
-  resource :signups do
-    get :step1
-    get :step2
-    get :step3
-    get :step4
+
+  devise_scope :user do
+
+    get "sign_up/login", :to => 'users/registrations#login'
+    
   end
+
+  resources :items
+
+  get 'users/:id'   =>  'users#show'
+
 end

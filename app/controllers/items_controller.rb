@@ -1,14 +1,20 @@
 class ItemsController < ApplicationController
 
-  def show
-  end
+
+
   def index
     # トップページ
-    
     @items = Item.all.limit(10).order("created_at DESC")
     # binding.pry
     @shipping = Shipping.all
+  end
     
+
+
+
+  def show
+    @item = Item.find(params[:id])
+
   end
 
   def new
@@ -16,7 +22,6 @@ class ItemsController < ApplicationController
     @shipping = Shipping.new
     item = @shipping.items.build
     item.images.build
-    
 
     @category_parent_array = ["---"]
     Categorie.where(ancestry: nil).each do |parent|
@@ -24,27 +29,51 @@ class ItemsController < ApplicationController
     end
   end
 
-  #親カテゴリが選択された後に動くアクション
-  # def categorie_children
-  #   #親要素に紐付いた子要素を取得
-  #   @categorie_children = Categorie.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
-  # end
-
-  # #子要素カテゴリが選択されたあとに動くアクション
-  # def categorie_grandchildren
-  #   #子要素に紐付いた孫要素を取得
-  #   @categorie_grandchildren = Categorie.find_by("#{params[:parent_name]}").children
-  # end
 
   def create
-    # 出品内容を保存
+    Item.create(name: item_params[:name], body: item_params[:body], price: item_params[:price],  user_id: current_user.id)
     @shipping = Shipping.create(shipping_params)
     redirect_to action: :index
   end
 
+
+
+  def edit
+    # @item = Item.find(params[:id])
+  end
+
+  def update
+    if @item.update(update_item_params)
+      redirect_to root_path
+    else
+      redirect_to edit_item_path
+    end
+  end
+
+  def destroy
+    # if @item.user_id == current_user.id && @item.destroy
+    #   redirect_to root_path
+    # else
+    #   redirect_to action: :show
+    # end
+  end
+
+  def purchase
+  end
+
   private
+  def set_item
+    @item = Item.includes(:images).find(params[:id])
+  end
+  
   def shipping_params
     params.require(:shipping).permit(:cost_burden, :period_before_shipping, :prefecure,
-    items_attributes: [:name, :body, :status, :price, :condition, images_attributes: [:image_url]])
+    items_attributes: [:name, :body, :status, :price, :condition, images_attributes: [:url]])
+  end
+  def exihibited_lists
+        @items = Item.where(user_id: "1")
+  end
+
+  def exihibited
   end
 end

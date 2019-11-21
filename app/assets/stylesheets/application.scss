@@ -1,17 +1,15 @@
 @import "modules/detail.scss";
 @import "base/base.scss";
-@import 'font-awesome';
 @import "mypages/mypage";
 @import "mypages/logout";
 @import "mypages/credit_registration";
 @import "mypages/personal";
 @import "mypages/profile_edit";
-@import "purchases/purchase_confirmation";
+@import "mypages/exhibited";
+@import "purchases/index";
 @import "font-awesome-sprockets";
-@import "font-awesome";
+@import "./font-awesome";
 
-@import "font-awesome-sprockets";
-@import "font-awesome";
 @import "config/colors";
 @import "reset";
 @import "items";

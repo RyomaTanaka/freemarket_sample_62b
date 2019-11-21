@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 #レディース
 lady = Categorie.create(name: "レディース")
 lady_1 = lady.children.create(name: "トップス")
@@ -334,3 +335,13 @@ others_8 = others.children.create(name: "事務/店舗用品")
 others_8.children.create([{name: "オフィス用品一般"},{name: "オフィス家具"},{name: "店舗用品"},{name: "OA機器"},{name: "ラッピング/包装"},{name: "その他"}])
 others_9 = others.children.create(name: "その他")
 others_9.children.create([{name: "すべて"}])
+
+
+Image.create(item_id: 13, url: "51XyLHYl4pL._SY355_.jpg")
+Image.create(item_id: 14, url: "51XyLHYl4pL._SY355_.jpg")
+Image.create(item_id: 15, url: "51XyLHYl4pL._SY355_.jpg")
+Image.create(item_id: 16, url: "51XyLHYl4pL._SY355_.jpg")
+Image.create(item_id: 17, url: "51XyLHYl4pL._SY355_.jpg")
+Image.create(item_id: 12, url: "51XyLHYl4pL._SY355_.jpg")
+Image.create(item_id: 13, url: "51XyLHYl4pL._SY355_.jpg")
+
