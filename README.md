@@ -170,7 +170,8 @@ Things you may want to cover:
 |period_before_shipping|string|null: false|
 
 ### Association
-- has_one: item
+- has_many :items
+- accepts_nested_attributes_for :items
 
 ## ordersテーブル
 |Column|Type|Options|
