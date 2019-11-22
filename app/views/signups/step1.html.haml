@@ -8,7 +8,7 @@
       = form_with model: @user, url: step2_signups_path, method: :get, local: true do |f|
         .form__field__nickname
           .form__field__nickname__box1
-            = f.label :nickname
+            = f.label :nickname, value: 'ニックネーム'
           .form__field__nickname__box2
             必須
           %br/
@@ -20,6 +20,18 @@
             = f.label :必須
           %br/
           = f.email_field :email, autocomplete: "email"
+        -# - unless @sns.present?
+        -#   .form__field__pass
+        -#     .form__field__pass__box1
+        -#       = f.label :パスワード
+        -#     .form__field__pass__box2
+        -#       = f.label :必須
+        -#     %br/
+        -#     = f.password_field :password, autocomplete: "new-password"
+        -#     %br/
+        -#     .form__field__pass__box3
+        -#       = check_box_tag :checkbox
+        -#       = f.label :パスワードを表示する
         .form__field__pass
           .form__field__pass__box1
             = f.label :パスワード
@@ -81,7 +93,6 @@
             ＊本人情報は正しく入力してください。会員登録後、 修正するにはお時間を頂く場合があります
         .form__field__actions
           = f.submit "次へ進む", class: "form__btn"
-          -# , link_to '次へ進む', new_user_session_path
         .form__field__text-btn
           本人情報の登録について
-  = render "devise_footer"
+  -# = render "devise_footer"

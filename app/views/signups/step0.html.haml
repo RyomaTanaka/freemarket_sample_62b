@@ -17,12 +17,12 @@
           .log_main__center__content__box1__icon
             %i.fab.fa-facebook-square
           .log_main__center__content__box1__text
-            facebookで登録する
+            = link_to 'facebookで登録する', user_facebook_omniauth_authorize_path
         .log_main__center__content__box3
           .log_main__center__content__box1__icon
             %i.far.fa-envelope
           .log_main__center__content__box1__text
-            Googleで登録する
+            = link_to 'Googleで登録する', user_google_oauth2_omniauth_authorize_path
   .log_footer
     .log_footer__content
       .log_footer__content__nav

@@ -1,9 +1,13 @@
 class SignupsController < ApplicationController
+  def step0
+  end
+  
   def step1
     @user = User.new
   end
 
   def step2
+    user_params[:password] = Devise.friendly_token.first(8) if user_params[:password].blank?
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
@@ -50,8 +54,6 @@ class SignupsController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       sign_in User.find(@user.id) unless user_signed_in?
-    else
-      render :step2
     end
     
     @address = Address.new(
