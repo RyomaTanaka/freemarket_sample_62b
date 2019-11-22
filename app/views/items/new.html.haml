@@ -23,7 +23,10 @@
                     .upload-items__item
                       %ul
                   .upload-dropbox
-                    %input.upload-dropbox__input{multiple: "", name: :"image1",  type: :"file"}/
+                    = form_with model: @shipping, url: items_path, method: :post, class: "sell-form", local: true do |f|
+                      = f.fields_for :items do |item|
+                        = item.fields_for :images do |image|
+                    -# %input.upload-dropbox__input{multiple: "", name: :"image1",  type: :"file"}/
                     %pre.upload-dropbox__input__visib
                       ドラッグアンドドロップ
                       またはクリックしてファイルをアップロード
