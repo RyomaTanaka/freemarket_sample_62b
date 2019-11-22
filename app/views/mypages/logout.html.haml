@@ -24,9 +24,9 @@
         %form.logout-content__form{ action: "#", method: "POST", novalidate: "novalidate"}
           .logout-content__btn-wrapper
             %button.btn-default-value.btn-color-red{ type: "submit" }
-              ログアウト
+              = link_to 'ログアウト', destroy_user_session_path, method: :delete
 
-    = render "content-left"      
+    = render "module/content-left"      
 
 = render "module/footer"
 = render "module/right_btn"

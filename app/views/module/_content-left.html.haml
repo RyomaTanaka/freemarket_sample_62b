@@ -22,7 +22,7 @@
           出品する
           = fa_icon 'chevron-right'
       %li
-        = link_to "/items/exhibited_lists/:id", class: "nav-mypage__item" do
+        = link_to list_items_mypages_path, class: "nav-mypage__item" do
           出品した商品-出品中
           = fa_icon 'chevron-right'
       %li
@@ -80,7 +80,7 @@
             発送元・お届け先住所変更
             = fa_icon 'chevron-right'
         %li
-          = link_to "", class: "nav-mypage__item", href: "#" do
+          = link_to card_mypages_path, class: "nav-mypage__item" do
             支払い方法
             = fa_icon 'chevron-right'
         %li
@@ -96,9 +96,12 @@
             電話番号の確認
             = fa_icon 'chevron-right'
         %li
-          = link_to destroy_user_session_path, method: :delete do
+          = link_to logout_mypages_path, class: "nav-mypage__item" do
             ログアウト
             = fa_icon 'chevron-right'
+          -# = link_to destroy_user_session_path, method: :delete, class: "nav-mypage__item" do
+          -#   ログアウト
+          -#   = fa_icon 'chevron-right'
           -# = link_to "", class: "nav-mypage__item", href: "#" do
             ログアウト
             -# = fa_icon 'chevron-right'
