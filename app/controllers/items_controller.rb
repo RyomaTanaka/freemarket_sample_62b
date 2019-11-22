@@ -65,7 +65,7 @@ before_action :set_item, only: [:show, :purchase, :edit, :exihibited_lists]
     items_attributes: [:name, :body, :status, :price, :condition, images_attributes: [:url]])
   end
   def exihibited_lists
-        @items = Item.where(user_id: "1")
+    @items = Item.where(user_id: "1")
 
   end
 

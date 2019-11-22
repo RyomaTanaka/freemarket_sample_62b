@@ -44,7 +44,7 @@ get 'users/:id'   =>  'users#show'
   resources :items do
     collection do
       # get 'mypages/:id' => 'mypages#index'
-      get "show" => "items#show"
+      # get "show" => "items#show"
       get "exhibited_lists/:id" => "items#exhibited_lists"
       get "exhibited/:id" => "items#exhibited"
       delete 'items/:id' => 'items#destroy'
