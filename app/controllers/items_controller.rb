@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
 
 
   def create
-    Item.create(name: item_params[:name], body: item_params[:body], price: item_params[:price],  user_id: current_user.id)
+    # Item.create(name: item_params[:name], body: item_params[:body], price: item_params[:price],  user_id: current_user.id)
     @shipping = Shipping.create(shipping_params)
     redirect_to action: :index
   end

@@ -39,6 +39,10 @@ select {
   padding: 0 0 70px;
 }
 
+
+  // input{
+  //   display: none;
+
 .sell-header {
   height: 128px;
   text-align: center;
@@ -57,6 +61,7 @@ select {
     }
   }
 }
+
 
 
 .sell-main {
@@ -142,8 +147,25 @@ select {
     height: 100%;
     position: absolute;
     z-index: 2;
+    display: none;
   }
 }
+
+.sell-icon-camera {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+}
+// .form-image{
+//   input{
+//     // display: none;
+//   }
+// }
+
 
 .sell-content {
   padding: 40px;

@@ -4,7 +4,7 @@
       = link_to "", href: "#" do
         = image_tag src='//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?210491352'
 
-%body.mypage-body        
+%body.mypage-body
 
   %main.sell-main
     %section.item-sell-container
@@ -27,12 +27,12 @@
                             %ul
                         .upload-dropbox
                           -# %input.upload-dropbox__input{multiple: "", name: :"image1", style: :"display: none;", type: :"file"}/
-                          = image.label :img_url
-                          = image.file_field :image_url,local: true, multiple: true, class: "upload-dropbox__input", id: :exhibit_img
+                          -# = image.label :img_url, class: "form-image"
+                          = image.file_field :url,local: true, multiple: true, class: "upload-dropbox__input", id: :exhibit_img
                           %pre.upload-dropbox__input__visib
                             ドラッグアンドドロップ
                             またはクリックしてファイルをアップロード
-                          %i.icon-camera
+                          %i.sell-icon-camera
                     .sell-content
                       .sell-content-title
                         %label
@@ -59,7 +59,7 @@
                             .category-container
                               -# = fa_icon 'chevron-down'
                               = f.select :name, @category_parent_array, {}, class: "category-container__select", id: :s1
-                              %i.fas.fa-angle-down
+                              = fa_icon 'chevron-down'
                         .prodcts-status
                           %label
                             商品の状態
@@ -68,7 +68,8 @@
                             .status-container
                               -# = fa_icon 'chevron-down'
                               = item.select :status, [ ["---",""], ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ], {}, class: 'status-container__select'
-                              %i.fas.fa-angle-down
+                              = fa_icon 'chevron-down'
+                              -# %i.fas.fa-angle-down
                     .prodcts-delivery
                       %h3.prodcts-delivery__label 配送について
                       = link_to "?", "#",class: "question-icon"
@@ -81,7 +82,8 @@
                             .delivery-container
                               -# = fa_icon 'chevron-down'
                               = f.select :cost_burden, [ ["---",""], ["送料込み(出品者負担)",1], ["着払い(購入者負担)", 2] ],{}, class: "delivery-container__select"
-                              %i.fas.fa-angle-down
+                              = fa_icon 'chevron-down'
+                              -# %i.fas.fa-angle-down
                         .delivery-box__content
                           %label
                             発送元の地域
@@ -90,7 +92,8 @@
                             .delivery-container
                               -# = fa_icon 'chevron-down'
                               = f.collection_select(:prefecture, Prefecture.all, :id, :name,{prompt: "---"}, {class: "delivery-container__select"})
-                              %i.fas.fa-angle-down
+                              = fa_icon 'chevron-down'
+                              -# %i.fas.fa-angle-down
                         .delivery-box__content
                           %label
                             発送までの日数
@@ -99,7 +102,8 @@
                             .delivery-container
                               -# = fa_icon 'chevron-down'
                               = f.select :period_before_shipping	, [ ["---",""], ["1〜2日で発送",1], ["2〜3日で発送", 2], ["4〜7日で発送", 3 ] ], {}, class: "delivery-container__select"
-                              %i.fas.fa-angle-down
+                              = fa_icon 'chevron-down'
+                              -# %i.fas.fa-angle-down
                     .prodcts-price
                       %h3.prodcts-price__label 販売価格(300〜9,999,999)
                       = link_to "", class: "question-icon", href: "#" do
@@ -138,7 +142,7 @@
                           また、出品を持ちまして
                           = link_to "加盟店規約", href: "#"
                           に同意した事になります。
-                      = f.submit "出品する"
+                      = f.submit "出品する", class: "sell-btn"
                       = link_to "", class: "back-btn", href: "#" do
                         もどる
         %footer.sell-footer
