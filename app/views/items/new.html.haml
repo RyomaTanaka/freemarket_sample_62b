@@ -27,8 +27,8 @@
                             %ul
                         .upload-dropbox
                           -# %input.upload-dropbox__input{multiple: "", name: :"image1", style: :"display: none;", type: :"file"}/
-                          = image.label :img_url
-                          = image.file_field :image_url,local: true, multiple: true, class: "upload-dropbox__input", id: :exhibit_img
+                          = image.label :image_url
+                          = image.file_field :image_url, local: true, class: "upload-dropbox", id: "exhibit_img"
                           %pre.upload-dropbox__input__visib
                             ドラッグアンドドロップ
                             またはクリックしてファイルをアップロード
@@ -217,8 +217,7 @@
                           また、出品を持ちまして
                           = link_to "加盟店規約", href: "#"
                           に同意した事になります。
-                      %button.sell-btn{:type => "submit"}
-                        出品する
+                      = f.submit "出品する", class:"btn"
                       = link_to "", class: "back-btn", href: "#" do
                         もどる
         %footer.sell-footer
