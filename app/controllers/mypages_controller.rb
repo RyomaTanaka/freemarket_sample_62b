@@ -1,7 +1,7 @@
 class MypagesController < ApplicationController
   def index
-        @items = Item.all.order("crated_at DESC")
-        @images = Image.all
+      @items = Item.all.order("crated_at DESC")
+      @images = Image.all
 
   end
 
@@ -18,6 +18,7 @@ class MypagesController < ApplicationController
   end
 
   def exhibited
+    
     @item = Item.find(params[:id])
   end
 
