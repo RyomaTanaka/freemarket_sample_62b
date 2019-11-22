@@ -22,7 +22,7 @@
           出品する
           = fa_icon 'chevron-right'
       %li
-        = link_to "/items/exhibited_lists/:id", class: "nav-mypage__item" do
+        = link_to user_exhibited_lists_path(@items), class: "nav-mypage__item" do
           出品した商品-出品中
           = fa_icon 'chevron-right'
       %li
@@ -72,7 +72,7 @@
       %h3.nav-mypage__head 設定
       %ul.nav-mypage
         %li
-          = link_to "", class: "nav-mypage__item", href: "#" do
+          = link_to "", class: "nav-mypage__item", href: "/users/:id/profile_edit" do
             プロフィール
             = fa_icon 'chevron-right'
         %li
@@ -80,7 +80,7 @@
             発送元・お届け先住所変更
             = fa_icon 'chevron-right'
         %li
-          = link_to "", class: "nav-mypage__item", href: "#" do
+          = link_to "", class: "nav-mypage__item", href: "/users/:id/credit_registration" do
             支払い方法
             = fa_icon 'chevron-right'
         %li
@@ -88,7 +88,7 @@
             メール/パスワード
             = fa_icon 'chevron-right'
         %li
-          = link_to "", class: "nav-mypage__item", href: "#" do
+          = link_to "", class: "nav-mypage__item", href: "/users/:id/personal" do
             本人情報
             = fa_icon 'chevron-right'
         %li
@@ -96,6 +96,6 @@
             電話番号の確認
             = fa_icon 'chevron-right'
         %li
-          = link_to "", class: "nav-mypage__item", href: "#" do
+          = link_to "", class: "nav-mypage__item", href: "/users/:id/logout" do
             ログアウト
             = fa_icon 'chevron-right'

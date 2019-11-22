@@ -26,7 +26,7 @@
         %form.profile-edit-wrapper
           .profile-edit-wrapper__upper
             %figure
-              %img{ src: "assets/icon.jpg", width: "60", height: "60" }
+              %img{ src: "icon.jpg", width: "60", height: "60" }
             %input{ value: "SUGURU", name: "nickname", placeholder: "例) AYA　セール中"}
           .profile-edit-wrapper__bottom
             %textarea.profile-edit-wrapper__textarea{ name: "self-introduction", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
@@ -56,6 +56,6 @@
             %button.btn-default-value.btn-color-red{ type: "submit" }
               変更する
 
-    = render "content-left"      
+    = render "module/content-left"      
 = render "module/footer"
 = render "module/right_btn"

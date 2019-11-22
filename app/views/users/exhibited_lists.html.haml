@@ -1,0 +1,71 @@
+= render 'module/header'
+
+.mypage-body        
+
+  %nav.breadcrumbs
+    %ul
+      %li{ itemscope: "", itemtype: "#"}
+        = link_to "", href: "#", itemprop: "url" do
+          %span{ itemprop: "title"}
+            メルカリ
+            = fa_icon 'chevron-right'
+      %li{ itemscope: "", itemtype: "#"}
+        %span{ itemprop: "title"}
+          マイページ
+          = fa_icon 'chevron-right'
+      %li{ itemscope: "", itemtype: "#"}
+        %span{ itemprop: "title"}
+          出品した商品 - 出品中
+
+  %main.container
+    .content-exhibited
+      %section.purchase-wrapper-exhibited
+        %h2.purchase-head.bold
+          出品した商品
+      .tab-wrap-exhibited
+        %input#TAB-01-01.tab-switch-exhibited{ type: "radio", name: "TAB01", checked: "checked" }
+        %label.tab-label-exhibited{ for: "TAB-01-01" }
+          出品中
+        .tab-content-exhibited
+          .mypage-tabs-content
+            %ul.mypage-contents-list
+            - @items.each do |item|
+              %li
+                = link_to user_exhibited_path(@items), class: "mypage-contents-list__link" do
+                  %figure
+                    %img.app-icon{ alt: "", src: "", width: 48, height: 48}
+                  .mypage-contents-body
+                    .mypage-contents-body__text 
+                      = item.name
+                    %div
+                      %span.likes_wrapper
+                        = fa_icon 'heart'
+                        %span 4
+                      %span.likes_wrapper
+                        = fa_icon 'comment'
+                        %span 4
+                      .open-or-not
+                        公開中
+                    = fa_icon 'chevron-right'
+
+        %input#TAB-01-02.tab-switch-exhibited{ type: "radio", name: "TAB01" }
+        %label.tab-label-exhibited{ for: "TAB-01-02" }
+          取引中
+        .tab-content-exhibited
+          %ul.todo-lists
+            %li.todo-contents.bold
+              現在取引中の商品はありません
+
+        %input#TAB-01-03.tab-switch-exhibited{ type: "radio", name: "TAB01" }
+        %label.tab-label-exhibited{ for: "TAB-01-03" }
+          売却済み
+        .tab-content-exhibited
+          %ul.todo-lists
+            %li.todo-contents.bold
+              現在売却済みの商品はありません
+
+    = render 'module/content-left'
+
+= render "module/footer"
+= render "module/right_btn"
+

@@ -124,10 +124,11 @@
         .item-detail__buttons--left-btn
         .item-detail__buttons--right-btn
           = fa_icon 'lock'
-          =link_to '#' do
+          =link_to '/items/:id/edit' do
             = '安心安全への取り組み'
-        .item-change-box
-          = link_to "商品の編集", "/items/:id/edit", class: "btn-default-value btn-color-red" do
+
+    .item-change-box
+      = link_to "商品の編集", edit_user_item_path(@items), class: "btn-default-value btn-color-red" do
 
 
     -#   %button.btn-default-value.btn-color-grey
