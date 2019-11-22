@@ -30,52 +30,23 @@
           .mypage-tabs-content
             %ul.mypage-contents-list
             - @items.each do |item|
-              = item.name
-              -# %li
-              -#   = link_to "/items/exhibited/:id", class: "mypage-contents-list__link" do
-              -#     %figure
-              -#       %img.app-icon{ alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
-              -#     .mypage-contents-body
-              -#       .mypage-contents-body__text 事務局から個別メッセージ「ログイン通知」
-              -#       %time
-              -#         = fa_icon 'clock', class: 'clocks-icon'
-              -#         %span 1時間前
-              -#     = fa_icon 'chevron-right'
-
-              -# %li
-              -#   = link_to "", class: "mypage-contents-list__link", href: "#" do
-              -#     %figure
-              -#       %img.app-icon{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
-              -#     .mypage-contents-body
-              -#       .mypage-contents-body__text かゆい所に手が届く！厚めの商品発送におすすめの「ゆうパケットプラス」」が新登場！
-              -#       %time
-              -#         = fa_icon 'clock', class: 'clocks-icon'
-              -#         %span 11日前
-              -#     = fa_icon 'chevron-right'
-              -# %li
-              -#   = link_to "", class: "mypage-contents-list__link", href: "#" do
-              -#     %figure
-              -#       %img.app-icon{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
-              -#     .mypage-contents-body
-              -#       .mypage-contents-body__text 明日、5％還元クーポンの有効期限有効期限が切れます！タップして詳細を確認しましょう。
-              -#       %time
-              -#         %i.fas.fa-clock
-              -#         %span 13日前
-              -#     = fa_icon 'chevron-right'
-              -# %li
-              -#   = link_to "", class: "mypage-contents-list__link", href: "#" do
-              -#     %figure
-              -#       %img.app-icon{ data: { src: "assets/mypage_back.jpg" }, alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
-              -#     .mypage-contents-body
-              -#       .mypage-contents-body__text 事務局から個別メッセージ「【お詫び】「クーポンの有効期限」について」
-              -#       %time
-              -#         %i.fas.fa-clock
-              -#         %span 15日前
-              -#     = fa_icon 'chevron-right'
-
-              -# %li.mypage-notice-list
-              -#   = link_to "", href: "#" do
-              -#     一覧を見る
+              %li
+                = link_to exhibited_path(@items), class: "mypage-contents-list__link" do
+                  %figure
+                    %img.app-icon{ alt: "", src: "", width: 48, height: 48}
+                  .mypage-contents-body
+                    .mypage-contents-body__text 
+                      = item.name
+                    %div
+                      %span.likes_wrapper
+                        = fa_icon 'heart'
+                        %span 4
+                      %span.likes_wrapper
+                        = fa_icon 'comment'
+                        %span 4
+                      .open-or-not
+                        公開中
+                    = fa_icon 'chevron-right'
 
         %input#TAB-01-02.tab-switch-exhibited{ type: "radio", name: "TAB01" }
         %label.tab-label-exhibited{ for: "TAB-01-02" }
@@ -83,7 +54,7 @@
         .tab-content-exhibited
           %ul.todo-lists
             %li.todo-contents.bold
-              現在やることリストはありません
+              現在取引中の商品はありません
 
         %input#TAB-01-03.tab-switch-exhibited{ type: "radio", name: "TAB01" }
         %label.tab-label-exhibited{ for: "TAB-01-03" }
@@ -91,7 +62,7 @@
         .tab-content-exhibited
           %ul.todo-lists
             %li.todo-contents.bold
-              現在やることリストはありません
+              現在売却済みの商品はありません
 
     = render 'module/content-left'
 
