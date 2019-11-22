@@ -31,8 +31,12 @@ Rails.application.routes.draw do
   
   root "items#index"
   resources :users
-  resources :items
+  resources :items do
+    collection do
+      get "exhibited"
+    end
+  end
+
   resources :cards
 
-  get "exhibited" => "items#exhibited"
 end

@@ -2,7 +2,7 @@ class MypagesController < ApplicationController
   def list_items
         # @items = Item.all.order("crated_at DESC")
         # @images = Image.all
-                @items = Item.where(user_id: "1")
+                @items = Item.where(user_id: current_user)
 
   end
 
