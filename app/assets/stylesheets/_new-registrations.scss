@@ -441,3 +441,40 @@ input[id="user_first_name_ruby"]{
   display: none;
 }
 
+
+.birth_year{
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid $selectbox;
+  background-color: white
+}
+
+.birth_month{
+  width: 76px;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid $selectbox;
+  background-color: white
+}
+
+.birth_day{
+  width: 76px;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid $selectbox;
+  background-color: white
+}
+
+
+
+.form__field__birthdate__box3__wrapper1{
+  width:76px;
+  height:48px;
+  display: inline-block;
+  &__box{
+    height: 48px;
+    border: 1px solid $selectbox;
+    background-color: white
+  }
+}
