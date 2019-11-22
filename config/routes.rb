@@ -33,4 +33,6 @@ Rails.application.routes.draw do
   resources :users
   resources :items
   resources :cards
+
+  get "exhibited" => "items#exhibited"
 end

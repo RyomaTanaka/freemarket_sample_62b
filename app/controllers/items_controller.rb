@@ -65,11 +65,13 @@ before_action :set_item, only: [:show, :purchase, :edit, :exihibited_lists]
     items_attributes: [:name, :body, :status, :price, :condition, images_attributes: [:url]])
   end
   def exihibited_lists
-        @items = Item.where(user_id: "1")
+    @items = Item.where(user_id: current_user)
 
   end
 
   def exihibited
+    @item = Item.find(params[:id])
+
   end
 
 end
@@ -79,7 +81,7 @@ private
 
 
 def item_params
-  prams.permit(:name, :body, :price)
+  params.permit(:name, :body, :price)
 end
 
 def set_item
