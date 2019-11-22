@@ -14,6 +14,8 @@ ActiveRecord::Schema.define(version: 2019_11_21_084022) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.string "user_name", null: false
+    t.string "user_name_ruby", null: false
     t.string "post_number", null: false
     t.string "prefecture", null: false
     t.string "city", null: false
@@ -108,7 +110,6 @@ ActiveRecord::Schema.define(version: 2019_11_21_084022) do
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "nickname", null: false
     t.text "into"
     t.string "image"
     t.datetime "created_at", null: false

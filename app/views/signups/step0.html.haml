@@ -1,0 +1,38 @@
+.log_body
+  .header
+    .header__logo
+      -# %img= embedded_svg("logo.svg", class: "cls-2") 
+      =image_tag "logo.svg",class:'header__logo'
+  .log_main
+    .log_main__top
+      会員登録
+    .log_main__center
+      .log_main__center__content
+        .log_main__center__content__box1
+          .log_main__center__content__box1__icon
+            %i.far.fa-envelope
+          .log_main__center__content__box1__text    
+            = link_to 'メールアドレスで登録する', step1_signups_path
+        .log_main__center__content__box2
+          .log_main__center__content__box1__icon
+            %i.fab.fa-facebook-square
+          .log_main__center__content__box1__text
+            = link_to 'facebookで登録する', user_facebook_omniauth_authorize_path
+        .log_main__center__content__box3
+          .log_main__center__content__box1__icon
+            %i.far.fa-envelope
+          .log_main__center__content__box1__text
+            = link_to 'Googleで登録する', user_google_oauth2_omniauth_authorize_path
+  .log_footer
+    .log_footer__content
+      .log_footer__content__nav
+        .log_footer__content__nav__li1
+          プライバシポリシー
+        .log_footer__content__nav__li2
+          メルカリ利用規約
+        .log_footer__content__nav__li3
+          特定商取引に関する表記
+      .log_footer__content__logo
+        %img= embedded_svg("red.svg", class: "footer__logo") 
+      .log_footer__content__copyright
+        ◯ 2019 Merukari

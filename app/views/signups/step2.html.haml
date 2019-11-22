@@ -1,0 +1,22 @@
+%body
+= render "devise_header"
+.content
+  .content__top
+    .content__top__text
+      電話番号の確認
+  .content__main
+    .content__main__sub
+      .content__main__sub__tel
+        携帯電話の番号
+      .content__main__sub__number
+        .content__main__sub__number__box
+          携帯電話の番号を入力
+      .content__main__sub__teltext
+        本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+      .content__main__sub__btn
+        = link_to 'SMSを送信する', step3_signups_path
+      .content__main__sub__note
+        ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+      .content__main__sub__reason
+        電話番号確認が必要な理由
+= render "devise_footer"
