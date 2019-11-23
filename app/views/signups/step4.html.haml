@@ -1,4 +1,35 @@
-= render "devise_header"
+.header4
+  .header4__logo
+    -# %img= embedded_svg("logo.svg", class: "cls-2") 
+    =image_tag "logo.svg",class:'header__logo'
+  .header4__box
+    .header4__box__ol
+      .header4__box__ol__li1
+        .header4__box__ol__li1__text
+          会員登録
+          .header4__box__ol__li1__icon
+            ●
+      .header4__box__ol__li2
+        .header4__box__ol__li2__text
+          電話番号認証
+          .header4__box__ol__li2__icon
+            ●
+      .header4__box__ol__li3
+        .header4__box__ol__li3__text
+          お届け先住所入力
+          .header4__box__ol__li3__icon
+            ●
+      .header4__box__ol__li4
+        .header4__box__ol__li4__text
+          支払い方法
+          .header4__box__ol__li4__icon
+            ●
+      .header4__box__ol__li5
+        .header4__box__ol__li5__text
+          完了
+          .header4__box__ol__li5__icon
+            ●
+
 .card_content
   .card_content__top
     支払い方法
@@ -33,8 +64,7 @@
         .card_content__main__security__box3
           .card_content__main__security__box3__icon
           .card_content__main__security__box3__text
-            %p2
-            カードの裏面の番号とは？
-      .card_content__main__btn
+            %p
+              カードの裏面の番号とは？
         = f.submit"次へ進む",:class => "form__btn"
 = render "devise_addfooter"

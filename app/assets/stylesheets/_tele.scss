@@ -1,29 +1,45 @@
-// body{
-//   background-color:#f5f5f5;
-// }
+/* step2 */
 
-// .content{
-//   width:700px;
-//   height:700px;
-//   background-color: #fff;
-//   margin: 0 auto;
-//   box-sizing: border-box;
-//   &__top{ 
-//     height:128px;
-//     border-bottom: solid 2px #f5f5f5;
-//     &__text{
-//       height: 128px;
-//       text-align: center;
-//       line-height: 128px;
-//       font-size:30px;
-//       font-weight: bold;
-//     }
-//   }
-// }
+
+.phone-body {
+  background-color:#f5f5f5;
+}
+
+.content-phone{
+  width:700px;
+  height:480px;
+  background-color: #fff;
+  margin: 0 auto;
+  box-sizing: border-box;
+  &__top{ 
+    height:128px;
+    border-bottom: solid 2px #f5f5f5;
+    &__text{
+      height: 128px;
+      text-align: center;
+      line-height: 128px;
+      font-size:30px;
+      font-weight: bold;
+    }
+  }
+}
+
+  .content__top__text {
+    font-size: 22px;
+    padding: 32px;
+    text-align: center;
+    border-bottom: 1px solid #f5f5f5;
+    line-height: 1.4;
+  }
+
+
+
 
 .content__main{
   height: 472px;
-  position: relative;;
+  position: relative;
+  padding: 40px 40px 64px;
+  border-top: 1px solid #f5f5f5;
   &__sub{
     position: absolute;
     top: 0;
@@ -34,9 +50,9 @@
     width:343px;
     &__tel{
       text-align:left;
-      font-size: 16px;
+      font-size: 14px;
       font-weight: bold;
-      margin-top:100px;
+      margin-top:44px;
     }
     &__number{
       height:60px;
@@ -46,34 +62,49 @@
       &__box{
         color: #ddd;
         font-size:20px;
-        padding:20px 30px;
+        margin: 8px 0 0;
       }
     }
     &__teltext{
-      margin-top:15px;
-      color: #888;
-      font-size: 16px;
+      margin: 8px 0 0;
+      font-size: 14px;
     }
     &__btn{
-      margin-top:50px;
+      margin-top:32px;
       width:343px;
-      height:70px;
+      line-height:48px;
       background-color: #EA352D;
-      color:#fff;
       text-align:center;
-      line-height: 70px;
-      font-size:16px;
-      border-radius: 4px;
+      .sms-text {
+        color: white;
+        font-size:14px;
+        font-weight: 300px;
+      }
     }
     &__note{
-      margin-top:15px;
-      font-size:16px;
-
+      margin: 8px 0 0;
+      font-size:14px;
+      line-height: 1.5;
     }
     &__reason{
-      margin-top:80px;
+      margin: 32px 0 0;
       text-align:right;
       font-size:14px;
+      display: inline-block;
+      color: #0099E8;
+      padding-left: 161px;
+    }
+    .reason-icon {
+      color: #0099E8;
     }
   }
+}
+
+.telephone-box {
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  height: 48px;
+  width: 100%;
+  font-size: 16px;
+  border: 1px solid #ccc;
 }
