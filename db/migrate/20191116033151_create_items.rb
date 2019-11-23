@@ -7,7 +7,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer :price, null: false
       t.string :condition
       t.references :shipping,foreign_key: true
-      t.integer :status, null: false
+      t.integer :status
       t.integer :order_status
       t.timestamps
     end

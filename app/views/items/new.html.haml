@@ -103,7 +103,8 @@
                               -# = fa_icon 'chevron-down'
                               = f.select :period_before_shipping	, [ ["---",""], ["1〜2日で発送",1], ["2〜3日で発送", 2], ["4〜7日で発送", 3 ] ], {}, class: "delivery-container__select"
                               = fa_icon 'chevron-down'
-                              -# %i.fas.fa-angle-down
+                              -# order_statusの番号を登録
+                              = item.hidden_field :order_status, value: :id
                     .prodcts-price
                       %h3.prodcts-price__label 販売価格(300〜9,999,999)
                       = link_to "", class: "question-icon", href: "#" do
@@ -142,7 +143,7 @@
                           また、出品を持ちまして
                           = link_to "加盟店規約", href: "#"
                           に同意した事になります。
-                      = f.submit "出品する", class: "sell-btn"
+                      = item.submit "出品する", class: "sell-btn"
                       = link_to "", class: "back-btn", href: "/items" do
                         もどる
         %footer.sell-footer

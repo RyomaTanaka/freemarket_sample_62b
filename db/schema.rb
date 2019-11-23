@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2019_11_21_084022) do
     t.integer "price", null: false
     t.string "condition"
     t.bigint "shipping_id"
-    t.integer "status", null: false
+    t.integer "status"
     t.integer "order_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

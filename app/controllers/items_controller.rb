@@ -71,7 +71,7 @@ class ItemsController < ApplicationController
   def shipping_params
     #出品itemのparams
     params.require(:shipping).permit(:cost_burden, :period_before_shipping, :prefecure,
-    items_attributes: [:name, :body, :status, :price, :condition, images_attributes: [:url]])
+    items_attributes: [:name, :body, :status, :order_status, :price, :condition, images_attributes: [:url]])
   end
   def exihibited_lists
       @items = Item.where(user_id: "1")
