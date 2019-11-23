@@ -29,7 +29,7 @@ before_action :set_item, only: [:show, :purchase, :edit, :exihibited_lists]
   end
 
   def edit
-    # @item = Item.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
   def update

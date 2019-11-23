@@ -18,7 +18,8 @@ class MypagesController < ApplicationController
   end
 
   def profile
-    @item = Item.find(params[:id])
+    # @item = Item.find(params[:id])
+    
   end
 
   def card
