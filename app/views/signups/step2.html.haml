@@ -5,11 +5,11 @@
     電話番号の確認
   .content__main
     .content__main__sub
-      = form_with model: @user, url: step3_signups_path, method: :get, local: true do |f|
+      = form_with model: @addresses, url: step3_signups_path, method: :get, local: true do |f|
         .content__main__sub__tel
           携帯電話の番号
         .content__main__sub__number__box
-          =f.telephone_field :tel, placeholder: "携帯電話の番号を入力", class: "telephone-box"
+          =f.telephone_field :phone_number, placeholder: "携帯電話の番号を入力", class: "telephone-box"
       .content__main__sub__teltext
         本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
       .content__main__sub__btn
