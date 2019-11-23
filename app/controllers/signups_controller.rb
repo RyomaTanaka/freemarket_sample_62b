@@ -49,7 +49,6 @@ class SignupsController < ApplicationController
       birth_month: session[:birth_month],
       birth_day: session[:birth_day]
     )
-    binding.pry
     if @user.save
       session[:user_id] = @user.id
       sign_in User.find(@user.id) unless user_signed_in?
@@ -67,6 +66,14 @@ class SignupsController < ApplicationController
       phone_number: session[:phone_number]
     )
     @address.save
+
+    @sns_authentication = SnsAuthentication.new(
+      user_id: session[:user_id],
+      provider: session[:provider],
+      uid: session[:uid]
+    )
+    @sns_authentication.save
+    
     redirect_to root_path
   end
 

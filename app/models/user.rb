@@ -61,5 +61,5 @@ class User < ApplicationRecord
       sns = without_sns_data(auth)[:sns]
     end
     return { user: user ,sns: sns}
-  end      
+  end
 end

@@ -1,5 +1,5 @@
 .main
-  -# = render "devise_header"
+  = render partial: "signups/devise_header"
   .form
     .form__top
       .form__top__text
@@ -84,4 +84,4 @@
           = f.submit "次へ進む", class: "form__btn"
         .form__field__text-btn
           本人情報の登録について
-  -# = render "devise_footer"
+  = render partial: "signups/devise_footer"
