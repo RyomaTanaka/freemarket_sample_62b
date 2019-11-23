@@ -1,88 +1,6 @@
-/* main */
-
-// html {
-//   overflow: scroll;
-// }
-
-// .clearfix:after {
-//     content: '';
-//     display: block;
-//     clear: both;
-// }
-
-// .clear_box{
-//   clear: both;
-// }
-
-// main {
-//   display: block;
-// }
-
-// *{
-//   font-size: inherit;
-//   line-height: inherit;
-//   background-repeat: no-repeat;
-//   margin: 0;
-//   padding: 0;
-//   border-style: solid;
-//   border-width: 0;
-//   box-sizing: inherit;
-// }
-
-// nav{
-//   display: block;
-// }
-
-// body{
-//   position: relative;
-//   min-height: 100%;
-//   background: #f5f5f5;
-//   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-//   font-size: 14px;
-//   color: #333;
-//   line-height: 1;
-// }
-
-// li{
-//   list-style: none;
-//   text-align: -webkit-match-parent;
-//   display: list-item;
-// }
-
-// ul {
-//   display: block;
-//   list-style-type: disc;
-//   margin-block-end: 1em;
-//   margin-inline-start: 0px;
-//   margin-inline-end: 0px;
-// }
-
-// *, ::before, ::after {
-//   -webkit-box-sizing: inherit;
-//   box-sizing: inherit;
-//   border-style: solid;
-//   border-width: 0;
-// }
-
-// ::before, ::after {
-//     text-decoration: inherit;
-//     vertical-align: inherit;
-// }
-
-// section{
-//   display: block;
-// }
-
 .bold{
   font-weight: 600;
 }
-
-// img {
-//   vertical-align: middle;
-// }
-
-/* breadcrumbs */
-
 .breadcrumbs {
   position: relative;
   border-top: 1px solid #eee;
@@ -150,4 +68,8 @@
     background: #ea352d;
     border: 1px solid #ea352d;
     color: #fff;
+}
+
+.logout_text {
+  color: #f5f5f5;
 }

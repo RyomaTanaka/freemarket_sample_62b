@@ -17,7 +17,9 @@ class MypagesController < ApplicationController
   end
 
   def profile
-    @item = Item.find(params[:id])
+    # @item = Item.find(params[:id])
+    @user = User.find(params[:id])
+    @user.profiles.build
   end
 
   def card
@@ -27,6 +29,7 @@ class MypagesController < ApplicationController
   end
 
   def personal
+    # @users = User.current_user.id
   end
 
   def logout
