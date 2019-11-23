@@ -429,7 +429,8 @@ input[id="user_first_name"]{
         }
         &__text{
           text-align: center;
-          font-size:14px;          
+          font-size:14px; 
+          color:#fff;
         }
       }
       &__box2{
@@ -447,7 +448,8 @@ input[id="user_first_name"]{
         }
         &__text{
           text-align: center;
-          font-size:14px;          
+          font-size:14px;
+          color:#fff; 
         }
       }
       &__box3{
@@ -465,14 +467,32 @@ input[id="user_first_name"]{
         }
         &__text{
           text-align: center;
-          font-size:14px;          
+          font-size:14px; 
+          color:#fff;
         }
       }
     }
   }
 }
 
+.mail_text {
+  color:#fff;
+}
 
+.facebook_text {
+  color:#fff;
+}
+
+.google_text {
+  color:black;
+}
+
+.google_icon {
+  color: #FF8C00;
+  background: -webkit-linear-gradient(0deg, rgb(9, 24, 240), rgb(5, 180, 28), rgb(240, 3, 3), rgb(240, 224, 5));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 .log_footer{
   width:100%;

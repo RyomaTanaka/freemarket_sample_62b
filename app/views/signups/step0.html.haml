@@ -12,17 +12,17 @@
           .log_main__center__content__box1__icon
             = fa_icon "envelope"
           .log_main__center__content__box1__text    
-            = link_to 'メールアドレスで登録する', step1_signups_path
+            = link_to 'メールアドレスで登録する', step1_signups_path, class: "mail_text"
         .log_main__center__content__box2
           .log_main__center__content__box1__icon
             = fa_icon "facebook-square"
           .log_main__center__content__box1__text
-            = link_to 'facebookで登録する', user_facebook_omniauth_authorize_path
+            = link_to 'facebookで登録する', user_facebook_omniauth_authorize_path, class: "facebook_text"
         .log_main__center__content__box3
           .log_main__center__content__box1__icon
-            = fa_icon "google"
+            = fa_icon "google", class: "google_icon"
           .log_main__center__content__box1__text
-            = link_to 'Googleで登録する', user_google_oauth2_omniauth_authorize_path
+            = link_to 'Googleで登録する', user_google_oauth2_omniauth_authorize_path, class: "google_text"
   .log_footer
     .log_footer__content
       .log_footer__content__nav
