@@ -25,9 +25,9 @@
         %span.item-detail__price-box--shipping-fee
           (送料込み)
 
-      =link_to purchase_mypages_path(@item.id), class: "item-detail__order-btn text-center" do
-        購入画面に進む
-    -if @item.id == current_user.id
+      -# =link_to purchase_mypages_path(@item.id), class: "item-detail__order-btn text-center" do
+      -#   購入画面に進む
+    -if user_signed_in? && current_user.id == @item.user_id 
       .listing_item-changebox
         .listing_item-changebox__text1
           商品の編集
@@ -37,7 +37,7 @@
           出品を停止する
         .listing_item-changebox__text4
           この商品を削除する
-      
+    -else  
       =link_to purchase_mypages_path(@item.id), class: "item-detail__order-btn text-center" do
         購入画面に進む
         
