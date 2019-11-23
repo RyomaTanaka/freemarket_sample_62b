@@ -9,15 +9,12 @@
       会員登録終了しました。
     .end_content__main__btn
       メルカリを始める
-  .end_content__bottom
-    .end_content__bottom__icon1
-      =image_tag "appstore.svg",size:'190x60'
-    .end_content__bottom__icon2
-      =image_tag "google.svg",size:'190x60'
-
-
-
-
-
+.download
+  .complete_box
+    = image_tag "merukari.png", class: "complete_img"
+  .download__icon1
+    =image_tag "appstore.svg",size:'190x60'
+  .download__icon2
+    =image_tag "google.svg",size:'190x60'
 
 = render "devise_addfooter"

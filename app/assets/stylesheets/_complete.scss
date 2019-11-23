@@ -2,11 +2,11 @@
 
 
 .end_content{
-  width:100vw;
-  height:1000px;
+  width:700px;
   background-color:#fff;
+  margin: 0 auto;
   &__top{
-    width: 100vw;
+    width: 700px;
     height:128px;
     margin: 0 auto;
     font-weight: bold;
@@ -20,38 +20,50 @@
     &__text{
       text-align: center;
       margin-top:50px;
-      font-size:18px;
-      color:#888;
+      font-size:16px;
     }
     &__btn{
       width:300px;
-      height:40px;
+      height:48px;
       color:#fff;
       text-align: center;
-      line-height: 40px;
-      font-size:18px;
+      line-height: 48px;
+      font-size:16px;
       background-color:#EA352D;
       border-radius:2px;
       margin:70px auto;
     }
   }
-  &__bottom{
-    width:450px;
-    height:640px;
-    background-image:url("merukari.png");
+}
+
+
+  .download {
+    width:100%;
     margin:0 auto;
     text-align: center;
     display: table;
     table-layout: fixed;
+    position: relative;
 
     &__icon1{
       display: table-cell;
       vertical-align: middle;
+      position: absolute;
+      top: 400px;
+      left: 500px;
     }
     &__icon2{
       display: table-cell;
       vertical-align: middle;
+      position: absolute;
+      top: 400px;
+      right: 500px;
     }
   }
-}
 
+.complete_box {
+  display: table-caption;
+  position: relative;
+  .complete_img {
+  }
+}
