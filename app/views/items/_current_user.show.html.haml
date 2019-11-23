@@ -1,4 +1,23 @@
-= render "module/header"
+-# -# 分岐1 もし出品者とcurrent userが一緒だったら
+-#     -if user_id == current_user_id
+   
+-#     .listing_item-changebox
+-#       .listing_item-changebox__text1
+-#         商品の編集
+-#       .listing_item-changebox__text2
+-#         or
+-#       .listing_item-changebox__text3
+-#         出品を停止する
+-#       .listing_item-changebox__text4
+-#         この商品を削除する
+-#     -# もし出品を停止してなければ
+-#     -# 商品の編集 or 出品を一旦停止する
+-#     -# 出なければ、商品の編集 or 出品を再開する
+-#     -# どちらにしてもこの商品を削除するは盛り込む
+    
+-#     -# 分岐2 もし出品者とcurrent userが一緒じゃなければ
+
+
 
 %body.mypage-body        
 
@@ -37,7 +56,8 @@
           出品を停止する
         .listing_item-changebox__text4
           この商品を削除する
-      
+
+    -else
       =link_to purchase_mypages_path(@item.id), class: "item-detail__order-btn text-center" do
         購入画面に進む
         
@@ -98,5 +118,3 @@
           =fa_icon 'chevron-right'
         %li.bread-crumbs__current-page
           %sapn 現在のページ
-
-= render "module/footer"

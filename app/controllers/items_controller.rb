@@ -70,6 +70,7 @@ before_action :set_item, only: [:show, :purchase, :edit, :exihibited_lists]
   end
 
   def exihibited
+    # @items = Item.where(user_id: current_user)
     @item = Item.find(params[:id])
 
   end

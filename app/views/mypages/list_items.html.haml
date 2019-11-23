@@ -31,7 +31,7 @@
             %ul.mypage-contents-list
             - @items.each do |item|
               %li
-                = link_to exhibited_path(@items), class: "mypage-contents-list__link" do
+                = link_to item_path(item.id), class: "mypage-contents-list__link" do
                   %figure
                     %img.app-icon{ alt: "", src: "", width: 48, height: 48}
                   .mypage-contents-body

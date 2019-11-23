@@ -399,3 +399,49 @@
 .tab-switch-exhibited {
     display: none;
 }
+
+.listing_item-changebox{
+  width:700px;
+  height:262px;
+  background-color:#fff;
+  padding: 8px 16px;
+  margin: 24px auto;
+  
+  &__text1{
+    width:668px;
+    height:50px;
+    line-height: 50px;
+    text-align:center;
+    margin:16px 0;
+    font-size:14px;
+    background-color: #ea352d;
+    color:#fff;
+  }
+  &__text2{
+    width:668px;
+    height:14px;
+    line-height: 14px;
+    text-align: center;
+    font-size:14px;
+  }
+  &__text3{
+    width:668px;
+    height:50px;
+    line-height: 50px;
+    text-align:center;
+    margin:16px 0;
+    font-size:14px;
+    background-color: #ea352d;
+    color:#fff;
+  }
+  &__text4{
+    width:668px;
+    height:50px;
+    line-height: 50px;
+    text-align:center;
+    margin:16px 0;
+    font-size:14px;
+    background-color: #aaa;
+    color:#fff;
+  }
+}
