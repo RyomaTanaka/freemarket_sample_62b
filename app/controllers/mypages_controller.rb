@@ -1,29 +1,39 @@
 class MypagesController < ApplicationController
-  def index
-      @items = Item.all.order("crated_at DESC")
-      @images = Image.all
+
+  def list_items
+        @items = Item.all.order("crated_at DESC")
+        @images = Image.all
 
   end
 
-  def logout
+  def list_items_progress
   end
 
-  def credit_registration
+  def list_items_completed
+  end
+
+  def purchase
+  end
+
+  def purchased
+  end
+
+
+  def profile
+
+    @item = Item.find(params[:id])
+  end
+
+  def card
+  end
+
+  def card_create
   end
 
   def personal
   end
 
-  def profile_edit
+  def logout
   end
-
-  def exhibited
-    
-    @item = Item.find(params[:id])
-  end
-
-  def item_edit
-  end
-
 
 end

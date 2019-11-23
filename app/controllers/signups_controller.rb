@@ -1,9 +1,17 @@
 class SignupsController < ApplicationController
+
+  def step0
+  end
+
+
   def step1
     @user = User.new
   end
 
   def step2
+
+    user_params[:password] = Devise.friendly_token.first(8) if user_params[:password].blank?
+
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
@@ -15,7 +23,7 @@ class SignupsController < ApplicationController
     session[:birth_month] = Date.new(user_params["birth_date(2i)"]&.to_i)
     session[:birth_day] = Date.new(user_params["birth_date(3i)"]&.to_i)
   end
-  
+
   def step3
     @address = Address.new
   end
@@ -46,8 +54,13 @@ class SignupsController < ApplicationController
       birth_month: session[:birth_month],
       birth_day: session[:birth_day]
     )
-    @user.save
-    session[:user_id] = @user.id
+
+
+    if @user.save
+      session[:user_id] = @user.id
+      sign_in User.find(@user.id) unless user_signed_in?
+    end
+
 
     @address = Address.new(
       user_id: session[:user_id],
