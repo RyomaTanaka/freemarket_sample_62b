@@ -55,6 +55,7 @@ before_action :set_item, only: [:show, :purchase, :edit, :exihibited_lists]
   def purchase
   end
 
+
   private
   def set_item
     @item = Item.includes(:images).find(params[:id])
