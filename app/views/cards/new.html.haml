@@ -1,0 +1,16 @@
+= render partial: "module/header"
+
+%body.mypage-body
+  = render partial: "module/navigation.html.haml"
+  %main.container
+    .credit-registration-container
+      %section.credit-registration-content
+        %h2 支払い方法
+        .credit-content-wrapper
+          %section
+            .credit-content-wrapper__title
+              %h3 クレジットカード情報入力
+            
+    = render partial: "module/content-left"
+= render partial: "module/footer"
+= render partial: "module/right_btn"

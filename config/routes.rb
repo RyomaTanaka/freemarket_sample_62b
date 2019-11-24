@@ -30,7 +30,9 @@ Rails.application.routes.draw do
   end
   
   root "items#index"
-  resources :users
+  resources :users do
+    resources :cards
+  end
+  
   resources :items
-  resources :cards
 end

@@ -122,3 +122,27 @@ input[id="card_deadline"]{
   border-radius:4px;
   border: 1px solid #ccc;
 }
+
+.credit-content-wrapper__title__btn{
+  padding: 24px 0;
+  border-bottom: 1px solid #eee;
+  .add_credit_btn {
+    max-width: 320px;
+    margin: 0 auto;
+    a {
+      margin-bottom: 8px !important;
+      background: #ea352d;
+      border: 1px solid #ea352d;
+      color: #fff;
+      display: block;
+      width: 100%;
+      line-height: 48px;
+      font-size: 14px;
+      transition: all ease-out .3s;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      touch-action: manipulation;
+    }
+  }
+}
