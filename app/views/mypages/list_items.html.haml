@@ -1,6 +1,6 @@
 = render 'module/header'
 
-.mypage-body        
+.mypage-body
 
   %nav.breadcrumbs
     %ul
@@ -29,13 +29,14 @@
         .tab-content-exhibited
           .mypage-tabs-content
             %ul.mypage-contents-list
+
               %li
                 = link_to "", class: "mypage-contents-list__link" do
                   %figure
-                    = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m571686393_2.jpg?1442795030", class: "app-icon" 
+                    = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m571686393_2.jpg?1442795030", class: "app-icon"
                   .mypage-contents-body
                     .mypage-contents-body__text
-                      aaaaa 
+                      aaaaa
                     %div
                       %sapn.heart-icon
                         = fa_icon "heart"
@@ -68,19 +69,15 @@
         .tab-content-exhibited
           %ul.todo-lists
             %li.todo-contents.bold
-              現在やることリストはありません
-
+              現在取引中の商品はありません
         %input#TAB-01-03.tab-switch-exhibited{ type: "radio", name: "TAB01" }
         %label.tab-label-exhibited{ for: "TAB-01-03" }
           売却済み
         .tab-content-exhibited
           %ul.todo-lists
             %li.todo-contents.bold
-              現在やることリストはありません
-
+              現在売却済みの商品はありません
     = render 'module/content-left'
-
 = render "module/footer"
+
 = render "module/right_btn"
-
-

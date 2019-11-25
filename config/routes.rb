@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
+
   devise_for :users,
   controllers: {
     sessions: 'users/sessions',
     registrations: "users/registrations",
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
-  
+
+
   resource :signups, only:[:create] do
+
     get :step0
     get :step1
     get :step2
@@ -14,7 +17,7 @@ Rails.application.routes.draw do
     get :step4
     get :step5
   end
-  
+
   resources :mypages, only:[:show] do
     collection do
       get :list_items
@@ -29,11 +32,12 @@ Rails.application.routes.draw do
       get :logout
     end
   end
-  
+
   root "items#index"
   resources :users do
     resources :cards
   end
-  
+
   resources :items
+
 end

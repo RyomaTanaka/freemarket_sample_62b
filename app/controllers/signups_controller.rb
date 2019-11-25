@@ -1,17 +1,22 @@
 class SignupsController < ApplicationController
+
   before_action :save_to_session_user, only: :step2
+
 
   def step0
   end
-  
+
+
   def step1
     @user = User.new
   end
-  
+
   def step2
+
     @address = Address.new
+
   end
-  
+
   def step3
     session[:phone_number] = address_params[:phone_number]
     @address = Address.new
@@ -30,7 +35,7 @@ class SignupsController < ApplicationController
     session[:house_number] = address_params[:house_number]
     session[:building_name] = address_params[:building_name]
     session[:phone_number] = address_params[:phone_number]
-    
+
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
@@ -44,11 +49,13 @@ class SignupsController < ApplicationController
       birth_day: session[:birth_day]
     )
 
+
     if @user.save
       session[:user_id] = @user.id
       sign_in User.find(@user.id) unless user_signed_in?
     end
-    
+
+
     @address = Address.new(
       user_id: session[:user_id],
       user_name: session[:user_name],
@@ -70,7 +77,7 @@ class SignupsController < ApplicationController
       )
       @sns_authentication.save
     end
-    
+
     redirect_to root_path
   end
 
