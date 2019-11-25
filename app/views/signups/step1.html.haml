@@ -87,8 +87,9 @@
               日         
           .form__field__birthdate__box4
             ＊本人情報は正しく入力してください。会員登録後、 修正するにはお時間を頂く場合があります
-        .form__field__actions
           = f.submit "次へ進む", class: "form__btn"
-        .form__field__text-btn
-          本人情報の登録について
+          .personal_registration_about
+            本人情報の登録について
+            = fa_icon "chevron-right"
+
   = render partial: "signups/devise_footer"
