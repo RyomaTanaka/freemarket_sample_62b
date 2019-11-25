@@ -39,8 +39,8 @@ class SignupsController < ApplicationController
       )
       @sns_authentication.save
     end
-    
-    redirect_to root_path
+
+    redirect_to step4_signups_path
   end
 
   private
