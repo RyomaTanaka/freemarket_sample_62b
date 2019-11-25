@@ -9,7 +9,9 @@ class SignupsController < ApplicationController
   end
   
   def step2
+    params[:commit]
     @address = Address.new
+    binding.pry
   end
   
   def step3
@@ -19,6 +21,9 @@ class SignupsController < ApplicationController
 
   def step4
     @card = Card.new
+  end
+
+  def step5
   end
 
   def create

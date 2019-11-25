@@ -68,5 +68,6 @@
             %p2
             カードの裏面の番号とは？
       .card_content__main__btn
-        = f.submit class: "form__btn", id: "token_submit"
-= render "devise_addfooter"
+        #card_token
+        = f.submit class: "form__btn", id: "token_submit", value: "次へ"
+= render partial: "signups/devise_addfooter"
