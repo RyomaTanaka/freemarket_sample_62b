@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_21_084022) do
+ActiveRecord::Schema.define(version: 2019_11_16_045107) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2019_11_21_084022) do
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id", null: false
-    t.string "url", null: false
+    t.string "image", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_images_on_item_id"
@@ -67,12 +67,15 @@ ActiveRecord::Schema.define(version: 2019_11_21_084022) do
     t.text "body", null: false
     t.integer "price", null: false
     t.string "condition", null: false
-    t.bigint "shipping_id", null: false
     t.integer "status", null: false
     t.integer "order_status", null: false
+    t.string "prefecure", null: false
+    t.string "method"
+    t.string "cost_burden", null: false
+    t.string "period_before_shipping", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["shipping_id"], name: "index_items_on_shipping_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -126,15 +129,6 @@ ActiveRecord::Schema.define(version: 2019_11_21_084022) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
-  create_table "shippings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "prefecure", null: false
-    t.string "method"
-    t.string "cost_burden", null: false
-    t.string "period_before_shipping", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "sns_authentications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "provider", null: false
@@ -169,7 +163,7 @@ ActiveRecord::Schema.define(version: 2019_11_21_084022) do
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"
   add_foreign_key "images", "items"
-  add_foreign_key "items", "shippings"
+  add_foreign_key "items", "users"
   add_foreign_key "likes", "items"
   add_foreign_key "likes", "users"
   add_foreign_key "messages", "orders"
