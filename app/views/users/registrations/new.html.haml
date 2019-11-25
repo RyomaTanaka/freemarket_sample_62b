@@ -5,9 +5,8 @@
       .form__top__text
         会員登録情報
     .form__field
-      = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-        = render "devise/shared/error_messages", resource: resource
-        = f.fields_for :profiles do |profile|
+      = form_with model: @user, url: step2_signups_path do |f|
+        = f.fields :profiles do |profile|
           .form__field__nickname
             .form__field__nickname__box1
               = f.label :ニックネーム
@@ -40,7 +39,6 @@
               本人確認
             .form__field__text__bottom
               安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-
           .form__field__name
             .form__field__name__box1
               = f.label :お名前（全角）
@@ -87,6 +85,4 @@
             -# , link_to '次へ進む', new_user_session_path
           .form__field__text-btn
             本人情報の登録について
-
-
   = render "devise_footer"
