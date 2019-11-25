@@ -352,8 +352,5 @@ Image.create(item_id: 13, url: "51XyLHYl4pL._SY355_.jpg")
 
 10.times do |n|
   Item.create(user_id: n, name: "サンプル", body: "サンプルサンプル", price: "200", condition: "#{n}", shipping_id: n, status: "#{n}", order_status: "#{n}")
-end
 
-10.times do |n|
-  Shipping.create(prefecure: "#{n}", method: "サンプル", cost_burden: "サンプルサンプル", period_before_shipping: "#{n}")
 end
