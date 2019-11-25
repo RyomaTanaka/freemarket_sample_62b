@@ -10,7 +10,10 @@ class CreateItems < ActiveRecord::Migration[5.2]
 
       t.integer :status, null: false
       t.integer :order_status, null: false
-      t.string :prefecure
+
+
+      t.string :prefecture, null: false
+
       t.string :method
       t.string :cost_burden, null: false
       t.string :period_before_shipping, null: false
