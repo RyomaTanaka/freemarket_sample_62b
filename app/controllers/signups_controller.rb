@@ -11,7 +11,6 @@ class SignupsController < ApplicationController
   def step2
     params[:commit]
     @address = Address.new
-    binding.pry
   end
   
   def step3
