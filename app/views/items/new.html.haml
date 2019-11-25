@@ -50,26 +50,26 @@
                   .prodcts-detail
                     %h3.prodcts-detail__label 商品の詳細
                     .prodcts-detail__box
-                      = image.fields_for :categorie do |c|
-                        .prodcts-category
-                          %label
-                            カテゴリー
-                            %span.category__required 必須
-                          %div
-                            .category-container
-                              -# = fa_icon 'chevron-down'
-                              = c.select :name, @category_parent_array, {}, class: "category-container__select", id: :s1
-                              = fa_icon 'chevron-down'
-                        .prodcts-status
-                          %label
-                            商品の状態
-                            %span.status__required 必須
-                          %div
-                            .status-container
-                              -# = fa_icon 'chevron-down'
-                              = f.select :status, [ ["---",""], ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ], {}, class: 'status-container__select'
-                              = fa_icon 'chevron-down'
-                              -# %i.fas.fa-angle-down
+                      -# = f.fields_for :categorie do |c|
+                      .prodcts-category
+                        %label
+                          カテゴリー
+                          %span.category__required 必須
+                        %div
+                          .category-container
+                            -# = fa_icon 'chevron-down'
+                            -# = f.select :name, @category_parent_array, {}, class: "category-container__select", id: :s1
+                            = fa_icon 'chevron-down'
+                      .prodcts-status
+                        %label
+                          商品の状態
+                          %span.status__required 必須
+                        %div
+                          .status-container
+                            -# = fa_icon 'chevron-down'
+                            = f.select :status, [ ["---",""], ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ], {}, class: 'status-container__select'
+                            = fa_icon 'chevron-down'
+                            -# %i.fas.fa-angle-down
                   .prodcts-delivery
                     %h3.prodcts-delivery__label 配送について
                     = link_to "?", "#",class: "question-icon"

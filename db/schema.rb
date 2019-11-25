@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_081936) do
+ActiveRecord::Schema.define(version: 2019_11_23_032850) do
 
   create_table "address01s", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
     t.string "city"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -48,6 +49,8 @@ ActiveRecord::Schema.define(version: 2019_11_25_081936) do
     t.bigint "parent_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -69,13 +72,13 @@ ActiveRecord::Schema.define(version: 2019_11_25_081936) do
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.string "name", null: false
     t.text "body", null: false
     t.integer "price", null: false
     t.integer "status", null: false
     t.integer "order_status", null: false
-    t.string "prefecture", null: false
+    t.string "prefecture"
     t.string "method"
     t.string "cost_burden", null: false
     t.string "period_before_shipping", null: false
@@ -102,9 +105,9 @@ ActiveRecord::Schema.define(version: 2019_11_25_081936) do
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "seller_id", null: false
-    t.bigint "buyer_id", null: false
-    t.bigint "item_id", null: false
+    t.bigint "seller_id"
+    t.bigint "buyer_id"
+    t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -145,9 +148,9 @@ ActiveRecord::Schema.define(version: 2019_11_25_081936) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "nickname", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.string "nickname", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
