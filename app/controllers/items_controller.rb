@@ -18,8 +18,8 @@ class ItemsController < ApplicationController
   def new
     # 商品出品
     @shipping = Shipping.new
-    @item = @shipping.items.build
-    @item.images.build
+    item = @shipping.items.build
+    item.images.build
     # binding.pry
 
     # @item = Item.new
@@ -36,16 +36,16 @@ class ItemsController < ApplicationController
   def create
     # Item.create(name: item_params[:name], body: item_params[:body], price: item_params[:price],  user_id: current_user.id)
     #商品出品
-    binding.pry
+    # binding.pry
     @shipping = Shipping.create(shipping_params)
-    if @shipping.save
-      params[:images][:url].each do |image|
-        @shipping.images.create(url: image, item_id: @hipping.id)
-      end
+    # if @shipping.save
+    #   params[:images][:url].each do |image|
+    #     @shipping.images.create(url: image, item_id: @hipping.id)
+      # end
       redirect_to action: :index
-    else
-      redirect_to action: :new
-    end
+    # else
+    #   redirect_to action: :new
+    # end
   end
 
 
@@ -83,7 +83,7 @@ class ItemsController < ApplicationController
   def shipping_params
     #出品itemのparams
     params.require(:shipping).permit(:cost_burden, :period_before_shipping, :prefecure,
-    items_attributes: [:name, :body, :status, :order_status, :price, :condition, images_attributes: {url: []}])
+    items_attributes: [:name, :body, :status, :order_status, :price, :condition, images_attributes: [:url])
   end
   def exihibited_lists
       @items = Item.where(user_id: cuuret_user)
