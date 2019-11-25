@@ -91,7 +91,7 @@
                         %div
                           .delivery-container
                             -# = fa_icon 'chevron-down'
-                            = f.collection_select(:prefecure, Prefecture.all, :id, :name,{prompt: "---"}, {class: "delivery-container__select"})
+                            = f.collection_select(:prefecture, Prefecture.all, :id, :name,{prompt: "---"}, {class: "delivery-container__select"})
                             = fa_icon 'chevron-down'
                             -# %i.fas.fa-angle-down
                       .delivery-box__content

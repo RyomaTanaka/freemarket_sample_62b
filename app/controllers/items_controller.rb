@@ -82,9 +82,10 @@ class ItemsController < ApplicationController
   
   def item_params
     #出品itemのparams
-    params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecure, :name, :body, :status, :order_status, :price,
-    images_attributes: [:image])
+    params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture, :name, :body, :status, :order_status, :price,
+    images_attributes: [:image]).merge(user_id: current_user.id)
   end
+  
   def exihibited_lists
       @items = Item.where(user_id: cuuret_user)
   end
