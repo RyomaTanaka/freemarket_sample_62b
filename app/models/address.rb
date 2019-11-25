@@ -1,2 +1,4 @@
 class Address < ApplicationRecord
-end 
+
+  belongs_to :user
+end

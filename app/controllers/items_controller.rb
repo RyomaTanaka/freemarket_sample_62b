@@ -74,6 +74,7 @@ class ItemsController < ApplicationController
     #購入
   end
 
+
   private
   def set_item
     #itemのidを持ってくる

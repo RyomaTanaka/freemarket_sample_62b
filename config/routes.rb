@@ -7,12 +7,15 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
-  resource :signups do
+
+  resource :signups, only:[:create] do
+
     get :step0
     get :step1
     get :step2
     get :step3
     get :step4
+    get :step5
   end
 
   resources :mypages, only:[:show] do
@@ -31,8 +34,10 @@ Rails.application.routes.draw do
   end
 
   root "items#index"
-  resources :users
+  resources :users do
+    resources :cards
+  end
+
   resources :items
-  resources :cards
 
 end

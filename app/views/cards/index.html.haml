@@ -1,0 +1,22 @@
+= render partial: "module/header"
+
+%body.mypage-body
+  = render partial: "module/navigation.html.haml"
+  %main.container
+    .credit-registration-container
+      %section.credit-registration-content
+        %h2 支払い方法
+        .credit-content-wrapper
+          %section
+            .credit-content-wrapper__title
+              %h3 クレジットカード一覧
+            .credit-content-wrapper__title__btn
+              .add_credit_btn
+                = link_to "クレジットカードを追加する", new_user_card_path(current_user)
+          .method-payment
+            = link_to "", href: "#" do
+              %span 支払い方法について
+              = fa_icon 'chevron-right'
+    = render partial: "module/content-left"
+= render partial: "module/footer"
+= render partial: "module/right_btn"

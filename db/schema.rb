@@ -10,15 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_23_032850) do
 
-  create_table "address01s", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "prefecture_id"
-    t.string "city"
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2019_11_16_045107) do
+
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -65,7 +59,7 @@ ActiveRecord::Schema.define(version: 2019_11_23_032850) do
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id", null: false
-    t.string "url", null: false
+    t.string "image", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_images_on_item_id"
@@ -77,13 +71,18 @@ ActiveRecord::Schema.define(version: 2019_11_23_032850) do
     t.string "image_url"
     t.text "body", null: false
     t.integer "price", null: false
-    t.string "condition"
-    t.bigint "shipping_id"
-    t.integer "status"
-    t.integer "order_status"
+
+    t.string "condition", null: false
+    t.integer "status", null: false
+    t.integer "order_status", null: false
+    t.string "prefecure", null: false
+    t.string "method"
+    t.string "cost_burden", null: false
+    t.string "period_before_shipping", null: false
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["shipping_id"], name: "index_items_on_shipping_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -137,14 +136,6 @@ ActiveRecord::Schema.define(version: 2019_11_23_032850) do
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
-  create_table "shippings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "prefecure"
-    t.string "method"
-    t.string "cost_burden"
-    t.string "period_before_shipping"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "sns_authentications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -168,9 +159,9 @@ ActiveRecord::Schema.define(version: 2019_11_23_032850) do
     t.string "family_name", null: false
     t.string "first_name_ruby", null: false
     t.string "family_name_ruby", null: false
-    t.date "birth_year", null: false
-    t.date "birth_month", null: false
-    t.date "birth_day", null: false
+    t.integer "birth_year", null: false
+    t.integer "birth_month", null: false
+    t.integer "birth_day", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -180,7 +171,7 @@ ActiveRecord::Schema.define(version: 2019_11_23_032850) do
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"
   add_foreign_key "images", "items"
-  add_foreign_key "items", "shippings"
+  add_foreign_key "items", "users"
   add_foreign_key "likes", "items"
   add_foreign_key "likes", "users"
   add_foreign_key "messages", "orders"

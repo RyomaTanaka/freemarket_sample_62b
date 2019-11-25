@@ -1,10 +1,12 @@
 class User < ApplicationRecord
-  has_many :addresses, dependent: :destroy
-  has_many :cards, dependent: :destroy
-
-  has_many :sns_authentications, dependent: :destroy
-
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   has_one :profile, dependent: :destroy
+  has_many :addresses, dependent: :destroy
+
+  has_one :card, dependent: :destroy
+  has_many :sns_authentications, dependent: :destroy
+  has_many :items, dependent: :destroy
+
   accepts_nested_attributes_for :addresses, :profile
 
   # ----------------------------------------
@@ -16,7 +18,7 @@ class User < ApplicationRecord
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
 
   validates :nickname, presence: true
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :password, presence: true
 
   def self.without_sns_data(auth)
