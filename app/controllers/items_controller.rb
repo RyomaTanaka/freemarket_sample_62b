@@ -1,32 +1,53 @@
 class ItemsController < ApplicationController
-before_action :set_item, only: [:show, :purchase, :edit, :exihibited_lists]
-
 
   def index
+    # トップページ
     @items = Item.all.limit(10).order("created_at DESC")
     @images = Image.all
   end
+    
+
+
 
   def show
     @item = Item.find(params[:id])
+
   end
 
   def new
     # 商品出品
-    @shipping = Shipping.new
-    item = @shipping.items.build
-    item.images.build
+    @item = Item.new
+    image = @item.images.build
+    # binding.pry
 
-    # @category_parent_array = ["---"]
+    # @item = Item.new
+    # @item_image = @item.images.build
+
+    #商品カテゴリー
+    @category_parent_array = ["---"]
     # Categorie.where(ancestry: nil).each do |parent|
     #   @category_parent_array << parent.name
     # end
   end
 
+
   def create
-    # 出品内容を保存
-    @shipping = Shipping.create(shipping_params)
+    # Item.create(name: item_params[:name], body: item_params[:body], price: item_params[:price],  user_id: current_user.id)
+    #商品出品
+    # binding.pry
+    @item = Item.create(item_params)
+    # binding.pry
+    # if @shipping.save
+    #   params[:images][:url].each do |image|
+    #     @shipping.images.create(url: image, item_id: @hipping.id)
+      # end
+      redirect_to action: :index
+    # else
+    #   redirect_to action: :new
+    # end
   end
+
+
 
   def edit
     # @item = Item.find(params[:id])
@@ -48,45 +69,28 @@ before_action :set_item, only: [:show, :purchase, :edit, :exihibited_lists]
     # end
   end
 
-  def create
-    Item.create(name: item_params[:name], body: item_params[:body], price: item_params[:price],  user_id: current_user.id)
-  end
-
   def purchase
+    #購入
   end
 
 
   private
   def set_item
+    #itemのidを持ってくる
     @item = Item.includes(:images).find(params[:id])
   end
   
-  def shipping_params
-    params.require(:shipping).permit(:cost_burden, :period_before_shipping, :prefecure,
-    items_attributes: [:name, :body, :status, :price, :condition, images_attributes: [:url]])
+  def item_params
+    #出品itemのparams
+    params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture, :name, :body, :status, :order_status, :price,
+    images_attributes: [:image]).merge(user_id: current_user.id)
   end
+  
   def exihibited_lists
-        @items = Item.where(user_id: "1")
-
+      @items = Item.where(user_id: cuuret_user)
   end
 
   def exihibited
+    @item = Item.find(params[:id])
   end
-
 end
-
-
-private
-
-
-def item_params
-  prams.permit(:name, :body, :price)
-end
-
-def set_item
-  @item = Item.includes(:images).find(params[:id])
-end
-
-# def update_item_params
-#   params.require(item).permit(:name, :body, :price, :status, :user_id, :shipping_id, :order_status
-#   [images_attributes: [:image, :_destory, :id]]).merge(user_id: current_user_id)
