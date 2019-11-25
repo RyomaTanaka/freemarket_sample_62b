@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @items = Item.where(user_id: "1")
+    # @items = Item.where(user_id: "1")
   end
 
 end
