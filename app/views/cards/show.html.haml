@@ -1,0 +1,30 @@
+= render partial: "module/header"
+
+%body.mypage-body
+  = render partial: "module/navigation.html.haml"
+  %main.container
+    .credit-registration-container
+      %section.credit-registration-content
+        %h2 支払い方法
+        .credit-content-wrapper
+          %section
+            .credit-content-wrapper__title
+              %h3 クレジットカード一覧
+            %ul.credit-data-wrapper
+              %li
+                %form.credit-data-content
+                  %figure
+                    = image_tag src='visa.jpg', width: "49", height: "20", alt: "visa"
+                  .credit-data-content__number
+                    = "************#{@user_card.last4}"
+                  .credit-data-content__date
+                    = "#{@user_card.exp_month} / #{@user_card.exp_year % 2000}"
+                  %button.credit-data-content__delete{ type: "submit" }
+                    = link_to '削除する', user_card_path(current_user,current_user.card.id), method: :delete
+          .method-payment
+            = link_to "", href: "#" do
+              %span 支払い方法について
+              = fa_icon 'chevron-right'
+    = render partial: "module/content-left"
+= render partial: "module/footer"
+= render partial: "module/right_btn"

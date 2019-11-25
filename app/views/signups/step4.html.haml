@@ -1,16 +1,47 @@
-= render "devise_header"
+.header4
+  .header4__logo
+    -# %img= embedded_svg("logo.svg", class: "cls-2") 
+    =image_tag "logo.svg",class:'header__logo'
+  .header4__box
+    .header4__box__ol
+      .header4__box__ol__li1
+        .header4__box__ol__li1__text
+          会員登録
+          .header4__box__ol__li1__icon
+            ●
+      .header4__box__ol__li2
+        .header4__box__ol__li2__text
+          電話番号認証
+          .header4__box__ol__li2__icon
+            ●
+      .header4__box__ol__li3
+        .header4__box__ol__li3__text
+          お届け先住所入力
+          .header4__box__ol__li3__icon
+            ●
+      .header4__box__ol__li4
+        .header4__box__ol__li4__text
+          支払い方法
+          .header4__box__ol__li4__icon
+            ●
+      .header4__box__ol__li5
+        .header4__box__ol__li5__text
+          完了
+          .header4__box__ol__li5__icon
+            ●
+
 .card_content
   .card_content__top
     支払い方法
   .card_content__main
-    = form_with model: @card, url: signups_path, method: :post, local: true do |f|
+    = form_with url: user_cards_path(current_user), method: :post, html: {name: "inputForm"}, id: 'charge-form', local: true do |f|
       .card_content__main__number
         .card_content__main__number__box1
           = f.label :カード番号
         .card_content__main__number__box2
           = f.label :必須
         %br/
-        = f.text_field :card_id, autofocus: true, autocomplete: "card_id"
+        = f.text_field "card_number"
         .card_content__main__number__box3
           =image_tag "visa.png",class:'visa_logo'
           =image_tag "master.png",class:'card_logo'
@@ -22,19 +53,20 @@
         .card_content__main__deadline__box2
           = f.label :必須 
         .card_content__main__deadline__box3
-          = f.text_field :card_id, autofocus: true, autocomplete: "customer_id",id:'card_deadline'
-          = f.text_field :card_id, autofocus: true, autocomplete: "customer_id",id:'card_deadline'
+          = f.text_field "exp_month"
+          = f.text_field "exp_year"
       .card_content__main__security
         .card_content__main__security__box1
           = f.label :セキュリティーコード
         .card_content__main__security__box2
           = f.label :必須 
-        = f.text_field :card_id, autofocus: true, autocomplete: "card_id"
+        = f.text_field "cvc"
+        #card_token
         .card_content__main__security__box3
           .card_content__main__security__box3__icon
           .card_content__main__security__box3__text
             %p2
             カードの裏面の番号とは？
       .card_content__main__btn
-        = f.submit"次へ進む",:class => "form__btn"
+        = f.submit class: "form__btn", id: "token_submit"
 = render "devise_addfooter"

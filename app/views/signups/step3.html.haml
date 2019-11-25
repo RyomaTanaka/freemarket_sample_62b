@@ -1,75 +1,106 @@
-= render "devise_header"
+.header3
+  .header3__logo
+    -# %img= embedded_svg("logo.svg", class: "cls-2") 
+    =image_tag "logo.svg",class:'header__logo'
+  .header3__box
+    .header3__box__ol
+      .header3__box__ol__li1
+        .header3__box__ol__li1__text
+          会員登録
+          .header3__box__ol__li1__icon
+            ●
+      .header3__box__ol__li2
+        .header3__box__ol__li2__text
+          電話番号認証
+          .header3__box__ol__li2__icon
+            ●
+      .header3__box__ol__li3
+        .header3__box__ol__li3__text
+          お届け先住所入力
+          .header3__box__ol__li3__icon
+            ●
+      .header3__box__ol__li4
+        .header3__box__ol__li4__text
+          支払い方法
+          .header3__box__ol__li4__icon
+            ●
+      .header3__box__ol__li5
+        .header3__box__ol__li5__text
+          完了
+          .header3__box__ol__li5__icon
+            ●
+
 .add_content
   .add_content__box
     .add_content__box__text
       住所入力
-  .form
-    .form__field
+  .form-address
+    .form-address__field
       = form_with model: @address, url: signups_path, method: :post, local: true do |f|
-        .form__field__addname
-          .form__field__addname__box1
+        .form-address__field__addname
+          .form-address__field__addname__box1
             = f.label :お名前
-          .form__field__addname__box2
+          .form-address__field__addname__box2
             = f.label :必須
           %br/
-          .form__field__addname__box3
+          .form-address__field__addname__box3
             = f.text_field :user_name, autofocus: true, autocomplete: "user_name", id: 'addname'
-        .form__field__addnameruby
-          .form__field__addnameruby__box1
+        .form-address__field__addnameruby
+          .form-address__field__addnameruby__box1
             = f.label :お名前カナ
-          .form__field__addnameruby__box2
+          .form-address__field__addnameruby__box2
             = f.label :必須
           %br/
-          .form__field__addnameruby__box3
+          .form-address__field__addnameruby__box3
             = f.text_field :user_name_ruby, autofocus: true, autocomplete: "name_ruby",id:'addname'
-        .form__field__post_number
-          .form__field__post_number__box1
+        .form-address__field__post_number
+          .form-address__field__post_number__box1
             = f.label :郵便番号
-          .form__field__post_number__box2
+          .form-address__field__post_number__box2
             = f.label :必須
             %br/
-          .form__field__post_number__box3
+          .form-address__field__post_number__box3
             = f.text_field :post_number
-        .form__field__prefecture
-          .form__field__prefecture__box1
+        .form-address__field__prefecture
+          .form-address__field__prefecture__box1
             = f.label :都道府県
-          .form__field__prefecture__box2
+          .form-address__field__prefecture__box2
             = f.label :必須
             %br/
-          .form__field__prefecture__box3
+          .form-address__field__prefecture__box3
             = f.text_field :prefecture
-        .form__field__city
-          .form__field__city__box1
+        .form-address__field__city
+          .form-address__field__city__box1
             = f.label :市区町村
-          .form__field__city__box2
+          .form-address__field__city__box2
             = f.label :必須
             %br/
-          .form__field__city__box3
+          .form-address__field__city__box3
             = f.text_field :city
-        .form__field__house_number
-          .form__field__house_number__box1
+        .form-address__field__house_number
+          .form-address__field__house_number__box1
             = f.label :番地
-          .form__field__house_number__box2
+          .form-address__field__house_number__box2
             = f.label :必須
             %br/
-          .form__field__house_number__box3
+          .form-address__field__house_number__box3
             = f.text_field :house_number
-        .form__field__building_name
-          .form__field__building_name__box1
+        .form-address__field__building_name
+          .form-address__field__building_name__box1
             = f.label :建物名
-          .form__field__building_name__box2
-            = f.label :必須
+          .form-address__field__building_name__box2
+            = f.label :任意
             %br/
-          .form__field__building_name__box3
+          .form-address__field__building_name__box3
             = f.text_field :building_name
-        .form__field__phone_number
-          .form__field__phone_number__box1
+        .form-address__field__phone_number
+          .form-address__field__phone_number__box1
             = f.label :tel, "電話番号"
-          .form__field__phone_number__box2
-            = f.label :必須
+          .form-address__field__phone_number__box2
+            = f.label :任意
             %br/
-          .form__field__phone_number__box3
+          .form-address__field__phone_number__box3
             = f.text_field :phone_number
-        .form__field__actions
+        .form-address__field__actions
           = f.submit "次へ進む", class: "form__btn"
 = render "devise_addfooter"

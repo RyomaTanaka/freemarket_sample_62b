@@ -5,15 +5,16 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
-  
+
   resource :signups do
     get :step0
     get :step1
     get :step2
     get :step3
     get :step4
+    get :step5
   end
-  
+
   resources :mypages, only:[:show] do
     collection do
       get :list_items
@@ -28,9 +29,12 @@ Rails.application.routes.draw do
       get :logout
     end
   end
-  
+
   root "items#index"
-  resources :users
+  resources :users do
+    resources :cards
+  end
+
   resources :items
   resources :cards
 
