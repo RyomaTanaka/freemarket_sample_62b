@@ -567,7 +567,6 @@
     padding-top:40px;
     text-align: center;
     &__nickname{
-      height: 70px;
       text-align:left;
       &__box1{
         font-weight: bold;
@@ -587,7 +586,6 @@
     }
     &__mail{
       margin-top:32px;
-      height: 70px;
       text-align:left;
       &__box1{
         font-weight: bold;
@@ -991,6 +989,12 @@ input[id="user_first_name_ruby"]{
   text-align: right;
   color: #0099e8;
 }
+
+.personal_registration_about {
+  text-align: right;
+  color: #0099e8;
+}
+
 
 #realText {
   display: none;

@@ -1,5 +1,5 @@
 .main
-  = render partial: "signups/devise_header"
+  = render "devise_header"
   .form
     .form__top
       .form__top__text
@@ -13,6 +13,10 @@
             必須
           %br/
           = f.text_field :nickname, autofocus: true, autocomplete: "nickname"
+          - if @user.errors.any?
+            %ul.error_message_list
+              %li.error_message
+                ニックネームを入力してください
         .form__field__mail
           .form__field__mail__box1
             = f.label :email
@@ -20,18 +24,29 @@
             = f.label :必須
           %br/
           = f.email_field :email, autocomplete: "email"
-        - unless @sns.present?
-          .form__field__pass
-            .form__field__pass__box1
-              = f.label :パスワード
-            .form__field__pass__box2
-              = f.label :必須
-            %br/
-            = f.password_field :password, autocomplete: "new-password"
-            %br/
-            .form__field__pass__box3
-              = check_box_tag :checkbox
-              = f.label :パスワードを表示する
+        -# - unless @sns.present?
+        -#   .form__field__pass
+        -#     .form__field__pass__box1
+        -#       = f.label :パスワード
+        -#     .form__field__pass__box2
+        -#       = f.label :必須
+        -#     %br/
+        -#     = f.password_field :password, autocomplete: "new-password"
+        -#     %br/
+        -#     .form__field__pass__box3
+        -#       = check_box_tag :checkbox
+        -#       = f.label :パスワードを表示する
+        .form__field__pass
+          .form__field__pass__box1
+            = f.label :パスワード
+          .form__field__pass__box2
+            = f.label :必須
+          %br/
+          = f.password_field :password, autocomplete: "new-password"
+          %br/
+          .form__field__pass__box3
+            = check_box_tag :checkbox
+            = f.label :パスワードを表示する
         %p1
           %input#realText.password/
         .form__field__text
@@ -68,6 +83,7 @@
           .form__field__birthdate__box2
             = f.label :必須
             %br/
+
 
           .birthdate-wrapper
             .year
