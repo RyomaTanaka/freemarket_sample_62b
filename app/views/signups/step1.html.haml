@@ -13,6 +13,10 @@
             必須
           %br/
           = f.text_field :nickname, autofocus: true, autocomplete: "nickname"
+          - if @user.errors.any?
+            %ul.error_message_list
+              %li.error_message
+                ニックネームを入力してください
         .form__field__mail
           .form__field__mail__box1
             = f.label :email
