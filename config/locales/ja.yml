@@ -1,4 +1,10 @@
 ja:
+  activerecord:
+  models:
+  attributes:
+  user:
+  nickname: ニックネーム
+  email: メールアドレス
   date:
     formats:
       default: "%Y/%m/%d"

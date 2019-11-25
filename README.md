@@ -26,15 +26,16 @@ Things you may want to cover:
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
+|nickname|string|null: false|
 |first_name|string|null: false|
 |family_name|string|null: false|
 |first_name_ruby|string|null: false|
 |family_name_ruby|string|null: false|
 |email|string|null: false, unique: true|
 |password|string|null: false|
-|birth_year|date|null: false|
-|birth_month|date|null: false|
-|birth_day|date|null: false|
+|birth_year|integer|null: false|
+|birth_month|integer|null: false|
+|birth_day|integer|null: false|
 
 ### Association
 - has_one :profile, dependent: :destroy
@@ -60,7 +61,6 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|nickname|string|null: false|
 |introduction|text||
 |image|string||
 
@@ -134,13 +134,16 @@ Things you may want to cover:
 |shipping_id|references|null: false, foreign_key: true|
 |status|integer|null: false|
 |order_status|integer|null: false|
+|prefecture|string|null: false|
+|method|string||
+|cost_burden|string|null: false|
+|period_before_shipping|string|null: false|
 
 ### Association
 - has_many :images, dependent: :destroy
 - has_many :likes, dependent: :destroy
 - has_many :comments, dependent: :destroy
 - has_one :order, dependent: :destroy
-- belongs_to :shipping
 - belongs_to :user
 - belongs_to :category
 
@@ -153,25 +156,14 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |item_id|references|null: false, foreign_key: true|
-|image_url|string|null: false|
+|image|string|null: false|
 
 ### Association
 - belongs_to :item
 
 ### index
-- add_index :images, :image_url
+- add_index :images, :image
 
-## shippingsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|prefecure|string|null: false|
-|method|string||
-|cost_burden|string|null: false|
-|period_before_shipping|string|null: false|
-
-### Association
-- has_many :items
-- accepts_nested_attributes_for :items
 
 ## ordersテーブル
 |Column|Type|Options|

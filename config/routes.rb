@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
-  resource :signups do
+  resource :signups, only:[:create] do
     get :step0
     get :step1
     get :step2
