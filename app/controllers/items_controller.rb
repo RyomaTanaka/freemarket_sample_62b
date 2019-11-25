@@ -89,6 +89,6 @@ def set_item
   @item = Item.includes(:images).find(params[:id])
 end
 
-# def update_item_params
-#   params.require(item).permit(:name, :body, :price, :status, :user_id, :shipping_id, :order_status
-#   [images_attributes: [:image, :_destory, :id]]).merge(user_id: current_user_id)
+def update_item_params
+  params.require(:shipping).permit(:cost_burden, :period_before_shipping, :prefecure,
+  items_attributes: [:name, :body, :status, :price, :condition, images_attributes: [:url]])
