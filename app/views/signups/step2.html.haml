@@ -1,7 +1,6 @@
 %body.phone-body
 .header2
   .header2__logo
-    -# %img= embedded_svg("logo.svg", class: "cls-2") 
     =image_tag "logo.svg",class:'header__logo'
   .header2__box
     .header2__box__ol
@@ -35,18 +34,18 @@
     電話番号の確認
   .content__main
     .content__main__sub
-      = form_with model: @addresses, url: step3_signups_path, method: :get, local: true do |f|
+      = form_with model: @address, url: step3_signups_path, method: :get, local: true do |f|
         .content__main__sub__tel
           携帯電話の番号
         .content__main__sub__number__box
-          =f.telephone_field :phone_number, placeholder: "携帯電話の番号を入力", class: "telephone-box"
-      .content__main__sub__teltext
-        本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-      .content__main__sub__btn
-        = link_to 'SMSを送信する', step3_signups_path, class: "sms-text"
-      .content__main__sub__note
-        ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
-      .content__main__sub__reason
-        電話番号確認が必要な理由
-      = fa_icon "chevron-right", class: "reason-icon"
+          = f.telephone_field :phone_number, placeholder: "携帯電話の番号を入力", class: "telephone-box"
+        .content__main__sub__teltext
+          本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+        .content__main__sub__btn
+          = f.submit 'SMS認証する', class: "sms-text"
+        .content__main__sub__note
+          ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+        .content__main__sub__reason
+          電話番号確認が必要な理由
+          = fa_icon "chevron-right", class: "reason-icon"
 = render "devise_footer"

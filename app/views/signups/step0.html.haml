@@ -1,7 +1,6 @@
 .log_body
   .header
     .header__logo
-      -# %img= embedded_svg("logo.svg", class: "cls-2") 
       =image_tag "logo.svg",class:'header__logo'
   .log_main
     .log_main__top
@@ -11,8 +10,8 @@
         .log_main__center__content__box1
           .log_main__center__content__box1__icon
             = fa_icon "envelope"
-          .log_main__center__content__box1__text    
-            = link_to 'メールアドレスで登録する', step1_signups_path, class: "mail_text"
+          .log_main__center__content__box1__text
+            = link_to 'メールアドレスで登録する', step1_signups_path, class: "mail_text", data: { turbolinks: false }
         .log_main__center__content__box2
           .log_main__center__content__box1__icon
             = fa_icon "facebook-square"

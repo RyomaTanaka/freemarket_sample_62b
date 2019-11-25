@@ -14,12 +14,14 @@ class SignupsController < ApplicationController
     session[:first_name] = user_params[:first_name]
     session[:family_name_ruby] = user_params[:family_name_ruby]
     session[:first_name_ruby] = user_params[:first_name_ruby]
-    session[:birth_year] = Date.new(user_params["birth_date(1i)"]&.to_i)
-    session[:birth_month] = Date.new(user_params["birth_date(2i)"]&.to_i)
-    session[:birth_day] = Date.new(user_params["birth_date(3i)"]&.to_i)
+    session[:birth_year] = user_params[:birth_year].to_i
+    session[:birth_month] = user_params[:birth_month].to_i
+    session[:birth_day] = user_params[:birth_day].to_i
+    @address = Address.new
   end
   
   def step3
+    session[:phone_number] = address_params[:phone_number]
     @address = Address.new
   end
 
@@ -36,7 +38,7 @@ class SignupsController < ApplicationController
     session[:house_number] = address_params[:house_number]
     session[:building_name] = address_params[:building_name]
     session[:phone_number] = address_params[:phone_number]
-
+    
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
@@ -88,7 +90,9 @@ class SignupsController < ApplicationController
       :first_name,
       :family_name_ruby,
       :first_name_ruby,
-      :birth_date
+      :birth_year,
+      :birth_month,
+      :birth_day
     )
   end
 
