@@ -51,6 +51,7 @@ class SignupsController < ApplicationController
       birth_month: session[:birth_month],
       birth_day: session[:birth_day]
     )
+
     if @user.save
       session[:user_id] = @user.id
       sign_in User.find(@user.id) unless user_signed_in?
@@ -69,12 +70,14 @@ class SignupsController < ApplicationController
     )
     @address.save
 
-    @sns_authentication = SnsAuthentication.new(
-      user_id: session[:user_id],
-      provider: session[:provider],
-      uid: session[:uid]
-    )
-    @sns_authentication.save
+    if session[:provider].present?
+      @sns_authentication = SnsAuthentication.new(
+        user_id: session[:user_id],
+        provider: session[:provider],
+        uid: session[:uid]
+      )
+      @sns_authentication.save
+    end
     
     redirect_to root_path
   end
