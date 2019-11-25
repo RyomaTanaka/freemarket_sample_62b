@@ -12,151 +12,150 @@
         %div{"data-reactroot": ""}
           .sell-container-inner
             %h2.sell-container-inner__title 商品の情報を入力
-            = form_with model: @shipping, url: items_path, method: :post, class: "sell-form", local: true do |f|
-              = f.fields_for :items do |item|
-                = item.fields_for :images do |image|
-                  %form.sell-form
-                    .upload-box
-                      %h3.upload-box__header
-                        出品画像
+            = form_with model: @item, url: items_path, method: :post, class: "sell-form", local: true do |f|
+              = f.fields_for :images do |image|
+                %form.sell-form
+                  .upload-box
+                    %h3.upload-box__header
+                      出品画像
+                      %span.upload-box__header__required 必須
+                    %p 最大10枚までアップロードできます
+                    .upload-container
+                      .upload-items
+                        .upload-items__item
+                          %ul
+                      .upload-dropbox
+                        = image.label :image, class: "dropzone-box", for: "dropbox__input" do
+                          -# = image.file_field :url, multiple: true, class: "dropbox__input", id: "dropbox__input"
+                          = image.file_field :image, class: "dropbox__input",id: "dropbox__input"
+                          -# - binding.pry
+                        %pre.upload-dropbox__input__visib
+                          ドラッグアンドドロップ
+                          またはクリックしてファイルをアップロード
+                        %i.sell-icon-camera
+                  .sell-content
+                    .sell-content-title
+                      %label
+                        商品名
                         %span.upload-box__header__required 必須
-                      %p 最大10枚までアップロードできます
-                      .upload-container
-                        .upload-items
-                          .upload-items__item
-                            %ul
-                        .upload-dropbox
-                          = image.label :image, class: "dropzone-box", for: "dropbox__input" do
-                            -# = image.file_field :url, multiple: true, class: "dropbox__input", id: "dropbox__input"
-                            = image.file_field :url, multiple: true, class: "dropbox__input",id: "dropbox__input"
-                            -# - binding.pry
-                          %pre.upload-dropbox__input__visib
-                            ドラッグアンドドロップ
-                            またはクリックしてファイルをアップロード
-                          %i.sell-icon-camera
-                    .sell-content
-                      .sell-content-title
-                        %label
-                          商品名
-                          %span.upload-box__header__required 必須
-                        %div
-                          -# %input{class: :"sell-title-label__input", placeholder: :"商品名（必須 40文字まで)", value: :""}/
-                          = item.text_field :name, placeholder: "商品名（必須 40文字まで)", class: "sell-title-label__input"
-                      .sell-content-explanation
-                        %label
-                          商品名の説明
-                          %span.upload-box__header__required 必須
-                        -# %textarea{class: :"sell-content-explanation__input", placeholder: :"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: :"5"}
-                        = item.text_area :body, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "sell-content-explanation__input", rows: :"5"
-                    .prodcts-detail
-                      %h3.prodcts-detail__label 商品の詳細
-                      .prodcts-detail__box
-                        -# = f.fields_for :categorie do |c|
-                        .prodcts-category
-                          %label
-                            カテゴリー
-                            %span.category__required 必須
-                          %div
-                            .category-container
-                              -# = fa_icon 'chevron-down'
-                              = f.select :name, @category_parent_array, {}, class: "category-container__select", id: :s1
-                              = fa_icon 'chevron-down'
-                        .prodcts-status
-                          %label
-                            商品の状態
-                            %span.status__required 必須
-                          %div
-                            .status-container
-                              -# = fa_icon 'chevron-down'
-                              = item.select :status, [ ["---",""], ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ], {}, class: 'status-container__select'
-                              = fa_icon 'chevron-down'
-                              -# %i.fas.fa-angle-down
-                    .prodcts-delivery
-                      %h3.prodcts-delivery__label 配送について
-                      = link_to "?", "#",class: "question-icon"
-                      .delivery-box
-                        .delivery-box__container
-                          %label
-                            配送料の負担
-                            %span.required 必須
-                          %div
-                            .delivery-container
-                              -# = fa_icon 'chevron-down'
-                              = f.select :cost_burden, [ ["---",""], ["送料込み(出品者負担)",1], ["着払い(購入者負担)", 2] ],{}, class: "delivery-container__select"
-                              = fa_icon 'chevron-down'
-                              -# %i.fas.fa-angle-down
-                        .delivery-box__content
-                          %label
-                            発送元の地域
-                            %span.required 必須
-                          %div
-                            .delivery-container
-                              -# = fa_icon 'chevron-down'
-                              = f.collection_select(:prefecture, Prefecture.all, :id, :name,{prompt: "---"}, {class: "delivery-container__select"})
-                              = fa_icon 'chevron-down'
-                              -# %i.fas.fa-angle-down
-                        .delivery-box__content
-                          %label
-                            発送までの日数
-                            %span.required 必須
-                          %div
-                            .delivery-container
-                              -# = fa_icon 'chevron-down'
-                              = f.select :period_before_shipping	, [ ["---",""], ["1〜2日で発送",1], ["2〜3日で発送", 2], ["4〜7日で発送", 3 ] ], {}, class: "delivery-container__select"
-                              = fa_icon 'chevron-down'
-                              -# order_statusの番号を登録
-                              = item.hidden_field :order_status, value: :id
-                    .prodcts-price
-                      %h3.prodcts-price__label 販売価格(300〜9,999,999)
-                      = link_to "", class: "question-icon", href: "#" do
-                        ?
-                      .price-container
-                        %ul.price-lists
-                          %li.price-lists__price
-                            .parice-content
-                              %label.parice-content__label
-                                価格
-                                %span.required 必須
-                              .price-input
-                                ¥
-                                %div
-                                  = item.number_field :price, placeholder: "例）300", class: "price-input__form"
-                                  -# %input{class: :"price-input__form", placeholder: :"例）300", value: :""}/
-                          %li.price-lists__fee
-                            .fee-label
-                              販売手数料 (10%)
-                            .fee-label__a -
-                          %li.price-lists__profit
-                            .price-lists__profit__label 販売利益
-                            .price-lists__profit__label__a -
-                    .price-sell
                       %div
-                        %p
-                          = link_to "禁止されている出品", href: "#"
-                          、
-                          = link_to "行為を", href: "#"
-                          必ずご確認ください。
-                        %p
-                          またブランド品でシリアルナンバー等がある場合はご記載ください。
-                          = link_to "偽ブランドの販売は", href: "#"
-                          犯罪であり処罰される可能性があります。
-                        %p
-                          また、出品を持ちまして
-                          = link_to "加盟店規約", href: "#"
-                          に同意した事になります。
-                      = item.submit "出品する", class: "sell-btn"
-                      = link_to "", class: "back-btn", href: "/items" do
-                        もどる
-        %footer.sell-footer
-          %nav
-            %ul.sell-footer__lists
-              %li
-                = link_to "プライバシーポリシー", href: "#"
-              %li
-                = link_to "メルカリ利用規約", href: "#"
-              %li
-                = link_to "特定商取引に関する表記", href: "#"
-          = link_to "", class: "sell-logo_link", href: "#" do
-            = image_tag src='//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?210491352', class: 'sell-logo_link__logo', width: :"80", height: :"65"
-          %p
-            %small © 2019 Mercari
+                        -# %input{class: :"sell-title-label__input", placeholder: :"商品名（必須 40文字まで)", value: :""}/
+                        = f.text_field :name, placeholder: "商品名（必須 40文字まで)", class: "sell-title-label__input"
+                    .sell-content-explanation
+                      %label
+                        商品名の説明
+                        %span.upload-box__header__required 必須
+                      -# %textarea{class: :"sell-content-explanation__input", placeholder: :"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: :"5"}
+                      = f.text_area :body, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "sell-content-explanation__input", rows: :"5"
+                  .prodcts-detail
+                    %h3.prodcts-detail__label 商品の詳細
+                    .prodcts-detail__box
+                      -# = f.fields_for :categorie do |c|
+                      .prodcts-category
+                        %label
+                          カテゴリー
+                          %span.category__required 必須
+                        %div
+                          .category-container
+                            -# = fa_icon 'chevron-down'
+                            -# = f.select :name, @category_parent_array, {}, class: "category-container__select", id: :s1
+                            = fa_icon 'chevron-down'
+                      .prodcts-status
+                        %label
+                          商品の状態
+                          %span.status__required 必須
+                        %div
+                          .status-container
+                            -# = fa_icon 'chevron-down'
+                            = f.select :status, [ ["---",""], ["新品、未使用",1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3 ] ], {}, class: 'status-container__select'
+                            = fa_icon 'chevron-down'
+                            -# %i.fas.fa-angle-down
+                  .prodcts-delivery
+                    %h3.prodcts-delivery__label 配送について
+                    = link_to "?", "#",class: "question-icon"
+                    .delivery-box
+                      .delivery-box__container
+                        %label
+                          配送料の負担
+                          %span.required 必須
+                        %div
+                          .delivery-container
+                            -# = fa_icon 'chevron-down'
+                            = f.select :cost_burden, [ ["---",""], ["送料込み(出品者負担)",1], ["着払い(購入者負担)", 2] ],{}, class: "delivery-container__select"
+                            = fa_icon 'chevron-down'
+                            -# %i.fas.fa-angle-down
+                      .delivery-box__content
+                        %label
+                          発送元の地域
+                          %span.required 必須
+                        %div
+                          .delivery-container
+                            -# = fa_icon 'chevron-down'
+                            = f.collection_select(:prefecure, Prefecture.all, :id, :name,{prompt: "---"}, {class: "delivery-container__select"})
+                            = fa_icon 'chevron-down'
+                            -# %i.fas.fa-angle-down
+                      .delivery-box__content
+                        %label
+                          発送までの日数
+                          %span.required 必須
+                        %div
+                          .delivery-container
+                            -# = fa_icon 'chevron-down'
+                            = f.select :period_before_shipping	, [ ["---",""], ["1〜2日で発送",1], ["2〜3日で発送", 2], ["4〜7日で発送", 3 ] ], {}, class: "delivery-container__select"
+                            = fa_icon 'chevron-down'
+                            -# order_statusの番号を登録
+                            = f.hidden_field :order_status, value: :id
+                  .prodcts-price
+                    %h3.prodcts-price__label 販売価格(300〜9,999,999)
+                    = link_to "", class: "question-icon", href: "#" do
+                      ?
+                    .price-container
+                      %ul.price-lists
+                        %li.price-lists__price
+                          .parice-content
+                            %label.parice-content__label
+                              価格
+                              %span.required 必須
+                            .price-input
+                              ¥
+                              %div
+                                = f.number_field :price, placeholder: "例）300", class: "price-input__form"
+                                -# %input{class: :"price-input__form", placeholder: :"例）300", value: :""}/
+                        %li.price-lists__fee
+                          .fee-label
+                            販売手数料 (10%)
+                          .fee-label__a -
+                        %li.price-lists__profit
+                          .price-lists__profit__label 販売利益
+                          .price-lists__profit__label__a -
+                  .price-sell
+                    %div
+                      %p
+                        = link_to "禁止されている出品", href: "#"
+                        、
+                        = link_to "行為を", href: "#"
+                        必ずご確認ください。
+                      %p
+                        またブランド品でシリアルナンバー等がある場合はご記載ください。
+                        = link_to "偽ブランドの販売は", href: "#"
+                        犯罪であり処罰される可能性があります。
+                      %p
+                        また、出品を持ちまして
+                        = link_to "加盟店規約", href: "#"
+                        に同意した事になります。
+                    = f.submit "出品する", class: "sell-btn"
+                    = link_to "", class: "back-btn", href: "/items" do
+                      もどる
+      %footer.sell-footer
+        %nav
+          %ul.sell-footer__lists
+            %li
+              = link_to "プライバシーポリシー", href: "#"
+            %li
+              = link_to "メルカリ利用規約", href: "#"
+            %li
+              = link_to "特定商取引に関する表記", href: "#"
+        = link_to "", class: "sell-logo_link", href: "#" do
+          = image_tag src='//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?210491352', class: 'sell-logo_link__logo', width: :"80", height: :"65"
+        %p
+          %small © 2019 Mercari

@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
   def index
     # トップページ
     @items = Item.all.limit(10).order("created_at DESC")
-    @shipping = Shipping.all
     @images = Image.all
   end
     
@@ -17,9 +16,8 @@ class ItemsController < ApplicationController
 
   def new
     # 商品出品
-    @shipping = Shipping.new
-    item = @shipping.items.build
-    item.images.build
+    @item = Item.new
+    image = @item.images.build
     # binding.pry
 
     # @item = Item.new
@@ -37,7 +35,8 @@ class ItemsController < ApplicationController
     # Item.create(name: item_params[:name], body: item_params[:body], price: item_params[:price],  user_id: current_user.id)
     #商品出品
     # binding.pry
-    @shipping = Shipping.create(shipping_params)
+    @item = Item.create(item_params)
+    # binding.pry
     # if @shipping.save
     #   params[:images][:url].each do |image|
     #     @shipping.images.create(url: image, item_id: @hipping.id)
@@ -81,10 +80,10 @@ class ItemsController < ApplicationController
     @item = Item.includes(:images).find(params[:id])
   end
   
-  def shipping_params
+  def item_params
     #出品itemのparams
-    params.require(:shipping).permit(:cost_burden, :period_before_shipping, :prefecure,
-    items_attributes: [:name, :body, :status, :order_status, :price, :condition, images_attributes: [:url])
+    params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecure, :name, :body, :status, :order_status, :price,
+    images_attributes: [:image])
   end
   def exihibited_lists
       @items = Item.where(user_id: cuuret_user)

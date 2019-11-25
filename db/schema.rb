@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 2019_11_23_032850) do
 
-ActiveRecord::Schema.define(version: 2019_11_16_045107) do
-
+  create_table "address01s", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "prefecture_id"
+    t.string "city"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -68,18 +74,14 @@ ActiveRecord::Schema.define(version: 2019_11_16_045107) do
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.string "name", null: false
-    t.string "image_url"
     t.text "body", null: false
     t.integer "price", null: false
-
-    t.string "condition", null: false
     t.integer "status", null: false
     t.integer "order_status", null: false
-    t.string "prefecure", null: false
+    t.string "prefecure"
     t.string "method"
     t.string "cost_burden", null: false
     t.string "period_before_shipping", null: false
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_items_on_user_id"
@@ -135,7 +137,6 @@ ActiveRecord::Schema.define(version: 2019_11_16_045107) do
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
-
 
   create_table "sns_authentications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
