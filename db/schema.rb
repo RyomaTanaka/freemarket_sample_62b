@@ -20,6 +20,21 @@ ActiveRecord::Schema.define(version: 2019_11_23_032850) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "user_name", null: false
+    t.string "user_name_ruby", null: false
+    t.string "post_number", null: false
+    t.string "prefecture", null: false
+    t.string "city", null: false
+    t.string "house_number", null: false
+    t.string "building_name"
+    t.integer "phone_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id"
+  end
+
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "customer_id", null: false
@@ -88,9 +103,9 @@ ActiveRecord::Schema.define(version: 2019_11_23_032850) do
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "seller_id", null: false
-    t.bigint "buyer_id", null: false
-    t.bigint "item_id", null: false
+    t.bigint "seller_id"
+    t.bigint "buyer_id"
+    t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -159,6 +174,7 @@ ActiveRecord::Schema.define(version: 2019_11_23_032850) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "users"
   add_foreign_key "cards", "users"
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"

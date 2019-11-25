@@ -26,9 +26,10 @@
                           .upload-items__item
                             %ul
                         .upload-dropbox
-                          -# %input.upload-dropbox__input{multiple: "", name: :"image1", style: :"display: none;", type: :"file"}/
-                          -# = image.label :img_url, class: "form-image"
-                          = image.file_field :url,local: true, class: "upload-dropbox__input", id: :exhibit_img
+                          = image.label :image, class: "dropzone-box", for: "dropbox__input" do
+                            -# = image.file_field :url, multiple: true, class: "dropbox__input", id: "dropbox__input"
+                            = image.file_field :url, multiple: true, class: "dropbox__input",id: "dropbox__input"
+                            -# - binding.pry
                           %pre.upload-dropbox__input__visib
                             ドラッグアンドドロップ
                             またはクリックしてファイルをアップロード
