@@ -18,8 +18,11 @@ class MypagesController < ApplicationController
 
   def profile
     # @item = Item.find(params[:id])
-    @user = User.find(params[:id])
-    @user.profiles.build
+    # @user = User.find(params[:id])
+    # @user.profiles.build
+  # @nickname = current_user.nickname
+    @users = User.find(1)
+
   end
 
   def card
@@ -35,4 +38,10 @@ class MypagesController < ApplicationController
   def logout
   end
 
+
+
+
+  # private 
+  #   def profile_params
+  #     params.permit(:nickname, :image, :introduction)
 end
