@@ -90,6 +90,6 @@ def set_item
   @item = Item.includes(:images).find(params[:id])
 end
 
-def update_item_params
-  params.require(:shipping).permit(:cost_burden, :period_before_shipping, :prefecure,
-  items_attributes: [:name, :body, :status, :price, :condition, images_attributes: [:url]])
+# def update_item_params
+#   params.require(:shipping).permit(:cost_burden, :period_before_shipping, :prefecure,
+#   items_attributes: [:name, :body, :status, :price, :condition, images_attributes: [:image]])

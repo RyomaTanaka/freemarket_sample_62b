@@ -1,5 +1,4 @@
 = render 'module/header'
-
 .mypage-body        
 
   %nav.breadcrumbs
@@ -17,6 +16,7 @@
         %span{ itemprop: "title"}
           出品した商品 - 出品中
 
+  = render partial:'mypages/notification'
   %main.container
     .content-exhibited
       %section.purchase-wrapper-exhibited

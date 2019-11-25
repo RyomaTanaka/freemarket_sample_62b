@@ -18,8 +18,14 @@ class MypagesController < ApplicationController
   end
 
   def profile
-    # @item = Item.find(params[:id])
+    #  @item = Item.find(params[:id])
     # @users = User.find(:nickname)
+
+    # if @item.update(update_item_params)
+
+    #   redirect_to root_path
+    # end
+
   end
 
   def card
