@@ -26,7 +26,7 @@
                           %ul
                       .upload-dropbox
                         = image.label :image, class: "dropzone-box", for: "dropbox__input" do
-                          -# = image.file_field :url, multiple: true, class: "dropbox__input", id: "dropbox__input"
+                          -# = image.file_field :image, class: "dropbox__input", id: "dropbox__input"
                           = image.file_field :image, class: "dropbox__input",id: "dropbox__input"
                           -# - binding.pry
                         %pre.upload-dropbox__input__visib
@@ -91,7 +91,7 @@
                         %div
                           .delivery-container
                             -# = fa_icon 'chevron-down'
-                            = f.collection_select(:prefecture, Prefecture.all, :id, :name,{prompt: "---"}, {class: "delivery-container__select"})
+                            = f.collection_select(:prefecture_id, Prefecture.all, :id, :name,{prompt: "---"}, {class: "delivery-container__select"})
                             = fa_icon 'chevron-down'
                             -# %i.fas.fa-angle-down
                       .delivery-box__content
