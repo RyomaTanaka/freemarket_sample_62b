@@ -41,10 +41,10 @@ before_action :set_item, only: [:show, :purchase, :edit, :exihibited_lists]
   end
 
   def destroy
-    # if @item.user_id == current_user.id && @item.destroy
-    #   redirect_to root_path
+    # if @item.find(:id)
+    #   redirect_to root_path notice: '商品を削除しました'
     # else
-    #   redirect_to action: :show
+      redirect_to list_items_mypages_path, notice: '削除をやめました'
     # end
   end
 

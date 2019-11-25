@@ -19,7 +19,7 @@ class MypagesController < ApplicationController
 
   def profile
     # @item = Item.find(params[:id])
-    
+    # @users = User.find(:nickname)
   end
 
   def card

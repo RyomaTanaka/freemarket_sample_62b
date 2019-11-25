@@ -447,7 +447,25 @@
   }
 }
 
-listing_edit{
-  text-decoration: none;
-  color:#fff;
-}
+
+
+#listing_item_edit {	 	 
+  text-decoration: none; /* リンクの下線を出さない */	 	
+  color: white; /* 色の指定をリセット */
+  width:668px;
+  height:50px;	 	 
+ }	 	  
+ 
+ #listing_item_delete {	 	 
+  text-decoration: none; /* リンクの下線を出さない */	 	
+  color: white; /* 色の指定をリセット */
+  width:668px;
+  height:50px;	 	 
+ }	 	  
+ 
+ #listing_item_stop{	 	 
+  text-decoration: none; /* リンクの下線を出さない */	 	
+  color: white; /* 色の指定をリセット */
+  width:668px;
+  height:50px;	 	 
+ }	 	  
