@@ -75,10 +75,16 @@
       line-height:48px;
       background-color: #EA352D;
       text-align:center;
+      color: white;
+      font-size:14px;
+      font-weight: 300px;
       .sms-text {
+        width:343px;
+        line-height:48px;
         color: white;
         font-size:14px;
         font-weight: 300px;
+        background-color: #EA352D;
       }
     }
     &__note{

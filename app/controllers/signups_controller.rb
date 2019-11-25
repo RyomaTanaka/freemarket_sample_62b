@@ -1,4 +1,6 @@
 class SignupsController < ApplicationController
+  before_action :save_to_session_user, only: :step2
+
   def step0
   end
   
@@ -7,16 +9,6 @@ class SignupsController < ApplicationController
   end
   
   def step2
-    session[:nickname] = user_params[:nickname]
-    session[:email] = user_params[:email]
-    session[:password] = user_params[:password] ? user_params[:password] : Devise.friendly_token.first(8)
-    session[:family_name] = user_params[:family_name]
-    session[:first_name] = user_params[:first_name]
-    session[:family_name_ruby] = user_params[:family_name_ruby]
-    session[:first_name_ruby] = user_params[:first_name_ruby]
-    session[:birth_year] = user_params[:birth_year].to_i
-    session[:birth_month] = user_params[:birth_month].to_i
-    session[:birth_day] = user_params[:birth_day].to_i
     @address = Address.new
   end
   
@@ -111,5 +103,33 @@ class SignupsController < ApplicationController
       :building_name,
       :phone_number
     )
+  end
+
+  def save_to_session_user
+    session[:nickname] = user_params[:nickname]
+    session[:email] = user_params[:email]
+    session[:password] = user_params[:password] ? user_params[:password] : Devise.friendly_token.first(8)
+    session[:family_name] = user_params[:family_name]
+    session[:first_name] = user_params[:first_name]
+    session[:family_name_ruby] = user_params[:family_name_ruby]
+    session[:first_name_ruby] = user_params[:first_name_ruby]
+    session[:birth_year] = user_params[:birth_year].to_i
+    session[:birth_month] = user_params[:birth_month].to_i
+    session[:birth_day] = user_params[:birth_day].to_i
+
+    @user = User.new(
+      nickname: session[:nickname],
+      email: session[:email],
+      password: session[:password],
+      family_name: session[:family_name],
+      first_name: session[:first_name],
+      family_name_ruby: session[:family_name_ruby],
+      first_name_ruby: session[:first_name_ruby],
+      birth_year: session[:birth_year],
+      birth_month: session[:birth_month],
+      birth_day: session[:birth_day]
+    )
+
+    render 'signups/step1' unless @user.valid?
   end
 end
