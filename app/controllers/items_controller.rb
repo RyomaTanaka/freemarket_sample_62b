@@ -24,10 +24,10 @@ class ItemsController < ApplicationController
     # @item_image = @item.images.build
 
     #商品カテゴリー
-    @category_parent_array = ["---"]
-    Categorie.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
+    # @category_parent_array = ["---"]
+    # Categorie.where(ancestry: nil).each do |parent|
+    #   @category_parent_array << parent.name
+    # end
   end
 
 
@@ -82,7 +82,7 @@ class ItemsController < ApplicationController
 
   def item_params
     #出品itemのparams
-    params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecure, :name, :body, :status, :order_status, :price,
+    params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture, :name, :body, :status, :order_status, :price,
     images_attributes: [:image])
   end
 
