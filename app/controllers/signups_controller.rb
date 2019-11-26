@@ -39,10 +39,12 @@ class SignupsController < ApplicationController
         uid: session[:uid]
       )
       @sns_authentication.save
+      session.delete(:provider)
     end
     
     save_to_session_address
-
+    @address.user_id = current_user.id
+    binding.pry
     if @address.save
       redirect_to step4_signups_path
     else
@@ -69,7 +71,6 @@ class SignupsController < ApplicationController
 
   def address_params
     params.require(:address).permit(
-      :user_id,
       :user_name,
       :user_name_ruby,
       :post_number,
@@ -124,7 +125,6 @@ class SignupsController < ApplicationController
     session[:phone_number] = address_params[:phone_number]
 
     @address = Address.new(
-      user_id: session[:user_id],
       user_name: session[:user_name],
       user_name_ruby: session[:user_name_ruby],
       post_number: session[:post_number],
