@@ -29,7 +29,7 @@ class CardsController < ApplicationController
     @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
     @card.save
     
-    if params[:commit] = "次へ進む"
+    if params[:commit] == "次へ進む"
       redirect_to step5_signups_path
     else
       redirect_to user_card_path(current_user, current_user.card.id)
@@ -39,9 +39,9 @@ class CardsController < ApplicationController
   
   def destroy
     customer = Payjp::Customer.retrieve(current_user.card.customer_id)
-    @user_card = customer.cards.retrieve(current_user.card.card_id)
-    @user_card.delete
-    card = Card.find(current_user.id)
+    user_card = customer.cards.retrieve(current_user.card.card_id)
+    user_card.delete
+    card = Card.where(user_id: current_user.id).first
     card.delete
     redirect_to user_cards_path(current_user)
   end
