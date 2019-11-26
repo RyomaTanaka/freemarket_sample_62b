@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     get :step5
   end
 
-  resources :mypages, only:[:show,:edit,:delete,:update] do
+  resources :mypages, only:[:show,:edit,:destroy,:update] do
     collection do
       get :list_items
       get :list_items_progress
@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       get :card_create
       get :personal
       get :logout
+      post :logout
     end
   end
 
