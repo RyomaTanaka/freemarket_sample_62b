@@ -10,13 +10,13 @@
         %h2.profile-edit-title
           プロフィール
         .profile-edit-wrapper
-        = form_with model: @users, url: user_path, method: :put, local: true do |f|
+        = form_with model: @users, url: user_path(current_user), method: :put, local: true do |f|
           .profile-edit-wrapper__upper
             %figure
               %img{ src: "assets/icon.jpg", width: "60", height: "60" }
-              - @users.each do |user|
-                = user.nickname
-            = f.text_field :nickname, name: "nickname", placeholder: "例) AYA セール中"
+              -# - @users.each do |user|
+                -# = user.nickname
+            = f.text_field :nickname, name: "nickname", placeholder: "例) AYA セール中", value: current_user.nickname
 -#           .profile-edit-wrapper__bottom
 -#           = f.fields_for :profiles do |profile|
 -#             = profile.textarea_field :into, class: "profile-edit-wrapper__textarea", name: "self-introduction", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪", value: ""

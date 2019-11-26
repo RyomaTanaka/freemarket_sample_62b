@@ -8,28 +8,30 @@ crumb :users do
   parent :root
 end
 
+
+
 crumb :mypages do 
-  link "出品した商品-出品中", list_items_mypages_path
+  link "出品した商品-出品中", list_items_mypage_path(current_user)
   parent :users
 end
 
 crumb :card do 
-  link "支払い方法", card_mypages_path
+  link "支払い方法", card_mypage_path(current_user)
   parent :users
 end
 
 crumb :logout do 
-  link "ログアウト", logout_mypages_path
+  link "ログアウト", logout_mypage_path(current_user)
   parent :users
 end
 
 crumb :profile do 
-  link "プロフィール", profile_mypages_path
+  link "プロフィール", profile_mypage_path(current_user)
   parent :users
 end
 
 crumb :personal do 
-  link "本人情報の登録", personal_mypages_path
+  link "本人情報の登録", personal_mypage_path(current_user)
   parent :users
 end
 # crumb :projects do

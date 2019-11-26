@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   end
   
   resources :mypages, only:[:show] do
-    collection do
+    member do
       get :list_items
       get :list_items_progress
       get :list_items_completed

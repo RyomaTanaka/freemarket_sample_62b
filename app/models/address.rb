@@ -6,4 +6,5 @@ class Address < ApplicationRecord
   validates :prefecture, presence: true
   validates :city, presence: true
   validates :house_number, presence: true
+  validates :post_number, presence: true
 end

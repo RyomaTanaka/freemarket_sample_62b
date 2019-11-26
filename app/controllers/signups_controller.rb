@@ -3,21 +3,22 @@ class SignupsController < ApplicationController
 
   def step0
   end
-  
+
   def step1
     @user = User.new
   end
-  
+
   def step2
     @address = Address.new
   end
-  
+
   def step3
     session[:phone_number] = address_params[:phone_number]
     @address = Address.new
   end
 
   def step4
+    session[:signup] = 1
     @card = Card.new
   end
 
@@ -31,7 +32,7 @@ class SignupsController < ApplicationController
     #   sign_in User.find(@user.id) unless user_signed_in?
     # end
     sign_in User.find(@user.id) if @user.save
-    
+
     if session[:provider].present?
       @sns_authentication = SnsAuthentication.new(
         user_id: current_user.id,
@@ -41,7 +42,7 @@ class SignupsController < ApplicationController
       @sns_authentication.save
       session.delete(:provider)
     end
-    
+
     save_to_session_address
     @address.user_id = current_user.id
     if @address.save
