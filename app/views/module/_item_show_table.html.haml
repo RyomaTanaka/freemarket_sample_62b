@@ -49,20 +49,20 @@
     %th
       配送料の負担
     %td
-      = @item.shipping.cost_burden
+      = @item.cost_burden
   %tr
     %th
       配送の方法
     %td
-      = @item.shipping.method
+      = @item.method
   %tr
     %th
       配送元地域
     %td
       =link_to '#' do
-        = @item.shipping.prefecure
+        = @item.prefecture.name
   %tr
     %th
       発送日の目安
     %td
-      = @item.shipping.period_before_shipping
+      = @item.period_before_shipping

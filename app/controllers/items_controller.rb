@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 
   def index
     # トップページ
-    @items = Item.all.limit(10).order("created_at DESC")
+    @items = Item.includes(:images).limit(10).order("created_at DESC")
     @images = Image.all
   end
     
@@ -34,7 +34,7 @@ class ItemsController < ApplicationController
   def create
     # Item.create(name: item_params[:name], body: item_params[:body], price: item_params[:price],  user_id: current_user.id)
     #商品出品
-    binding.pry
+    # binding.pry
     @item = Item.create(item_params)
     # binding.pry
     # if @shipping.save
@@ -82,7 +82,7 @@ class ItemsController < ApplicationController
   
   def item_params
     #出品itemのparams
-    params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture_id, :name, :body, :status, :order_status, :price, :city,
+    params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture_id, :name, :body, :status, :order_status, :price, :method,
     images_attributes: [:image]).merge(user_id: current_user.id)
   end
   
