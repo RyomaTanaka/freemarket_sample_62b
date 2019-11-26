@@ -33,40 +33,70 @@
   .card_content__top
     支払い方法
   .card_content__main
-    = form_with url: user_cards_path(current_user), method: :post, html: {name: "inputForm"}, id: 'charge-form', local: true do |f|
-      .card_content__main__number
-        .card_content__main__number__box1
-          = f.label :カード番号
-        .card_content__main__number__box2
-          = f.label :必須
-        %br/
-        = f.text_field "card_number"
-        .card_content__main__number__box3
-          =image_tag "visa.png",class:'visa_logo'
-          =image_tag "master.png",class:'card_logo'
-          =image_tag "saison.png",class:'card_logo'
-          =image_tag "jcb.jpeg",class:'card_logo'
-      .card_content__main__deadline
-        .card_content__main__deadline__box1
-          = f.label :有効期限
-        .card_content__main__deadline__box2
-          = f.label :必須 
-        .card_content__main__deadline__box3
-          = f.text_field "exp_month"
-          = f.text_field "exp_year"
-      .card_content__main__security
-        .card_content__main__security__box1
-          = f.label :セキュリティーコード
-        .card_content__main__security__box2
-          = f.label :必須 
-        = f.text_field "cvc"
+    = form_with url: user_cards_path(current_user), method: :post, html: {name: "inputForm", id: 'charge-form', class: "credit-card"}, local: true do |f|
+      .credit-card__information
+        .card-number-form
+          = f.label "カード番号", class: "card-no"
+          %span.required-form 必須
+          = f.text_field "card_number", class: "credit-card-number", placeholder: "半角数字のみ"
+          %ul
+          %ul.credit-card-list
+            %li
+              = image_tag "visa.svg", width: 49, hight: 20
+            %li
+              = image_tag "master-card.svg", width: 34, hight: 20
+            %li
+              = image_tag "saison-card.svg", width: 30, hight: 20
+            %li
+              = image_tag "jcb.svg", width: 32, hight: 20
+            %li
+              = image_tag "american_express.svg", width: 21, hight: 20
+            %li
+              = image_tag "dinersclub.svg", width: 32, hight: 20
+            %li
+              = image_tag "discover.svg", width: 32, hight: 20
+        .card-expir-form
+          = f.label "有効期限", class: "card-no"
+          %span.required-form 必須
+          %br
+          .display
+            .select-credit-mmyy
+              %select#exp_month.mmyy-list{name: "exp_month", type: "text"}
+                %option{value: "1"}01
+                %option{value: "2"}02
+                %option{value: "3"}03
+                %option{value: "4"}04
+                %option{value: "5"}05
+                %option{value: "6"}06
+                %option{value: "7"}07
+                %option{value: "8"}08
+                %option{value: "9"}09
+                %option{value: "10"}10
+                %option{value: "11"}11
+                %option{value: "12"}12
+              %i.fas.fa-angle-down
+              %span 月
+            .select-credit-mmyy
+              %select#exp_year.mmyy-list{name: "exp_year", type: "text"}
+                %option{value: "2019"}19
+                %option{value: "2020"}20
+                %option{value: "2021"}21
+                %option{value: "2022"}22
+                %option{value: "2023"}23
+                %option{value: "2024"}24
+                %option{value: "2025"}25
+                %option{value: "2026"}26
+                %option{value: "2027"}27
+                %option{value: "2028"}28
+                %option{value: "2029"}29
+              %i.fas.fa-angle-down
+              %span 年
+          %ul
+          %ul
+        .card-expir-form
+          = f.label "セキュリティコード", class: "card-no"
+          %span.required-form 必須
+          = f.text_field "cvc", class: "credit-card-number", placeholder: "カード背面4桁もしくは3桁の番号"
         #card_token
-        .card_content__main__security__box3
-          .card_content__main__security__box3__icon
-          .card_content__main__security__box3__text
-            %p2
-            カードの裏面の番号とは？
-      .card_content__main__btn
-        #card_token
-        = f.submit class: "form__btn", id: "token_submit", value: "次へ"
+        = f.submit "次へ", class: "form-btn", id: "token_submit"
 = render partial: "signups/devise_addfooter"

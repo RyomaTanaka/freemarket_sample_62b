@@ -18,6 +18,7 @@ class SignupsController < ApplicationController
   end
 
   def step4
+    session[:signup] = 1
     @card = Card.new
   end
 
