@@ -31,6 +31,9 @@ class ItemsController < ApplicationController
   end
 
 
+  def currentuser
+  end
+
   def create
     # Item.create(name: item_params[:name], body: item_params[:body], price: item_params[:price],  user_id: current_user.id)
     #商品出品
@@ -51,22 +54,39 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+ 
   end
 
   def update
-    if @item.update(update_item_params)
-      redirect_to root_path
-    else
-      redirect_to edit_item_path
-    end
+
+    @item = Item.find(params[:id])
+  if @item = Item.find(params[:id])
+    @item.update(item_params)
+    redirect_to list_items_mypages_path, notice: '削除しました'
+  end
+
+
+    # if @item.update(item_params)
+    #   redirect_to root_path
+    # else
+    #   redirect_to edit_item_path
+    # end
   end
 
   def destroy
-    if @item.find(:id)
-      redirect_to root_path notice: '商品を削除しました'
-    else
-      redirect_to list_items_mypages_path, notice: '削除をやめました'
-    end
+
+  @item = Item.find(params[:id])
+  if @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to list_items_mypages_path, notice: '削除しました'
+  
+  end
+
+    # if @item.destory
+    #   redirect_to root_path notice: '商品を削除しました'
+    # else
+    #   redirect_to list_items_mypages_path, notice: '削除をやめました'
+    # end
   end
 
   def purchase
@@ -86,6 +106,13 @@ class ItemsController < ApplicationController
     images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
+
+  # def item_params
+  #   #出品itemのparams
+  #   params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture, :name, :body, :status, :order_status, :price,
+  #   images_attributes: [:image]).merge(user_id: current_user.id)
+  # end
+
   def exihibited_lists
     @items = Item.where(user_id: current_user)
 
@@ -97,14 +124,6 @@ class ItemsController < ApplicationController
 
   end
 
-end
-
-
-private
-
-
-def item_params
-  params.permit(:name, :body, :price)
 end
 
 def set_item

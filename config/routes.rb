@@ -37,8 +37,11 @@ Rails.application.routes.draw do
     resources :cards
   end
 
-  resources :items
-  resources :cards
+  resources :items, only:[:show,:edit,:destroy,:update] do
+    collection do
+      get :currentuser
+    end
+  end
 
   get "exhibited" => "items#exhibited"
 end

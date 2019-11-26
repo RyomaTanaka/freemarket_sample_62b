@@ -35,9 +35,9 @@
       .listing_item-changebox__text2
         or
       .listing_item-changebox__text3
-        = link_to "出品を停止する", list_items_mypages_path , class: "stop_btn", id: "listing_item_stop"
+        = link_to "出品を停止する", "curent" , class: "stop_btn", id: "listing_item_stop"
       .listing_item-changebox__text4
-        = link_to "商品を削除する", item_path(@item), method: :delete, class: "delete_btn", id:"listing_item_delete"
+        = link_to "商品を削除する", item_path(@item), method: :delete, data: { confirm: '削除しますか？' }, class: "delete_btn", id:"listing_item_delete"
    
       
       -# .item-detail__description
