@@ -1,5 +1,6 @@
 class Address < ApplicationRecord
   belongs_to :user
+  
   validates :user_name, presence: true
   validates :user_name_ruby, presence: true
   validates :prefecture, presence: true

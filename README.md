@@ -74,6 +74,8 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
+|user_name|string|null: false|
+|user_name_ruby|string|null: false|
 |post_number|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
