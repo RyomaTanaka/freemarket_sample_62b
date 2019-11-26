@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_action :set_params, only: [:show]
+# before_action :set_params, only: [:show]
   def index
   end
 
@@ -12,6 +12,6 @@ before_action :set_params, only: [:show]
 
 end
 
-  def set_params
-    @user = User.find(params[:id]) 
-  end
+  # def set_params
+  #   @user = User.find(params[:id]) 
+  # end

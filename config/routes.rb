@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   root "items#index"
   
   resources :users do
+    resources :cards
   end
   
   resources :items
