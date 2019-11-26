@@ -4,8 +4,7 @@ end
 
 # マイページ
 crumb :users do
-  link "マイページ", root_path
-# 上記の root_pathをマイページへのパスに変更する。
+  link "マイページ", users_path
   parent :root
 end
 
