@@ -29,20 +29,23 @@
         .tab-content-exhibited
           .mypage-tabs-content
             %ul.mypage-contents-list
-              %li
-                = link_to "", class: "mypage-contents-list__link" do
+              - @items.each do |item|
+                %li
+                = link_to item_path(item.id), class: "mypage-contents-list__link" do
+                  =item.name
                   %figure
-                    = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m571686393_2.jpg?1442795030", class: "app-icon"
+                    - @images.each do |image| 
+                      =image_tag image.image.url
                   .mypage-contents-body
                     .mypage-contents-body__text
-                      aaaaa
+                    
                     %div
                       %sapn.heart-icon
                         = fa_icon "heart"
-                        %span 7
+                      %span 7
                       %sapn.comment-icon
                         = fa_icon "comment"
-                        %span 4
+                      %span 4
 
 
 

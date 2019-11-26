@@ -62,11 +62,11 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    # if @item.find(:id)
-    #   redirect_to root_path notice: '商品を削除しました'
-    # else
+    if @item.find(:id)
+      redirect_to root_path notice: '商品を削除しました'
+    else
       redirect_to list_items_mypages_path, notice: '削除をやめました'
-    # end
+    end
   end
 
   def purchase
@@ -83,7 +83,7 @@ class ItemsController < ApplicationController
   def item_params
     #出品itemのparams
     params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture, :name, :body, :status, :order_status, :price,
-    images_attributes: [:image])
+    images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def exihibited_lists
