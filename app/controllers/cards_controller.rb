@@ -28,13 +28,6 @@ class CardsController < ApplicationController
     # payjpから返って来た値からカード情報を作成
     @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
     @card.save
-    
-    if params[:commit] == "次へ進む"
-      redirect_to step5_signups_path
-    else
-      redirect_to user_card_path(current_user, current_user.card.id)
-    end
-
   end
   
   def destroy

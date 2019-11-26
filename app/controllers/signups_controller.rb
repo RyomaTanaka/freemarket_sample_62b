@@ -44,7 +44,7 @@ class SignupsController < ApplicationController
     
     save_to_session_address
     @address.user_id = current_user.id
-    binding.pry
+    
     if @address.save
       redirect_to step4_signups_path
     else
