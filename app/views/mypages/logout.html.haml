@@ -12,7 +12,7 @@
         %form.logout-content__form{ action: "#", method: "POST", novalidate: "novalidate"}
           .logout-content__btn-wrapper
             %button.btn-default-value.btn-color-red{ type: "submit" }
-              = link_to 'ログアウト', destroy_user_session_path, method: :delete
+              = link_to 'ログアウト', destroy_user_session_path, method: :delete, local: true, data: {turbolinks: false}
 
     = render "module/content-left"      
 
