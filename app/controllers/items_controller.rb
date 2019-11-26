@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
   def index
     # トップページ
     @items = Item.all.limit(10).order("created_at DESC")
-    @images = Image.all
   end
     
 
@@ -87,7 +86,7 @@ class ItemsController < ApplicationController
   end
   
   def exihibited_lists
-      @items = Item.where(user_id: cuuret_user)
+      @items = Item.where(user_id: current_user)
   end
 
   def exihibited
