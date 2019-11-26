@@ -90,3 +90,4 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'active_hash'
 gem 'dotenv-rails'
+
