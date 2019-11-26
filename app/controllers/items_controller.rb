@@ -40,6 +40,7 @@ class ItemsController < ApplicationController
     #   params[:images][:url].each do |image|
     #     @shipping.images.create(url: image, item_id: @hipping.id)
       # end
+    
       redirect_to action: :index
     # else
     #   redirect_to action: :new
@@ -81,7 +82,7 @@ class ItemsController < ApplicationController
   
   def item_params
     #出品itemのparams
-    params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture, :name, :body, :status, :order_status, :price,
+    params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture_id, :name, :body, :status, :order_status, :price, :method,
     images_attributes: [:image]).merge(user_id: current_user.id)
   end
   
