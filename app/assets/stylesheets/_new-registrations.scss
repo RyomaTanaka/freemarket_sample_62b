@@ -546,7 +546,7 @@
 
 .form{
   width:700px;
-  height:1083px;
+  height:1196px;
   padding: 40px 40px 64px;
   background-color:#fff;
   margin: 0 auto;
@@ -575,13 +575,14 @@
         margin-top:5px;
       }
       &__box2{
-        float: left;
-        font-size: 12px;
-        padding: 5px 4px;
-        margin: 2px 0 5px 8px;
-        background-color: #EA352D;
+        background: #ea352d;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
         border-radius: 2px;
         color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+        float:left;
      }
     }
     &__mail{
@@ -594,14 +595,14 @@
         margin-top:5px;
       }
       &__box2{
-        float: left;
-        font-size: 12px;
-        padding: 10px 4px 0;
-        margin: 2px 0 5px 8px;
-        background-color: #EA352D;
+        background: #ea352d;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
         border-radius: 2px;
         color: #fff;
-        line-height: 5px;     
+        font-size: 12px;
+        vertical-align: top;
+        float:left; 
       }
     }
     &__pass{
@@ -615,14 +616,14 @@
         margin-top:5px;
       }
       &__box2{
-        float: left;
-        font-size: 12px;
-        padding: 10px 4px 0;
-        margin: 2px 0 5px 8px;
-        background-color: #EA352D;
+        background: #ea352d;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
         border-radius: 2px;
         color: #fff;
-        line-height: 5px;     
+        font-size: 12px;
+        vertical-align: top;
+        float:left;
       }
       &__box3{
         margin-top: 10px;
@@ -651,14 +652,14 @@
         margin-top:5px;
       }
       &__box2{
-        float: left;
-        font-size: 12px;
-        padding: 10px 4px 0;
-        margin: 2px 0 5px 8px;
-        background-color: #EA352D;
+        background: #ea352d;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
         border-radius: 2px;
         color: #fff;
-        line-height: 5px;     
+        font-size: 12px;
+        vertical-align: top;
+        float:left;
       }
     }
     &__namebox{
@@ -682,14 +683,14 @@
         margin-top:5px;
       }
       &__box2{
-        float: left;
-        font-size: 12px;
-        padding: 10px 4px 0;
-        margin: 2px 0 5px 8px;
-        background-color: #EA352D;
+        background: #ea352d;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
         border-radius: 2px;
         color: #fff;
-        line-height: 5px;     
+        font-size: 12px;
+        vertical-align: top;
+        float:left;
       }
     }
     &__rubynamebox{
@@ -713,14 +714,14 @@
         margin-top:5px;
       }
       &__box2{
-        float: left;
-        font-size: 12px;
-        padding: 10px 4px 0;
-        margin: 2px 0 5px 8px;
-        background-color: #EA352D;
+        background: #ea352d;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
         border-radius: 2px;
         color: #fff;
-        line-height: 5px;     
+        font-size: 12px;
+        vertical-align: top;
+        float:left;
       }
       &__box3{
         clear:both;

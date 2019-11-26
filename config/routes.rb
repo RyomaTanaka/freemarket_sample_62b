@@ -27,6 +27,7 @@ Rails.application.routes.draw do
       get :card_create
       get :personal
       get :logout
+      post :logout
     end
   end
   
