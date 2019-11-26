@@ -9,7 +9,8 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-
+    user = @item.user
+    @items = user.items.all.limit(6).order("created_at DESC")
   end
 
   def new

@@ -1,54 +1,55 @@
 %section.items-box
-  =link_to '#' do
+- @items.each do |item|
+  =link_to item_path(item.id) do
     %figure.items-box__image
-      %img(src= "https://static.mercdn.net/item/detail/orig/photos/m88330665818_1.jpg?1573878548")
+      = image_tag item.images[0].image.url
     .items-box__body
       %h3.items-box__body--name
-        サンプルサンプルサンプル
+        = item.name
       .items-box__body--price
-        ¥3,000
-%section.items-box
-  =link_to '#' do
-    %figure.items-box__image
-      %img(src= "https://static.mercdn.net/item/detail/orig/photos/m88330665818_1.jpg?1573878548")
-    .items-box__body
-      %h3.items-box__body--name
-        サンプルサンプルサンプル
-      .items-box__body--price
-        ¥3,000
-%section.items-box
-  =link_to '#' do
-    %figure.items-box__image
-      %img(src= "https://static.mercdn.net/item/detail/orig/photos/m88330665818_1.jpg?1573878548")
-    .items-box__body
-      %h3.items-box__body--name
-        サンプルサンプルサンプル
-      .items-box__body--price
-        ¥3,000
-%section.items-box
-  =link_to '#' do
-    %figure.items-box__image
-      %img(src= "https://static.mercdn.net/item/detail/orig/photos/m88330665818_1.jpg?1573878548")
-    .items-box__body
-      %h3.items-box__body--name
-        サンプルサンプルサンプル
-      .items-box__body--price
-        ¥3,000
-%section.items-box
-  =link_to '#' do
-    %figure.items-box__image
-      %img(src= "https://static.mercdn.net/item/detail/orig/photos/m88330665818_1.jpg?1573878548")
-    .items-box__body
-      %h3.items-box__body--name
-        サンプルサンプルサンプル
-      .items-box__body--price
-        ¥3,000
-%section.items-box
-  =link_to '#' do
-    %figure.items-box__image
-      %img(src= "https://static.mercdn.net/item/detail/orig/photos/m88330665818_1.jpg?1573878548")
-    .items-box__body
-      %h3.items-box__body--name
-        サンプルサンプルサンプル
-      .items-box__body--price
-        ¥3,000
+        = item.price
+-# %section.items-box
+-#   =link_to '#' do
+-#     %figure.items-box__image
+-#       %img(src= "https://static.mercdn.net/item/detail/orig/photos/m88330665818_1.jpg?1573878548")
+-#     .items-box__body
+-#       %h3.items-box__body--name
+-#         サンプルサンプルサンプル
+-#       .items-box__body--price
+-#         ¥3,000
+-# %section.items-box
+-#   =link_to '#' do
+-#     %figure.items-box__image
+-#       %img(src= "https://static.mercdn.net/item/detail/orig/photos/m88330665818_1.jpg?1573878548")
+-#     .items-box__body
+-#       %h3.items-box__body--name
+-#         サンプルサンプルサンプル
+-#       .items-box__body--price
+-#         ¥3,000
+-# %section.items-box
+-#   =link_to '#' do
+-#     %figure.items-box__image
+-#       %img(src= "https://static.mercdn.net/item/detail/orig/photos/m88330665818_1.jpg?1573878548")
+-#     .items-box__body
+-#       %h3.items-box__body--name
+-#         サンプルサンプルサンプル
+-#       .items-box__body--price
+-#         ¥3,000
+-# %section.items-box
+-#   =link_to '#' do
+-#     %figure.items-box__image
+-#       %img(src= "https://static.mercdn.net/item/detail/orig/photos/m88330665818_1.jpg?1573878548")
+-#     .items-box__body
+-#       %h3.items-box__body--name
+-#         サンプルサンプルサンプル
+-#       .items-box__body--price
+-#         ¥3,000
+-# %section.items-box
+-#   =link_to '#' do
+-#     %figure.items-box__image
+-#       %img(src= "https://static.mercdn.net/item/detail/orig/photos/m88330665818_1.jpg?1573878548")
+-#     .items-box__body
+-#       %h3.items-box__body--name
+-#         サンプルサンプルサンプル
+-#       .items-box__body--price
+-#         ¥3,000
