@@ -2,22 +2,8 @@
 
 
 .mypage-body        
-  
-  %nav.breadcrumbs
-    %ul
-      %li{ itemscope: "", itemtype: "#"}
-        = link_to "", 
-        href: "#", itemprop: "url" do
-          %span{ itemprop: "title"}
-            メルカリ
-            = fa_icon 'chevron-right'
-      %li{ itemscope: "", itemtype: "#"}
-        %span{ itemprop: "title"}
-          マイページ
-          = fa_icon 'chevron-right'
-      %li{ itemscope: "", itemtype: "#"}
-        %span{ itemprop: "title"}
-          本人情報の登録
+  - breadcrumb :personal
+  = render partial: "layouts/breadcrumbs"
 
   %main.container
     .personal-container

@@ -11,5 +11,5 @@
               .item-price
                 %span{"aria-label": "Price"}
                   ¥
-                  = item.price #商品の値段の取得
-                = image_tag item.images[0].image.url, class: 'item-photo' #商品の画像の一枚目を取得
+                  = item.price
+                = image_tag item.images[0].image.url, class: 'item-photo'

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+before_action :set_params, only: [:show]
   def index
   end
 
@@ -6,7 +7,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @items = Item.where(user_id: "1")
+    # @items = Item.(user_id: current_user.id)
   end
 
 end
+
+  def set_params
+    @user = User.find(params[:id]) 
+  end

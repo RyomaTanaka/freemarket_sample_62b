@@ -9,6 +9,7 @@ class SignupsController < ApplicationController
   end
   
   def step2
+    params[:commit]
     @address = Address.new
   end
   
@@ -19,6 +20,9 @@ class SignupsController < ApplicationController
 
   def step4
     @card = Card.new
+  end
+
+  def step5
   end
 
   def create
@@ -39,8 +43,8 @@ class SignupsController < ApplicationController
       )
       @sns_authentication.save
     end
-    
-    redirect_to root_path
+
+    redirect_to step4_signups_path
   end
 
   private

@@ -1,0 +1,128 @@
+.credit-card {
+  padding: 40px 40px 64px;
+  border-top: 1px solid #f5f5f5;
+  &__information {
+    max-width: 343px;
+    margin: 0 auto;
+  }
+}
+
+.card-no {
+  font-weight: 600;
+}
+
+.required-form {
+  background: #ea352d;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+}
+
+.credit-card-number {
+  width: 100%;
+  margin: 8px 0 0;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.credit-card-list {
+  margin: 8px 0 0;
+  font-size: 0;
+}
+
+.credit-card-list li:first-child {
+  margin: 0;
+}
+
+.credit-card-list li {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 0 0 8px;
+}
+
+@media screen and (min-width: 1068px) {
+  .card-expir-form {
+    margin-top: 32px;
+    margin: 24px 0 0;
+    width: 343px;
+  }  
+}
+
+.select-credit-mmyy {
+  display: inline-block;
+  width: calc(50% - 2px);
+  margin: 8px 0 0;
+  position: relative;
+  background: #fff;
+  padding: 0;
+}
+
+.mmyy-list {
+  width: calc(100% - 38px);
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.fa-angle-down {
+  font-size: 10px;
+  margin: 0 6px 0 -15px;
+  position: relative;
+  top: 3px;
+  pointer-events: none;
+  right: 16px;
+  z-index: 2;
+  color: #888;
+  transform: translate(0, -50%);
+}
+
+.year-list {
+  width: calc(100% - 38px);
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.submit {
+  display: block;
+}
+
+.display {
+  display: flex;
+}
+
+.form-btn {
+  margin-top: 32px;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+}
