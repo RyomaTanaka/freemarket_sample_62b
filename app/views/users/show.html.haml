@@ -2,18 +2,9 @@
 
 = render "module/header"
 
-%body.mypage-body        
-  
-  %nav.breadcrumbs
-    %ul
-      %li{ itemscope: "", itemtype: "#"}
-        = link_to "", href: "#", itemprop: "url" do
-          %span{ itemprop: "title"}
-            メルカリ
-            = fa_icon 'chevron-right'
-      %li{ itemscope: "", itemtype: "#"}
-        %span{ itemprop: "title"}
-          マイページ
+.mypage-body 
+  - breadcrumb :users
+  = render partial: "layouts/breadcrumbs"
   %main.container
     .content
       -# - @items.each do |item|
