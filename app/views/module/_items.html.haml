@@ -1,8 +1,8 @@
 .item-container
   %ul.item-container__lists
-    - @items.each do |item| 
+    - @items.each do |item|
       %li.item-container__lists__list
-        .item-box 
+        .item-box
           =link_to item_path(item.id), class: "item-link" do
             %figure.item-descrube
               %figcaption
@@ -12,6 +12,4 @@
                 %span{"aria-label": "Price"}
                   ¥
                   = item.price
-                -# - binding.pry
                 = image_tag item.images[0].image.url, class: 'item-photo'
-                

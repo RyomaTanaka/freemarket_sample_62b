@@ -1,5 +1,5 @@
 .main
-  = render "devise_header"
+  = render partial: "signups/devise_header"
   .form
     .form__top
       .form__top__text
@@ -16,7 +16,7 @@
           - if @user.errors.any?
             %ul.error_message_list
               %li.error_message
-                ニックネームを入力してください
+                @user.nickname.
         .form__field__mail
           .form__field__mail__box1
             = f.label :email
