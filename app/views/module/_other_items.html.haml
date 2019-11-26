@@ -1,13 +1,14 @@
-%section.items-box
 - @items.each do |item|
-  =link_to item_path(item.id) do
-    %figure.items-box__image
-      = image_tag item.images[0].image.url
-    .items-box__body
-      %h3.items-box__body--name
-        = item.name
-      .items-box__body--price
-        = item.price
+  %section.items-box
+    =link_to item_path(item.id) do
+      %figure.items-box__image
+        = image_tag item.images[0].image.url
+      .items-box__body
+        %h3.items-box__body--name
+          = item.name
+        .items-box__body--price
+          ¥
+          = item.price
 -# %section.items-box
 -#   =link_to '#' do
 -#     %figure.items-box__image
