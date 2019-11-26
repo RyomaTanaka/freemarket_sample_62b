@@ -4,7 +4,6 @@ before_action :set_item, only: [:show, :purchase, :edit, :exihibited_lists]
 
   def index
     @items = Item.all.limit(10).order("created_at DESC")
-    @images = Image.all
   end
 
   def show
