@@ -110,15 +110,6 @@ ActiveRecord::Schema.define(version: 2019_11_16_045107) do
     t.index ["user_id"], name: "index_points_on_user_id"
   end
 
-  create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.text "into"
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_profiles_on_user_id"
-  end
-
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.text "body"
@@ -141,6 +132,8 @@ ActiveRecord::Schema.define(version: 2019_11_16_045107) do
     t.string "nickname", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.text "introduction"
+    t.string "image"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -167,7 +160,6 @@ ActiveRecord::Schema.define(version: 2019_11_16_045107) do
   add_foreign_key "likes", "users"
   add_foreign_key "messages", "orders"
   add_foreign_key "points", "users"
-  add_foreign_key "profiles", "users"
   add_foreign_key "reviews", "users"
   add_foreign_key "sns_authentications", "users"
 end

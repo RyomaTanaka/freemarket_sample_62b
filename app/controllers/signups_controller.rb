@@ -9,7 +9,6 @@ class SignupsController < ApplicationController
   end
   
   def step2
-    params[:commit]
     @address = Address.new
   end
   
@@ -27,24 +26,28 @@ class SignupsController < ApplicationController
 
   def create
     user_create
-    if @user.save
-      session[:user_id] = @user.id
-      sign_in User.find(@user.id) unless user_signed_in?
-    end
-
-    save_to_session_address
-    @address.save
-
+    # if @user.save
+    #   session[:user_id] = @user.id
+    #   sign_in User.find(@user.id) unless user_signed_in?
+    # end
+    sign_in User.find(@user.id) if @user.save
+    
     if session[:provider].present?
       @sns_authentication = SnsAuthentication.new(
-        user_id: session[:user_id],
+        user_id: current_user.id,
         provider: session[:provider],
         uid: session[:uid]
       )
       @sns_authentication.save
     end
+    
+    save_to_session_address
 
-    redirect_to step4_signups_path
+    if @address.save
+      redirect_to step4_signups_path
+    else
+      render "step3"
+    end
   end
 
   private
@@ -107,7 +110,7 @@ class SignupsController < ApplicationController
 
     user_create
 
-    render 'signups/step1' unless @user.valid?
+    render "step1" unless @user.valid?
   end
 
   def save_to_session_address
@@ -131,7 +134,5 @@ class SignupsController < ApplicationController
       building_name: session[:building_name],
       phone_number: session[:phone_number]
     )
-
-    render 'signups/step3' unless @address.valid?
   end
 end
