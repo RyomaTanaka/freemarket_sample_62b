@@ -39,7 +39,7 @@ Rails.application.routes.draw do
 
   resources :items, only:[:show,:edit,:destroy,:update] do
     collection do
-      get :currentuser
+      get :current_user
     end
   end
 
