@@ -2,7 +2,7 @@ FactoryBot.define do
 
   factory :user do
     nickname              {"abe"}
-    email                 {"kkk@gmail.com"}
+    sequence(:email)      {Faker::Internet.email}
     password              {"00000000"}
     first_name            {"歩"}
     family_name           {"川口"}
@@ -11,7 +11,8 @@ FactoryBot.define do
     birth_year            {"1990"}
     birth_month           {"1"}
     birth_day             {"1"}
-    
+  
+
   end
 
 end

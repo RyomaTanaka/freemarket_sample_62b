@@ -1,24 +1,24 @@
-require 'rails_helper'
+require "rails_helper"
 
-Rspec.describe ItemsController, type: :controller do
-  before do
-    @user = FactoryBot.create(:user)
-    @another_user = FactoryBot.create(:another_user)
-    @item = FactoryBot.create(:item)
-  end
-  
-      describe "DELETE #destroy " do
-        context "as an authorized user" do
-
-      it "アイテムを削除出来るか" do
-        sign_in @user
-        expect{
-        delete :destroy,params:{ id: @item.id }
-      }.to change(@user.items, :count).by(-1)
-      end
+  RSpec.describe ItemsController, type: :controller do
+    
+    before do
+      @user = FactoryBot.create(:user )
+      @item = FactoryBot.create(:item)
+      @image = FactoryBot.create(:image)
+     
     end
+    
+        describe "DELETE #destroy " do
+          it "アイテムを削除出来るか" do      
+            sign_in @user
+            expect{
+            delete :destroy,params:{ id: @item.id }
+          }.to change(@user.items, :count).by(-1)
+        end
+      end
   end
-end
+
   
 #   it""
 

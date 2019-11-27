@@ -78,7 +78,6 @@ ActiveRecord::Schema.define(version: 2019_11_25_081936) do
     t.integer "status", null: false
     t.integer "order_status", null: false
     t.string "prefecture", null: false
-    t.string "method"
     t.string "cost_burden", null: false
     t.string "period_before_shipping", null: false
     t.datetime "created_at", null: false
