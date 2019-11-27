@@ -1,31 +1,32 @@
-.header
-  .header__logo
-    =link_to root_path do
-      =image_tag "logo.svg", class:'header__logo'
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .log_content
-    .log_content__top
-      .log_content__top__text
-        アカウントをお持ちでないかたはこちら
-      .log_content__top__btn
-        = link_to '新規会員登録', step1_signups_path
-    .log_content__center
-      .log_content__center__facebook
-        .log_content__center__facebook__icon
-          =fa_icon "facebook-square"
-        .log_content__center__facebook__text
-          = link_to 'facebookでログイン', user_facebook_omniauth_authorize_path
-      .log_content__center__google
-        .log_content__center__google__icon
-          = fa_icon "google"
-        .log_content__center__google__text
-          = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path
-    .log_content__bottom
-      .log_content__bottom__mail
-        = f.email_field :email, autocomplete: "email", placeholder: "メールアドレス", id: 'log_email'
-      .log_content__bottom__pass
-        = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", id: 'log_pass'
-      .log_content__bottom__btn
-        = f.submit value: 'ログイン', id: 'log_btn'
-      .log_content__bottom__text
-        パスワードをお忘れの方
+.mypage-body
+  .header
+    .header__logo
+      =link_to root_path do
+        =image_tag "logo.svg", class:'header__logo'
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    .log_content
+      .log_content__top
+        .log_content__top__text
+          アカウントをお持ちでないかたはこちら
+        .log_content__top__btn
+          = link_to '新規会員登録', step1_signups_path
+      .log_content__center
+        .log_content__center__facebook
+          .log_content__center__facebook__icon
+            =fa_icon "facebook-square"
+          .log_content__center__facebook__text
+            = link_to 'facebookでログイン', user_facebook_omniauth_authorize_path
+        .log_content__center__google
+          .log_content__center__google__icon
+            = fa_icon "google"
+          .log_content__center__google__text
+            = link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path
+      .log_content__bottom
+        .log_content__bottom__mail
+          = f.email_field :email, autocomplete: "email", placeholder: "メールアドレス", id: 'log_email'
+        .log_content__bottom__pass
+          = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", id: 'log_pass'
+        .log_content__bottom__btn
+          = f.submit value: 'ログイン', id: 'log_btn'
+        .log_content__bottom__text
+          パスワードをお忘れの方
