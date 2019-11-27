@@ -2,9 +2,12 @@ require 'rails_helper'
 
 describe Item do
   describe '#create' do
+    before do
+      @user = FactoryBot.create(:user)
+    end
 
     it "user_id, name, body, price, status, method, cost_burden, period_before_shipping, prefecture_idの値があれば出品できる" do
-      item = build(:item)
+      item = build(:item, user: @user)
       expect(item).to be_valid
     end
 
@@ -26,8 +29,8 @@ describe Item do
       expect(item.errors[:name]).to include()
     end
 
-    it "nameが40文字以下だと出品できる " do
-      item = build(:item, name: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    it "nameが40文字以下で出品できる " do
+      item = build(:item, user: @user, name: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
       expect(item).to be_valid
     end
 

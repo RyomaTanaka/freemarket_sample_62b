@@ -1,7 +1,7 @@
 FactoryBot.define do
   
   factory :item do
-    user                           {}
+    user
     name                           {"aaa"}
     body                           {"aaaa"}
     price                          {1111}
