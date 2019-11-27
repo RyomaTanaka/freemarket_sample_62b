@@ -8,8 +8,8 @@ class Item < ApplicationRecord
 
   validates_associated :images
   validates :user, presence: true
-  validates :name, presence: true
-  validates :body, presence: true, length: { maximum: 40 }
+  validates :name, presence: true, length: { maximum: 40 }
+  validates :body, presence: true
   validates :price, presence: true
   validates :status, presence: true
   validates :shipping_method, presence: true
