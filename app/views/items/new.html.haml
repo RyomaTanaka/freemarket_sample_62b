@@ -90,10 +90,8 @@
                           %span.required 必須
                         %div
                           .delivery-container
-                            -# = fa_icon 'chevron-down'
                             = f.select :method, [ ["---",""], ["未定","未定"], ["らくらくメルカリ便", "らくらくメルカリ便"], ["ゆうメール", "ゆうメール"], ["レターパック", "レターパック"], ["普通郵便(定型、定型外)", "普通郵便(定型、定型外)"], ["クロネコヤマト", "クロネコヤマト"], ["ゆうパック", "ゆうパック"], ["クリックポスト", "クリックポスト"], ["ゆうパック", "ゆうパック"], ["ゆうパケット", "ゆうパケット"]],{}, class: "delivery-container__select"
                             = fa_icon 'chevron-down'
-                            -# %i.fas.fa-angle-down
                       .delivery-box__content
                         %label
                           発送元の地域
