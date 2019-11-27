@@ -8,3 +8,6 @@ class AddressesController < ApplicationController
   end
 
 end
+
+
+# このコントローラは、個人情報画面で使います。 

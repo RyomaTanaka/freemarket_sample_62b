@@ -19,40 +19,24 @@ class MypagesController < ApplicationController
   end
 
   def edit
-    # @item = Item.find(params[:id])
     @user = User.find(params[:id]) 
-    # @address = Address.find(params[:id])
   end
 
-# def update
-#     @user = User.find(params[:id])
-#     if @user.id == current_user.id
-#       current_user.update(user_params)
-#       redirect_to profile_user_path, notice: 'プロフィールを更新しました'
-#     else
-#       redirect_to profile_user_path, notice: "編集に失敗しました"
-#     end
-#   end
-def update
+  def update
 
-  @user = User.find(params[:id])
-    if @user = User.find(params[:id])
-       @user.update(update_params)
-      redirect_to user_path(current_user)
-    else
-      render :edit
+    @user = User.find(params[:id])
+      if @user = User.find(params[:id])
+        @user.update(update_params)
+        redirect_to user_path(current_user)
+      else
+        render :edit
+      end
     end
-  end
 
   def card
-  #  @user = User.find(params[:id]) 
   end
 
   def card_create
-  end
-
-  def personal
-#  @user = User.find(params[:id]) 
   end
 
   def logout
