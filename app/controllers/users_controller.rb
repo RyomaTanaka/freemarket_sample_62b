@@ -7,11 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @items = Item.(user_id: current_user.id)
   end
 
 end
 
-  # def set_params
-  #   @user = User.find(params[:id]) 
-  # end

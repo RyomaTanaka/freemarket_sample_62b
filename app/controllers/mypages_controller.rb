@@ -1,4 +1,6 @@
 class MypagesController < ApplicationController
+
+# before_action :update_params, only: [:update, :edit]
   def list_items
         @items = Item.all.order("crated_at DESC")
         @images = Image.all
@@ -16,22 +18,34 @@ class MypagesController < ApplicationController
   def purchased
   end
 
-  def profile
-    @item = Item.find(params[:id])
-     @user = User.find(params[:id]) 
+  def edit
+    @user = User.find(params[:id]) 
   end
 
+  def update
+
+    @user = User.find(params[:id])
+      if @user = User.find(params[:id])
+        @user.update(update_params)
+        redirect_to user_path(current_user)
+      else
+        render :edit
+      end
+    end
+
   def card
-  #  @user = User.find(params[:id]) 
   end
 
   def card_create
   end
 
-  def personal
+  def logout
   end
 
-  def logout
+  private
+
+  def update_params
+    params.require(:user).permit(:nickname, :introduction)
   end
 
 end
