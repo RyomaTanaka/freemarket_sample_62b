@@ -32,19 +32,14 @@ class ItemsController < ApplicationController
 
 
   def create
-    # Item.create(name: item_params[:name], body: item_params[:body], price: item_params[:price],  user_id: current_user.id)
     #商品出品
     # binding.pry
     @item = Item.create(item_params)
-    # binding.pry
-    # if @shipping.save
-    #   params[:images][:url].each do |image|
-    #     @shipping.images.create(url: image, item_id: @hipping.id)
-      # end
+    if @item.save
       redirect_to action: :index
-    # else
-    #   redirect_to action: :new
-    # end
+    else
+      redirect_to action: :new
+    end
   end
 
 

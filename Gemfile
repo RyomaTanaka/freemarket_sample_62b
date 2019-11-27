@@ -59,6 +59,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'rails-controller-testing'
 end
 
 group :production do
@@ -86,3 +87,5 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'active_hash'
 gem 'dotenv-rails'
+gem 'devise-i18n'
+gem 'devise-i18n-views'

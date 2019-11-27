@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :images
 
   validates_associated :images
-  validates :user, presence: true
+  validates :user_id, presence: true
   validates :name, presence: true, length: { maximum: 40 }
   validates :body, presence: true
   validates :price, presence: true

@@ -1,9 +1,9 @@
 FactoryBot.define do
-  
+
   factory :user do
     nickname            {"aaa"}
-    email               {"aaa"}
-    password            {"aaa"}
+    email               {"ayuhahamasaki@icloud.com"}
+    password            {"0824masa"}
     first_name          {"aaa"}
     family_name         {"aaa"}
     first_name_ruby     {"aaa"}

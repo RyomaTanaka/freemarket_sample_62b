@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Item do
   describe '#create' do
 
-    it "user, name, body, price, status, method, cost_burden, period_before_shipping, prefecture_idの値があれば出品できる" do
+    it "user_id, name, body, price, status, method, cost_burden, period_before_shipping, prefecture_idの値があれば出品できる" do
       item = build(:item)
       expect(item).to be_valid
     end
