@@ -4,9 +4,11 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
 
   #省略
-
 end
 
+RSpec.configure do |config|
+  config.include Devise::Test::ControllerHelpers, type: :controller
+end
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
