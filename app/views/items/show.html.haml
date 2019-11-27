@@ -13,8 +13,8 @@
               .item-detail__contents--photo
                 .divclass
                   .aaa
-                    - @item.images.each do |image| 
-                      =image_tag image.image.url
+                    - @item.images.each do |item| 
+                      = image_tag item.image.url, class: 'item-photo'
         =render "module/item_show_table"
       .item-detail__price-box.text-center
         %span.item-detail__price-box--main-price
