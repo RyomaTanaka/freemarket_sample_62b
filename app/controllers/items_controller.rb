@@ -1,12 +1,9 @@
 class ItemsController < ApplicationController
-
+  require 'payjp'
   def index
     @items = Item.all.limit(10).order("created_at DESC")
   end
     
-
-
-
   def show
     @item = Item.find(params[:id])
 
@@ -46,7 +43,6 @@ class ItemsController < ApplicationController
   end
 
 
-
   def edit
     # @item = Item.find(params[:id])
   end
@@ -69,8 +65,16 @@ class ItemsController < ApplicationController
 
   def purchase
     #購入
-  end
+    @item = Item.find(params[:id])
 
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    charge = Payjp::Charge.create(
+      amount: @item.price,
+      card: current_user.card.card_id,
+      currency: 'jpy',
+    )
+    redirect_to user_path(current_user)
+  end
 
   private
   def set_item

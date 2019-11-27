@@ -37,5 +37,9 @@ Rails.application.routes.draw do
     resources :cards
   end
   
-  resources :items
+  resources :items do
+    member do
+      post :purchase
+    end
+  end
 end
