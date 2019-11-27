@@ -4,7 +4,7 @@
       出品者
     %td
       =link_to '#' do
-        ='サンプルサンプルサンプルサンプル'
+        = @item.user.nickname
       .item-detail__contents--table--rating
         %span.user-ratings
           = fa_icon 'smile-o', class: 'good-icon'
@@ -60,7 +60,7 @@
       配送元地域
     %td
       =link_to '#' do
-        = @item.prefecture
+        = @item.prefecture.name
   %tr
     %th
       発送日の目安

@@ -1,4 +1,4 @@
-= render "module/header"
+= render partial: "module/header"
 
 %body.mypage-body        
 
@@ -66,15 +66,15 @@
       %section.other-items-box__users-items
         %h2.other-items-box__users-items--head
           = link_to '#' do
-            = 'サンプルユーザーのその他の商品'
+            = @item.user.nickname + 'のその他の商品'
         .other-items-box__users-items--contents.clearfix
-          = render 'module/other_items'
+          = render partial: 'module/other_items'
       %section.other-items-box__related-items
         %h2.other-items-box__related-items--head
           = link_to '#' do
             = 'ナイキのジャケットのその他の商品'
         .other-items-box__related-items--contents.clearfix
-          = render 'module/other_items'
+          -# = render 'module/other_items'
     .bread-crumbs
       %ul
         %li.bread-crumbs__back

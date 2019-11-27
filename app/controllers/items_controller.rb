@@ -9,46 +9,36 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-
+    user = @item.user
+    @items = user.items.all.limit(6).order("created_at DESC")
   end
 
   def new
     # 商品出品
     @item = Item.new
     image = @item.images.build
-    # binding.pry
-
-    # @item = Item.new
-    # @item_image = @item.images.build
+    
 
     #商品カテゴリー
     @category_parent_array = ["---"]
-    # Categorie.where(ancestry: nil).each do |parent|
+    # Categorie.where(ancestry: nil).each do |parent| 実装途中のためコメントアウト残してます
     #   @category_parent_array << parent.name
     # end
   end
 
 
   def create
-    # Item.create(name: item_params[:name], body: item_params[:body], price: item_params[:price],  user_id: current_user.id)
-    #商品出品
-    # binding.pry
+    
     @item = Item.create(item_params)
-    # binding.pry
-    # if @shipping.save
-    #   params[:images][:url].each do |image|
-    #     @shipping.images.create(url: image, item_id: @hipping.id)
-      # end
+    
+    
       redirect_to action: :index
-    # else
-    #   redirect_to action: :new
-    # end
   end
 
 
 
   def edit
-    # @item = Item.find(params[:id])
+  
   end
 
   def update
@@ -60,11 +50,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    # if @item.user_id == current_user.id && @item.destroy
-    #   redirect_to root_path
-    # else
-    #   redirect_to action: :show
-    # end
+    
   end
 
   def purchase
@@ -80,7 +66,7 @@ class ItemsController < ApplicationController
   
   def item_params
     #出品itemのparams
-    params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture, :name, :body, :status, :order_status, :price,
+    params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture_id, :name, :body, :status, :order_status, :price, :method,
     images_attributes: [:image]).merge(user_id: current_user.id)
   end
   
