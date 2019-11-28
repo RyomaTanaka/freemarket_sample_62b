@@ -31,18 +31,35 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
+
   end
 
   def update
-    if @item.update(update_item_params)
-      redirect_to root_path
-    else
-      redirect_to edit_item_path
-    end
+
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    
+    redirect_to list_items_mypage_path, notice: '編集しました'
   end
 
+
+    # if @item.update(item_params)
+    #   redirect_to root_path
+    # else
+    #   redirect_to edit_item_path
+    # end
+
+
   def destroy
+
+  @item = Item.find(params[:id])
+  if @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to list_items_mypage_path, notice: '削除しました'
+
   end
+
 
   def purchase
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
