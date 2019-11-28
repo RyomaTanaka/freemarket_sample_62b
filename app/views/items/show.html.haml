@@ -15,6 +15,9 @@
                   .aaa
                     - @item.images.each do |item| 
                       = image_tag item.image.url, class: 'item-photo'
+                - if @item.order_status == 1
+                  .souldout
+                    %div SOLD
         =render "module/item_show_table"
       .item-detail__price-box.text-center
         %span.item-detail__price-box--main-price
@@ -24,8 +27,12 @@
           (税込)
         %span.item-detail__price-box--shipping-fee
           (送料込み)
-      = link_to purchase_confirmation_item_path(@item), class: "item-detail__order-btn text-center" do
-        購入画面に進む
+      - if @item.order_status == 0
+        = link_to purchase_confirmation_item_path(@item), class: "item-detail__order-btn text-center" do
+          購入画面に進む
+      - elsif @item.order_status == 1
+        .souldout_btn
+          %span 売り切れました
       .item-detail__description
         %p.item-detail__description--input
           = @item.body

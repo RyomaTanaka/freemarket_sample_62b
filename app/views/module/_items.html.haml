@@ -13,3 +13,7 @@
                   ¥
                   = item.price
                 = image_tag item.images[0].image.url, class: 'item-photo'
+              .item
+              - if item.order_status == 1
+                .souldout
+                  %div SOLD
