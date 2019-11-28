@@ -1,0 +1,44 @@
+.souldout>div {
+  top: 24px;
+  font-size: 28px;
+  position: absolute;
+  left: 0;
+  z-index: 2;
+  color: #fff;
+  transform: rotate(-45deg);
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.souldout:after {
+  border-width: 120px 120px 0 0;
+  border-color: #ea352d transparent transparent transparent;
+  display: block;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.souldout_btn {
+  background: #888;
+  cursor: not-allowed;
+  font-size: 24px;
+  line-height: 60px;
+  display: block;
+  margin-top: 16px;
+  font-size: 14px;
+  color: #fff;
+  line-height: 56px;
+  text-align: center;
+  font-weight: 600;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  span {
+    font-size: 24px;
+  }
+}
