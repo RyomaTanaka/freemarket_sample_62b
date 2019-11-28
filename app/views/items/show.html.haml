@@ -8,13 +8,17 @@
         = @item.name
       .item-detail__contents.clearfix
         .itemphoto
-          .owlcawsol
-            .stage
-              .item-detail__contents--photo
-                .divclass
-                  .aaa
-                    - @item.images.each do |item| 
-                      = image_tag item.image.url, class: 'item-photo'
+          .owlcarousel
+            .stage-outer
+              .stage
+                .item-photo
+                  .item-photo__inner
+                    = image_tag @item.images[0].image.url
+            .owl-dots
+              - @item.images.each do |image| 
+                .owl-dot
+                  .owl-dot__inner
+                    = image_tag image.image.url
         =render "module/item_show_table"
       .item-detail__price-box.text-center
         %span.item-detail__price-box--main-price
