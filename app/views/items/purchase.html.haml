@@ -13,7 +13,7 @@
       .purchase-item
         %h3.purchase-item__image
           - @item.images.each do |image|
-            = image_tag image.url, class: "purchase-item__image-adjust"
+            = image_tag image.image.url, class: "purchase-item__image-adjust"
         %p.purchase-item__name
           = @item.name
         %form.purchase-item-form{ action: "", method: "POST", novalidate: "novalidate"}

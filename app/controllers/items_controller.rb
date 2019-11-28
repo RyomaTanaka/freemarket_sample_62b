@@ -57,6 +57,11 @@ class ItemsController < ApplicationController
     #購入
   end
 
+  def purchase_complete
+    @item = Item.find(params[:id])
+    
+  end
+
 
   private
   def set_item
