@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+
   devise_for :users,
   controllers: {
     sessions: 'users/sessions',
     registrations: "users/registrations",
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
-  
+
   resource :signups, only:[:create] do
     get :step0
     get :step1
@@ -14,8 +15,8 @@ Rails.application.routes.draw do
     get :step4
     get :step5
   end
-  
-  resources :mypages, only:[:show, :edit, :update] do
+
+  resources :mypages, only:[:show, :edit,:destroy, :update] do
     member do
       get :list_items
       get :list_items_progress
@@ -32,13 +33,13 @@ Rails.application.routes.draw do
   end
 
   resources :addresses
-  
+
   root "items#index"
-  
+
   resources :users do
     resources :cards
   end
-  
+
   resources :items do
     member do
       post :purchase

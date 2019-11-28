@@ -42,6 +42,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
+  gem 'faker'
 end
 
 group :development do
@@ -77,8 +78,12 @@ gem 'haml-rails'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'pry-rails'
+gem 'payjp'
+gem 'rails-i18n'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'ancestry'
+gem 'active_hash'
 gem "gretel"
 gem 'payjp'
 gem 'rails-i18n'

@@ -8,7 +8,9 @@
       = form_with model: @user, url: step2_signups_path, method: :get, local: true do |f|
         .form__field__nickname
           .form__field__nickname__box1
+
             = f.label :nickname, value: 'ニックネーム'
+
           .form__field__nickname__box2
             必須
           %br/
@@ -24,6 +26,7 @@
             = f.label :必須
           %br/
           = f.email_field :email, autocomplete: "email"
+
         -# - unless @sns.present?
         -#   .form__field__pass
         -#     .form__field__pass__box1
@@ -47,6 +50,7 @@
           .form__field__pass__box3
             = check_box_tag :checkbox
             = f.label :パスワードを表示する
+
         %p1
           %input#realText.password/
         .form__field__text
@@ -100,12 +104,14 @@
               = fa_icon "chevron-down", class: "day__icon"
               = f.select :birth_day	, [ ["1"],["2"],["3"],["4"],["5"],["6"],["7"],["8"],["9"],["10"],["11"],["12"],["13"], ["14"], ["15"], ["16"], ["17"], ["18"], ["19"], ["20"], ["21"], ["22"], ["23"], ["24"], ["25"], ["26"], ["27"], ["28"], ["29"], ["30"], ["31"]], {}, class: "day__select"
             %span.day__text
-              日         
+              日
           .form__field__birthdate__box4
             ＊本人情報は正しく入力してください。会員登録後、 修正するにはお時間を頂く場合があります
           = f.submit "次へ進む", class: "form__btn"
+
           .personal_registration_about
             本人情報の登録について
             = fa_icon "chevron-right"
+
 
   = render partial: "signups/devise_footer"

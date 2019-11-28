@@ -1,0 +1,91 @@
+
+
+%body.mypage-body        
+
+  .main_container
+    %section.item-detail
+      %h1.item-detail__name
+        = @item.name
+      .item-detail__contents.clearfix
+        .itemphoto
+          .owlcawsol
+            .stage
+              .item-detail__contents--photo
+                .divclass
+                  .aaa
+                    - @item.images.each do |image| 
+                      =image_tag image.image.url
+        =render "module/item_show_table"
+      .item-detail__price-box.text-center
+        %span.item-detail__price-box--main-price
+          ￥
+          = @item.price
+        %span.item-detail__price-box--tax
+          (税込)
+        %span.item-detail__price-box--shipping-fee
+          (送料込み)
+
+      =link_to purchase_mypages_path(@item.id), class: "item-detail__order-btn text-center" do
+        購入画面に進む
+    
+      
+    
+      .item-detail__description
+        %p.item-detail__description--input
+          = @item.body
+      .item-detail__buttons.crearfix
+        .item-detail__buttons--left-btn
+        .item-detail__buttons--right-btn
+          = fa_icon 'lock'
+          =link_to '#' do
+            = '安心安全への取り組み'
+    .item-comment
+      .item-comment__box
+        = form_with url: '#', local: true do |f|
+          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          = f.text_area :search, class: 'item-comment__box--textarea'
+          = f.submit 'コメントする', class: 'item-comment__box--btn'
+            
+    %ul.item-nav.clearfix
+      %li.item-nav__prev
+        = link_to '#' do
+          = fa_icon 'chevron-left'
+          = '前の商品'
+      %li.item-nav__next
+        = link_to '#' do
+          = '次の商品'
+          = fa_icon 'chevron-right'
+    .item-sns-box
+      %ul.item-sns-box__icons
+        %li.item-sns-box__icons--facebook
+          = link_to '#' do
+            = fa_icon 'facebook-square'
+        %li.item-sns-box__icons--twitter
+          = link_to '#' do
+            = fa_icon 'twitter'
+        %li.item-sns-box__icons--pinterest
+          = link_to '#' do
+            = fa_icon 'pinterest'
+    .other-items-box
+      %section.other-items-box__users-items
+        %h2.other-items-box__users-items--head
+          = link_to '#' do
+            = 'サンプルユーザーのその他の商品'
+        .other-items-box__users-items--contents.clearfix
+          = render 'module/other_items'
+      %section.other-items-box__related-items
+        %h2.other-items-box__related-items--head
+          = link_to '#' do
+            = 'ナイキのジャケットのその他の商品'
+        .other-items-box__related-items--contents.clearfix
+          = render 'module/other_items'
+    .bread-crumbs
+      %ul
+        %li.bread-crumbs__back
+          = link_to '#' do
+            %span メルカリ
+          =fa_icon 'chevron-right'
+        %li.bread-crumbs__current-page
+          %sapn 現在のページ
+
+

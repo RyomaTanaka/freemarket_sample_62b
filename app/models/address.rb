@@ -1,4 +1,5 @@
 class Address < ApplicationRecord
+
   belongs_to :user
   
   validates :user_name, presence: true

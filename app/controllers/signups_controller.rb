@@ -1,5 +1,7 @@
 class SignupsController < ApplicationController
+
   before_action :save_to_session_user, only: :step2
+
 
   def step0
   end
@@ -9,7 +11,9 @@ class SignupsController < ApplicationController
   end
 
   def step2
+
     @address = Address.new
+
   end
 
   def step3
