@@ -1,5 +1,14 @@
 require 'rails_helper'
 
+
+
+before do
+  @user = FactoryBot.create(:user )
+  @item = FactoryBot.create(:item)
+  @image = FactoryBot.create(:image)
+
+end
+
 RSpec.describe ItemsController, type: :controller do
   describe 'GET #index' do
     it "populates an array of items ordered by created_at DESC" do
@@ -29,3 +38,15 @@ RSpec.describe ItemsController, type: :controller do
     end
   end
 end
+
+
+
+        describe "DELETE #destroy " do
+          it "アイテムを削除出来るか" do
+            sign_in @user
+            expect{
+            delete :destroy,params:{ id: @item.id }
+          }.to change(@user.items, :count).by(-1)
+        end
+      end
+  end
