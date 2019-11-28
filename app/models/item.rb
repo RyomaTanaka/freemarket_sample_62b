@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   validates :body, presence: true
   validates :price, presence: true
   validates :status, presence: true
-  validates :shipping_method, presece: true
+  validates :shipping_method, presence: true
   validates :order_status, presence: true
   validates :prefecture, presence: true
   validates :cost_burden, presence: true
