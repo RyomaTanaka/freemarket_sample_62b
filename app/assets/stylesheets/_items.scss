@@ -115,6 +115,7 @@
     font-weight: 600;
     line-height: 36px;
     white-space: nowrap;
+    color: black;
     &__icon{
       max-width: 100%;
       max-height: 100%;
@@ -137,6 +138,7 @@
     font-weight: 600;
     line-height: 36px;
     white-space: nowrap;
+    color: black;
     &__icon{
       max-width: 100%;
       max-height: 100%;
@@ -165,6 +167,7 @@
   height: 32px;
   transform: scale(1);
   transition: all 0.3s ease-out 0s;
+  color: black;
 }
 
 .heart-icon {
@@ -184,6 +187,7 @@
   height: 32px;
   transform: scale(1);
   transition: all 0.3s ease-out 0s;
+  color: black;
 }
 
 .bell-icon {
@@ -203,6 +207,7 @@
   height: 32px;
   transform: scale(1);
   transition: all 0.3s ease-out 0s;
+  color: black;
 }
 
 .check-icon {
@@ -222,6 +227,7 @@
   height: 32px;
   transform: scale(1);
   transition: all 0.3s ease-out 0s;
+  color: black;
   &-image {
     margin-right: 10px;
     width: 32px;

@@ -1,17 +1,14 @@
 FactoryBot.define do
-
   factory :item do
-
-    name                    {"kawa"}
-    body                    {"aaaaaaaaaaaaaaaaaaaaaa"}
-    price                   {"100"}
-    status                  {0}
-    order_status            {0}
-    prefecture              {0}
-    cost_burden             {0}
-    period_before_shipping  {0}
-    user                
+    name                   {"sample"}
+    body                   {"00000000"}
+    price                  {"40000"}
+    status                 {1}
+    order_status           {"1"}
+    prefecture_id          {5}
+    cost_burden            {"1"}
+    period_before_shipping {"1"}
+    created_at             { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
+    user
   end
-
 end
-

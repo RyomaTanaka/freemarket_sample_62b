@@ -3,20 +3,8 @@
 
 %body.mypage-body        
 
-  %nav.breadcrumbs
-    %ul
-      %li{ itemscope: "", itemtype: "#"}
-        = link_to "", href: "#", itemprop: "url" do
-          %span{ itemprop: "title"}
-            メルカリ
-            = fa_icon 'chevron-right'
-      %li{ itemscope: "", itemtype: "#"}
-        %span{ itemprop: "title"}
-          マイページ
-          = fa_icon 'chevron-right'
-      %li{ itemscope: "", itemtype: "#"}
-        %span{ itemprop: "title"}
-          ログアウト
+  - breadcrumb :logout
+  = render partial: "layouts/breadcrumbs"
 
   -# %main.container
   -#   .logout-container
@@ -34,7 +22,7 @@
         %form.logout-content__form{ action: "#", method: "POST", novalidate: "novalidate"}
           .logout-content__btn-wrapper
             %button.btn-default-value.btn-color-red{ type: "submit" }
-              = link_to 'ログアウト', destroy_user_session_path, method: :delete
+              = link_to 'ログアウト', destroy_user_session_path, method: :delete, local: true, data: {turbolinks: false}
 
     = render "module/content-left"      
 

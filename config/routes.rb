@@ -16,8 +16,8 @@ Rails.application.routes.draw do
     get :step5
   end
 
-  resources :mypages, only:[:show,:edit,:destroy,:update] do
-    collection do
+  resources :mypages, only:[:show, :edit,:destroy, :update] do
+    member do
       get :list_items
       get :list_items_progress
       get :list_items_completed
@@ -32,13 +32,19 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :addresses
+
   root "items#index"
+
   resources :users do
     resources :cards
   end
 
-  resources :items
-  resources :cards
-
-  get "exhibited" => "items#exhibited"
+  resources :items do
+    member do
+      post :purchase
+      get :purchase_complete
+      get :purchase_confirmation
+    end
+  end
 end

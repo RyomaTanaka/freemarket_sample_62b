@@ -1,0 +1,101 @@
+.complete-container {
+  margin: 0 auto;
+  width: 700px;
+  background: #fff;
+  text-align: center;
+}
+.message-box {
+  position: relative;
+  padding: 24px 8px;
+  background: #FFF6DE;
+  .shipping-clock {
+    font-size: 40px;
+  }
+  &__red {
+    color: red;
+    line-height: 50px;
+    font-weight: bold;
+  }
+}
+.complete-message {
+  padding: 24px 8px;
+  font-size: 18px;
+  line-height: 2.5;
+  font-size: 25px;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
+.buy-item {
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  &__photo {
+    width: 148px;
+    margin: 30px 277px;
+  }
+  &__name {
+    font-size: 22px;
+    margin-bottom: 45px;
+  }
+}
+
+.buy-price {
+  text-align: center;
+  padding: 55px;
+  border-bottom: 1px solid #ddd;
+  &__money {
+    margin: 16px 0 0;
+    font-size: 28px;
+  }
+  &__cost-burden {
+    margin: 0 0 0 8px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+}
+
+.buyer-address {
+  text-align: left;
+  padding: 30px 190px 60px;
+  border-bottom: 1px solid #ddd;
+  &__title {
+    font-weight: bold;
+  }
+}
+
+.buyer-card {
+  text-align: left;
+  padding: 30px 190px 60px;
+  border-bottom: 1px solid #ddd;
+  &__title {
+    font-weight: bold;
+  }
+  &__photo {
+    width: 50px;
+  }
+}
+
+.bottom-message {
+  padding: 30px 190px 30px;
+  border-bottom: 1px solid #ddd;
+  &__title {
+    font-size: 19px;
+    font-weight: bold;
+  }
+  .fa {
+    font-size: 30px;
+    margin: 10px 5px;
+  }
+  .star {
+    color: yellow;
+  }
+  .good {
+    color: #ef5185;
+  }
+  .normal {
+    color: #fba933;
+  }
+  .bad {
+    color: #6ab5d8;
+  }
+}

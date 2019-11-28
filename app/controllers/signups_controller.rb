@@ -6,7 +6,6 @@ class SignupsController < ApplicationController
   def step0
   end
 
-
   def step1
     @user = User.new
   end
@@ -23,29 +22,38 @@ class SignupsController < ApplicationController
   end
 
   def step4
+    session[:signup] = 1
     @card = Card.new
+  end
+
+  def step5
   end
 
   def create
     user_create
-    if @user.save
-      session[:user_id] = @user.id
-      sign_in User.find(@user.id) unless user_signed_in?
-    end
-
-    save_to_session_address
-    @address.save
+    # if @user.save
+    #   session[:user_id] = @user.id
+    #   sign_in User.find(@user.id) unless user_signed_in?
+    # end
+    sign_in User.find(@user.id) if @user.save
 
     if session[:provider].present?
       @sns_authentication = SnsAuthentication.new(
-        user_id: session[:user_id],
+        user_id: current_user.id,
         provider: session[:provider],
         uid: session[:uid]
       )
       @sns_authentication.save
+      session.delete(:provider)
     end
 
-    redirect_to root_path
+    save_to_session_address
+    @address.user_id = current_user.id
+    if @address.save
+      redirect_to step4_signups_path
+    else
+      render "step3"
+    end
   end
 
   private
@@ -67,7 +75,6 @@ class SignupsController < ApplicationController
 
   def address_params
     params.require(:address).permit(
-      :user_id,
       :user_name,
       :user_name_ruby,
       :post_number,
@@ -108,7 +115,7 @@ class SignupsController < ApplicationController
 
     user_create
 
-    render 'signups/step1' unless @user.valid?
+    render "step1" unless @user.valid?
   end
 
   def save_to_session_address
@@ -122,7 +129,6 @@ class SignupsController < ApplicationController
     session[:phone_number] = address_params[:phone_number]
 
     @address = Address.new(
-      user_id: session[:user_id],
       user_name: session[:user_name],
       user_name_ruby: session[:user_name_ruby],
       post_number: session[:post_number],
@@ -132,7 +138,5 @@ class SignupsController < ApplicationController
       building_name: session[:building_name],
       phone_number: session[:phone_number]
     )
-
-    render 'signups/step3' unless @address.valid?
   end
 end

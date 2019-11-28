@@ -1,13 +1,12 @@
 class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  has_one :profile, dependent: :destroy
-  has_many :addresses, dependent: :destroy
 
+  has_one :profile, dependent: :destroy
+  has_one :address, dependent: :destroy
   has_one :card, dependent: :destroy
   has_many :sns_authentications, dependent: :destroy
   has_many :items, dependent: :destroy
-
-  accepts_nested_attributes_for :addresses, :profile
+  # accepts_nested_attributes_for :addresses, :profile
 
   # ----------------------------------------
   # has_many :items
@@ -20,7 +19,15 @@ class User < ApplicationRecord
   validates :nickname, presence: true
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :password, presence: true
+  validates :first_name, presence: true
+  validates :family_name, presence: true
+  validates :first_name_ruby, presence: true
+  validates :family_name_ruby, presence: true
+  validates :birth_year, presence: true
+  validates :birth_month, presence: true
+  validates :birth_day, presence: true
 
+  # SNS認証情報がない場合
   def self.without_sns_data(auth)
     user = User.where(email: auth.info.email).first
 
@@ -44,6 +51,7 @@ class User < ApplicationRecord
     return { user: user ,sns: sns}
   end
 
+  # SNS認証情報がある場合
   def self.with_sns_data(auth, snscredential)
     user = User.where(id: snscredential.user_id).first
     unless user.present?

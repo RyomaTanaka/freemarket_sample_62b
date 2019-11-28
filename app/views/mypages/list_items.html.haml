@@ -1,20 +1,8 @@
 = render 'module/header'
 .mypage-body
 
-  %nav.breadcrumbs
-    %ul
-      %li{ itemscope: "", itemtype: "#"}
-        = link_to "", href: "#", itemprop: "url" do
-          %span{ itemprop: "title"}
-            メルカリ
-            = fa_icon 'chevron-right'
-      %li{ itemscope: "", itemtype: "#"}
-        %span{ itemprop: "title"}
-          マイページ
-          = fa_icon 'chevron-right'
-      %li{ itemscope: "", itemtype: "#"}
-        %span{ itemprop: "title"}
-          出品した商品 - 出品中
+  - breadcrumb :mypages
+  = render partial: "layouts/breadcrumbs"
 
   = render partial:'mypages/notification'
   %main.container
@@ -34,11 +22,11 @@
                 = link_to item_path(item.id), class: "mypage-contents-list__link" do
                   =item.name
                   %figure
-                    - @images.each do |image| 
+                    - @images.each do |image|
                       =image_tag image.image.url
                   .mypage-contents-body
                     .mypage-contents-body__text
-                    
+
                     %div
                       %sapn.heart-icon
                         = fa_icon "heart"

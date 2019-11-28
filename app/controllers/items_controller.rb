@@ -1,60 +1,37 @@
 class ItemsController < ApplicationController
+  require 'payjp'
+  before_action :exihibited, except: [:index, :new, :create]
+  before_action :set_card, only: [:purchase_confirmation, :purchase_complete]
 
   def index
-    # トップページ
     @items = Item.all.limit(10).order("created_at DESC")
-    @images = Image.all
   end
 
-
-
-
   def show
-    @item = Item.find(params[:id])
-
+    user = @item.user
+    @items = user.items.all.limit(6).order("created_at DESC")
   end
 
   def new
     # 商品出品
     @item = Item.new
     image = @item.images.build
-    # binding.pry
-
-    # @item = Item.new
-    # @item_image = @item.images.build
 
     #商品カテゴリー
-    # @category_parent_array = ["---"]
-    # Categorie.where(ancestry: nil).each do |parent|
+    @category_parent_array = ["---"]
+    # Categorie.where(ancestry: nil).each do |parent| 実装途中のためコメントアウト残してます
     #   @category_parent_array << parent.name
     # end
   end
 
-
-  def currentuser
-  end
-
   def create
-    # Item.create(name: item_params[:name], body: item_params[:body], price: item_params[:price],  user_id: current_user.id)
-    #商品出品
-    # binding.pry
     @item = Item.create(item_params)
-    # binding.pry
-    # if @shipping.save
-    #   params[:images][:url].each do |image|
-    #     @shipping.images.create(url: image, item_id: @hipping.id)
-      # end
-      redirect_to action: :index
-    # else
-    #   redirect_to action: :new
-    # end
+    redirect_to action: :index
   end
-
-
 
   def edit
     @item = Item.find(params[:id])
- 
+
   end
 
   def update
@@ -79,7 +56,7 @@ class ItemsController < ApplicationController
   if @item = Item.find(params[:id])
     @item.destroy
     redirect_to list_items_mypages_path, notice: '削除しました'
-  
+
   end
 
     # if @item.destory
@@ -90,11 +67,24 @@ class ItemsController < ApplicationController
   end
 
   def purchase
-    #購入
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    charge = Payjp::Charge.create(
+      amount: @item.price,
+      customer: current_user.card.customer_id,
+      currency: 'jpy',
+    )
+    @item.order_status = 1
+    redirect_to purchase_complete_item_path(@item)
   end
 
+  def purchase_confirmation
+  end
+
+  def purchase_complete
+  end
 
   private
+
   def set_item
     #itemのidを持ってくる
     @item = Item.includes(:images).find(params[:id])
@@ -102,7 +92,7 @@ class ItemsController < ApplicationController
 
   def item_params
     #出品itemのparams
-    params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture, :name, :body, :status, :order_status, :price,
+    params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture_id, :name, :body, :status, :order_status, :price, :shipping_method,
     images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
@@ -124,12 +114,13 @@ class ItemsController < ApplicationController
 
   end
 
-end
+  def set_item
+    @item = Item.includes(:images).find(params[:id])
+  end
 
-def set_item
-  @item = Item.includes(:images).find(params[:id])
+  def set_card
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    customer = Payjp::Customer.retrieve(current_user.card.customer_id)
+    @user_card = customer.cards.retrieve(current_user.card.card_id)
+  end
 end
-
-# def update_item_params
-#   params.require(:shipping).permit(:cost_burden, :period_before_shipping, :prefecure,
-#   items_attributes: [:name, :body, :status, :price, :condition, images_attributes: [:image]])

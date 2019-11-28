@@ -30,7 +30,20 @@ class MypagesController < ApplicationController
     #   redirect_to root_path
     # end
 
+  def edit
+    @user = User.find(params[:id])
   end
+
+  def update
+
+    @user = User.find(params[:id])
+      if @user = User.find(params[:id])
+        @user.update(update_params)
+        redirect_to user_path(current_user)
+      else
+        render :edit
+      end
+    end
 
   def card
   end
@@ -38,10 +51,13 @@ class MypagesController < ApplicationController
   def card_create
   end
 
-  def personal
+  def logout
   end
 
-  def logout
+  private
+
+  def update_params
+    params.require(:user).permit(:nickname, :introduction)
   end
 
 end

@@ -1,6 +1,6 @@
-= render "module/header"
+= render partial: "module/header"
 
-    
+
 -if user_signed_in? && current_user.id == @item.user_id
   = render "current_user_show"
 

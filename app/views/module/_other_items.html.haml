@@ -1,54 +1,11 @@
-%section.items-box
-  =link_to '#' do
-    %figure.items-box__image
-      %img(src= "https://static.mercdn.net/item/detail/orig/photos/m88330665818_1.jpg?1573878548")
-    .items-box__body
-      %h3.items-box__body--name
-        サンプルサンプルサンプル
-      .items-box__body--price
-        ¥3,000
-%section.items-box
-  =link_to '#' do
-    %figure.items-box__image
-      %img(src= "https://static.mercdn.net/item/detail/orig/photos/m88330665818_1.jpg?1573878548")
-    .items-box__body
-      %h3.items-box__body--name
-        サンプルサンプルサンプル
-      .items-box__body--price
-        ¥3,000
-%section.items-box
-  =link_to '#' do
-    %figure.items-box__image
-      %img(src= "https://static.mercdn.net/item/detail/orig/photos/m88330665818_1.jpg?1573878548")
-    .items-box__body
-      %h3.items-box__body--name
-        サンプルサンプルサンプル
-      .items-box__body--price
-        ¥3,000
-%section.items-box
-  =link_to '#' do
-    %figure.items-box__image
-      %img(src= "https://static.mercdn.net/item/detail/orig/photos/m88330665818_1.jpg?1573878548")
-    .items-box__body
-      %h3.items-box__body--name
-        サンプルサンプルサンプル
-      .items-box__body--price
-        ¥3,000
-%section.items-box
-  =link_to '#' do
-    %figure.items-box__image
-      %img(src= "https://static.mercdn.net/item/detail/orig/photos/m88330665818_1.jpg?1573878548")
-    .items-box__body
-      %h3.items-box__body--name
-        サンプルサンプルサンプル
-      .items-box__body--price
-        ¥3,000
-%section.items-box
-  =link_to '#' do
-    %figure.items-box__image
-      %img(src= "https://static.mercdn.net/item/detail/orig/photos/m88330665818_1.jpg?1573878548")
-    .items-box__body
-      %h3.items-box__body--name
-        サンプルサンプルサンプル
-      .items-box__body--price
-        ¥3,000
+- @items.each do |item|
+  %section.items-box
+    =link_to item_path(item.id) do
+      %figure.items-box__image
+        = image_tag item.images[0].image.url
+      .items-box__body
+        %h3.items-box__body--name
+          = item.name
+        .items-box__body--price
+          ¥
+          = item.price

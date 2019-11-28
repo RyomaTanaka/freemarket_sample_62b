@@ -8,9 +8,7 @@
 @import "mypages/exhibited";
 @import "mypages/flash";
 @import "purchases/index";
-
-// @import "font-awesome-sprockets";
-
+@import "purchases/complete";
 @import "./font-awesome";
 
 @import "config/colors";
@@ -31,3 +29,7 @@
 @import "new-session" ;
 @import "new-registrations" ;
 @import "error_message";
+
+@import "breadcrumbs";
+@import "card_new";
+@import "soldout";

@@ -29,6 +29,9 @@
   text-align: center;
   text-decoration: none;
 }
+.create_user_button:hover {
+  color: white;
+}
 
 .login_button {
   list-style: none;
@@ -45,4 +48,9 @@
   border-color: rgb(0, 149, 238);
   color: rgb(0, 149, 238);
   transition: all 0.3s ease-out 0s;
+}
+
+.login_button:hover {
+  background-color: rgb(0, 149, 238);
+  color: white;
 }

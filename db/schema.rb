@@ -10,14 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_081936) do
-
-  create_table "address01s", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "prefecture_id"
-    t.string "city"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 2019_11_16_045107) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -77,9 +70,10 @@ ActiveRecord::Schema.define(version: 2019_11_25_081936) do
     t.integer "price", null: false
     t.integer "status", null: false
     t.integer "order_status", null: false
-    t.string "prefecture", null: false
+    t.string "shipping_method", null: false
     t.string "cost_burden", null: false
     t.string "period_before_shipping", null: false
+    t.integer "prefecture_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_items_on_user_id"
@@ -118,15 +112,6 @@ ActiveRecord::Schema.define(version: 2019_11_25_081936) do
     t.index ["user_id"], name: "index_points_on_user_id"
   end
 
-  create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.text "into"
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_profiles_on_user_id"
-  end
-
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.text "body"
@@ -149,6 +134,8 @@ ActiveRecord::Schema.define(version: 2019_11_25_081936) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "nickname", null: false
+    t.text "introduction"
+    t.string "image"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -175,7 +162,6 @@ ActiveRecord::Schema.define(version: 2019_11_25_081936) do
   add_foreign_key "likes", "users"
   add_foreign_key "messages", "orders"
   add_foreign_key "points", "users"
-  add_foreign_key "profiles", "users"
   add_foreign_key "reviews", "users"
   add_foreign_key "sns_authentications", "users"
 end
