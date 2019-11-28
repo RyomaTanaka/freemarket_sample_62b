@@ -1,6 +1,6 @@
 = render partial: "module/header"
 
-%body.mypage-body        
+%body.mypage-body
 
   .main_container
     %section.item-detail
@@ -28,7 +28,7 @@
         %span.item-detail__price-box--shipping-fee
           (送料込み)
       - if @item.order_status == 0
-        = link_to purchase_confirmation_item_path(@item), class: "item-detail__order-btn text-center" do
+        = link_to purchase_confirmation_item_path(@item), method: :get, class: "item-detail__order-btn text-center" do
           購入画面に進む
       - elsif @item.order_status == 1
         .souldout_btn

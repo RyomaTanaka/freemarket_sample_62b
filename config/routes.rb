@@ -42,8 +42,8 @@ Rails.application.routes.draw do
   resources :items do
     member do
       post :purchase
-      get :purchase_complete
       get :purchase_confirmation
+      get :purchase_complete
     end
   end
 end
