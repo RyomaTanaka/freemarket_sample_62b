@@ -20,9 +20,9 @@ class ItemsController < ApplicationController
 
     #商品カテゴリー
     @category_parent_array = ["---"]
-    # Categorie.where(ancestry: nil).each do |parent| 実装途中のためコメントアウト残してます
-    #   @category_parent_array << parent.name
-    # end
+    Categorie.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
   end
 
   def create
