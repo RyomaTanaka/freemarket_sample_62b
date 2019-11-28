@@ -62,6 +62,10 @@ class ItemsController < ApplicationController
     
   end
 
+  def item_search
+
+  end
+
 
   private
   def set_item
