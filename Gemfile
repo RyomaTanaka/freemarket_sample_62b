@@ -59,14 +59,11 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'faker'
 end
 
 group :production do
   gem 'unicorn', '5.4.1'
-end
-
-group :test do
-  gem 'faker'
 end
 
 
