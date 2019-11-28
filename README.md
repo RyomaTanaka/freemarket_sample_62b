@@ -121,7 +121,6 @@ Things you may want to cover:
 |name|string|null: false|
 |body|text|null: false|
 |price|integer|null: false|
-|condition|string|null: false|
 |shipping_id|references|null: false, foreign_key: true|
 |status|integer|null: false|
 |order_status|integer|null: false|
