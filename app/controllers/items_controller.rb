@@ -34,7 +34,7 @@ class ItemsController < ApplicationController
   def create
     #商品出品
     # binding.pry
-    @item = Item.create(item_params)
+    @item = Item.new(item_params)
     if @item.save
       redirect_to action: :index
     else
