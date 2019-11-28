@@ -1,23 +1,12 @@
+/* 元　personal.html.haml */
+-# 個人情報画面で使います。 
+
 = render "module/header"
 
 
 .mypage-body        
-  
-  %nav.breadcrumbs
-    %ul
-      %li{ itemscope: "", itemtype: "#"}
-        = link_to "", 
-        href: "#", itemprop: "url" do
-          %span{ itemprop: "title"}
-            メルカリ
-            = fa_icon 'chevron-right'
-      %li{ itemscope: "", itemtype: "#"}
-        %span{ itemprop: "title"}
-          マイページ
-          = fa_icon 'chevron-right'
-      %li{ itemscope: "", itemtype: "#"}
-        %span{ itemprop: "title"}
-          本人情報の登録
+  - breadcrumb :personal
+  = render partial: "layouts/breadcrumbs"
 
   %main.container
     .personal-container
@@ -34,40 +23,25 @@
                 本人確認書類のアップロードについて
                 = fa_icon 'chevron-right'
 
-              /* これ以下に@usersのカラムの値を取得し、それぞれに当てはめるように実装する */
-          .personal-content__info
-          -# - @users.each do |user| 
-            %label
-              お名前
-            %p
-              -# = user.name
           .personal-content__info
             %label
               お名前
             %p
-              -# = user.name
+              = "#{current_user.family_name} #{current_user.first_name}"
           .personal-content__info
             %label{ for: "birthday" }
               生年月日
             %p
-              -# = user.birth_year
-              -# = user.birth_month
-              -# = user.birth_day
+              = "#{current_user.birth_year}/#{current_user.birth_month}/#{current_user.birth_day}"
 
-              -# これ以下に@addressのカラムの値を取得し、それぞれに当てはめるように実装する
-              -# = address.post_number
-              -# = address.prefecture
-              -# = address.city
-              -# = address.house_number
-              -# = address.building_name
 
           .personal-content__info
-          = form_with model: @address, url: signups_path, method: :post, local: true do |f|
+          = form_with model: @address, url: address_path, method: :patch, local: true do |f|
             .personal-content__info
               = f.label :郵便番号
               %span.any
                 任意
-              = f.text_field :post_number, class: "default-value", type: "text", value: "", name: "postal-code", placeholder: "例) 1234567" 
+              = f.text_field :post_number, class: "default-value", type: "text", placeholder: "例) 1234567" 
             .personal-content__info
               = f.label :都道府県
               %span.any
@@ -79,17 +53,17 @@
               = f.label :市区町村
               %span.any
                 任意
-              = f.text_field :city, class: "default-value", type: "text", value: "", name: "city", placeholder: "例) 横浜市緑区" 
+              = f.text_field :city, class: "default-value", type: "text", placeholder: "例) 横浜市緑区" 
             .personal-content__info
               = f.label :番地
               %span.any
                 任意
-              = f.text_field :house_number, class: "default-value", type: "text", value: "", name: "address", placeholder: "例) 青山1-1-1" 
+              = f.text_field :house_number, class: "default-value", type: "text", placeholder: "例) 青山1-1-1" 
             .personal-content__info
               = f.label :建物名
               %span.any
                 任意
-              = f.text_field :building_name, class: "default-value", type: "text", value: "", name: "building", placeholder: "例) 柳ビル103" 
+              = f.text_field :building_name, class: "default-value", type: "text", placeholder: "例) 柳ビル103" 
             = f.button :登録する, class: "btn-default-value btn-color-red btn-personal-edit", type: "submit" 
               
           .personal-content__link

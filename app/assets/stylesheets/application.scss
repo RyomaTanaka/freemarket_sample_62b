@@ -6,7 +6,9 @@
 @import "mypages/personal";
 @import "mypages/profile_edit";
 @import "mypages/exhibited";
+@import "mypages/flash";
 @import "purchases/index";
+@import "purchases/complete";
 @import "./font-awesome";
 
 @import "config/colors";
@@ -27,3 +29,7 @@
 @import "new-session" ;
 @import "new-registrations" ;
 @import "error_message";
+
+@import "breadcrumbs";
+@import "card_new";
+@import "soldout";

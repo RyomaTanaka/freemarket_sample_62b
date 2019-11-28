@@ -3,8 +3,36 @@ crumb :root do
 end
 
 # マイページ
-crumb :new do
-  link "NEW", new_item_path
+crumb :users do
+  link "マイページ", user_path(current_user)
+  parent :root
+end
+
+
+
+crumb :mypages do 
+  link "出品した商品-出品中", list_items_mypage_path(current_user)
+  parent :users
+end
+
+crumb :card do 
+  link "支払い方法", card_mypage_path(current_user)
+  parent :users
+end
+
+crumb :logout do 
+  link "ログアウト", logout_mypage_path(current_user)
+  parent :users
+end
+
+crumb :profile do 
+  link "プロフィール", profile_mypage_path(current_user)
+  parent :users
+end
+
+crumb :personal do 
+  link "本人情報の登録", personal_mypage_path(current_user)
+  parent :users
 end
 # crumb :projects do
 #   link "Projects", projects_path

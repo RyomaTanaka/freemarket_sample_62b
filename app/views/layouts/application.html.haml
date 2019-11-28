@@ -4,12 +4,14 @@
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title FreemarketSample62b
     %script{src: "https://js.pay.jp/", type: "text/javascript"}
+    -# %csrf_meta_tag
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     %link{ href: "https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css", :rel => "stylesheet" }
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %script{ src: "https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js" }
+
   %body
     = yield
 

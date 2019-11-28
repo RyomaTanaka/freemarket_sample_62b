@@ -36,6 +36,8 @@ Things you may want to cover:
 |birth_year|integer|null: false|
 |birth_month|integer|null: false|
 |birth_day|integer|null: false|
+|introduction|text||
+|image|string||
 
 ### Association
 - has_one :profile, dependent: :destroy
@@ -57,23 +59,12 @@ Things you may want to cover:
 - add_index :users, :pass_word
 - add_index :users, [:birth_year, :birth_month, :birth_day]
 
-## profilesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|introduction|text||
-|image|string||
-
-### Association
-- belongs_to :user
-
-### index
-- add_index :users, :nickname
-
 ## addressテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
+|user_name|string|null: false|
+|user_name_ruby|string|null: false|
 |post_number|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
@@ -130,7 +121,6 @@ Things you may want to cover:
 |name|string|null: false|
 |body|text|null: false|
 |price|integer|null: false|
-|condition|string|null: false|
 |shipping_id|references|null: false, foreign_key: true|
 |status|integer|null: false|
 |order_status|integer|null: false|

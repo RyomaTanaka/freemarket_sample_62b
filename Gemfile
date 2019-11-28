@@ -42,6 +42,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
+  gem 'faker'
 end
 
 group :development do
@@ -66,8 +67,10 @@ group :production do
   gem 'unicorn', '5.4.1'
 end
 
+group :test do
+  gem 'faker'
+end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'devise-i18n'
@@ -76,8 +79,12 @@ gem 'haml-rails'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'pry-rails'
+gem 'payjp'
+gem 'rails-i18n'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'ancestry'
+gem 'active_hash'
 gem "gretel"
 gem 'payjp'
 gem 'rails-i18n'
@@ -87,5 +94,5 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'active_hash'
 gem 'dotenv-rails'
-gem 'devise-i18n'
-gem 'devise-i18n-views'
+
+gem 'fog-aws'
