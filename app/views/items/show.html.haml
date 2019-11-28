@@ -24,7 +24,7 @@
           (税込)
         %span.item-detail__price-box--shipping-fee
           (送料込み)
-      =link_to "", class: "item-detail__order-btn text-center" do
+      = link_to purchase_confirmation_item_path(@item), class: "item-detail__order-btn text-center" do
         購入画面に進む
       .item-detail__description
         %p.item-detail__description--input

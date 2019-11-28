@@ -2,11 +2,11 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   has_one :profile, dependent: :destroy
-  has_many :addresses, dependent: :destroy
+  has_one :address, dependent: :destroy
   has_one :card, dependent: :destroy
   has_many :sns_authentications, dependent: :destroy
   has_many :items, dependent: :destroy
-  accepts_nested_attributes_for :addresses, :profile
+  # accepts_nested_attributes_for :addresses, :profile
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,

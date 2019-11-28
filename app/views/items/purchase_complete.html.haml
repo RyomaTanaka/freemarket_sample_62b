@@ -1,6 +1,5 @@
 .header
   .header__logo
-    -# %img= embedded_svg("logo.svg", class: "cls-2") 
     =image_tag "logo.svg",class:'header__logo'
 
 %body.mypage-body
@@ -28,25 +27,27 @@
       %h2.buyer-address__title
         配送先
       .buyer-address__post-number
-        郵便番号
+        -# 郵便番号
+        - address = current_user.address
+        = "〒#{address.post_number}"
       %span.buyer-address__prefecture
-        〇〇県
+        = address.prefecture
       %span.buyer-address__city
-        〇〇市
+        = address.city
       %span.buyer-address__house_number
-        ○-●-○
+        = address.house_number
       %span.buyer-address__building_name
-        およライフ
+        = address.building_name
       .buyer-address__name
-        名前
+        = current_user.address.user_name
     %section.buyer-card
       %h2.buyer-card__title
         支払い方法
       .buyer-card__number
-        1111111111111111111
+        = "************#{@user_card.last4}"
       .buyer-card__limit
-        01/01
-      = image_tag "master.png", class: "buyer-card__photo"
+        = "#{@user_card.exp_month} / #{@user_card.exp_year % 2000}"
+      = image_tag "visa.svg", width: 49, hight: 20
     %section.bottom-message
       .bottom-message__title
         発送通知後の流れ
@@ -70,7 +71,7 @@
         評価後に取引は完了です。
       = link_to "#" do
         %br
-        マイページへもどる
+        = link_to 'マイページへもどる', user_path(current_user)
   .footer
     .footer__nav
       .footer__nav__li1
