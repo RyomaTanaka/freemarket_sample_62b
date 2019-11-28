@@ -48,23 +48,6 @@
                       %span 4
 
 
-
-          -# 上の部分でアイテムの画像、タイトル、いいね数、コメント数を取得
-
-            -# - @items.each do |item|
-            -#   = item.name
-              -# %li
-              -#   = link_to "/items/exhibited/:id", class: "mypage-contents-list__link" do
-              -#     %figure
-              -#       %img.app-icon{ alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
-              -#     .mypage-contents-body
-              -#       .mypage-contents-body__text 事務局から個別メッセージ「ログイン通知」
-              -#       %time
-              -#         = fa_icon 'clock', class: 'clocks-icon'
-              -#         %span 1時間前
-              -#     = fa_icon 'chevron-right'
-
-
         %input#TAB-01-02.tab-switch-exhibited{ type: "radio", name: "TAB01" }
         %label.tab-label-exhibited{ for: "TAB-01-02" }
           取引中
