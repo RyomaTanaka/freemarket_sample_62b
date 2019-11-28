@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   require 'payjp'
+  
   before_action :exihibited, except: [:index, :new, :create]
   before_action :set_card, only: [:purchase_confirmation, :purchase_complete]
 
