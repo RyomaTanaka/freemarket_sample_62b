@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   require 'payjp'
+  
   before_action :exihibited, except: [:index, :new, :create]
   before_action :set_card, only: [:purchase_confirmation, :purchase_complete]
 
@@ -53,17 +54,11 @@ class ItemsController < ApplicationController
   def destroy
 
   @item = Item.find(params[:id])
-  if @item = Item.find(params[:id])
+    if @item = Item.find(params[:id])
     @item.destroy
     redirect_to list_items_mypage_path, notice: '削除しました'
 
-  end
-
-    # if @item.destory
-    #   redirect_to root_path notice: '商品を削除しました'
-    # else
-    #   redirect_to list_items_mypages_path, notice: '削除をやめました'
-    # end
+    end
   end
 
   def purchase

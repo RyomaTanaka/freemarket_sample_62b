@@ -3,7 +3,7 @@ class MypagesController < ApplicationController
   protect_from_forgery except: :logout # searchアクションを除外
 
   def list_items
-        @items = Item.all
+        @items = Item.all.order("created_at DESC")
         @images = Image.all
 
   end

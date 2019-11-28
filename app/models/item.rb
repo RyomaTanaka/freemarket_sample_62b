@@ -2,15 +2,14 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   belongs_to :user
-  has_many :images , dependent: :destroy
+  has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
-
-
+  
   validates :name, presence: true
   validates :body, presence: true
   validates :price, presence: true
   validates :status, presence: true
-  validates :shipping_method, presece: true
+  validates :shipping_method, presence: true
   validates :order_status, presence: true
   validates :prefecture, presence: true
   validates :cost_burden, presence: true
