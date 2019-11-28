@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
 
   def show
     user = @item.user
-    @items = user.items.all.limit(6).order("created_at DESC")
+    @items = user.items.all.where.not(id: @item.id).limit(6).order("created_at DESC")
   end
 
   def new
@@ -73,7 +73,7 @@ class ItemsController < ApplicationController
       customer: current_user.card.customer_id,
       currency: 'jpy',
     )
-    @item.order_status = 1
+    @item.update(order_status: 1)
     redirect_to purchase_complete_item_path(@item)
   end
 

@@ -1,9 +1,7 @@
 .header
   .header__logo
     =image_tag "logo.svg", class:'header__logo'
-
 %body.mypage-body
-
   %section.purchase-confirmation
     %h2.purchase-confirmation__title
       購入内容の確認
@@ -34,7 +32,6 @@
                   = @item.price
           %button.btn-default-value.btn-color-red
             = link_to '購入する', purchase_item_path(@item), method: :post
-
     %section.user-info-wrapper
       .customer-confirmation
         %h3
