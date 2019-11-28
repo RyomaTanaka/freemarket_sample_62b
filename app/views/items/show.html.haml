@@ -2,9 +2,9 @@
 
 
 -if user_signed_in? && current_user.id == @item.user_id
-  = render "current_user_show"
+  = render partial: "current_user_show"
 
 -else
-  = render "nocurrent"
+  = render partial: "nocurrent"
 
-= render "module/footer"
+= render partial: "module/footer"

@@ -28,7 +28,7 @@ class MypagesController < ApplicationController
     # if @item.update(update_item_params)
 
     #   redirect_to root_path
-    # end
+    end
 
   def edit
     @user = User.find(params[:id])

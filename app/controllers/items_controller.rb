@@ -37,9 +37,9 @@ class ItemsController < ApplicationController
   def update
 
     @item = Item.find(params[:id])
-  if @item = Item.find(params[:id])
     @item.update(item_params)
-    redirect_to list_items_mypages_path, notice: '削除しました'
+    
+    redirect_to list_items_mypage_path, notice: '編集しました'
   end
 
 
@@ -48,14 +48,14 @@ class ItemsController < ApplicationController
     # else
     #   redirect_to edit_item_path
     # end
-  end
+
 
   def destroy
 
   @item = Item.find(params[:id])
   if @item = Item.find(params[:id])
     @item.destroy
-    redirect_to list_items_mypages_path, notice: '削除しました'
+    redirect_to list_items_mypage_path, notice: '削除しました'
 
   end
 
@@ -94,6 +94,7 @@ class ItemsController < ApplicationController
     #出品itemのparams
     params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture_id, :name, :body, :status, :order_status, :price, :shipping_method,
     images_attributes: [:image]).merge(user_id: current_user.id)
+    
   end
 
 
