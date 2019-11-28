@@ -13,6 +13,9 @@
                 .item-photo
                   .item-photo__inner
                     = image_tag @item.images[0].image.url
+                - if @item.order_status == 1
+                  .souldout
+                    %div SOLD
             .owl-dots
               - @item.images.each do |image| 
                 .owl-dot
