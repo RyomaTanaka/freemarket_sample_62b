@@ -50,7 +50,7 @@ class ItemsController < ApplicationController
       customer: current_user.card.customer_id,
       currency: 'jpy',
     )
-    @item.order_status = 1
+    @item.update(order_status: 1)
     redirect_to purchase_complete_item_path(@item)
   end
 
