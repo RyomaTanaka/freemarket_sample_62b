@@ -33,11 +33,10 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(update_item_params)
-      redirect_to root_path
-    else
-      redirect_to edit_item_path
-    end
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    
+    redirect_to list_items_mypage_path, notice: '編集しました'
   end
 
   def destroy
