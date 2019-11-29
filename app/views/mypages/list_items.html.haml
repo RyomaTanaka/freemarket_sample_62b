@@ -1,97 +1,9 @@
-= render 'module/header'
-
+= render partial:  "module/header"
 .mypage-body        
 
   - breadcrumb :mypages
   = render partial: "layouts/breadcrumbs"
 
-  %main.container
-    .content-exhibited
-      %section.purchase-wrapper-exhibited
-        %h2.purchase-head.bold
-          出品した商品
-      .tab-wrap-exhibited
-        %input#TAB-01-01.tab-switch-exhibited{ type: "radio", name: "TAB01", checked: "checked" }
-        %label.tab-label-exhibited{ for: "TAB-01-01" }
-          出品中
-        .tab-content-exhibited
-          .mypage-tabs-content
-            %ul.mypage-contents-list
-              - @items.each do |item|
-              %li
-                = link_to item_path(item.id), class: "mypage-contents-list__link" do
-                  %figure
-                    = image_tag src="https://static.mercdn.net/item/detail/orig/photos/m571686393_2.jpg?1442795030", class: "app-icon" 
-                  .mypage-contents-body
-                    .mypage-contents-body__text
-                      = item.name 
-                    %div
-                      %sapn.heart-icon
-                        = fa_icon "heart"
-                        %span 7
-                      %sapn.comment-icon
-                        = fa_icon "comment"
-                        %span 4
-
-
-
-          -# 上の部分でアイテムの画像、タイトル、いいね数、コメント数を取得
-
-            -# - @items.each do |item|
-            -#   = item.name
-              -# %li
-              -#   = link_to "/items/exhibited/:id", class: "mypage-contents-list__link" do
-              -#     %figure
-              -#       %img.app-icon{ alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
-              -#     .mypage-contents-body
-              -#       .mypage-contents-body__text 事務局から個別メッセージ「ログイン通知」
-              -#       %time
-              -#         = fa_icon 'clock', class: 'clocks-icon'
-              -#         %span 1時間前
-              -#     = fa_icon 'chevron-right'
-
-
-        %input#TAB-01-02.tab-switch-exhibited{ type: "radio", name: "TAB01" }
-        %label.tab-label-exhibited{ for: "TAB-01-02" }
-          取引中
-        .tab-content-exhibited
-          %ul.todo-lists
-            %li.todo-contents.bold
-              現在やることリストはありません
-
-        %input#TAB-01-03.tab-switch-exhibited{ type: "radio", name: "TAB01" }
-        %label.tab-label-exhibited{ for: "TAB-01-03" }
-          売却済み
-        .tab-content-exhibited
-          %ul.todo-lists
-            %li.todo-contents.bold
-              現在やることリストはありません
-
-    = render 'module/content-left'
-
-= render "module/footer"
-= render "module/right_btn"
-
-
-
-
-
-= render 'module/header'
-.mypage-body
-  %nav.breadcrumbs
-    %ul
-      %li{ itemscope: "", itemtype: "#"}
-        = link_to "", href: "#", itemprop: "url" do
-          %span{ itemprop: "title"}
-            メルカリ
-            = fa_icon 'chevron-right'
-      %li{ itemscope: "", itemtype: "#"}
-        %span{ itemprop: "title"}
-          マイページ
-          = fa_icon 'chevron-right'
-      %li{ itemscope: "", itemtype: "#"}
-        %span{ itemprop: "title"}
-          出品した商品 - 出品中
   = render partial:'mypages/notification'
   %main.container
     .content-exhibited
@@ -111,29 +23,18 @@
                   =item.name
                   %figure
                     - @images.each do |image|
-                      =image_tag image.image.url
+                      =image_tag item.images[0].image.url
                   .mypage-contents-body
                     .mypage-contents-body__text
+                    
                     %div
                       %sapn.heart-icon
                         = fa_icon "heart"
                       %span 7
                       %sapn.comment-icon
-                        = fa_icon "comment"
+                      = fa_icon "comment"
                       %span 4
-          -# 上の部分でアイテムの画像、タイトル、いいね数、コメント数を取得
-            -# - @items.each do |item|
-            -#   = item.name
-              -# %li
-              -#   = link_to "/items/exhibited/:id", class: "mypage-contents-list__link" do
-              -#     %figure
-              -#       %img.app-icon{ alt: "", src: "assets/mypage_back.jpg", width: 48, height: 48}
-              -#     .mypage-contents-body
-              -#       .mypage-contents-body__text 事務局から個別メッセージ「ログイン通知」
-              -#       %time
-              -#         = fa_icon 'clock', class: 'clocks-icon'
-              -#         %span 1時間前
-              -#     = fa_icon 'chevron-right'
+
         %input#TAB-01-02.tab-switch-exhibited{ type: "radio", name: "TAB01" }
         %label.tab-label-exhibited{ for: "TAB-01-02" }
           取引中
