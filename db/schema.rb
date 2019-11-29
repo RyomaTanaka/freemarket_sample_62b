@@ -57,14 +57,14 @@ ActiveRecord::Schema.define(version: 2019_11_19_093900) do
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "item_id", null: false
-    t.string "image"
+    t.string "image", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_images_on_item_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.string "name", null: false
     t.text "body", null: false
     t.integer "price", null: false
@@ -97,9 +97,9 @@ ActiveRecord::Schema.define(version: 2019_11_19_093900) do
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "seller_id"
-    t.bigint "buyer_id"
-    t.bigint "item_id"
+    t.bigint "seller_id", null: false
+    t.bigint "buyer_id", null: false
+    t.bigint "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -110,6 +110,15 @@ ActiveRecord::Schema.define(version: 2019_11_19_093900) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_points_on_user_id"
+  end
+
+  create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.text "into"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -162,6 +171,7 @@ ActiveRecord::Schema.define(version: 2019_11_19_093900) do
   add_foreign_key "likes", "users"
   add_foreign_key "messages", "orders"
   add_foreign_key "points", "users"
+  add_foreign_key "profiles", "users"
   add_foreign_key "reviews", "users"
   add_foreign_key "sns_authentications", "users"
 end
