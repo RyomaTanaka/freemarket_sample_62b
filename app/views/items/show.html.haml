@@ -6,7 +6,7 @@
       %h1.item-detail__name
         = @item.name
       .item-detail__contents.clearfix
-        .swiper-container
+        .swiper-container2.main
           .swiper-wrapper
             - @item.images.each do |image| 
               .swiper-slide
@@ -14,12 +14,12 @@
           - if @item.order_status == 1
             .souldout
               %div SOLD
-          .thumblist
-            - @item.images.each do |image| 
-              .thumblist-item
-                .swiper-slide
-                  = image_tag image.image.url, class: "thumb-image"
         =render "module/item_show_table"
+        .swiper-container2.thumbnail
+          .swiper-wrapper
+            - @item.images.each do |image| 
+              .swiper-slide
+                = image_tag image.image.url
       .item-detail__price-box.text-center
         %span.item-detail__price-box--main-price
           ￥
