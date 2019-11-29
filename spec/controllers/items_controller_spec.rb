@@ -5,7 +5,7 @@ RSpec.describe ItemsController, type: :controller do
   before do
     @user = FactoryBot.create(:user )
     @item = FactoryBot.create(:item)
-    
+    @image = FactoryBot.create(:image)
           
   end
 
