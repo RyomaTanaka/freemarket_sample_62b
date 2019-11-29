@@ -40,7 +40,10 @@ class ItemsController < ApplicationController
     redirect_to list_items_mypage_path, notice: '編集しました'
   end
 
+<<<<<<< HEAD
   
+=======
+>>>>>>> parent of 2199056... Update items_controller.rb
   def destroy
     @item = Item.find(params[:id])
   if @item = Item.find(params[:id])
