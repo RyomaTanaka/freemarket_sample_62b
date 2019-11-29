@@ -5,74 +5,9 @@
   = render partial: "current_user"
 
 -else
-  = render partial: "nocurrent"
+  = render partial: "nocurrent_user"
 
 = render partial: "module/footer"
-
-
-
-= render 'module/header'
-.mypage-body
-
-  - breadcrumb :mypages
-  = render partial: "layouts/breadcrumbs"
-
-  = render partial:'mypages/notification'
-  %main.container
-    .content-exhibited
-      %section.purchase-wrapper-exhibited
-        %h2.purchase-head.bold
-          出品した商品
-      .tab-wrap-exhibited
-        %input#TAB-01-01.tab-switch-exhibited{ type: "radio", name: "TAB01", checked: "checked" }
-        %label.tab-label-exhibited{ for: "TAB-01-01" }
-          出品中
-        .tab-content-exhibited
-          .mypage-tabs-content
-            %ul.mypage-contents-list
-              - @items.each do |item|
-                %li
-                = link_to item_path(item.id), class: "mypage-contents-list__link" do
-                  =item.name
-                  %figure
-                    - @images.each do |image|
-                      =image_tag item.images[0].image.url
-                  .mypage-contents-body
-                    .mypage-contents-body__text
-
-                    %div
-                      %sapn.heart-icon
-                        = fa_icon "heart"
-                      %span 7
-                      %sapn.comment-icon
-                        = fa_icon "comment"
-                      %span 4
-
-
-        %input#TAB-01-02.tab-switch-exhibited{ type: "radio", name: "TAB01" }
-        %label.tab-label-exhibited{ for: "TAB-01-02" }
-          取引中
-        .tab-content-exhibited
-          %ul.todo-lists
-            %li.todo-contents.bold
-              現在取引中の商品はありません
-        %input#TAB-01-03.tab-switch-exhibited{ type: "radio", name: "TAB01" }
-        %label.tab-label-exhibited{ for: "TAB-01-03" }
-          売却済み
-        .tab-content-exhibited
-          %ul.todo-lists
-            %li.todo-contents.bold
-              現在売却済みの商品はありません
-    = render 'module/content-left'
-= render "module/footer"
-= render "module/right_btn"
-
-
-
-
-
-
-
 
 
 
