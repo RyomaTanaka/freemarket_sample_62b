@@ -1,5 +1,27 @@
 = render partial: "module/header"
 
+
+-if user_signed_in? && current_user.id == @item.user_id
+  = render partial: "current_user"
+
+-else
+  = render partial: "nocurrent"
+
+= render partial: "module/footer"
+
+
+
+
+
+
+
+
+
+
+
+
+= render partial: "module/header"
+
 %body.mypage-body
   .main_container
     %section.item-detail
