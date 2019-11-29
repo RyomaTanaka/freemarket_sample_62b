@@ -134,6 +134,7 @@ li{
   min-height: 60.42px;
   padding: 16px;
   color: #333;
+
   figure{
     position: relative;
     overflow: hidden;
@@ -165,7 +166,7 @@ li{
   }
   }
 
-        
+  
       
 .app-icon{
   position: absolute;
@@ -201,6 +202,9 @@ li{
   }
 }
 
+#mypage_link{
+  text-decoration: none;
+}
 
 .mypage-notice-list{
   position: relative;
@@ -344,6 +348,10 @@ li{
       font-size: 14px;
       color: #333;
       border: 1.2px solid #f5f5f5;
+      &:hover{
+        background-color:#f5f5f5;
+        transition: all .2s;
+      }
       
       .fa-chevron-right::before{
         position: absolute;
@@ -355,9 +363,13 @@ li{
         -webkit-transition: all ease-out .2s;
         transition: all ease-out .2s;
         box-sizing: inherit;
+     
       }
     }
   }
+}
+
+.fa-chevron-right:hover:after{
 }
 
 
