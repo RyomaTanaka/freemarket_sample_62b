@@ -82,132 +82,96 @@
       }
     }
   }
-}
-
-
-
-// .owl-dots {
-//   line-height: 0;
-//   font-size:0;
-//   .owl-dot {
-//     opacity: 1;
-//     cursor: default;
-//     width: 60px;
-//     height: 60px;
-//     max-height: none;
-//     position: relative;
-//     overflow: hidden;
-//     display: inline-block;
-//     .owl-dot__inner {
-//       position: static;
-//       width: auto;
-//       height: auto;
-//       padding: 0;
-//       overflow: hidden;
-//       pointer-events: none;
-//       img {
-//         position: absolute;
-//         top: 50%;
-//         left: 0;
-//         transform: translate(0, -50%);
-//         width: 100%;
-//         height: 100%;
-//         vertical-align: bottom;
-//       }
-//     }
-//   }
-// }
-.swiper-container {
-  float: left;
-  min-width: 300px;
-  max-width: 300px;
-  min-height: 375px;
-  position: relative;
-  margin: 0 auto;
-  background: #fafafa;
-  .swiper-wrapper {
+  .swiper-container {
+    float: left;
+    min-width: 300px;
+    max-width: 300px;
+    min-height: 375px;
     position: relative;
-    position: relative;
-    left: 0px;
-    .swiper-slide {
-      width: 300px;
-      min-height: 1px;
-      float: left;
-      min-height: 300px;
-      width: 300px;
+    margin: 0 auto;
+    background: #fafafa;
+    .swiper-wrapper {
       position: relative;
-      width: 100%;
-      height: 0;
-      padding: 0 0 100%;
-      img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        max-width: 100%;
-        width: auto;
-        max-height: 100%;
-        height: auto;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+      position: relative;
+      left: 0px;
+      .swiper-slide {
+        width: 300px;
+        min-height: 1px;
+        float: left;
+        min-height: 300px;
+        width: 300px;
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding: 0 0 100%;
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          max-width: 100%;
+          width: auto;
+          max-height: 100%;
+          height: auto;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
       }
     }
-  }
-}
-.thumblist .swiper-pagination-bullet {
-  width: auto;
-  height: auto;
-  border-radius: 0;
-}
-.swiper-container-horizontal > .thumblist.swiper-pagination-bullets .swiper-pagination-bullet {
-  margin: 0;
-}
-.thumblist img {
-  box-shadow: none;
-  margin: 0;
-  vertical-align: bottom;
-}
-.thumblist {
-  display: table;
-}
-.thumblist {
-  display: table;
-  table-layout: fixed;
-}
-.thumblist .swiper-pagination-bullet {
-  display: table-cell;
-  padding: 2px;
-  background: transparent;
-  opacity: 1;
-}
-.thumblist .swiper-pagination-bullet-active {
-  background: transparent;
-  opacity: 0.6;
-}
-
-.thumblist {
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  .swiper-wrapper {
-    position: relative;
-    position: relative;
-    .thumb-item {
-      list-style: none;
-      width: 33%;
-      display: inline-block;
-      height: 60px;
-      width: 60px;
-      .swiper-slide {
-        width: 25%;
-        height: 100%;
-        opacity: .5;
-        overflow: hidden;
-        &.swiper-slide-thumb-active {
+    .thumblist .swiper-pagination-bullet {
+      width: auto;
+      height: auto;
+      border-radius: 0;
+    }
+    .swiper-container-horizontal > .thumblist.swiper-pagination-bullets .swiper-pagination-bullet {
+      margin: 0;
+    }
+    .thumblist img {
+      box-shadow: none;
+      margin: 0;
+      vertical-align: bottom;
+    }
+    .thumblist {
+      display: table;
+    }
+    .thumblist {
+      display: table;
+      table-layout: fixed;
+    }
+    .thumblist .swiper-pagination-bullet {
+      display: table-cell;
+      padding: 2px;
+      background: transparent;
+      opacity: 1;
+    }
+    .thumblist .swiper-pagination-bullet-active {
+      background: transparent;
+      opacity: 0.6;
+    }
+    
+    .thumblist {
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      .thumblist-item {
+        list-style: none;
+        width: 60px;
+        display: inline-block;
+        height: 60px;
+        .swiper-slide {
+          width: auto;
+          height: auto;
+          opacity: .5;
+          overflow: hidden;
+          &.swiper-slide-thumb-active {
             opacity: 1;
+          }
+          img {
+            width: 100%;
+          }
         }
       }
     }

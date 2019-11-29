@@ -15,11 +15,10 @@
             .souldout
               %div SOLD
           .thumblist
-            .swiper-wrapper
-              - @item.images.each do |image| 
-                .thumb-item
-                  .swiper-slide
-                    = image_tag image.image.url, class: "thumb-image"
+            - @item.images.each do |image| 
+              .thumblist-item
+                .swiper-slide
+                  = image_tag image.image.url, class: "thumb-image"
         =render "module/item_show_table"
       .item-detail__price-box.text-center
         %span.item-detail__price-box--main-price

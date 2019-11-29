@@ -1,14 +1,18 @@
-// swiperを生成
-var swiperMain = new Swiper('.swiper-container', {
-  speed: 600,
-  loop: true,
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-});
+window.addEventListener('DOMContentLoaded', function() {
+  var swiper06Main = new Swiper ('.sample06 .main', {
+    pagination: '.swiper-pagination',
+    paginationClickable: true,
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    spaceBetween: 10,
+  })
 
-// slideToメソッドを実行する関数を定義
-function slideThumb(index) {
-	swiperMain.slideTo(index);
-}
+  var swiper06Thumb = new Swiper('.sample06 .thumbnail', {
+    spaceBetween: 10,
+    centeredSlides: true,
+    slidesPerView: 4,
+    slideToClickedSlide: true
+  });
+  swiper06Main.params.control = swiper06Thumb;
+  swiper06Thumb.params.control = swiper06Main;
+}, false);
