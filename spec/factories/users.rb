@@ -1,14 +1,18 @@
 FactoryBot.define do
+
+
   factory :user do
-    nickname                    {"abe"}
-    sequence(:email)            {Faker::Internet.email}
-    password                    {"00000000"}
-    first_name                  {"テスト"}
-    family_name                 {"太郎"}
-    first_name_ruby             {"テスト"}
-    family_name_ruby            {"タロウ"}
-    birth_year                  {"2000"}
-    birth_month                 {"10"}
-    birth_day                   {"2"}
+    nickname            {Faker::Name.last_name}
+    email               {Faker::Internet.email}
+    password = Faker::Internet.password(min_length: 8)
+    password {password}
+    password_confirmation {password}
+    first_name          {"aaa"}
+    family_name         {"aaa"}
+    first_name_ruby     {"カナ"}
+    family_name_ruby    {"カナ"}
+    birth_year          {1992}
+    birth_month         {01}
+    birth_day           {01}
   end
 end

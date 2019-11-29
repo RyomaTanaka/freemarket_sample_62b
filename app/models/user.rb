@@ -8,10 +8,15 @@ class User < ApplicationRecord
   has_many :items, dependent: :destroy
   # accepts_nested_attributes_for :addresses, :profile
 
+  # ----------------------------------------
+  # has_many :items
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: %i[facebook google_oauth2]
 
+         :omniauthable, omniauth_providers: %i[facebook google_oauth2]
+  
+  # validates_associated :item
   validates :nickname, presence: true
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
   validates :password, presence: true
@@ -73,4 +78,5 @@ class User < ApplicationRecord
     end
     return { user: user ,sns: sns}
   end
+
 end

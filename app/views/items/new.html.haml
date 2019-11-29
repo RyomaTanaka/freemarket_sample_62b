@@ -26,9 +26,7 @@
                           %ul
                       .upload-dropbox
                         = image.label :image, class: "dropzone-box", for: "dropbox__input" do
-                          -# = image.file_field :image, class: "dropbox__input", id: "dropbox__input"
                           = image.file_field :image, class: "dropbox__input",id: "dropbox__input"
-                          -# - binding.pry
                         %pre.upload-dropbox__input__visib
                           ドラッグアンドドロップ
                           またはクリックしてファイルをアップロード
@@ -39,13 +37,11 @@
                         商品名
                         %span.upload-box__header__required 必須
                       %div
-                        -# %input{class: :"sell-title-label__input", placeholder: :"商品名（必須 40文字まで)", value: :""}/
                         = f.text_field :name, placeholder: "商品名（必須 40文字まで)", class: "sell-title-label__input"
                     .sell-content-explanation
                       %label
                         商品名の説明
                         %span.upload-box__header__required 必須
-                      -# %textarea{class: :"sell-content-explanation__input", placeholder: :"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: :"5"}
                       = f.text_area :body, placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "sell-content-explanation__input", rows: :"5"
                   .prodcts-detail
                     %h3.prodcts-detail__label 商品の詳細
@@ -57,7 +53,6 @@
                             %span.category__required 必須
                           %div
                             .category-container
-                              -# = fa_icon 'chevron-down'
                               = c.select :name, @category_parent_array, {}, class: "category-container__select", id: :s1
                               = fa_icon 'chevron-down'
                         .prodcts-status
@@ -66,10 +61,9 @@
                             %span.status__required 必須
                           %div
                             .status-container
-                              -# = fa_icon 'chevron-down'
                               = f.select :status, Item.statuses.keys, {}, class: 'status-container__select'
+
                               = fa_icon 'chevron-down'
-                              -# %i.fas.fa-angle-down
                   .prodcts-delivery
                     %h3.prodcts-delivery__label 配送について
                     = link_to "?", "#",class: "question-icon"
@@ -80,10 +74,8 @@
                           %span.required 必須
                         %div
                           .delivery-container
-                            -# = fa_icon 'chevron-down'
                             = f.select :cost_burden, [ ["---",""], ["送料込み(出品者負担)","送料込み(出品者負担)"], ["着払い(購入者負担)", "着払い(購入者負担)"] ],{}, class: "delivery-container__select"
                             = fa_icon 'chevron-down'
-                            -# %i.fas.fa-angle-down
                       .delivery-box__content
                         %label
                           配送の方法
@@ -98,17 +90,14 @@
                           %span.required 必須
                         %div
                           .delivery-container
-                            -# = fa_icon 'chevron-down'
                             = f.collection_select(:prefecture_id, Prefecture.all, :id, :name,{prompt: "---"}, {class: "delivery-container__select"})
                             = fa_icon 'chevron-down'
-                            -# %i.fas.fa-angle-down
                       .delivery-box__content
                         %label
                           発送までの日数
                           %span.required 必須
                         %div
                           .delivery-container
-                            -# = fa_icon 'chevron-down'
                             = f.select :period_before_shipping	, [ ["---",""], ["1〜2日で発送","1〜2日で発送"], ["2〜3日で発送", "2〜3日で発送"], ["4〜7日で発送", "4〜7日で発送"] ], {}, class: "delivery-container__select"
                             = fa_icon 'chevron-down'
                             -# order_statusの番号を登録
@@ -127,8 +116,7 @@
                             .price-input
                               ¥
                               %div
-                                = f.number_field :price, placeholder: "例）300", class: "price-input__form"
-                                -# %input{class: :"price-input__form", placeholder: :"例）300", value: :""}/
+                                = f.number_field :price, placeholder: "例）300", class: "price-input__form", min: 300, max: 9999999
                         %li.price-lists__fee
                           .fee-label
                             販売手数料 (10%)

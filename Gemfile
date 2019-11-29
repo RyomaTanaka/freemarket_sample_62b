@@ -42,6 +42,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
+  gem 'faker'
 end
 
 group :development do
@@ -59,6 +60,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'faker'
 end
 
 group :production do
@@ -77,8 +79,12 @@ gem 'haml-rails'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'pry-rails'
+gem 'payjp'
+gem 'rails-i18n'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'ancestry'
+gem 'active_hash'
 gem "gretel"
 gem 'payjp'
 gem 'rails-i18n'
@@ -88,4 +94,5 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'active_hash'
 gem 'dotenv-rails'
+
 gem 'fog-aws'

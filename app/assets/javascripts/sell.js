@@ -1,3 +1,4 @@
+
 $(function(){
   var input_area = $('.dropzone-box');
 

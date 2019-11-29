@@ -1,46 +1,60 @@
 class ItemsController < ApplicationController
   require 'payjp'
+
   before_action :exihibited, except: [:index, :new, :create]
   before_action :set_card, only: [:purchase_confirmation, :purchase_complete]
 
   def index
-    @items = Item.all.limit(10).order("created_at DESC")
+
+    @items = Item.includes(:images).limit(10).order("created_at DESC")
+    @images = Image.all
+
   end
-    
+
   def show
     user = @item.user
     @items = user.items.all.where.not(id: @item.id).limit(6).order("created_at DESC")
   end
 
   def new
-    # 商品出品
     @item = Item.new
     image = @item.images.build
-    
-    #商品カテゴリー
+
     @category_parent_array = ["---"]
-    # Categorie.where(ancestry: nil).each do |parent| 実装途中のためコメントアウト残してます
-    #   @category_parent_array << parent.name
-    # end
   end
 
   def create
-    @item = Item.create(item_params)
-    redirect_to action: :index
+
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to action: :index
+    else
+      redirect_to action: :new
+    end
+
   end
 
   def edit
+    @item = Item.find(params[:id])
+
   end
 
   def update
-    if @item.update(update_item_params)
-      redirect_to root_path
-    else
-      redirect_to edit_item_path
-    end
+
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+
+    redirect_to list_items_mypage_path, notice: '編集しました'
   end
 
   def destroy
+
+  @item = Item.find(params[:id])
+    if @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to list_items_mypage_path, notice: '削除しました'
+
+    end
   end
 
   def purchase
@@ -56,29 +70,37 @@ class ItemsController < ApplicationController
 
   def purchase_confirmation
   end
-  
+
   def purchase_complete
   end
 
   private
 
   def set_item
-    #itemのidを持ってくる
+
     @item = Item.includes(:images).find(params[:id])
   end
-  
+
   def item_params
-    #出品itemのparams
+
     params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture_id, :name, :body, :status, :order_status, :price, :shipping_method,
     images_attributes: [:image]).merge(user_id: current_user.id)
+
   end
-  
+
   def exihibited_lists
     @items = Item.where(user_id: current_user)
+
   end
 
   def exihibited
+
     @item = Item.find(params[:id])
+
+  end
+
+  def set_item
+    @item = Item.includes(:images).find(params[:id])
   end
 
   def set_card

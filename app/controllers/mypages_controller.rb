@@ -1,9 +1,11 @@
 class MypagesController < ApplicationController
 
-# before_action :update_params, only: [:update, :edit]
+  protect_from_forgery except: :logout # searchアクションを除外
+
   def list_items
-        @items = Item.all.order("crated_at DESC")
+        @items = Item.all.order("created_at DESC")
         @images = Image.all
+
   end
 
   def list_items_progress
@@ -18,8 +20,18 @@ class MypagesController < ApplicationController
   def purchased
   end
 
+
+  def profile
+    #  @item = Item.find(params[:id])
+    # @users = User.find(:nickname)
+
+    # if @item.update(update_item_params)
+
+    #   redirect_to root_path
+    end
+
   def edit
-    @user = User.find(params[:id]) 
+    @user = User.find(params[:id])
   end
 
   def update
