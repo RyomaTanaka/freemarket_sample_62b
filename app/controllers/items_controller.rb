@@ -40,6 +40,7 @@ class ItemsController < ApplicationController
     redirect_to list_items_mypage_path, notice: '編集しました'
   end
 
+  
   def destroy
     @item = Item.find(params[:id])
   if @item = Item.find(params[:id])
