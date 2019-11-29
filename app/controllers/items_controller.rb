@@ -46,6 +46,7 @@ class ItemsController < ApplicationController
     @item.destroy
     redirect_to list_items_mypage_path, notice: '削除しました'
   end
+  end
 
   def purchase
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
