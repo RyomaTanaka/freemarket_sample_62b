@@ -18,11 +18,13 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
-  validates :password, presence: true
+  validates :password, presence: true, length: { in: 7..128 }, format: { with: /\A[a-z0-9]+\z/i }
   validates :first_name, presence: true
   validates :family_name, presence: true
-  validates :first_name_ruby, presence: true
-  validates :family_name_ruby, presence: true
+  validates :first_name_ruby, presence: true,
+            format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/}
+  validates :family_name_ruby, presence: true, 
+            format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/}
   validates :birth_year, presence: true
   validates :birth_month, presence: true
   validates :birth_day, presence: true
