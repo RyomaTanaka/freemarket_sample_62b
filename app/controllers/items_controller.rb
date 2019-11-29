@@ -40,14 +40,7 @@ class ItemsController < ApplicationController
     redirect_to list_items_mypage_path, notice: '編集しました'
   end
 
-  def destroy
-    @item = Item.find(params[:id])
-  if @item = Item.find(params[:id])
-    @item.destroy
-    redirect_to list_items_mypage_path, notice: '削除しました'
-  end
-  end
-
+  
   def purchase
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     charge = Payjp::Charge.create(
