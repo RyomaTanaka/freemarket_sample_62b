@@ -29,9 +29,14 @@
           (税込)
         %span.item-detail__price-box--shipping-fee
           (送料込み)
-
-      -# =link_to purchase_mypages_path(@item.id), class: "item-detail__order-btn text-center" do
-      -#   購入画面に進む
+      -# -if @item.order_status == 0
+      -#   = link_to purchase_confimation_item_path(@item), method: :get, class: "item-detail__order-btn text-center" do
+      -#     購入画面に進む
+      -# -elsif @item.order_status == 1
+      -#   .souldout_btn
+      -#     %span 売り切れました
+    
+    
     
       
     .listing_item-changebox
