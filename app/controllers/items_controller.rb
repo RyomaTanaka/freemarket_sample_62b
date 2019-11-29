@@ -30,6 +30,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
   end
 
   def update
@@ -41,6 +42,10 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+    @item = Item.find(params[:id])
+  if @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to list_items_mypage_path, notice: '削除しました'
   end
 
   def purchase
