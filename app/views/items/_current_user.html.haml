@@ -77,14 +77,14 @@
     .item-sns-box
       %ul.item-sns-box__icons
         %li.item-sns-box__icons--facebook
-          = link_to '#' do
+          = link_to "https://www.facebook.com/sharer/sharer.php?u=#{request.url}&text=#{@item.name}をメルカリで出品中！", title: 'Facebook', target: '_blank' do
             = fa_icon 'facebook-square'
         %li.item-sns-box__icons--twitter
-          = link_to '#' do
+          = link_to "https://twitter.com/share?url=#{request.url}&text=#{@item.name}をメルカリで出品中！", title: 'Twitter', target: '_blank' do
             = fa_icon 'twitter'
         %li.item-sns-box__icons--pinterest
-          = link_to '#' do
-            = fa_icon 'pinterest'
+          = link_to "https://social-plugins.line.me/lineit/share?url=#{request.url}&text=#{@item.name}をメルカリで出品中！", title: 'line', target: '_blank' do
+            = image_tag "1200px-LINE_logo.svg.png", class: "line-logo"
     .other-items-box
       %section.other-items-box__users-items
         %h2.other-items-box__users-items--head
