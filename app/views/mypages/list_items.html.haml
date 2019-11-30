@@ -16,7 +16,7 @@
           出品中
         .tab-content-exhibited
           .mypage-tabs-content
-            %ul.mypage-contents-list
+            %ul.mypage-contents-list2
               - @items.each do |item|
                 %li
                 = link_to item_path(item.id), class: "mypage-contents-list__link", id:"mypage_link" do
@@ -24,9 +24,9 @@
                   %figure
                     - @images.each do |image|
                       =image_tag item.images[0].image.url
-                  .mypage-contents-body
-                    .mypage-contents-body__text
-                      %i.heart-icon
+                  .mypage-contents-body2
+                    .mypage-contents-body2__text
+                      %i.heart-icon2
                       = fa_icon "heart"
                       %span 7
                       %i.comment-icon

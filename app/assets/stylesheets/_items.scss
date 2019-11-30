@@ -169,7 +169,22 @@
   color: black;
 }
 
+
 .heart-icon {
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  color: $gray;
+  width: 19px;
+  margin-right:7px;
+  transition: all 0.3s
+
+}
+.heart-icon:hover{
+  color:#007bff;
+}
+
+.heart-icon2 {
   max-width: 100%;
   height: auto;
   max-height: 100%;
@@ -178,9 +193,7 @@
   transition: all 0.3s
 
 }
-.heart-icon:hover{
-  color:#007bff;
-}
+
 
 .notice-list{
   -webkit-box-align: center;
