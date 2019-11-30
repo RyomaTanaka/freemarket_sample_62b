@@ -97,3 +97,13 @@
     width: 75%;
   }
 }
+
+.footer-mel{
+  width:124px;
+  height:33px;
+  transition: all 0.3s ease-out 0s;
+  &:hover{
+    opacity:0.6;
+    color:#333;
+  }
+}

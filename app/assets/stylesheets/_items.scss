@@ -174,8 +174,12 @@
   height: auto;
   max-height: 100%;
   color: $gray;
-  margin-right: 10px;
   width: 19px;
+  transition: all 0.3s
+
+}
+.heart-icon:hover{
+  color:#007bff;
 }
 
 .notice-list{
@@ -197,6 +201,9 @@
   margin-right: 10px;
   width: 19px;
 }
+.bell-icon:hover{
+  color:#007bff;
+}
 
 .todo-list {
   -webkit-box-align: center;
@@ -217,6 +224,9 @@
   margin-right: 10px;
   width: 19px;
 }
+.check-icon:hover{
+  color:#007bff;
+}
 
 .mypage {
   -webkit-box-align: center;
@@ -235,3 +245,8 @@
   }
 }
 
+
+.logout-btn{
+  width:320px;
+  line-height:50px;
+}

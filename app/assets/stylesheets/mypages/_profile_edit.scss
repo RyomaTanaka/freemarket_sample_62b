@@ -66,3 +66,18 @@
 .btn-personal-edit {
   margin-top: 40px;
 }
+
+.btn-profile{
+  text-decoration: none; /* リンクの下線を出さない */	
+  color: white; /* 色の指定をリセット */
+  background-color:#ea352d;	 	
+  width:320px;
+  height:50px;	 	 
+  display: block;
+  margin:20px auto;
+
+  &:hover{
+    color:#fff;
+  }
+
+}
