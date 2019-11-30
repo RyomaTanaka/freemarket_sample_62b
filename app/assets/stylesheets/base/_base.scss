@@ -82,86 +82,64 @@
       }
     }
   }
-}
-
-
-/* aaaaa */
-
-.itemphoto{
-  float: left;
-  min-width: 300px;
-  max-width: 300px;
-  min-height: 375px;
-  position: relative;
-  margin: 0 auto;
-  background: #fafafa;
-  .owlcarousel {
+  .swiper-container2.main {
+    float: left;
+    width: 300px;
+    height: 300px;
     position: relative;
-    .stage-outer {
+    margin: 0 auto;
+    background: #fafafa;
+    overflow: hidden;
+    z-index: 1;
+    .swiper-wrapper {
       position: relative;
-      overflow: hidden;
-      .stage {
+      // left: 0px;
+      .swiper-slide {
+        width: 300px;
+        min-height: 1px;
+        float: left;
+        min-height: 300px;
+        width: 300px;
         position: relative;
-        left: 0px;
-        width: 900px;
-        .item-photo {
-          width: 300px;
-          min-height: 1px;
-          float: left;
-          &__inner {
-            min-height: 300px;
-            width: 300px;
-            position: relative;
-            width: 100%;
-            height: 0;
-            padding: 0 0 100%;
-            img {
-              position: absolute;
-              top: 0;
-              left: 0;
-              right: 0;
-              max-width: 100%;
-              width: auto;
-              max-height: 100%;
-              height: auto;
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-            }
-          }
+        height: 0;
+        padding: 0 0 100%;
+        img {
+          position: absolute;
+          max-width: 100%;
+          width: auto;
+          max-height: 100%;
+          height: auto;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
         }
       }
     }
   }
-}
-
-.owl-dots {
-  line-height: 0;
-  font-size:0;
-  .owl-dot {
-    opacity: 1;
-    cursor: default;
-    width: 60px;
-    height: 60px;
-    max-height: none;
+  .swiper-container2.thumbnail {
+    width: 300px;
     position: relative;
+    margin: 0 auto;
+    background: #fafafa;
+    float: left;
     overflow: hidden;
-    display: inline-block;
-    .owl-dot__inner {
-      position: static;
-      width: auto;
-      height: auto;
-      padding: 0;
-      overflow: hidden;
-      pointer-events: none;
-      img {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        transform: translate(0, -50%);
-        width: 100%;
-        vertical-align: bottom;
+    z-index: 1;
+    .swiper-wrapper {
+      position: relative;
+      list-style: none;
+      .swiper-slide {
+        width: 60px;
+        height: 60px;
+        overflow: hidden;
+        cursor: pointer;
+        opacity: .7;
+        display: inline-block;
+        img {
+          height: 100%;
+        }
+      }
+      .swiper-slide-active {
+        opacity: 1;
       }
     }
   }

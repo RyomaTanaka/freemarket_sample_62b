@@ -3,7 +3,7 @@
     - @items.each do |item|
       %li.item-container__lists__list
         .item-box
-          =link_to item_path(item.id), class: "item-link" do
+          =link_to item_path(item.id), class: "item-link",data: {"turbolinks" => false} do
             %figure.item-descrube
               %figcaption
                 %span

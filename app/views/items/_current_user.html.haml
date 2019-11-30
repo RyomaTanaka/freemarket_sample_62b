@@ -5,22 +5,20 @@
       %h1.item-detail__name
         = @item.name
       .item-detail__contents.clearfix
-        .itemphoto
-          .owlcarousel
-            .stage-outer
-              .stage
-                .item-photo
-                  .item-photo__inner
-                    = image_tag @item.images[0].image.url
-                - if @item.order_status == 1
-                  .souldout
-                    %div SOLD
-            .owl-dots
-              - @item.images.each do |image| 
-                .owl-dot
-                  .owl-dot__inner
-                    = image_tag image.image.url
+        .swiper-container2.main
+          .swiper-wrapper
+            - @item.images.each do |image| 
+              .swiper-slide
+                = image_tag image.image.url
+          - if @item.order_status == 1
+            .souldout
+              %div SOLD
         =render "module/item_show_table"
+        .swiper-container2.thumbnail
+          .swiper-wrapper
+            - @item.images.each do |image| 
+              .swiper-slide
+                = image_tag image.image.url
       .item-detail__price-box.text-center
         %span.item-detail__price-box--main-price
           ￥
