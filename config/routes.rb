@@ -39,7 +39,12 @@ Rails.application.routes.draw do
     resources :cards
   end
   
+
   resources :items do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren'
+    end
     member do
       post :purchase
       get :purchase_confirmation

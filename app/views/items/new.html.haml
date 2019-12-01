@@ -50,16 +50,15 @@
                   .prodcts-detail
                     %h3.prodcts-detail__label 商品の詳細
                     .prodcts-detail__box
-                      = image.fields_for :categorie do |c|
+                      = f.fields_for :categorie do |c|
                         .prodcts-category
                           %label
                             カテゴリー
                             %span.category__required 必須
-                          %div
+                          .listing-select-wrapper
                             .category-container
-                              -# = fa_icon 'chevron-down'
-                              = c.select :name, @category_parent_array, {}, class: "category-container__select", id: :s1
-                              = fa_icon 'chevron-down'
+                              = fa_icon 'chevron-down', id: "icon1"
+                              = c.select :categorie, @category_parent_array, {}, class: "category-container__select", id: 'c1'
                         .prodcts-status
                           %label
                             商品の状態
