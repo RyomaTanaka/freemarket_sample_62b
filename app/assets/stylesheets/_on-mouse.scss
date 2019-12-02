@@ -1,0 +1,160 @@
+
+
+.arrow{
+  display:none;
+  width:400px;
+  height:650px;
+  position: absolute;
+  right:15px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;  
+  border-radius: 8px;
+  background: #FFF;
+  color: #fff;
+  // display:none;
+  &__box1{
+    width:400px;
+    height:100px;
+    background: url(backgroud.png);
+    section{
+    width:400px;
+    height:100px;
+    text-align: center;
+    position: absolute;
+    top:40px;
+    }
+  }
+  &__box2{
+    width:400px;
+    height:100px;
+    text-align: center;
+    &__text1{
+      color:#333;
+      font-size:18px;
+      padding:16px;  
+    }
+    &__text2{
+      color:#333;
+      text-align: center;
+      justify-content: space-around;
+      &__rank{
+        width:185px;
+        height:25px;
+        font-size:14px;
+        float:left;
+        text-align: right;
+        
+      }
+      &__number{
+        width:190px;
+        font-size:14px;
+        float:right;
+        text-align: left;
+      }
+    }
+  }
+  &__box3{
+    width:400px;
+    height:100px;
+    &__sell{
+      @include top-list;
+      .arrow__box3-link{
+        color:#333;
+        width:380px;
+      }
+      &__text1{
+        @include top-text1;
+      }
+      &__text2{
+        @include top-text2;
+      }
+      &__icon{
+        @include top-icon;
+      }
+    }
+    &__point{
+      @include top-list;
+      .arrow__box3-link{
+        color:#333;
+        width:380px;
+      }
+      &__text1{
+        @include top-text1;
+      }
+      &__text2{
+        @include top-text2;
+      }
+      &__icon{
+        @include top-icon;
+      }
+    }
+  }
+  &__box4{
+    width:400px;
+    height:360px;
+    background-color:#fff;
+    &__iine{
+      @include bottom-list;
+      &__text{
+        @include bottom-text;
+      }
+      &__icon{
+       @include bottom-icon
+      }
+    }
+    &__sell1{
+      @include bottom-list;
+      &__text{
+        @include bottom-text
+      }
+      &__icon{
+       @include bottom-icon
+      }
+    }
+    &__sell2{
+      @include bottom-list;
+      &__text{
+        @include bottom-text
+      }
+      &__icon{
+       @include bottom-icon
+      }
+    }
+    &__sell3{
+      @include bottom-list;
+      &__text{
+        @include bottom-text
+      }
+      &__icon{
+       @include bottom-icon
+      }
+    }
+    &__purchase1{
+      @include bottom-list;
+      &__text{
+        @include bottom-text
+      }
+      &__icon{
+       @include bottom-icon
+      }
+    }
+    &__purchase2{
+      @include bottom-list;
+      border-bottom: 1px solid #ddd;
+      &__text{
+        @include bottom-text
+      }
+      &__icon{
+       @include bottom-icon
+      }
+    }
+  }
+}
+.arrow-image{
+  width:70px;
+  height:70px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+
