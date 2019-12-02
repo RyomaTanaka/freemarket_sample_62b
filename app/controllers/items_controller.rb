@@ -15,7 +15,8 @@ class ItemsController < ApplicationController
   def new
     # 商品出品
     @item = Item.new
-    image = @item.images.build
+    @item.images.build
+    # image = @item.images.build
     
     #商品カテゴリー
     @category_parent_array = ["---"]
@@ -25,8 +26,17 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.create(item_params)
-    redirect_to action: :index
+    @item = Item.new(item_params)
+    if @item.save
+      binding.pry
+      params[:images][:image].each do |image|
+        @item.images.create!(image: image, item_id: @item.id)
+      end
+      redirect_to root_path
+    else
+      @item.images.build
+      render action: :new
+    end
   end
 
   def edit
@@ -74,8 +84,9 @@ class ItemsController < ApplicationController
   
   def item_params
     #出品itemのparams
-    params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture_id, :name, :body, :status, :order_status, :price, :shipping_method,
-    images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture_id, :name, :body, :status, :order_status, :price, :shipping_method).merge(user_id: current_user.id)
+    # params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture_id, :name, :body, :status, :order_status, :price, :shipping_method,
+    # images_attributes: [:image]).merge(user_id: current_user.id)
   end
   
   def exihibited_lists
