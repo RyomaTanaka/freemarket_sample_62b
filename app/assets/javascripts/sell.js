@@ -64,8 +64,6 @@ $(function(){
       images.push(img);
 
       createHtml(images.length);
-      console.log(images.length)
-      console.log(inputs)
       let new_image = $(`<input multiple= "multiple" name="images[image][]" class="upload-image" data-image= ${images.length} type="file" id="upload-image">`);
       input_area.prepend(new_image);
     });
@@ -77,8 +75,6 @@ $(function(){
       let delete_target_image = $(this).parent().parent();
 
       $.each(inputs, function() {
-        console.log(delete_target_image.data('image'));
-        console.log($(this).data('image'));
         if($(this).data('image') == delete_target_image.data('image')){
           $(this).remove();
           delete_target_image.remove();

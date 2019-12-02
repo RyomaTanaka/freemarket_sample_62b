@@ -25,6 +25,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    binding.pry
     @item = Item.create(item_params)
     redirect_to action: :index
   end
