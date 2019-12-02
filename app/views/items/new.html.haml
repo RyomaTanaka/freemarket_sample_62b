@@ -13,18 +13,22 @@
             出品画像
           %span.required-form
             必須
-          %p
+          %p.image-form__text
             最大10枚までアップロードできます
           = f.fields_for :images do |image|
             .dropzone-container.clearfix
-              #preview
-              .dropzone-area
-                = image.label :image, class: "dropzone-box", for: "upload-image" do
-                  .input_area
-                    = image.file_field :image, multiple: true, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
-              #preview2
-              .dropzone-area2
-                = image.label :image, class: "dropzone-box", for: "upload-image"
+              .dropzone1
+                #preview
+                .dropzone-area
+                  = image.label :image, class: "dropzone-box", for: "upload-image" do
+                    %div
+              .dropzone2
+                #preview2
+                .dropzone-area2
+                  = image.label :image, class: "dropzone-box", for: "upload-image" do
+                    %div
+              .input_area
+                = image.file_field :image, multiple: true, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
 
 
         = f.submit
