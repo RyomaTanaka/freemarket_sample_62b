@@ -2,6 +2,7 @@
   margin: 0 auto;
   padding-top: 40px;
   width: 1020px;
+  padding: 40px 0 40px;
   position: relative;
   .search_main {
     float: right;
@@ -196,23 +197,6 @@
   }
 }
 
-// .fa-angle-right:before {
-//   position: relative;
-//     top: 14px;
-// }
-// .fa-angle-left:before {
-//   position: relative;
-//     top: 14px;
-// }
-// .fa-angle-double-right:before {
-//   position: relative;
-//     top: 14px;
-// }
-// .fa-angle-double-left:before {
-//   position: relative;
-//     top: 14px;
-// }
-
 
 
 /* ページネーション */
@@ -292,4 +276,216 @@
     }
   }
 
+}
+
+
+/* 左サイドのカテゴリ- */
+.left_category {
+  float: left;
+  width: 280px;
+  margin: 0 40px 0 0;
+  .category_wrapper {
+    position: relative;
+  }
+}
+
+.category_sort {
+  opacity: 1;
+  position: static;
+  width: auto;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  margin: 0 auto;
+  .category_position {    
+    margin: 0;
+  }
+}
+
+.select_wrapper {
+  background: #fff;
+  text-align: left;
+  margin: 0;
+  position: relative;
+  i {
+    position: absolute;
+    right: 16px;
+    top: 25px;
+    z-index: 2;
+    color: #888;
+    font-size: 8px;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%)
+  }
+  .category_select {
+    height: 48px;
+    padding: 0 16px;
+    border: 1px solid #ccc;
+    width: 100%;
+    background: #fff;
+  }
+}
+
+.category_bottom {
+  position: static;
+  display: block;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  padding: 16px;
+  margin: 40px 0 0;
+  top: 72px;
+  left: 0;
+  right: 0;
+  z-index: 10001;
+  background: #fff;
+  h3 {
+    font-size: 16px;
+    display: block;
+    font-weight: 600;
+  }
+}
+
+.category_bottom2 {
+  position: static;
+  display: block;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  padding: 16px;
+  margin: 0;
+  top: 72px;
+  left: 0;
+  right: 0;
+  z-index: 10001;
+  background: #fff;
+  h3 {
+    font-size: 16px;
+    display: block;
+    font-weight: 600;
+  }
+}
+
+.category_add {
+  margin: 24px 0 0;
+  // font-size: 0;
+  label {
+    font-weight: 600;
+    i {
+      position: relative;
+      top: -1px;
+      margin: 0 4px 0 0;
+      color: #888;
+      font-size: 16px;
+      vertical-align: middle;
+    }
+    span {
+      font-size: 14px;
+      vertical-align: middle;
+    }
+  }
+}
+
+.category_input {
+  width: 100%;
+  margin: 8px 0 0;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.money_input {
+  width: 45%;
+  margin: 8px 0 0;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+
+.category_check {
+  display: inline-block;
+  width: 48%;
+  word-break: break-word;
+  position: relative;
+  font-size: 0;
+  display: inline-flex;
+  margin: 16px 0 0;
+  input[type=checkbox]{
+    transform: scale(2.0);
+  }
+  label {
+    position: relative;
+    z-index: 2;
+    font-size: 14px;
+    font-weight: 400;
+    vertical-align: middle;
+    cursor: pointer;
+    display: block;
+    top: -5px;
+    left: 9px;
+  }
+}
+
+.category_flex {
+  display: table-cell;
+}
+
+i.fa.fa-star {
+  position: relative;
+  top: 7px;
+  right: 0px;
+}
+i.fa.fa-truck {
+  position: relative;
+  top: 7px;
+  right: 0px;
+}
+i.fa.fa-shopping-cart {
+  position: relative;
+  top: 7px;
+  right: 0px;
+}
+
+.category_btn {
+  height: 90px;
+  padding: 40px 0 0;
+  &__clear {
+    float: left;
+    width: 45%;
+    background: #aaa;
+    border: 1px solid #aaa;
+    color: #fff;
+    display: block;
+    line-height: 48px;
+    font-size: 14px;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+  }
+  &__complete {
+    float: right;
+    width: 45%;
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+    display: block;
+    line-height: 48px;
+    font-size: 14px;
+    transition: all ease-out .3s;
+    cursor: pointer;
+    text-align: center;
+  }
 }

@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   def set_search
   @q = Item.ransack(params[:q])
-  @itemsResult = @q.result(distinct: true).page(params[:page]).per(4)
+  @itemsResult = @q.result(distinct: true).page(params[:page]).per(10)
   end
 # 132件
 end

@@ -24,23 +24,179 @@
         = paginate @itemsResult
 
     .left_category
-      - form_with model: @categorie, class: "category_wrapper" do |f|
+      %form.category_wrapper
         .category_sort
           .category_position
             .select_wrapper
               = fa_icon "chevron-down"
-              = f.select  Categorie.all.map { |category| [category.name, category.id] }, class: "category_select"
-                %option value: "aaa"
-                %option value: "bbb"
-                %option value: "ccc"
-                %option value: "ddd"
+              %select.category_select
+                %option 
+                  並び替え
+                %option
+                  価格の安い順
+                %option 
+                  価格の高い順
+                %option 
+                  出品の古い順
+                %option 
+                  出品の新しい順
+                %option 
+                  いいね！の多い順
         .category_bottom
           %h3.category_title
             詳細検索
           .category_add
-            = f.label :name
+            %label
               = fa_icon "plus"
               %span
                 キーワードを追加する
-            = f.text placeholder: "いひひひ", value: = result.name
+            %input{type: "text", placeholder: "いひひひ", value: params[:q][:name_cont], class: "category_input"}
+        .category_bottom2
+          .category_add
+            %label
+              = fa_icon "list"
+              %span
+                カテゴリーを選択する
+            .select_wrapper
+              = fa_icon "chevron-down"
+              %select.category_select
+                %option 
+                  すべて
+                %option
+                  レディース
+                %option 
+                  メンズ
+                %option 
+                  ベビー・キッズ
+                %option 
+                  インテリア・住まい小物
+          .category_add
+            %label
+              = fa_icon "tag"
+              %span
+                ブランド名から探す
+            %input{type: "text",placeholder: "例）シャネル", class: "category_input"}
+          .category_add
+            %label
+              = fa_icon "expand"
+              %span
+                サイズを指定する
+            .select_wrapper
+              = fa_icon "chevron-down"
+              %select.category_select
+                %option 
+                  すべて
+                %option
+                  洋服のサイズ
+                %option 
+                  メンズの靴のサイズ
+                %option 
+                  レディースの靴のサイズ
+          .category_add
+            %label
+              = fa_icon "money"
+              %span
+                価格
+            .select_wrapper
+              = fa_icon "chevron-down"
+              %select.category_select
+                %option 
+                  選択してください
+                %option
+                  300~1000
+                %option 
+                  1000~5000
+                %option 
+                  5000~10000
+              %input{type: "number", placeholder: "¥Min", class: "money_input"}
+              %span ~
+              %input{type: "number", placeholder: "¥Max", class: "money_input"}
+            .select_wrapper.clearfix
+              %label
+                = fa_icon "star"
+                %span 商品の状態
+              %div
+                .category_check
+                  %input{type: "checkbox"}
+                    %label
+                      すべて
+                .category_check
+                  %input{type: "checkbox"}
+                    %label
+                      新品、未使用
+                .category_check
+                  %input{type: "checkbox"}
+                  %label
+                    未使用に近い
+                .category_check
+                  %input{type: "checkbox"}
+                  %label
+                    目立った傷や汚れなし
+                .category_check
+                  %input{type: "checkbox"}
+                  %label
+                    やや傷や汚れあり
+                .category_check
+                  %input{type: "checkbox"}
+                  %label
+                    傷や汚れあり
+                .category_check
+                  %input{type: "checkbox"}
+                  %label
+                    全体的に状態が悪い
+            .select_wrapper.clearfix
+              %label
+                = fa_icon "truck"
+                %span 配送料の負担
+              %div
+                .category_check
+                  %input{type: "checkbox"}
+                  = fa_icon "checkbox"
+                  %label
+                    すべて
+                .category_check
+                  %input{type: "checkbox"}
+                  = fa_icon "checkbox"
+                  %label
+                    着払い（購入者負担）
+                .category_check
+                  %input{type: "checkbox"}
+                  = fa_icon "checkbox"
+                  %label
+                    送料込み（出品者負担）
+            .select_wrapper.clearfix
+              %label
+                = fa_icon "shopping-cart"
+                %span 販売状況
+              %div
+                .category_check
+                  %input{type: "checkbox"}
+                  = fa_icon "checkbox"
+                  %label
+                    すべて
+                .category_check
+                  %input{type: "checkbox"}
+                  = fa_icon "checkbox"
+                  %label
+                    販売中
+                .category_check
+                  %input{type: "checkbox"}
+                  = fa_icon "checkbox"
+                  %label
+                    売り切れ
+            .category_empty
+            .category_btn
+              .category_btn__clear
+                クリア
+              %button{ type: "submit", class: "category_btn__complete" }
+                完了
+= render partial: "module/footer"
+= render partial: "module/right_btn"
+
+
+
+
+
+
+
 
