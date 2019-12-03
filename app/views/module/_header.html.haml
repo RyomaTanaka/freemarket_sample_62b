@@ -4,11 +4,15 @@
       .top-header__image
         =link_to root_path, class: "top-header__image__icon" do
           = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg', class: 'site-icon'
-      %form.top-header__serach
-        %input.top-header__serach__input{name: :"keyword", placeholder: :"何かお探しですか？", type: :"search", value:""}/
-        %button.search-icon__box
-          %svg.search-icon__box__image{"aria-hidden": "true", height: :"16", viewbox: :"0 0 16 16", width: :"16"}
-            %path{d: :"M11.435 10.063h-.723l-.256-.247a5.92 5.92 0 0 0 1.437-3.87 5.946 5.946 0 1 0-5.947 5.947 5.92 5.92 0 0 0 3.87-1.437l.247.256v.723L14.637 16 16 14.637l-4.565-4.574zm-5.489 0A4.111 4.111 0 0 1 1.83 5.946 4.111 4.111 0 0 1 5.946 1.83a4.111 4.111 0 0 1 4.117 4.116 4.111 4.111 0 0 1-4.117 4.117z", fill: :"currentColor", "fill-rule": "nonzero"}
+      -# %form.top-header__serach
+      -#   %input.top-header__serach__input{name: :"keyword", placeholder: :"何かお探しですか？", type: :"search", value:""}/
+      -#   %button
+      -#     %svg.search-icon__box__image{"aria-hidden": "true", height: :"16", viewbox: :"0 0 16 16", width: :"16"}
+      -#       %path{d: :"M11.435 10.063h-.723l-.256-.247a5.92 5.92 0 0 0 1.437-3.87 5.946 5.946 0 1 0-5.947 5.947 5.92 5.92 0 0 0 3.87-1.437l.247.256v.723L14.637 16 16 14.637l-4.565-4.574zm-5.489 0A4.111 4.111 0 0 1 1.83 5.946 4.111 4.111 0 0 1 5.946 1.83a4.111 4.111 0 0 1 4.117 4.116 4.111 4.111 0 0 1-4.117 4.117z", fill: :"currentColor", "fill-rule": "nonzero"}
+      = search_form_for(@q, url:search_path) do |f|
+        .top-header__serach
+          = f.search_field :name_cont, class: "top-header__serach__input"
+          = f.button "", class: "fa fa-search search-icon__box"
     .bottom-header
       .bottom-left
         .bottom-category
@@ -48,3 +52,8 @@
             = link_to '新規会員登録', step0_signups_path, class: "create_user_button"
           .right_buttons
             = link_to 'ログイン', new_user_session_path, class: "login_button"
+
+            = if @results.any?
+              - @results.each do |result|
+                %p
+                  = result.name

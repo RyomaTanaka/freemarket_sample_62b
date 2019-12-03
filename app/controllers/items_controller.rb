@@ -2,9 +2,14 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.limit(10).order("created_at DESC")
+    @q = Item.ransack(params[:q])
+    @itemsResult = @q.result(distinct: true)
   end
     
-
+  def item_search
+    @q = Item.ransack(search_params)
+    @itemsResult = @q.result(distinct: true)
+  end
 
 
   def show
@@ -85,5 +90,9 @@ class ItemsController < ApplicationController
 
   def exihibited
     @item = Item.find(params[:id])
+  end
+
+  def search_params
+    params.require(:q).permit!
   end
 end

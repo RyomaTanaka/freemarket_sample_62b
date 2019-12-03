@@ -1,92 +1,46 @@
 = render partial: "module/header"
+.mypage-body
+  %main.search_wrapper.clearfix
+    .search_main
+      %section.search_box
+        %h2.search_box__title
+          = params[:q][:name_cont]
+          %span
+            の検索結果
+        .search_box__number
+          1-132件表示
+        .search_box__contents
+        - @itemsResult.each do |result|
+          %section.search_content
+            = link_to "", href: "#"
+            %figure.search_content__image
+              = image_tag "icon.jpg", size: "160"
+            .search_bottom
+              %h3.search_bottom__name 
+                = result.name  
+              .search_bottom__num
+                .search_price
+                  = result.price
+        = paginate @itemsResult
 
-%main.search_wrapper
-  .search_main
-    %section.search_box
-      %h2.search_box__title
-        サッカー
-        %span
-          の検索結果
-      .search_box__number
-        1-132件表示
-      .search_box__contents
-        %section.search_content
-          = link_to "", href: "#"
-          %figure.search_content__image
-            = image_tag "icon.jpg", size: "160"
-          .search_bottom
-            %h3.search_bottom__name 
-              サッカーボール  
-            .search_bottom__num
-              .search_price
-                ¥1500
-        %section.search_content
-          = link_to "", href: "#"
-          %figure.search_content__image
-            = image_tag "icon.jpg", size: "160"
-          .search_bottom
-            %h3.search_bottom__name 
-              ボール  
-            .search_bottom__num
-              .search_price
-                ¥1000
-        %section.search_content
-          = link_to "", href: "#"
-          %figure.search_content__image
-            = image_tag "icon.jpg", size: "160"
-          .search_bottom
-            %h3.search_bottom__name 
-              サ  
-            .search_bottom__num
-              .search_price
-                ¥150
-        %section.search_content
-          = link_to "", href: "#"
-          %figure.search_content__image
-            = image_tag "icon.jpg", size: "160"
-          .search_bottom
-            %h3.search_bottom__name 
-              サカーボール  
-            .search_bottom__num
-              .search_price
-                ¥150
-        %section.search_content
-          = link_to "", href: "#"
-          %figure.search_content__image
-            = image_tag "icon.jpg", size: "160"
-          .search_bottom
-            %h3.search_bottom__name 
-              サッカール  
-            .search_bottom__num
-              .search_price
-                ¥1100
-        %section.search_content
-          = link_to "", href: "#"
-          %figure.search_content__image
-            = image_tag "icon.jpg", size: "160"
-          .search_bottom
-            %h3.search_bottom__name 
-              サカーボール  
-            .search_bottom__num
-              .search_price
-                ¥500
-        %section.search_content
-          = link_to "", href: "#"
-          %figure.search_content__image
-            = image_tag "icon.jpg", size: "160"
-          .search_bottom
-            %h3.search_bottom__name 
-              カーボール  
-            .search_bottom__num
-              .search_price
-                ¥15000
-        %section.search_content
-          = link_to "", href: "#"
-          %figure.search_content__image
-            = image_tag "icon.jpg", size: "160"
-          .search_bottom
-            %h3.search_bottom__name 
-              サ  
-            .search_bottom__num
-              .search_price
-                ¥150000
+    .left_category
+      - form_with model: @categorie, class: "category_wrapper" do |f|
+        .category_sort
+          .category_position
+            .select_wrapper
+              = fa_icon "chevron-down"
+              = f.select  Categorie.all.map { |category| [category.name, category.id] }, class: "category_select"
+                %option value: "aaa"
+                %option value: "bbb"
+                %option value: "ccc"
+                %option value: "ddd"
+        .category_bottom
+          %h3.category_title
+            詳細検索
+          .category_add
+            = f.label :name
+              = fa_icon "plus"
+              %span
+                キーワードを追加する
+            = f.text placeholder: "いひひひ", value: = result.name
+
