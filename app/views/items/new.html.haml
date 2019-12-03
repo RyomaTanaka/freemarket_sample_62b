@@ -57,11 +57,10 @@
                           %label
                             カテゴリー
                             %span.category__required 必須
-                          %div
+                          .listing-select-wrapper
                             .category-container
-                              -# = fa_icon 'chevron-down'
-                              = c.select :name, @category_parent_array, {}, class: "category-container__select", id: :s1
                               = fa_icon 'chevron-down'
+                              = c.select :name, @category_parent_array, {}, class: "category-container__select", id: 'c1'
                         .prodcts-status
                           %label
                             商品の状態
