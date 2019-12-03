@@ -50,4 +50,7 @@ Rails.application.routes.draw do
       get :purchase_complete
     end
   end
+  
+  post   '/like/:item_id' => 'likes#like',   as: 'like'
+  delete '/like/:item_id' => 'likes#unlike', as: 'unlike'
 end

@@ -2,7 +2,7 @@
   .mein-header
     .top-header
       .top-header__image
-        =link_to root_path, class: "top-header__image__icon" do
+        =link_to root_path, class: "top-header__image__icon", data: {turbolinks: false} do
           = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg', class: 'site-icon'
       %form.top-header__serach
         %input.top-header__serach__input{name: :"keyword", placeholder: :"何かお探しですか？", type: :"search", value:""}/

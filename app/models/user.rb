@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_one :card, dependent: :destroy
   has_many :sns_authentications, dependent: :destroy
   has_many :items, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :like_items, through: :likes, source: :item
   # accepts_nested_attributes_for :addresses, :profile
 
   devise :database_authenticatable, :registerable,
