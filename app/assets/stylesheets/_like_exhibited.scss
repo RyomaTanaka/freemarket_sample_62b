@@ -1,0 +1,67 @@
+.mypage-body{
+  .content-exhibited {
+    .like-wrapper-exhibited {
+      margin: 0;
+      background: #fff;
+      .like-head.bold {
+        font-size: 24px;
+        padding: 8px 24px;
+        border-bottom: 1px solid #f5f5f5;
+        text-align: center;
+      }
+    }
+    .mypage-likes-list {
+      list-style: none;
+      &__inner{
+        border-bottom: 1px solid #eee;
+        position: relative;
+        &--link {
+          display: block;
+          min-height: 80px;
+          padding: 16px;
+          color: #333;
+          figure {
+            position: relative;
+            overflow: hidden;
+            float: left;
+            width: 48px;
+            height: 48px;
+            img {
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              z-index: 1;
+              width: 100%;
+              vertical-align: middle;
+            }
+          }
+          .mypage-item-body {
+            margin: 0 40px 0 68px;
+            &__name {
+              display: -webkit-box;
+              max-height: 4.4em;
+              -webkit-line-clamp: 3;
+              -webkit-box-orient: vertical;
+              text-overflow: ellipsis;
+              line-height: 1.5;
+              overflow: hidden;
+              font-size: 14px;
+            }
+            &__price {
+              display: -webkit-box;
+              max-height: 4.4em;
+              -webkit-line-clamp: 3;
+              -webkit-box-orient: vertical;
+              text-overflow: ellipsis;
+              line-height: 1.5;
+              overflow: hidden;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

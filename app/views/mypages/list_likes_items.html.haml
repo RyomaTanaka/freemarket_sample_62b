@@ -1,0 +1,40 @@
+= render partial:  "module/header"
+.mypage-body        
+
+  - breadcrumb :mypages
+  = render partial: "layouts/breadcrumbs"
+
+  = render partial:'mypages/notification'
+  %main.container
+    .content-exhibited
+      %section.like-wrapper-exhibited
+        %h2.like-head.bold
+          いいね！一覧
+        %ul.mypage-likes-list
+          - current_user.likes.each do |like|
+            %li.mypage-likes-list__inner
+              = link_to item_path(like.item.id), data: {"turbolinks" => false}, class: "mypage-likes-list__inner--link" do
+                %figure
+                  = image_tag like.item.images[0].image.url
+                .mypage-item-body
+                  .mypage-item-body__name
+                    = like.item.name
+                  .mypage-item-body__price
+                    ¥
+                    = like.item.price
+                -# = link_to item_path(item.id), class: "mypage-contents-list__link", id:"mypage_link" do
+                -#   = item.name
+                -#   %figure
+                -#     - @images.each do |image|
+                -#       =image_tag item.images[0].image.url
+                -#   .mypage-contents-body2
+                -#     .mypage-contents-body2__text
+                -#       %i.heart-icon2
+                -#       = fa_icon "heart"
+                -#       %span 7
+                -#       %i.comment-icon
+                -#       = fa_icon "comment"
+                -#       %span 4
+    = render 'module/content-left'
+= render "module/footer"
+= render "module/right_btn"

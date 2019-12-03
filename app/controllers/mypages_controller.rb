@@ -16,6 +16,9 @@ class MypagesController < ApplicationController
   def list_items_completed
   end
 
+  def list_likes_items
+  end
+
   def purchase
   end
 
