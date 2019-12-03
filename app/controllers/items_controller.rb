@@ -6,12 +6,6 @@ class ItemsController < ApplicationController
     @itemsResult = @q.result(distinct: true)
   end
     
-  def item_search
-  
-    @q = Item.ransack(search_params)
-    @itemsResult = @q.result(distinct: true)
-  end
-
 
   def show
     @item = Item.find(params[:id])
@@ -68,6 +62,9 @@ class ItemsController < ApplicationController
     
   end
 
+  def item_search
+
+  end
 
 
   private
