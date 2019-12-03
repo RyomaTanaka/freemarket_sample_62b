@@ -3,6 +3,8 @@
 .index-wrapper
   .body
     .body__wrapper
+      -if user_signed_in?
+        = render partial: 'module/likes_list'
       .category-contents
         %h2.category-contents__title 人気カテゴリ
         .category-lists
