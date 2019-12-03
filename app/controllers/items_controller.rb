@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   require 'payjp'
-  before_action :exihibited, except: [:index, :new, :create]
+  before_action :exihibited, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
   before_action :set_card, only: [:purchase_confirmation, :purchase_complete]
 
   def index
@@ -20,9 +20,9 @@ class ItemsController < ApplicationController
     
     #商品カテゴリー
     @category_parent_array = ["---"]
-    # Categorie.where(ancestry: nil).each do |parent| 実装途中のためコメントアウト残してます
-    #   @category_parent_array << parent.name
-    # end
+    Categorie.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
   end
 
   def create
@@ -75,6 +75,17 @@ class ItemsController < ApplicationController
   def purchase_complete
   end
 
+  def get_category_children
+    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+  @category_children = Categorie.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  # binding.pry
+  end
+
+# 子カテゴリーが選択された後に動くアクション
+  def get_category_grandchildren
+    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+      @category_grandchildren = Categorie.find_by(id: "#{params[:child_id]}").children
+  end
   private
 
   def set_item

@@ -15,26 +15,24 @@
             = form_with model: @item, url: items_path, method: :post, class: "sell-form", local: true do |f|
               = f.fields_for :images do |image|
                 %form.sell-form
-                  .image-form
-                    %label
+                  .upload-box
+                    %h3.upload-box__header
                       出品画像
-                    %span.required-form
-                      必須
-                    %p.image-form__text
-                      最大10枚までアップロードできます
-                    .dropzone-container.clearfix
-                      .dropzone1
-                        #preview
-                        .dropzone-area
-                          = image.label :image, class: "dropzone-box", for: "upload-image" do
-                            %div
-                      .dropzone2
-                        #preview2
-                        .dropzone-area2
-                          = image.label :image, class: "dropzone-box", for: "upload-image" do
-                            %div
-                      .input_area
-                        = image.file_field :image, multiple: true, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                      %span.upload-box__header__required 必須
+                    %p 最大10枚までアップロードできます
+                    .upload-container
+                      .upload-items
+                        .upload-items__item
+                          %ul
+                      .upload-dropbox
+                        = image.label :image, class: "dropzone-box", for: "dropbox__input" do
+                          -# = image.file_field :image, class: "dropbox__input", id: "dropbox__input"
+                          = image.file_field :image, class: "dropbox__input",id: "dropbox__input"
+                          -# - binding.pry
+                        %pre.upload-dropbox__input__visib
+                          ドラッグアンドドロップ
+                          またはクリックしてファイルをアップロード
+                        %i.sell-icon-camera
                   .sell-content
                     .sell-content-title
                       %label
@@ -52,16 +50,15 @@
                   .prodcts-detail
                     %h3.prodcts-detail__label 商品の詳細
                     .prodcts-detail__box
-                      = image.fields_for :categorie do |c|
+                      = f.fields_for :categorie do |c|
                         .prodcts-category
                           %label
                             カテゴリー
                             %span.category__required 必須
-                          %div
+                          .listing-select-wrapper
                             .category-container
-                              -# = fa_icon 'chevron-down'
-                              = c.select :name, @category_parent_array, {}, class: "category-container__select", id: :s1
-                              = fa_icon 'chevron-down'
+                              = fa_icon 'chevron-down', id: "icon1"
+                              = c.select :categorie, @category_parent_array, {}, class: "category-container__select", id: 'c1'
                         .prodcts-status
                           %label
                             商品の状態
