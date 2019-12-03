@@ -52,7 +52,7 @@
                   .prodcts-detail
                     %h3.prodcts-detail__label 商品の詳細
                     .prodcts-detail__box
-                      = image.fields_for :categorie do |c|
+                      = f.fields_for :categorie do |c|
                         .prodcts-category
                           %label
                             カテゴリー
