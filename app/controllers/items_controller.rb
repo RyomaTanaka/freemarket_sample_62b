@@ -1,7 +1,10 @@
 class ItemsController < ApplicationController
   require 'payjp'
-  before_action :exihibited, except: [:index, :new, :create]
+  before_action :exihibited, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
   before_action :set_card, only: [:purchase_confirmation, :purchase_complete]
+
+  include CommonActions
+  before_action :set_category, only: [:index, new, :show]
 
   def index
     @items = Item.all.limit(10).order("created_at DESC")
@@ -10,23 +13,34 @@ class ItemsController < ApplicationController
   def show
     user = @item.user
     @items = user.items.all.where.not(id: @item.id).limit(6).order("created_at DESC")
+
+    @items = Item.all.limit(10).order("created_at DESC")
   end
 
   def new
     # 商品出品
     @item = Item.new
-    image = @item.images.build
+    @item.images.build
+    # image = @item.images.build
     
     #商品カテゴリー
     @category_parent_array = ["---"]
-    # Categorie.where(ancestry: nil).each do |parent| 実装途中のためコメントアウト残してます
-    #   @category_parent_array << parent.name
-    # end
+    Categorie.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
   end
 
   def create
-    @item = Item.create(item_params)
-    redirect_to action: :index
+    @item = Item.new(item_params)
+    if @item.save
+      params[:images][:image].each do |image|
+        @item.images.create!(image: image, item_id: @item.id)
+      end
+      redirect_to root_path
+    else
+      @item.images.build
+      render action: :new
+    end
   end
 
   def edit
@@ -65,6 +79,17 @@ class ItemsController < ApplicationController
   def purchase_complete
   end
 
+  def get_category_children
+    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
+  @category_children = Categorie.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  # binding.pry
+  end
+
+# 子カテゴリーが選択された後に動くアクション
+  def get_category_grandchildren
+    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
+      @category_grandchildren = Categorie.find_by(id: "#{params[:child_id]}").children
+  end
   private
 
   def set_item
@@ -74,8 +99,9 @@ class ItemsController < ApplicationController
   
   def item_params
     #出品itemのparams
-    params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture_id, :name, :body, :status, :order_status, :price, :shipping_method,
-    images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture_id, :name, :body, :status, :order_status, :price, :shipping_method).merge(user_id: current_user.id)
+    # params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture_id, :name, :body, :status, :order_status, :price, :shipping_method,
+    # images_attributes: [:image]).merge(user_id: current_user.id)
   end
   
   def exihibited_lists

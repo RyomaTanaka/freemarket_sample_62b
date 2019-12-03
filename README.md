@@ -125,7 +125,7 @@ Things you may want to cover:
 |status|integer|null: false|
 |order_status|integer|null: false|
 |prefecture|string|null: false|
-|method|string||
+|shipping_method|string|null: false|
 |cost_burden|string|null: false|
 |period_before_shipping|string|null: false|
 
@@ -203,6 +203,7 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false, unique: true|
 |parent_id|references|foreign_key: true|
+|ancestyr|string|null: false, unique: true|
 
 ### Association
 - belongs_to :parent, class_name: :Category

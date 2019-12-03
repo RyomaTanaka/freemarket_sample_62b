@@ -1,5 +1,9 @@
 class MypagesController < ApplicationController
 
+  include CommonActions
+  before_action :set_category
+
+
 # before_action :update_params, only: [:update, :edit]
   def list_items
         @items = Item.all.order("created_at DESC")
