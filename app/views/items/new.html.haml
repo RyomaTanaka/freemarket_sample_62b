@@ -67,10 +67,8 @@
                             %span.status__required 必須
                           %div
                             .status-container
-                              -# = fa_icon 'chevron-down'
                               = f.select :status, Item.statuses.keys, {}, class: 'status-container__select'
                               = fa_icon 'chevron-down'
-                              -# %i.fas.fa-angle-down
                   .prodcts-delivery
                     %h3.prodcts-delivery__label 配送について
                     = link_to "?", "#",class: "question-icon"
