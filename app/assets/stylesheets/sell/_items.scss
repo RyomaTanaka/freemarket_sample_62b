@@ -498,3 +498,17 @@ select {
   margin: 40px auto 0;
   display: block;
 }
+
+.prodcts-detail:before,
+.prodcts-detail:after{
+    content: "";
+    display: table;
+}
+.prodcts-detail:after{ clear: both; }
+
+.prodcts-delivery:before,
+.prodcts-delivery:after{
+    content: "";
+    display: table;
+}
+.prodcts-delivery:after{ clear: both; }
