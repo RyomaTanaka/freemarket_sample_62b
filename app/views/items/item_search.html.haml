@@ -7,20 +7,25 @@
           = params[:q][:name_cont]
           %span
             の検索結果
-        .search_box__number
-          1-132件表示
+        - if @itemsResult.length > 0
+          .search_box__number
+            #{@itemsResult.offset_value + 1} -
+            #{@itemsResult.offset_value + @itemsResult.length}
+            件表示
+        - else
+          該当する商品が見つかりません。検索条件を変えて、再度お試しください。
         .search_box__contents
         - @itemsResult.each do |result|
           %section.search_content
             = link_to "", href: "#"
             %figure.search_content__image
-              = image_tag "icon.jpg", size: "160"
+              = image_tag result.images[0].image.url, class: 'item-photo'
             .search_bottom
               %h3.search_bottom__name 
                 = result.name  
               .search_bottom__num
                 .search_price
-                  = result.price
+                  ¥#{result.price}
         = paginate @itemsResult
 
     .left_category
