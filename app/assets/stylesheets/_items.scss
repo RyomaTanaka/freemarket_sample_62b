@@ -123,6 +123,101 @@
       margin-right: 4px;
     }
   }
+  &:hover {
+    color:black;
+    ul {
+      li {
+        display: block;
+        height: 44px;
+      }
+    }
+  }
+  ul {
+    position: absolute;
+    top: 44px;
+    font-weight: normal;
+    li {
+      width: 220px;
+      height: 0;
+      display: none;
+      background-color: white;
+      a{
+        padding: 0 16px;
+        line-height: 44px;
+        font-size: 14px;
+        text-overflow: ellipsis;
+        display: inline-block;
+        width: 100%;
+        color: black;
+      }
+      &:hover {
+        color: blue;
+        .bottom-category__children {
+          &__child {
+            display: block;
+            height: 30px;
+          }
+        }
+      }
+      a {
+        &:hover {
+          background-color: red;
+          color: white;
+        }
+      }
+      .bottom-category__children {
+        position: absolute;
+        top: 0;
+        left: 220px;
+        height: 571px;
+        background-color: white;
+        border-right: 1px solid gray;
+        &__child {
+          width: 220px;
+          height: 0;
+          display: none;
+          background-color: white;
+          &:hover {
+            color: blue;
+            .header__grand-children {
+              &__grand-child {
+                display: block;
+                height: 30px;
+              }
+            }
+          }
+          a {
+            font-size: 14px;
+            color: black;
+            &:hover {
+              background-color: #f3f3f3; 
+            }
+          }
+          .header__grand-children {
+            position: absolute;
+            top: 0;
+            left: 220px;
+            height: 571px;
+            background-color: white;
+            border-right: 1px solid gray;
+            &__grand-child {
+              width: 300px;
+              height: 0;
+              display: none;
+              background-color: white;
+              a {
+                font-size: 14px;
+                color: black;
+                &:hover {
+                  background-color: #f3f3f3;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .bottom-brand{
