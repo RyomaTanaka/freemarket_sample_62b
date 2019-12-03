@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     registrations: "users/registrations",
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
-  
+
   resource :signups, only:[:create] do
     get :step0
     get :step1
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get :step4
     get :step5
   end
-  
+
   resources :mypages, only:[:show, :edit, :update] do
     member do
       get :list_items
@@ -32,18 +32,18 @@ Rails.application.routes.draw do
   end
 
   resources :addresses
-  
+
   root "items#index"
-  
+
   resources :users do
     resources :cards
   end
-  
+
 
   resources :items do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
-      get 'get_category_grandchildren'
+      get 'get_category_grandchildren', defaults: { format: 'json' }
     end
     member do
       post :purchase

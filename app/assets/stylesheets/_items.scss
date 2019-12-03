@@ -264,14 +264,31 @@
   color: black;
 }
 
+
 .heart-icon {
   max-width: 100%;
   height: auto;
   max-height: 100%;
   color: $gray;
-  margin-right: 10px;
   width: 19px;
+  margin-right:7px;
+  transition: all 0.3s
+
 }
+.heart-icon:hover{
+  color:#007bff;
+}
+
+.heart-icon2 {
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  color: $gray;
+  width: 19px;
+  transition: all 0.3s
+
+}
+
 
 .notice-list{
   -webkit-box-align: center;
@@ -291,6 +308,9 @@
   color: $gray;
   margin-right: 10px;
   width: 19px;
+}
+.bell-icon:hover{
+  color:#007bff;
 }
 
 .todo-list {
@@ -312,6 +332,9 @@
   margin-right: 10px;
   width: 19px;
 }
+.check-icon:hover{
+  color:#007bff;
+}
 
 .mypage {
   -webkit-box-align: center;
@@ -330,3 +353,8 @@
   }
 }
 
+
+.logout-btn{
+  width:320px;
+  line-height:50px;
+}

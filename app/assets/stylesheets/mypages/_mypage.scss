@@ -134,6 +134,7 @@ li{
   min-height: 60.42px;
   padding: 16px;
   color: #333;
+
   figure{
     position: relative;
     overflow: hidden;
@@ -165,8 +166,15 @@ li{
   }
   }
 
-        
-      
+  
+  .mypage-contents-list2{   
+    list-style: none;
+  li{
+    position: relative;
+    
+    // padding: 16px;
+  }
+  }
 .app-icon{
   position: absolute;
   top: 0;
@@ -189,6 +197,27 @@ li{
     font-size: 14px;
   }
 }
+
+
+.mypage-contents-body2{
+  width:700px;
+  height:98px;
+  margin: 0 40px 0 68px;
+  position:absolute;
+  &__text{
+    width:300px;
+    height:30px;
+    position: relative;
+    top:9px;
+    overflow: hidden;
+    display: -webkit-box;
+    max-height: 4.4rem;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+  }
+}
 .mypage-contents-body time{
   display: inline-block;
   color: #888;
@@ -201,6 +230,9 @@ li{
   }
 }
 
+#mypage_link{
+  text-decoration: none;
+}
 
 .mypage-notice-list{
   position: relative;
@@ -344,6 +376,10 @@ li{
       font-size: 14px;
       color: #333;
       border: 1.2px solid #f5f5f5;
+      &:hover{
+        background-color:#f5f5f5;
+        transition: all .2s;
+      }
       
       .fa-chevron-right::before{
         position: absolute;
@@ -355,9 +391,13 @@ li{
         -webkit-transition: all ease-out .2s;
         transition: all ease-out .2s;
         box-sizing: inherit;
+     
       }
     }
   }
+}
+
+.fa-chevron-right:hover:after{
 }
 
 

@@ -133,24 +133,31 @@
     &__btn-wrapper{
       max-width: 320px;
       margin: 0 auto;
+      text-align: center;
+      line-height:50px;
+      
+      &__text{
+        width:320px;
+        height:50px;
+        line-height:50px;
+        background-color:#ea352d;	 	
+        color: white;
+      }
     }  
   }
 
-
-.btn-default-value{
-
-  display: block;
-  width: 100%;
-  line-height: 48px;
-  font-size: 14px;
-  cursor: pointer;
-  text-align: center;
-}
-.btn-color-red {
-    background: #ea352d;
-    border: 1px solid #ea352d;
-    color: #fff;
-    a:link, a:visited, a:hover, a:active {
-      color: #fff;
+  .logbtn {	 	 
+    text-decoration: none; /* リンクの下線を出さない */	
+    color: white; /* 色の指定をリセット */
+    background-color:#ea352d;	 	
+    width:320px;
+    height:50px;	 	 
+    display: block;
+    &:hover{
+      color:#fff;
     }
-}
+
+   }	 	  
+  
+
+

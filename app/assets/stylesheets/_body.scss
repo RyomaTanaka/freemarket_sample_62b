@@ -81,6 +81,10 @@
                       margin: 0;
                       overflow: hidden;
                       z-index: 0;
+                      transition: all 0s ease 0s;
+                      &:hover{
+                        border:1px solid rgb(0, 123, 255);
+                      }
                       figcaption {
                         box-sizing: border-box;
                         color: #222;
@@ -302,6 +306,9 @@
   display: block;
   position: relative;
   font-weight: 600;
+  &:hover{
+    color: rgb(0, 149, 238);
+  }
 }
 
 
