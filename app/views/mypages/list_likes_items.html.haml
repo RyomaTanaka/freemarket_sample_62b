@@ -22,19 +22,6 @@
                   .mypage-item-body__price
                     ¥
                     = like.item.price
-                -# = link_to item_path(item.id), class: "mypage-contents-list__link", id:"mypage_link" do
-                -#   = item.name
-                -#   %figure
-                -#     - @images.each do |image|
-                -#       =image_tag item.images[0].image.url
-                -#   .mypage-contents-body2
-                -#     .mypage-contents-body2__text
-                -#       %i.heart-icon2
-                -#       = fa_icon "heart"
-                -#       %span 7
-                -#       %i.comment-icon
-                -#       = fa_icon "comment"
-                -#       %span 4
     = render 'module/content-left'
 = render "module/footer"
 = render "module/right_btn"

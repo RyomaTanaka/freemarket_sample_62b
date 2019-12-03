@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("turbolinks:load", function(){
   var swiperImageMain = new Swiper ('.item-detail__contents .main', {
     loop: false,
   })
