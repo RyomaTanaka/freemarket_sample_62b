@@ -3,6 +3,8 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to :user
   has_many :images, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liking_users, through: :likes, source: :user
   accepts_nested_attributes_for :images
 
   validates :name, presence: true
