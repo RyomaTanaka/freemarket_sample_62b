@@ -3,9 +3,18 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all.limit(10).order("created_at DESC")
     @q = Item.ransack(params[:q])
-    @itemsResult = @q.result(distinct: true)
+    @itemsResult = @q.result.includes(:images, :users)
   end
     
+  def item_search
+    @q = Item.ransack(search_params)
+    @itemsResult = @q.result.includes(:images)
+    @item = Item.find(params[:id])
+    user = @item.user
+    @items = user.items.all.limit(6).order("created_at DESC")
+    
+  end
+
 
   def show
     @item = Item.find(params[:id])

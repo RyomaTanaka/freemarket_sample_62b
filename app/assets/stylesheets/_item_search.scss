@@ -36,8 +36,9 @@
   width: 155px;
   display: inline-block;
   margin-right: 20px;
-  &__image {
-
+  .item-photo {
+      width:160px;
+      height:160px;
   }
 }
 

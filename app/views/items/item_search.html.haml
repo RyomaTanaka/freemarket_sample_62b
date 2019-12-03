@@ -17,16 +17,16 @@
         .search_box__contents
         - @itemsResult.each do |result|
           %section.search_content
-            = link_to "", href: "#"
-            %figure.search_content__image
-              = image_tag result.images[0].image.url, class: 'item-photo'
-            .search_bottom
-              %h3.search_bottom__name 
-                = result.name  
-              .search_bottom__num
-                .search_price
-                  ¥#{result.price}
-        = paginate @itemsResult
+            = link_to item_path(result.id), class: "item-link" do
+              %figure.search_content__image
+                = image_tag result.images[0].image.url, class: 'item-photo'
+              .search_bottom
+                %h3.search_bottom__name 
+                  = result.name  
+                .search_bottom__num
+                  .search_price
+                    ¥#{result.price}
+      = paginate @itemsResult
 
     .left_category
       %form.category_wrapper
