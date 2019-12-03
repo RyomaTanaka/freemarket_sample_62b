@@ -59,7 +59,7 @@
                             %span.category__required 必須
                           .listing-select-wrapper
                             .category-container
-                              = fa_icon 'chevron-down'
+                              = fa_icon 'chevron-down', id: 'icon1'
                               = c.select :name, @category_parent_array, {}, class: "category-container__select", id: 'c1'
                         .prodcts-status
                           %label
