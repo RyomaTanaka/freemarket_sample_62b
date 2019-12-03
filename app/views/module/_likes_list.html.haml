@@ -7,9 +7,6 @@
       = fa_icon 'chevron-right'
   .likes-contents__items
     .swiper-container3
-      .likes_prev-button
-        .swiper-button-prev
-        .swiper-button-prev
       .swiper-wrapper
         - current_user.likes.each do |like|
           .swiper-slide
@@ -20,5 +17,3 @@
                     ¥
                     = like.item.price
                   = image_tag like.item.images[0].image.url
-      .likes_next-button
-        .swiper-button-next
