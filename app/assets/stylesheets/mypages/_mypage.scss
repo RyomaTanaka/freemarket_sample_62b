@@ -383,6 +383,7 @@ li{
         position: absolute;
         top: 50%;
         right: 16px;
+        font-weight: 900;
         color: #ccc;
         -webkit-transform: translate(0, -50%);
         transform: translate(0, -50%);
@@ -395,10 +396,13 @@ li{
   }
 }
 
-.fa-chevron-right:hover:before{
+.fa-chevron-right:hover{
   color:#333;
 }
 
+.fa-hover:hover{
+  
+}
 
 
 // .fa, .fas, .far, .fal, .fad, .fab {
