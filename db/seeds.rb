@@ -6,13 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# 10.times do |n|
-#   Image.create(item_id: 1 + n, url: "51XyLHYl4pL._SY355_.jpg")
-# end
+10.times do |n|
+  Image.create(item_id: 1 + n, url: "51XyLHYl4pL._SY355_.jpg")
+end
 
-# 10.times do |n|
-#   Item.create(user_id: n, name: "サンプル", body: "サンプルサンプル", price: "200", condition: "#{n}", shipping_id: n, status: "#{n}", order_status: "#{n}")
-# end
+10.times do |n|
+  Item.create(user_id: n, name: "サンプル", body: "サンプルサンプル", price: "200", condition: "#{n}", shipping_id: n, status: "#{n}", order_status: "#{n}")
+end
 
 lady = Categorie.create(name: "レディース")
 lady_1 = lady.children.create(name: "トップス")

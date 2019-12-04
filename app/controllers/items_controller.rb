@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   before_action :set_card, only: [:purchase_confirmation, :purchase_complete]
 
   include CommonActions
-  before_action :set_category, only: [:index, new, :show]
+  before_action :set_category, only: [:index, new, :show, :create]
 
   def index
     @items = Item.all.limit(10).order("created_at DESC")
@@ -21,9 +21,9 @@ class ItemsController < ApplicationController
     # 商品出品
     @item = Item.new
     @item.images.build
-    # image = @item.images.build
     
     #商品カテゴリー
+    # 親のnameを取得し@category_parent_arrayへ代入
     @category_parent_array = ["---"]
     Categorie.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
@@ -32,6 +32,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    # binding.pry
     if @item.save
       params[:images][:image].each do |image|
         @item.images.create!(image: image, item_id: @item.id)
@@ -82,7 +83,6 @@ class ItemsController < ApplicationController
   def get_category_children
     #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
   @category_children = Categorie.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
-  # binding.pry
   end
 
 # 子カテゴリーが選択された後に動くアクション
@@ -99,9 +99,7 @@ class ItemsController < ApplicationController
   
   def item_params
     #出品itemのparams
-    params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture_id, :name, :body, :status, :order_status, :price, :shipping_method).merge(user_id: current_user.id)
-    # params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture_id, :name, :body, :status, :order_status, :price, :shipping_method,
-    # images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture_id, :name, :body, :status, :order_status, :price, :shipping_method, item: [:categorie_id]).merge(user_id: current_user.id)
   end
   
   def exihibited_lists

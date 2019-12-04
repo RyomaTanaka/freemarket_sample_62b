@@ -10,7 +10,7 @@ $(function(){
     childSelectHtml = 
     ` <div class="category-container" id= "children_wrapper" >
         <i id = icon1 class="fa fa-chevron-down"></i>
-        <select class= "category-container__select" id="c2" name="item[categorie][categorie]" >
+        <select class= "category-container__select" id="c2" name="categorie_id" >
           <option value="---" data-category="---">---</option>
             ${insertHTML}
         <select>
@@ -23,7 +23,7 @@ $(function(){
     grandchildSelectHtml =
     `<div class="category-container" id= "grandchildren_wrapper" >
       <i id = icon1 class="fa fa-chevron-down"></i>
-      <select class= "category-container__select" id="c3" name="item[categorie][categorie]" >
+      <select class= "category-container__select" id="c3" name="categorie_id" >
         <option value="---" data-category="---">---</option>
           ${insertHTML}
       <select>
