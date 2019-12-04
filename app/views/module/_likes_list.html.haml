@@ -17,6 +17,6 @@
                     ¥
                     = like.item.price
                   = image_tag like.item.images[0].image.url
-            - if like.item.order_status == 1
-              .souldout
-                %div SOLD
+              - if like.item.order_status == 1
+                .souldout
+                  %div SOLD
