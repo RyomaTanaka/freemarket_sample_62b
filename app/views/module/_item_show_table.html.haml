@@ -20,11 +20,11 @@
       カテゴリー
     %td
       =link_to '#' do
-        = 'メンズ'
+        = @item.categorie.root.name
       .item-detail__contents--table--child-category
         = fa_icon 'chevron-right', class: 'arrow'
         =link_to '#' do
-          = 'アウター、ジャケット'
+          = 'Tシャツ'
       .item-detail__contents--table--grond-child-category
         = fa_icon 'chevron-right', class: 'arrow'
         =link_to '#' do

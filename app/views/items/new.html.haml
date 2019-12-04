@@ -59,8 +59,10 @@
                         .listing-select-wrapper
                           .category-container
                             = fa_icon 'chevron-down', id: 'icon1'
-                            -# = f.select :categorie, options_for_select(@category_parent_array.map{|c|[c[:name], c[:id]]}), {}, {class: "category-container__select", id: 'c1'}
-                            = f.select :categorie_id, @category_parent_array, {}, class: "category-container__select", id: 'c1'
+                            -# = f.select :categorie_id, [ ["---",""], ["レディース",""], ["メンズ", ""], ["ベビー・キッズ", ""], ["インテリア・住まい・小物", ""], ["本・音楽・ゲーム", ""], ["おもちゃ・ホビー・グッズ", ""], ["コスメ・香水・美容", ""], ["家電・スマホ・カメラ", ""], ["スポーツ・レジャー", ""], ["ハンドメイド", ""], ["チケット", ""], ["自動車・オートバイ", ""], ["その他", ""] ], {}, class: "category-container__select", id: 'c1'
+                            = f.collection_select(:categorie_id, Categorie.roots, :id, :name, {prompt:"---"} , class: "category-container__select", id: 'c1')
+                            -# = f.select :categorie_id, [ ["---",0], ["レディース",1], ["メンズ", 200], ["ベビー・キッズ", 346], ["インテリア・住まい・小物", 481], ["本・音楽・ゲーム", 625], ["おもちゃ・ホビー・グッズ", 685], ["コスメ・香水・美容", 798], ["家電・スマホ・カメラ", 898], ["スポーツ・レジャー", 984], ["ハンドメイド", 1093], ["チケット", 1147], ["自動車・オートバイ", 1207], ["その他", 1270] ], {}, class: "category-container__select", id: 'c1'
+                            -# - binding.pry
                         .prodcts-status
                           %label
                             商品の状態

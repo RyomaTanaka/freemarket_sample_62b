@@ -1,7 +1,7 @@
 $(function(){
   // カテゴリーセレクトボックスのオプションを作成
   function appendOption(category){
-    var html = `<option value="${category.name}" data-category="${category.id}">${category.name}</option>`;
+    var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
   }
   // 子カテゴリーの表示作成
@@ -32,12 +32,13 @@ $(function(){
   }
   // 親カテゴリー選択後のイベント
   $('#c1').on('change', function(){
-    var parentCategory = document.getElementById('c1').value; //選択された親カテゴリーの名前を取得
-    if (parentCategory != "---"){ //親カテゴリーが初期値でないことを確認
+    var parentid = document.getElementById('c1').value; //選択された親カテゴリーのidを取得
+    if (parentid != 0 ){ //親カテゴリーが初期値でないことを確認
+      console.log(parentid)
       $.ajax({
         url: '/items/get_category_children',
         type: 'GET',
-        data: {parent_name: parentCategory},
+        data: {parent_id: parentid},
         dataType: 'json'
       })
       .done(function(children){

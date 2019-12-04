@@ -25,8 +25,10 @@ class ItemsController < ApplicationController
     #商品カテゴリー
     # 親のnameを取得し@category_parent_arrayへ代入
     @category_parent_array = ["---"]
+    @parent_id = []
     Categorie.where(ancestry: nil).each do |parent|
       @category_parent_array << parent.name
+      @parent_id << parent.id
     end
   end
 
@@ -82,7 +84,7 @@ class ItemsController < ApplicationController
 
   def get_category_children
     #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
-  @category_children = Categorie.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  @category_children = Categorie.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
   end
 
 # 子カテゴリーが選択された後に動くアクション
@@ -99,7 +101,7 @@ class ItemsController < ApplicationController
   
   def item_params
     #出品itemのparams
-    params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture_id, :name, :body, :status, :order_status, :price, :shipping_method, item: [:categorie_id]).merge(user_id: current_user.id)
+    params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture_id, :name, :body, :status, :order_status, :price, :shipping_method, :categorie_id).merge(user_id: current_user.id)
   end
   
   def exihibited_lists
