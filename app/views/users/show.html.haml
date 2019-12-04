@@ -21,7 +21,8 @@
               %span.content-wrapper__evaluation-exhibit.bold 89
             %div
               出品数
-              %span.content-wrapper__evaluation-exhibit.bold 18
+              %span.content-wrapper__evaluation-exhibit.bold 
+                = current_user.items.count
 
       .tab-wrap
         %input#TAB-01-01.tab-switch{ type: "radio", name: "TAB01", checked: "checked" }

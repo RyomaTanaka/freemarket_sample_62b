@@ -2,7 +2,7 @@
   %nav.nav-wrapper
     %ul.nav-mypage
       %li
-        = link_to "", class: "nav-mypage__item", href: "#" do
+        = link_to user_path(current_user), class: "nav-mypage__item" do
           マイページ
           = fa_icon 'chevron-right', class: "fa-hover"
       %li
