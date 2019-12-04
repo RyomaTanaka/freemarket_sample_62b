@@ -12,6 +12,7 @@
       line-height: 1.4;
     }
     &__contents {
+      margin-top: 15px;
       &--photo {
         height: 420px;
         width: 300px;
@@ -58,7 +59,6 @@
           a {
             color: #0099e8;
             text-decoration: none;
-            // display: inline-block;
           }
           .arrow {
             color: #0099e8;
@@ -100,6 +100,7 @@
     }
     &__buttons {
       margin: 16px 0 0;
+      padding: 20px;
       &--right-btn {
         margin: 8px 0 0;
         float: right;
@@ -226,14 +227,11 @@
         text-align: center;
         a {
           display: block;
-          background-color: #aa262a;
           border-radius: 4px;
-          .fa {
+          .line-logo {
             width: 44px;
             height: 44px;
             line-height: 44px;
-            font-size: 18px;
-            color: white;
           }
         }
       }
@@ -270,7 +268,7 @@
               bottom: 0;
               left: 0;
               z-index: 1;
-              // width: 100%;
+              width: 100%;
               height: 100%;
             }
           }
@@ -344,4 +342,3 @@
     }
   }
 }
-

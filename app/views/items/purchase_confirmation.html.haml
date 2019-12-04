@@ -1,11 +1,7 @@
 .header
   .header__logo
-    -# %img= embedded_svg("logo.svg", class: "cls-2") 
-    =image_tag "logo.svg",class:'header__logo'
-
-%body.mypage-body        
-
-
+    =image_tag "logo.svg", class:'header__logo'
+%body.mypage-body
   %section.purchase-confirmation
     %h2.purchase-confirmation__title
       購入内容の確認
@@ -35,19 +31,18 @@
                   ¥
                   = @item.price
           %button.btn-default-value.btn-color-red
-            購入する
-
-
+            = link_to '購入する', purchase_item_path(@item), method: :post
     %section.user-info-wrapper
       .customer-confirmation
         %h3
           配送先
         %address.customer-confirmation__address
-          123-4567
+          = current_user.address.post_number
           %br
-            東京都山田区太郎町3-2-1
+            - address = current_user.address
+            = "#{address.prefecture} #{address.city} #{address.post_number} #{address.house_number} #{address.building_name}"
           %br
-            山田 太郎
+            = current_user.address.user_name
         = link_to "", class: "customer-confirmation__edit", href: "#" do
           %span
             変更する
@@ -57,17 +52,16 @@
         %h3
           支払い方法
         %p.customer-confirmation__credit-number
-          ************4713
+          = "************#{@user_card.last4}"
           %br
-            08 / 24
+            = "#{@user_card.exp_month} / #{@user_card.exp_year % 2000}"
         %figure
-          %img{ src: "assets/visa.jpg", width: "49", height: "20", alt: "visa"}
+          = image_tag "visa.svg", width: 49, hight: 20
         = link_to "", class: "customer-confirmation__edit",
         href: "#" do
           %span
             変更する
           = fa_icon 'chevron-right'
-        
 .footer
   .footer__nav
     .footer__nav__li1

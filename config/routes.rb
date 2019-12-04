@@ -42,8 +42,17 @@ Rails.application.routes.draw do
   get "search" => "items#item_search"
 
   resources :items do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
     member do
+      post :purchase
+      get :purchase_confirmation
       get :purchase_complete
     end
   end
+  
+  post   '/like/:item_id' => 'likes#like',   as: 'like'
+  delete '/like/:item_id' => 'likes#unlike', as: 'unlike'
 end

@@ -1,3 +1,4 @@
+@import "./mixin/action";
 @import "modules/detail.scss";
 @import "base/base.scss";
 @import "mypages/mypage";
@@ -9,7 +10,7 @@
 @import "purchases/index";
 @import "purchases/complete";
 @import "./font-awesome";
-
+@import "on-mouse";
 @import "config/colors";
 @import "header_btn";
 
@@ -17,7 +18,7 @@
 @import "items";
 @import "body";
 @import "footer";
-
+@import "flash";
 @import "sell/items";
 
 @import "right_btn";
@@ -31,4 +32,7 @@
 
 @import "breadcrumbs";
 @import "card_new";
-@import "item_search";
+@import "soldout";
+@import "likes";
+@import "likes_list";
+@import "item_new_image"

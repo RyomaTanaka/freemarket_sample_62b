@@ -1,10 +1,10 @@
 = render partial:  "module/header"
-.mypage-body        
+.mypage-body
 
   - breadcrumb :mypages
   = render partial: "layouts/breadcrumbs"
 
- 
+  = render partial:'mypages/notification'
   %main.container
     .content-exhibited
       %section.purchase-wrapper-exhibited

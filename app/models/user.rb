@@ -2,11 +2,13 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   has_one :profile, dependent: :destroy
-  has_many :addresses, dependent: :destroy
+  has_one :address, dependent: :destroy
   has_one :card, dependent: :destroy
   has_many :sns_authentications, dependent: :destroy
   has_many :items, dependent: :destroy
-  accepts_nested_attributes_for :addresses, :profile
+  has_many :likes, dependent: :destroy
+  has_many :like_items, through: :likes, source: :item
+  # accepts_nested_attributes_for :addresses, :profile
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
@@ -14,11 +16,13 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true
   validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
-  validates :password, presence: true
-  validates :first_name, presence: true
-  validates :family_name, presence: true
-  validates :first_name_ruby, presence: true
-  validates :family_name_ruby, presence: true
+  validates :password, presence: true, length: { in: 7..128 }, format: { with: /\A[a-z0-9]+\z/i }
+  validates :first_name, presence: true, format: { with:/\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/}
+  validates :family_name, presence: true, format: { with:/\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/}
+  validates :first_name_ruby, presence: true,
+            format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/}
+  validates :family_name_ruby, presence: true, 
+            format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/}
   validates :birth_year, presence: true
   validates :birth_month, presence: true
   validates :birth_day, presence: true

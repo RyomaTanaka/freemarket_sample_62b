@@ -1,10 +1,14 @@
 .breadcrumbs {
-  z-index: 10;
+  z-index: 2;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  
 }
 
 .breadcrumbs-list {
   font-size: 14px; 
   margin: 0 210px;
   padding: 16px 0;
+  z-index: 2;
 }
+
 
