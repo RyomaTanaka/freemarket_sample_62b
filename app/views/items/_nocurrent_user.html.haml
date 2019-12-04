@@ -86,10 +86,9 @@
     .bread-crumbs
       %ul
         %li.bread-crumbs__back
-          = link_to '#' do
+          = link_to root_path do
             %span メルカリ
           =fa_icon 'chevron-right'
         %li.bread-crumbs__current-page
-          %sapn 現在のページ
-
-
+          %sapn 
+            = @item.name

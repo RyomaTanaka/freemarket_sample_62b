@@ -28,10 +28,11 @@
                     .mypage-contents-body2__text
                       %i.heart-icon2
                       = fa_icon "heart"
-                      %span 7
+                      %span 
+                        = item.likes.count
                       %i.comment-icon
                       = fa_icon "comment"
-                      %span 4
+                      %span 0
 
         %input#TAB-01-02.tab-switch-exhibited{ type: "radio", name: "TAB01" }
         %label.tab-label-exhibited{ for: "TAB-01-02" }

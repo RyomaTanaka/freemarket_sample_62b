@@ -15,6 +15,11 @@ crumb :mypages do
   parent :users
 end
 
+crumb :likes do 
+  link "いいね一覧", list_likes_items_mypage_path(current_user)
+  parent :users
+end
+
 crumb :card do 
   link "支払い方法", card_mypage_path(current_user)
   parent :users
