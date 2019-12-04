@@ -26,7 +26,10 @@
         %span.item-detail__price-box--tax
           (税込)
         %span.item-detail__price-box--shipping-fee
-          (送料込み)
+          -if @item.cost_burden == "送料込み(出品者負担)"
+            (送料込み)
+          - else
+            (着払い)
       -if @item.order_status == 0
         = link_to  purchase_confirmation_item_path(@item), method: :get, class: "item-detail__order-btn text-center" do
           購入画面に進む
@@ -38,7 +41,14 @@
           = @item.body
       .item-detail__buttons.crearfix
         .item-detail__buttons--left-btn
-          = render partial: 'likes/like'
+          - if user_signed_in?
+            = render partial: 'likes/like'
+          - else
+            .like-link{id: "like-link-#{@item.id}"}
+              = link_to step0_signups_path do
+                .iine__button.like
+                  ❤ いいね!
+                  = @item.likes.count
         .item-detail__buttons--right-btn
           = fa_icon 'lock'
           =link_to '#' do

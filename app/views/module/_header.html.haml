@@ -191,7 +191,8 @@
                   .arrow__box2__text2__rank
                     評価: 2
                   .arrow__box2__text2__number
-                    出品数: 0
+                    出品数: 
+                    = current_user.items.count
               %ul.arrow__box3
                 %li.arrow__box3__sell
                   = link_to "", class: "arrow__box3-link", href: "#" do
