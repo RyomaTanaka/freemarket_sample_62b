@@ -22,6 +22,9 @@
                   .mypage-item-body__price
                     ¥
                     = like.item.price
+              - if like.item.order_status == 1
+                .like-souldout
+                  %div SOLD
     = render 'module/content-left'
 = render "module/footer"
 = render "module/right_btn"
