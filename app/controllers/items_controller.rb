@@ -7,7 +7,7 @@ class ItemsController < ApplicationController
   before_action :set_category, only: [:index, :new, :item_search, :show]
 
   def index
-    
+    @items = Item.all.limit(10).order("created_at DESC")
     @q = Item.ransack(params[:q])
     @itemsResult = @q.result.includes(:images, :users)
   end
