@@ -17,7 +17,7 @@
         .tab-content-exhibited
           .mypage-tabs-content
             %ul.mypage-contents-list2
-              - @items.each do |item|
+              - current_user.items.each do |item|
                 %li
                 = link_to item_path(item.id), class: "mypage-contents-list__link", id:"mypage_link" do
                   = item.name

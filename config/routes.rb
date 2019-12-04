@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       get :list_items
       get :list_items_progress
       get :list_items_completed
+      get :list_likes_items
       get :purchase
       get :purchased
       get :profile
