@@ -38,6 +38,10 @@
   width: 134px;
 }
 
+.item_search {
+  width: 100%;
+}
+
 .top-header__serach {
   position: relative;
   width: 100%;
@@ -92,7 +96,6 @@
   display: flex;
   -webkit-box-pack: justify;
   justify-content: space-between;
-  margin-top: 8px;
 }
 
 .bottom-left {

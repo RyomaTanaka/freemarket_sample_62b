@@ -1,15 +1,25 @@
 class ItemsController < ApplicationController
   require 'payjp'
-  before_action :exihibited, except: [:index, :new, :create, :get_category_children, :get_category_grandchildren]
+  before_action :exihibited, except: [:index,:item_search, :new, :create, :get_category_children, :get_category_grandchildren]
   before_action :set_card, only: [:purchase_confirmation, :purchase_complete]
 
   include CommonActions
-  before_action :set_category, only: [:index, new, :show]
+  before_action :set_category, only: [:index, :new, :item_search, :show]
 
   def index
-    @items = Item.all.limit(10).order("created_at DESC")
-  end
     
+    @q = Item.ransack(params[:q])
+    @itemsResult = @q.result.includes(:images, :users)
+  end
+
+  def item_search
+    @q = Item.ransack(search_params)
+    @itemsResult = @q.result.includes(:images)
+    
+
+  end
+
+
   def show
     user = @item.user
     @items = user.items.all.where.not(id: @item.id).limit(6).order("created_at DESC")
@@ -22,7 +32,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.build
     # image = @item.images.build
-    
+
     #商品カテゴリー
     @category_parent_array = ["---"]
     Categorie.where(ancestry: nil).each do |parent|
@@ -50,7 +60,7 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     @item.update(item_params)
-    
+
     redirect_to list_items_mypage_path, notice: '編集しました'
   end
 
@@ -75,8 +85,12 @@ class ItemsController < ApplicationController
 
   def purchase_confirmation
   end
-  
+
   def purchase_complete
+  end
+
+  def item_search
+
   end
 
   def get_category_children
@@ -96,14 +110,18 @@ class ItemsController < ApplicationController
     #itemのidを持ってくる
     @item = Item.includes(:images).find(params[:id])
   end
-  
+
   def item_params
     #出品itemのparams
     params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture_id, :name, :body, :status, :order_status, :price, :shipping_method).merge(user_id: current_user.id)
     # params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture_id, :name, :body, :status, :order_status, :price, :shipping_method,
     # images_attributes: [:image]).merge(user_id: current_user.id)
   end
-  
+
+  def search_params
+    params.require(:q).permit!
+  end
+
   def exihibited_lists
     @items = Item.where(user_id: current_user)
   end
@@ -112,6 +130,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
+  
   def set_card
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     customer = Payjp::Customer.retrieve(current_user.card.customer_id)

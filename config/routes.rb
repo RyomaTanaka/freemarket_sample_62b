@@ -38,7 +38,9 @@ Rails.application.routes.draw do
   resources :users do
     resources :cards
   end
-  
+
+  get "search" => "items#item_search"
+
   resources :items do
     collection do
       get 'get_category_children', defaults: { format: 'json' }
