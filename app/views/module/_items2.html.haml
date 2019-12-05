@@ -1,7 +1,7 @@
-- @items.each do |item|
-  - if item.categorie.id == 200
-    .item-container
-      %ul.item-container__lists
+.item-container
+  %ul.item-container__lists
+    - @items.each do |item|
+      - if item.categorie.id == 200
         %li.item-container__lists__list
           .item-box
             =link_to item_path(item.id), class: "item-link",data: {"turbolinks" => false} do
@@ -13,7 +13,7 @@
                   %span{"aria-label": "Price"}
                     ¥
                     = item.price
-                    = image_tag item.images[0].image.url, class: 'item-photo'
+                  = image_tag item.images[0].image.url, class: 'item-photo'
                 .item
                 - if item.order_status == 1
                   .souldout
