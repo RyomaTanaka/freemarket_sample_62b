@@ -4,8 +4,6 @@ class ItemsController < ApplicationController
   before_action :exihibited, except: [:index,:item_search, :new, :create, :edit, :get_category_children, :get_category_grandchildren]
   before_action :set_card, only: [:purchase_confirmation, :purchase_complete]
 
-  include CommonActions
-  before_action :set_category, only: [:index, :new, :item_search, :show]
 
   def index
     @items = Item.all.limit(10).order("created_at DESC")
@@ -16,8 +14,6 @@ class ItemsController < ApplicationController
   def item_search
     @q = Item.ransack(search_params)
     @itemsResult = @q.result.includes(:images)
-    
-
   end
 
 
@@ -27,10 +23,8 @@ class ItemsController < ApplicationController
   end
 
   def new
-    # 商品出品
     @item = Item.new
     @item.images.build
-    # image = @item.images.build
 
     #商品カテゴリー
     @category_parent_array = ["---"]
@@ -107,7 +101,6 @@ class ItemsController < ApplicationController
         @item.images.create!(image: file, item_id: @item.id)
       end
     end
-    
 
     redirect_to list_items_mypage_path, notice: '編集しました'
   end
@@ -143,14 +136,15 @@ class ItemsController < ApplicationController
 
   def get_category_children
     #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
-  @category_children = Categorie.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
+    @category_children = Categorie.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
   end
 
-# 子カテゴリーが選択された後に動くアクション
+  # 子カテゴリーが選択された後に動くアクション
   def get_category_grandchildren
     #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
-      @category_grandchildren = Categorie.find_by(id: "#{params[:child_id]}").children
+    @category_grandchildren = Categorie.find_by(id: "#{params[:child_id]}").children
   end
+
   private
 
   def set_item
@@ -177,7 +171,6 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  
   def set_card
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     customer = Payjp::Customer.retrieve(current_user.card.customer_id)
