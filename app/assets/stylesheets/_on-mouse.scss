@@ -16,7 +16,8 @@
   &__box1{
     width:400px;
     height:100px;
-    background: url(backgroud.png);
+    background-image: image-url("backgroud.png");
+    background-size: cover;
     section{
     width:400px;
     height:100px;
