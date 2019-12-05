@@ -9,3 +9,6 @@
         .items-box__body--price
           ¥
           = item.price
+    - if item.order_status == 1
+      .souldout
+        %div SOLD

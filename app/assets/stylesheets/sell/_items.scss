@@ -210,7 +210,6 @@ select {
 .prodcts-detail {
   padding: 40px;
   border-top: 1px solid $boder;
-  height: 261px;
   &__label{
     float: left;
     color: $label;
@@ -245,27 +244,34 @@ select {
 .category-container {
   margin: 8px 0 0;
   position: relative;
-  i{
-    position: absolute;
-    left: 90%;
-    color: $label;
-    font-size: 25px;
-    top: 28%;
-  }
   &__select {
     width: 100%;
     height: 48px;
     padding: 0 16px;
     border: 1px solid $selectbox;
-    background-color: $white
+    background-color: $white;
+    margin-top: 10px;
+    font-family: "Font Awesome 5 Free";
   }
-  #s2 {
-    display: none;
-  }
-  #s3 {
-    display: none;
+  #icon1:before{
+    font-family: FontAwesome;
+    content: '\f078';
+    position: absolute;
+    right: 16px;
+    top: 60%;
+    z-index: 2;
+    color: #888;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    // font-weight: 800;
+    font-size: 25px;
   }
 }
+
+#icon1{
+  display: inline;
+}
+
 
 .prodcts-status {
   margin-top: 40px;
@@ -498,3 +504,17 @@ select {
   margin: 40px auto 0;
   display: block;
 }
+
+.prodcts-detail:before,
+.prodcts-detail:after{
+    content: "";
+    display: table;
+}
+.prodcts-detail:after{ clear: both; }
+
+.prodcts-delivery:before,
+.prodcts-delivery:after{
+    content: "";
+    display: table;
+}
+.prodcts-delivery:after{ clear: both; }

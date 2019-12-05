@@ -1,7 +1,7 @@
 .sell-container
   .sell-header
     %h1
-      = link_to "", href: "#" do
+      = link_to root_path do
         = image_tag src='//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?210491352'
 
 %body.mypage-body
@@ -52,16 +52,14 @@
                   .prodcts-detail
                     %h3.prodcts-detail__label 商品の詳細
                     .prodcts-detail__box
-                      = image.fields_for :categorie do |c|
-                        .prodcts-category
-                          %label
-                            カテゴリー
-                            %span.category__required 必須
-                          %div
-                            .category-container
-                              -# = fa_icon 'chevron-down'
-                              = c.select :name, @category_parent_array, {}, class: "category-container__select", id: :s1
-                              = fa_icon 'chevron-down'
+                      .prodcts-category
+                        %label
+                          カテゴリー
+                          %span.category__required 必須
+                        .listing-select-wrapper
+                          .category-container
+                            = fa_icon 'chevron-down', id: 'icon1'
+                            = f.collection_select(:categorie_id, Categorie.roots, :id, :name, {prompt:"---"} , class: "category-container__select", id: 'c1')
                         .prodcts-status
                           %label
                             商品の状態
@@ -129,15 +127,18 @@
                             .price-input
                               ¥
                               %div
-                                = f.number_field :price, placeholder: "例）300", class: "price-input__form"
-                                -# %input{class: :"price-input__form", placeholder: :"例）300", value: :""}/
+                                = f.number_field :price, placeholder: "例）300", class: "price-input__form", id:"price_calc"
+                                -# %input{class: :"price-input__form", placeholder: :"例）300", value: :""}/ class: "price-input__form
                         %li.price-lists__fee
                           .fee-label
                             販売手数料 (10%)
-                          .fee-label__a -
+                          .fee-label__a 
                         %li.price-lists__profit
-                          .price-lists__profit__label 販売利益
-                          .price-lists__profit__label__a -
+                          .price-lists__profit__label 
+                            販売利益
+                            %input{id: "price",style: "display: none"}
+                            -# = f.number_field :price, style: "display: none", id: "price"
+                          .price-lists__profit__label__a 
                   .price-sell
                     %div
                       %p

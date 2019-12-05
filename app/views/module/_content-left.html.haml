@@ -2,9 +2,9 @@
   %nav.nav-wrapper
     %ul.nav-mypage
       %li
-        = link_to "", class: "nav-mypage__item", href: "#" do
+        = link_to user_path(current_user), class: "nav-mypage__item" do
           マイページ
-          = fa_icon 'chevron-right'
+          = fa_icon 'chevron-right', class: "fa-hover"
       %li
         = link_to "", class: "nav-mypage__item", href: "#" do
           お知らせ
@@ -14,7 +14,7 @@
           やることリスト
           = fa_icon 'chevron-right'
       %li
-        = link_to "", class: "nav-mypage__item", href: "#" do
+        = link_to list_likes_items_mypage_path(current_user), class: "nav-mypage__item" do
           いいね！一覧
           = fa_icon 'chevron-right'
       %li

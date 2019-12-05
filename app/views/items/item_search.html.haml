@@ -1,0 +1,209 @@
+= render partial: "module/header"
+.mypage-body
+  %main.search_wrapper.clearfix
+    .search_main
+      %section.search_box
+        %h2.search_box__title
+          = params[:q][:name_cont]
+          %span
+            の検索結果
+        - if @itemsResult.length > 0
+          .search_box__number
+            #{@itemsResult.offset_value + 1} -
+            #{@itemsResult.offset_value + @itemsResult.length}
+            件表示
+        - else
+          該当する商品が見つかりません。検索条件を変えて、再度お試しください。
+        .search_box__contents
+        - @itemsResult.each do |result|
+          %section.search_content
+            = link_to item_path(result.id), class: "item-link" do
+              %figure.search_content__image
+                = image_tag result.images[0].image.url, class: 'item-photo'
+              .search_bottom
+                %h3.search_bottom__name 
+                  = result.name  
+                %h3.search_bottom__iine
+                  ❤︎  #{result.likes.count}
+                .search_bottom__num
+                  .search_price
+                    ¥#{result.price}
+      = paginate @itemsResult
+
+    .left_category
+      %form.category_wrapper
+        .category_sort
+          .category_position
+            .select_wrapper
+              = fa_icon "chevron-down"
+              %select.category_select
+                %option 
+                  並び替え
+                %option
+                  価格の安い順
+                %option 
+                  価格の高い順
+                %option 
+                  出品の古い順
+                %option 
+                  出品の新しい順
+                %option 
+                  いいね！の多い順
+        .category_bottom
+          %h3.category_title
+            詳細検索
+          .category_add
+            %label
+              = fa_icon "plus"
+              %span
+                キーワードを追加する
+            %input{type: "text", placeholder: "いひひひ", value: params[:q][:name_cont], class: "category_input"}
+        .category_bottom2
+          .category_add
+            %label
+              = fa_icon "list"
+              %span
+                カテゴリーを選択する
+            .select_wrapper
+              = fa_icon "chevron-down"
+              %select.category_select
+                %option 
+                  すべて
+                %option
+                  レディース
+                %option 
+                  メンズ
+                %option 
+                  ベビー・キッズ
+                %option 
+                  インテリア・住まい小物
+          .category_add
+            %label
+              = fa_icon "tag"
+              %span
+                ブランド名から探す
+            %input{type: "text",placeholder: "例）シャネル", class: "category_input"}
+          .category_add
+            %label
+              = fa_icon "expand"
+              %span
+                サイズを指定する
+            .select_wrapper
+              = fa_icon "chevron-down"
+              %select.category_select
+                %option 
+                  すべて
+                %option
+                  洋服のサイズ
+                %option 
+                  メンズの靴のサイズ
+                %option 
+                  レディースの靴のサイズ
+          .category_add
+            %label
+              = fa_icon "money"
+              %span
+                価格
+            .select_wrapper
+              = fa_icon "chevron-down"
+              %select.category_select
+                %option 
+                  選択してください
+                %option
+                  300~1000
+                %option 
+                  1000~5000
+                %option 
+                  5000~10000
+              %input{type: "number", placeholder: "¥Min", class: "money_input"}
+              %span ~
+              %input{type: "number", placeholder: "¥Max", class: "money_input"}
+            .select_wrapper.clearfix
+              %label
+                = fa_icon "star"
+                %span 商品の状態
+              %div
+                .category_check
+                  %input{type: "checkbox"}
+                    %label
+                      すべて
+                .category_check
+                  %input{type: "checkbox"}
+                    %label
+                      新品、未使用
+                .category_check
+                  %input{type: "checkbox"}
+                  %label
+                    未使用に近い
+                .category_check
+                  %input{type: "checkbox"}
+                  %label
+                    目立った傷や汚れなし
+                .category_check
+                  %input{type: "checkbox"}
+                  %label
+                    やや傷や汚れあり
+                .category_check
+                  %input{type: "checkbox"}
+                  %label
+                    傷や汚れあり
+                .category_check
+                  %input{type: "checkbox"}
+                  %label
+                    全体的に状態が悪い
+            .select_wrapper.clearfix
+              %label
+                = fa_icon "truck"
+                %span 配送料の負担
+              %div
+                .category_check
+                  %input{type: "checkbox"}
+                  = fa_icon "checkbox"
+                  %label
+                    すべて
+                .category_check
+                  %input{type: "checkbox"}
+                  = fa_icon "checkbox"
+                  %label
+                    着払い（購入者負担）
+                .category_check
+                  %input{type: "checkbox"}
+                  = fa_icon "checkbox"
+                  %label
+                    送料込み（出品者負担）
+            .select_wrapper.clearfix
+              %label
+                = fa_icon "shopping-cart"
+                %span 販売状況
+              %div
+                .category_check
+                  %input{type: "checkbox"}
+                  = fa_icon "checkbox"
+                  %label
+                    すべて
+                .category_check
+                  %input{type: "checkbox"}
+                  = fa_icon "checkbox"
+                  %label
+                    販売中
+                .category_check
+                  %input{type: "checkbox"}
+                  = fa_icon "checkbox"
+                  %label
+                    売り切れ
+            .category_empty
+            .category_btn
+              .category_btn__clear
+                クリア
+              %button{ type: "submit", class: "category_btn__complete" }
+                完了
+= render partial: "module/footer"
+= render partial: "module/right_btn"
+
+
+
+
+
+
+
+

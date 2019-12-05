@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       get :list_items
       get :list_items_progress
       get :list_items_completed
+      get :list_likes_items
       get :purchase
       get :purchased
       get :profile
@@ -38,12 +39,21 @@ Rails.application.routes.draw do
   resources :users do
     resources :cards
   end
-  
+
+  get "search" => "items#item_search"
+
   resources :items do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
     member do
       post :purchase
       get :purchase_confirmation
       get :purchase_complete
     end
   end
+  
+  post   '/like/:item_id' => 'likes#like',   as: 'like'
+  delete '/like/:item_id' => 'likes#unlike', as: 'unlike'
 end

@@ -1,0 +1,20 @@
+.item-container
+  %ul.item-container__lists
+    - @items.each do |item|
+      - if item.categorie.id == 685
+        %li.item-container__lists__list
+          .item-box
+            =link_to item_path(item.id), class: "item-link",data: {"turbolinks" => false} do
+              %figure.item-descrube
+                %figcaption
+                  %span
+                    = item.name #商品の名前の取得
+                .item-price
+                  %span{"aria-label": "Price"}
+                    ¥
+                    = item.price
+                  = image_tag item.images[0].image.url, class: 'item-photo'
+                .item
+                - if item.order_status == 1
+                  .souldout
+                    %div SOLD

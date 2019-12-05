@@ -1,6 +1,5 @@
 .header
-  .header__logo
-    -# %img= embedded_svg("logo.svg", class: "cls-2") 
+  = link_to root_path, class: "header__logo" do
     =image_tag "logo.svg",class:'header__logo'
   .header__box
     .header__box__ol

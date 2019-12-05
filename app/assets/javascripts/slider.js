@@ -1,4 +1,4 @@
-$(function(){
+document.addEventListener("turbolinks:load", function(){
   let mySwiper = new Swiper ('.swiper-container', {
     effect: "slide",
     loop: true,

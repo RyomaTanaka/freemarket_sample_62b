@@ -1,0 +1,78 @@
+.likes-contents {
+  margin: 32px 0px;
+  padding: 24px 0px 20px;
+  background: rgb(255, 255, 255);
+  &__title {
+    margin: 0px 32px 12px;
+    .title-text {
+      font-size: 20px;
+      font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+      font-weight: 600;
+      line-height: 1.4em;
+      display: inline-block;
+    }
+    .all-list {
+      font-size: 14px;
+      display: inline-block;
+      float: right;
+    }
+  }
+  &__items {
+    padding: 0px 10px;
+    .swiper-container3 {
+      width: 972px;
+      margin: 0px 4px;
+      overflow-x: hidden;
+      .swiper-wrapper {
+        display: flex;
+        .swiper-slide {
+          height: 146px;
+          .likes-box {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            text-decoration: none;
+            vertical-align: top;
+            &:hover{
+              border:1px solid rgb(0, 123, 255);
+            }
+            &__inner {
+              width: 146px;
+              height: 146px;
+              box-shadow: 0 2px 4px rgba(0,0,0,.18);
+              .likes-item {
+                height: 157px;
+                .price {
+                  -webkit-box-align: center;
+                  -ms-flex-align: center;
+                  align-items: center;
+                  background: rgba(0,0,0,.4);
+                  border-radius: 0 14px 14px 0;
+                  bottom: 8px;
+                  -webkit-box-sizing: border-box;
+                  box-sizing: border-box;
+                  color: #fff;
+                  display: -webkit-inline-box;
+                  display: -ms-inline-flexbox;
+                  display: inline-flex;
+                  font-size: 17px;
+                  height: 32px;
+                  height: 28px;
+                  letter-spacing: .02em;
+                  margin: 0;
+                  padding: 0 12px;
+                  position: absolute;
+                  z-index: 2;
+                }
+                img {
+                  width: 146px;
+                  height: 146px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

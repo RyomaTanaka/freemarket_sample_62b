@@ -2,13 +2,17 @@
   .mein-header
     .top-header
       .top-header__image
-        =link_to root_path, class: "top-header__image__icon" do
+        =link_to root_path, class: "top-header__image__icon", data: {turbolinks: false} do
           = image_tag 'https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg', class: 'site-icon'
-      %form.top-header__serach
-        %input.top-header__serach__input{name: :"keyword", placeholder: :"何かお探しですか？", type: :"search", value:""}/
-        %button.search-icon__box
-          %svg.search-icon__box__image{"aria-hidden": "true", height: :"16", viewbox: :"0 0 16 16", width: :"16"}
-            %path{d: :"M11.435 10.063h-.723l-.256-.247a5.92 5.92 0 0 0 1.437-3.87 5.946 5.946 0 1 0-5.947 5.947 5.92 5.92 0 0 0 3.87-1.437l.247.256v.723L14.637 16 16 14.637l-4.565-4.574zm-5.489 0A4.111 4.111 0 0 1 1.83 5.946 4.111 4.111 0 0 1 5.946 1.83a4.111 4.111 0 0 1 4.117 4.116 4.111 4.111 0 0 1-4.117 4.117z", fill: :"currentColor", "fill-rule": "nonzero"}
+      -# %form.top-header__serach
+      -#   %input.top-header__serach__input{name: :"keyword", placeholder: :"何かお探しですか？", type: :"search", value:""}/
+      -#   %button
+      -#     %svg.search-icon__box__image{"aria-hidden": "true", height: :"16", viewbox: :"0 0 16 16", width: :"16"}
+      -#       %path{d: :"M11.435 10.063h-.723l-.256-.247a5.92 5.92 0 0 0 1.437-3.87 5.946 5.946 0 1 0-5.947 5.947 5.92 5.92 0 0 0 3.87-1.437l.247.256v.723L14.637 16 16 14.637l-4.565-4.574zm-5.489 0A4.111 4.111 0 0 1 1.83 5.946 4.111 4.111 0 0 1 5.946 1.83a4.111 4.111 0 0 1 4.117 4.116 4.111 4.111 0 0 1-4.117 4.117z", fill: :"currentColor", "fill-rule": "nonzero"}
+      = search_form_for(@q, url:search_path) do |f|
+        .top-header__serach
+          = f.search_field :name_cont, class: "top-header__serach__input"
+          = f.button "", class: "fa fa-search search-icon__box"
     .bottom-header
       .bottom-left
         .bottom-category
@@ -16,6 +20,137 @@
             %svg.bottom-category__a__icon{"aria-hidden": "true", height: :"16", viewbox: :"0 0 20 16", width: :"20"}
               %path{d: :"M18.799 15.25h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zm0-6h-11.5a1.25 1.25 0 1 1 0-2.5h11.5a1.25 1.25 0 0 1 0 2.5zM2 16a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4z", fill: :"currentColor", "fill-rule":  "nonzero"}
             カテゴリーから探す
+          %ul.bottom-category__parents 
+            %li.bottom-category__parents__parent
+              = link_to "レディース"
+              %ul.bottom-category__children
+                - @category_children1.each do |child|
+                  %li.bottom-category__children__child
+                    = link_to "#{child.name}"
+                    %ul.header__grand-children
+                      - child.children.each do |grandchild|
+                        %li.header__grand-children__grand-child
+                          = link_to "#{grandchild.name}"
+            %li.bottom-category__parents__parents__parent
+              = link_to "メンズ"
+              %ul.bottom-category__children
+                - @category_children2.each do |child|
+                  %li.bottom-category__children__child
+                    = link_to "#{child.name}"
+                    %ul.header__grand-children
+                      - child.children.each do |grandchild|
+                        %li.header__grand-children__grand-child
+                          = link_to "#{grandchild.name}"
+            %li.bottom-category__parents__parents__parent
+              = link_to "ベビー・キッズ"
+              %ul.bottom-category__children
+                - @category_children3.each do |child|
+                  %li.bottom-category__children__child
+                    = link_to "#{child.name}"
+                    %ul.header__grand-children
+                      - child.children.each do |grandchild|
+                        %li.header__grand-children__grand-child
+                          = link_to "#{grandchild.name}"
+            %li.bottom-category__parents__parents__parent
+              = link_to "インテリア・住まい・小物"
+              %ul.bottom-category__children
+                - @category_children4.each do |child|
+                  %li.bottom-category__children__child
+                    = link_to "#{child.name}"
+                    %ul.header__grand-children
+                      - child.children.each do |grandchild|
+                        %li.header__grand-children__grand-child
+                          = link_to "#{grandchild.name}"
+            %li.bottom-category__parents__parents__parent
+              = link_to "本・音楽・ゲーム"
+              %ul.bottom-category__children
+                - @category_children5.each do |child|
+                  %li.bottom-category__children__child
+                    = link_to "#{child.name}"
+                    %ul.header__grand-children
+                      - child.children.each do |grandchild|
+                        %li.header__grand-children__grand-child
+                          = link_to "#{grandchild.name}"
+            %li.bottom-category__parents__parents__parent
+              = link_to "おもちゃ・ホビー・グッズ"
+              %ul.bottom-category__children
+                - @category_children6.each do |child|
+                  %li.bottom-category__children__child
+                    = link_to "#{child.name}"
+                    %ul.header__grand-children
+                      - child.children.each do |grandchild|
+                        %li.header__grand-children__grand-child
+                          = link_to "#{grandchild.name}"
+            %li.bottom-category__parents__parents__parent
+              = link_to "コスメ・香水・美容"
+              %ul.bottom-category__children
+                - @category_children7.each do |child|
+                  %li.bottom-category__children__child
+                    = link_to "#{child.name}"
+                    %ul.header__grand-children
+                      - child.children.each do |grandchild|
+                        %li.header__grand-children__grand-child
+                          = link_to "#{grandchild.name}"
+            %li.bottom-category__parents__parents__parent
+              = link_to "家電・スマホ・カメラ"
+              %ul.bottom-category__children
+                - @category_children8.each do |child|
+                  %li.bottom-category__children__child
+                    = link_to "#{child.name}"
+                    %ul.header__grand-children
+                      - child.children.each do |grandchild|
+                        %li.header__grand-children__grand-child
+                          = link_to "#{grandchild.name}"
+            %li.bottom-category__parents__parents__parent
+              = link_to "スポーツ・レジャー"
+              %ul.bottom-category__children
+                - @category_children9.each do |child|
+                  %li.bottom-category__children__child
+                    = link_to "#{child.name}"
+                    %ul.header__grand-children
+                      - child.children.each do |grandchild|
+                        %li.header__grand-children__grand-child
+                          = link_to "#{grandchild.name}"
+            %li.bottom-category__parents__parents__parent
+              = link_to "ハンドメイド"
+              %ul.bottom-category__children
+                - @category_children10.each do |child|
+                  %li.bottom-category__children__child
+                    = link_to "#{child.name}"
+                    %ul.header__grand-children
+                      - child.children.each do |grandchild|
+                        %li.header__grand-children__grand-child
+                          = link_to "#{grandchild.name}"
+            %li.bottom-category__parents__parents__parent
+              = link_to "チケット"
+              %ul.bottom-category__children
+                - @category_children11.each do |child|
+                  %li.bottom-category__children__child
+                    = link_to "#{child.name}"
+                    %ul.header__grand-children
+                      - child.children.each do |grandchild|
+                        %li.header__grand-children__grand-child
+                          = link_to "#{grandchild.name}"
+            %li.bottom-category__parents__parents__parent
+              = link_to "自動車・オートバイ"
+              %ul.bottom-category__children
+                - @category_children12.each do |child|
+                  %li.bottom-category__children__child
+                    = link_to "#{child.name}"
+                    %ul.header__grand-children
+                      - child.children.each do |grandchild|
+                        %li.header__grand-children__grand-child
+                          = link_to "#{grandchild.name}"
+            %li.bottom-category__parents__parents__parent
+              = link_to "その他"
+              %ul.bottom-category__children
+                - @category_children13.each do |child|
+                  %li.bottom-category__children__child
+                    = link_to "#{child.name}"
+                    %ul.header__grand-children
+                      - child.children.each do |grandchild|
+                        %li.header__grand-children__grand-child
+                          = link_to "#{grandchild.name}"
         .bottom-brand
           =link_to "#", class: "bottom-brand__a" do
             %svg.bottom-brand__a__icon{"aria-hidden": "true", height: :"16", viewbox: :"0 0 23 16", width: :"23"}
@@ -24,7 +159,7 @@
       - if current_user
         %ul.user-contents
           %li.user-contents__list
-            =link_to "#", class: "good-list" do
+            =link_to list_likes_items_mypage_path(current_user), class: "good-list" do
               %svg.heart-icon{"aria-hidden": "true", height: :"15", viewbox: :"0 0 16 15", width: :"16"}
                 %path{d: :"M8.08 12.711l-.08.082-.08-.082C4.112 9.188 1.6 6.858 1.6 4.496c0-1.635 1.2-2.861 2.8-2.861 1.232 0 2.432.81 2.856 1.929h1.496c.416-1.12 1.616-1.93 2.848-1.93 1.6 0 2.8 1.227 2.8 2.862 0 2.362-2.512 4.692-6.32 8.215M11.6 0C10.208 0 8.872.662 8 1.708 7.128.662 5.792 0 4.4 0 1.936 0 0 1.978 0 4.496c0 3.09 2.72 5.608 6.84 9.433L8 15l1.16-1.079C13.28 10.104 16 7.586 16 4.496 16 1.978 14.064 0 11.6 0", fill: :"currentColor"}
               いいね! 一覧
@@ -51,12 +186,13 @@
                   = image_tag 'member_photo_noimage_thumb.png',class: "arrow-image"
               .arrow__box2
                 .arrow__box2__text1
-                  current_user
+                  = current_user.nickname
                 .arrow__box2__text2
                   .arrow__box2__text2__rank
                     評価: 2
                   .arrow__box2__text2__number
-                    出品数: 0
+                    出品数: 
+                    = current_user.items.count
               %ul.arrow__box3
                 %li.arrow__box3__sell
                   = link_to "", class: "arrow__box3-link", href: "#" do
@@ -77,14 +213,14 @@
                       = fa_icon 'chevron-right'
               %ul.arrow__box4
                 %li.arrow__box4__iine
-                  = link_to "", class: "arrow__box3-link", href: "#" do
+                  = link_to list_likes_items_mypage_path(current_user), class: "arrow__box3-link" do
                     .arrow__box4__iine__text
                       いいね！一覧表
                     .arrow__box4__iine__icon
                       = fa_icon 'chevron-right'
 
                 %li.arrow__box4__sell1
-                  = link_to "", class: "arrow__box3-link", href: "#" do
+                  = link_to list_items_mypage_path(current_user), class: "arrow__box3-link" do
                     .arrow__box4__sell1__text
                       出品した商品-出品中
                     .arrow__box4__sell1__icon
@@ -136,3 +272,8 @@
             = link_to '新規会員登録', step0_signups_path, class: "create_user_button"
           .right_buttons
             = link_to 'ログイン', new_user_session_path, class: "login_button"
+
+            -# = if @results.any?
+            -#   - @results.each do |result|
+            -#     %p
+            -#       = result.name

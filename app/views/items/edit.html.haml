@@ -55,26 +55,22 @@
                   .prodcts-detail
                     %h3.prodcts-detail__label 商品の詳細
                     .prodcts-detail__box
-                      = image.fields_for :categorie do |c|
-                        .prodcts-category
-                          %label
-                            カテゴリー
-                            %span.category__required 必須
-                          %div
-                            .category-container
-                              -# = fa_icon 'chevron-down'
-                              -# = c.select :name, @category_parent_array, {}, class: "category-container__select", id: :s1
-                              = fa_icon 'chevron-down'
+                      .prodcts-category
+                        %label
+                          カテゴリー
+                          %span.category__required 必須
+                        .listing-select-wrapper
+                          .category-container
+                            = fa_icon 'chevron-down', id: 'icon1'
+                            = f.collection_select(:categorie_id, Categorie.roots, :id, :name, {prompt:"---"} , class: "category-container__select", id: 'c1')
                         .prodcts-status
                           %label
                             商品の状態
                             %span.status__required 必須
                           %div
                             .status-container
-                              -# = fa_icon 'chevron-down'
                               = f.select :status, Item.statuses.keys, {}, class: 'status-container__select'
                               = fa_icon 'chevron-down'
-                              -# %i.fas.fa-angle-down
                   .prodcts-delivery
                     %h3.prodcts-delivery__label 配送について
                     = link_to "?", "#",class: "question-icon"
