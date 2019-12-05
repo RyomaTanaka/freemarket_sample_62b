@@ -108,7 +108,6 @@ class ItemsController < ApplicationController
       end
     end
     
-    binding.pry
 
     redirect_to list_items_mypage_path, notice: '編集しました'
   end
@@ -145,7 +144,6 @@ class ItemsController < ApplicationController
   def get_category_children
     #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
   @category_children = Categorie.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
-  # binding.pry
   end
 
 # 子カテゴリーが選択された後に動くアクション
