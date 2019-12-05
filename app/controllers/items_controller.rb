@@ -4,8 +4,6 @@ class ItemsController < ApplicationController
   before_action :exihibited, except: [:index,:item_search, :new, :create, :edit, :get_category_children, :get_category_grandchildren]
   before_action :set_card, only: [:purchase_confirmation, :purchase_complete]
 
-  include CommonActions
-  before_action :set_category, only: [:index, :new, :item_search, :show]
 
   def index
     @items = Item.all.limit(10).order("created_at DESC")
