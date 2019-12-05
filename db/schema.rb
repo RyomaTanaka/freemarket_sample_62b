@@ -76,6 +76,8 @@ ActiveRecord::Schema.define(version: 2019_12_05_041400) do
     t.integer "prefecture_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "categorie_id"
+    t.index ["categorie_id"], name: "index_items_on_categorie_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
@@ -157,6 +159,7 @@ ActiveRecord::Schema.define(version: 2019_12_05_041400) do
   add_foreign_key "comments", "items"
   add_foreign_key "comments", "users"
   add_foreign_key "images", "items"
+  add_foreign_key "items", "categories", column: "categorie_id"
   add_foreign_key "items", "users"
   add_foreign_key "likes", "items"
   add_foreign_key "likes", "users"
