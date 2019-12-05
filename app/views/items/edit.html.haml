@@ -35,9 +35,7 @@
                             %div
                       .input_area
                         = image.file_field :image, multiple: true, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
-                        -# = hidden_field_tag "image_already[]", "", class: "hidden"
                       .hidden_area
-                        -# = f.hidden_field html: {class: "hidden", name: "image_already[]"}
                   .sell-content
                     .sell-content-title
                       %label
@@ -129,7 +127,6 @@
                               ¥
                               %div
                                 = f.number_field :price, placeholder: "例）300", class: "price-input__form"
-                                -# %input{class: :"price-input__form", placeholder: :"例）300", value: :""}/
                         %li.price-lists__fee
                           .fee-label
                             販売手数料 (10%)
@@ -152,7 +149,7 @@
                         また、出品を持ちまして
                         = link_to "加盟店規約", href: "#"
                         に同意した事になります。
-                    = f.submit "出品する", class: "sell-btn"
+                    = f.submit "変更する", class: "sell-btn"
                     = link_to "", class: "back-btn", href: "/items" do
                       もどる
       %footer.sell-footer
