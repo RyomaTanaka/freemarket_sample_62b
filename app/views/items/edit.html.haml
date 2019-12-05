@@ -126,14 +126,16 @@
                             .price-input
                               ¥
                               %div
-                                = f.number_field :price, placeholder: "例）300", class: "price-input__form"
+                                 = f.number_field :price, placeholder: "例）300", class: "price-input__form", id:"price_calc"
                         %li.price-lists__fee
                           .fee-label
                             販売手数料 (10%)
-                          .fee-label__a -
+                          .fee-label__a 
                         %li.price-lists__profit
-                          .price-lists__profit__label 販売利益
-                          .price-lists__profit__label__a -
+                          .price-lists__profit__label 
+                            販売利益
+                            %input{id: "price",style: "display: none"}
+                          .price-lists__profit__label__a 
                   .price-sell
                     %div
                       %p
