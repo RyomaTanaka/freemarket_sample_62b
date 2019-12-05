@@ -1,7 +1,7 @@
 .item-container
   %ul.item-container__lists
     - @items.each do |item|
-      - if item.categorie.id == 1
+      - if item.categorie.id == 200
         %li.item-container__lists__list
           .item-box
             =link_to item_path(item.id), class: "item-link",data: {"turbolinks" => false} do

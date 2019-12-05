@@ -52,15 +52,14 @@
                   .prodcts-detail
                     %h3.prodcts-detail__label 商品の詳細
                     .prodcts-detail__box
-                      = f.fields_for :categorie do |c|
-                        .prodcts-category
-                          %label
-                            カテゴリー
-                            %span.category__required 必須
-                          .listing-select-wrapper
-                            .category-container
-                              = fa_icon 'chevron-down', id: 'icon1'
-                              = c.select :name, @category_parent_array, {}, class: "category-container__select", id: 'c1'
+                      .prodcts-category
+                        %label
+                          カテゴリー
+                          %span.category__required 必須
+                        .listing-select-wrapper
+                          .category-container
+                            = fa_icon 'chevron-down', id: 'icon1'
+                            = f.collection_select(:categorie_id, Categorie.roots, :id, :name, {prompt:"---"} , class: "category-container__select", id: 'c1')
                         .prodcts-status
                           %label
                             商品の状態

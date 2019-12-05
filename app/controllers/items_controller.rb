@@ -93,7 +93,7 @@ class ItemsController < ApplicationController
 
   def get_category_children
     #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
-  @category_children = Categorie.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  @category_children = Categorie.find_by(id: "#{params[:parent_id]}", ancestry: nil).children
   # binding.pry
   end
 
@@ -111,7 +111,7 @@ class ItemsController < ApplicationController
 
   def item_params
     #出品itemのparams
-    params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture_id, :name, :body, :status, :order_status, :price, :shipping_method).merge(user_id: current_user.id)
+    params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture_id, :name, :body, :status, :order_status, :price, :shipping_method, :categorie_id).merge(user_id: current_user.id)
     # params.require(:item).permit(:cost_burden, :period_before_shipping, :prefecture_id, :name, :body, :status, :order_status, :price, :shipping_method,
     # images_attributes: [:image]).merge(user_id: current_user.id)
   end
