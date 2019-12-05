@@ -12,27 +12,32 @@
         %div{"data-reactroot": ""}
           .sell-container-inner
             %h2.sell-container-inner__title 商品の情報を入力
-            = form_with model: @item, url: item_path, method: :patch, class: "sell-form", local: true do |f|
-              = f.fields_for :images do |image|
+            = form_with model: @item, method: :patch, class: "sell-form", local: true do |f|
+              = f.fields_for :images, @item.images.first do |image|
                 %form.sell-form
-                  .upload-box
-                    %h3.upload-box__header
+                  .image-form
+                    %label
                       出品画像
-                      %span.upload-box__header__required 必須
-                    %p 最大10枚までアップロードできます
-                    .upload-container
-                      .upload-items
-                        .upload-items__item
-                          %ul
-                      .upload-dropbox
-                        = image.label :image, class: "dropzone-box", for: "dropbox__input" do
-                          -# = image.file_field :image, class: "dropbox__input", id: "dropbox__input"
-                          = image.file_field :image, class: "dropbox__input",id: "dropbox__input"
-                          -# - binding.pry
-                        %pre.upload-dropbox__input__visib
-                          ドラッグアンドドロップ
-                          またはクリックしてファイルをアップロード
-                        %i.sell-icon-camera
+                    %span.required-form
+                      必須
+                    %p.image-form__text
+                      最大10枚までアップロードできます
+                    .dropzone-container.clearfix
+                      .dropzone1
+                        #preview
+                        .dropzone-area
+                          = image.label :image, class: "dropzone-box", for: "upload-image" do
+                            %div
+                      .dropzone2
+                        #preview2
+                        .dropzone-area2
+                          = image.label :image, class: "dropzone-box", for: "upload-image" do
+                            %div
+                      .input_area
+                        = image.file_field :image, multiple: true, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                        -# = hidden_field_tag "image_already[]", "", class: "hidden"
+                      .hidden_area
+                        -# = f.hidden_field html: {class: "hidden", name: "image_already[]"}
                   .sell-content
                     .sell-content-title
                       %label
@@ -59,7 +64,7 @@
                             .category-container
                               -# = fa_icon 'chevron-down'
                               -# = c.select :name, @category_parent_array, {}, class: "category-container__select", id: :s1
-                              -# = fa_icon 'chevron-down'
+                              = fa_icon 'chevron-down'
                         .prodcts-status
                           %label
                             商品の状態
@@ -151,7 +156,7 @@
                         また、出品を持ちまして
                         = link_to "加盟店規約", href: "#"
                         に同意した事になります。
-                    = f.submit "変更する", class: "sell-btn"
+                    = f.submit "出品する", class: "sell-btn"
                     = link_to "", class: "back-btn", href: "/items" do
                       もどる
       %footer.sell-footer

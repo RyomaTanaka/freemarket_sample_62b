@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
   require 'payjp'
-  before_action :exihibited, except: [:index, :new, :create]
+  require 'tempfile'
+  before_action :exihibited, except: [:index, :new, :create, :edit]
   before_action :set_card, only: [:purchase_confirmation, :purchase_complete]
 
   def index
@@ -28,7 +29,6 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      binding.pry
       params[:images][:image].each do |image|
         @item.images.create!(image: image, item_id: @item.id)
       end
@@ -41,12 +41,62 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    
+    gon.item = @item
+    gon.item_images = @item.images
+    gon.item_images_binary_datas = []
+
+    require 'base64'
+    require 'aws-sdk'
+
+    if Rails.env.production?
+      client = Aws::S3::Client.new(
+                             region: 'ap-northeast-1',
+                             access_key_id: ENV["AWS_ACCESS_KEY_ID"],
+                             secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
+                             )
+      @item.images.each do |image|
+        binary_data = client.get_object(bucket: 'freemarket-sample-62b', key: image.image.file.path).body.read
+        gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
+      end
+    else
+      @item.images.each do |image|
+        binary_data = File.read(image.image.file.file)
+        gon.item_images_binary_datas << Base64.strict_encode64(binary_data)
+      end
+    end
   end
 
   def update
     @item = Item.find(params[:id])
     @item.update(item_params)
+    @item.images.destroy_all
+
+    if params[:images]
+      params[:image_already].each do |binary|
+        bin = Base64.decode64(binary)
+        file = Tempfile.new('img')
+        file.binmode
+        file << bin
+        file.rewind
+        params[:images][:image] << file
+      end
+      params[:images][:image].each do |image|
+        @item.images.create!(image: image, item_id: @item.id)
+      end
+    else
+      params[:image_already].each do |binary|
+        bin = Base64.decode64(binary)
+        file = Tempfile.new('img')
+        file.binmode
+        file << bin
+        file.rewind
+        @item.images.create!(image: file, item_id: @item.id)
+      end
+    end
     
+    binding.pry
+
     redirect_to list_items_mypage_path, notice: '編集しました'
   end
 

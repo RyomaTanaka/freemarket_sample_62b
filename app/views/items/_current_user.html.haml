@@ -39,7 +39,7 @@
       
     .listing_item-changebox
       .listing_item-changebox__text1
-        = link_to "商品の編集", edit_item_path(@item), class: "edit_btn", id: "listing_item_edit"
+        = link_to "商品の編集", edit_item_path(@item), class: "edit_btn", id: "listing_item_edit", data: {turbolinks: false}
 
       .listing_item-changebox__text2
         or
