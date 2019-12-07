@@ -6,7 +6,11 @@ class ItemsController < ApplicationController
 
 
   def index
-    @items = Item.all.limit(10).order("created_at DESC")
+    @items = Item.all.order("created_at DESC")
+    @items1 = Item.where(categorie_id: 1).order("created_at DESC")
+    @items200 = Item.where(categorie_id: 200).order("created_at DESC")
+    @items898 = Item.where(categorie_id: 898).order("created_at DESC")
+    @items685 = Item.where(categorie_id: 685).order("created_at DESC")
     @q = Item.ransack(params[:q])
     @itemsResult = @q.result.includes(:images, :users)
   end
